@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lego Fortnite — technical art QA work by Jovian Finch Nordgren at Epic Games. FX coverage framework and automation triage tool built with Claude Code.">
+  <title>Lego Fortnite — Jovian Finch Nordgren</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="site-logo" href="/">Jovian Finch Nordgren</a>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/portfolio/" class="active">Portfolio</a>
+        <a href="/about/">About</a>
+        <a href="/resume/">Resume</a>
+        <a href="/how-i-work/">How I Work</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <header class="project-hero">
+      <div class="container">
+        <p class="project-breadcrumb">
+          <a href="/portfolio/">Portfolio</a>
+          <span>/</span>
+          Lego Fortnite
+        </p>
+        <h1 class="project-title">Lego Fortnite</h1>
+        <div class="project-meta">
+          <span class="project-meta-item"><strong>Studio</strong> Epic Games</span>
+          <span class="project-meta-item"><strong>Role</strong> Senior QA Engineer / Tech Art Specialist</span>
+          <span class="project-meta-item"><strong>Dates</strong> July 2023 &ndash; March 2026</span>
+          <span class="project-meta-item"><strong>Engine</strong> Unreal Engine 5</span>
+        </div>
+        <ul class="skill-tags" aria-label="Skills used">
+          <li>Unreal Engine 5</li>
+          <li>QA Systems Design</li>
+          <li>FX Validation</li>
+          <li>Asset Audit Tools</li>
+          <li>Claude Code</li>
+          <li>Python</li>
+          <li>API / MCP</li>
+          <li>Jira</li>
+          <li>Pipeline</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="project-media">
+      <div class="container">
+        <!-- No Weebly images available for this project — Epic Games visual assets are not public -->
+        <div class="draft-text-area" style="min-height:200px;display:flex;align-items:center;justify-content:center;">
+          Screenshots and screen captures from Lego Fortnite development — pending clearance for portfolio use
+        </div>
+      </div>
+    </div>
+
+    <section class="project-content">
+      <div class="container">
+        <div class="project-content__inner">
+
+          <div class="project-body">
+
+            <p>
+              At Epic Games I was embedded across multiple Tech Art and content teams on Unreal
+              Engine 5 and Lego Fortnite, working as both a QA engineer and a technical artist
+              specialist. The role covered pipeline integrity across FX, animation, content
+              optimization, world/terrain, and procedural content — serving as the animation domain
+              liaison and coordinating test coverage across a large-scale live service project with
+              distributed teams.
+            </p>
+
+            <p>
+              Two pieces of work from this role are worth detailing: an FX validation framework
+              that addressed a systemic gap in test coverage, and an automation triage tool built
+              with Claude Code that changed how the team handled daily test results.
+            </p>
+
+            <!-- FX Coverage Framework section -->
+            <h2 id="fx-framework" class="project-section">FX Coverage Framework</h2>
+
+            <p>
+              The problem surfaced when I started tracing escaped defects — bugs that reached
+              production without being caught in testing. A pattern emerged: a significant
+              portion traced back to FX that had never been tested across platforms or scalability
+              settings. FX that looked correct on the highest PC settings would produce visual
+              artifacts, disappear entirely, or behave differently on console or low-end hardware.
+              Nobody had a systematic process for catching this.
+            </p>
+
+            <p>
+              The response to most coverage gaps is to add more centralized QA work. That
+              wasn't the right answer here. The FX touched every content team's work — adding
+              a centralized FX testing pass would have required constant coordination overhead
+              and would have created a bottleneck every time new content shipped. The problem
+              needed to be distributed.
+            </p>
+
+            <p>
+              I developed a suite of test cases specifically for FX validation across platforms
+              and scalability settings, then packaged them as team-specific guides rather than
+              centralized procedures. Each content team received a version scoped to the FX
+              types they produced, with clear steps they could run independently as part of
+              their own review process. The result: FX coverage scaled with content volume
+              without scaling the centralized QA load.
+            </p>
+
+            <p>
+              The other thing this required was being credible with the content teams about
+              what they needed to test and why. That's where the tech art background mattered —
+              it's easier to explain FX validation criteria to an FX artist when you can describe
+              what the scalability system is actually doing to their particle system.
+            </p>
+
+            <!-- Automation Triage Tool section -->
+            <h2 id="triage-tool" class="project-section">Automation Triage Tool</h2>
+
+            <p>
+              Daily automation runs produced test results across multiple platforms —
+              PC, console, Switch — and those results needed to be reviewed, compared,
+              and turned into actionable failure reports with Jira tickets attached. The
+              manual process was slow and error-prone: results were in raw formats, comparison
+              across platforms required context-switching between multiple files, and writing
+              Jira-linked notes for each failure ate time that could go toward actual triage.
+            </p>
+
+            <p>
+              I built a solution with Claude Code in a single day. The tool is a Python script
+              that pulls test results via API, processes them across platforms, and generates
+              a self-contained HTML report. The report includes:
+            </p>
+
+            <ul>
+              <li>Side-by-side comparison of results across platforms, with failures highlighted</li>
+              <li>Trend tracking — whether a failure is new, recurring, or recently resolved</li>
+              <li>Jira-linked failure notes pulled from the relevant ticket via MCP integration</li>
+              <li>A clean, scannable layout that makes daily triage a reading task rather than an assembly task</li>
+            </ul>
+
+            <!-- DRAFT IMAGE: Triage tool HTML report screenshot — pending -->
+            <div class="draft-text-area">
+              Triage tool HTML report screenshot — pending
+            </div>
+
+            <p>
+              The tool itself is a concrete example of how the Claude Code collaboration
+              workflow functions in practice. The problem was well-understood, the output
+              format was clear, and the integration points (APIs, MCPs, Jira) were documented.
+              Within that framing, Claude Code could handle the implementation work — API
+              calls, HTML generation, data transformation — while I focused on what the
+              report needed to communicate and how it would be used. The result was a
+              working tool, not a prototype, built and deployed in a day.
+            </p>
+
+            <p>
+              For more on how that collaboration actually works, see the
+              <a href="/how-i-work/">How I Work</a> page.
+            </p>
+
+            <h2>Asset Audit Tools</h2>
+
+            <p>
+              Separate from the triage work, I built asset audit tools using Unreal Editor
+              Utility Widgets and extended an existing C++ submit validator to enforce mesh
+              LOD and triangle count standards at check-in. These tools ran inside the editor,
+              so artists could audit their own work before submitting rather than waiting for
+              a downstream QA catch.
+            </p>
+
+          </div><!-- .project-body -->
+
+          <aside class="project-sidebar">
+            <div class="sidebar-block">
+              <h3>Tools</h3>
+              <ul>
+                <li>Unreal Engine 5</li>
+                <li>Editor Utility Widgets</li>
+                <li>C++ (extend existing)</li>
+                <li>Python</li>
+                <li>Claude Code</li>
+                <li>Jira API</li>
+                <li>MCP integration</li>
+              </ul>
+            </div>
+            <div class="sidebar-block">
+              <h3>Skills</h3>
+              <ul>
+                <li>QA systems design</li>
+                <li>FX validation</li>
+                <li>Test case development</li>
+                <li>Pipeline tooling</li>
+                <li>LLM-assisted development</li>
+                <li>Cross-team coordination</li>
+                <li>Root cause analysis</li>
+              </ul>
+            </div>
+            <div class="sidebar-block">
+              <h3>Role</h3>
+              <p>Epic Games<br>July 2023 – March 2026<br>Senior QA Engineer / Tech Art Specialist</p>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <nav class="project-pagination" aria-label="Project navigation">
+      <div class="container">
+        <a href="/portfolio/grapple-star/">&larr; Grapple Star</a>
+        <a href="/portfolio/destiny-2/">Destiny 2 &rarr;</a>
+      </div>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-name">Jovian Finch Nordgren</span>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="/portfolio/">Portfolio</a>
+          <a href="/about/">About</a>
+          <a href="/resume/">Resume</a>
+          <a href="/how-i-work/">How I Work</a>
+        </nav>
+        <p class="footer-note">Built with <a href="/how-i-work/">Claude Code</a> &mdash; <a href="/how-i-work/">how I work</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alien Age — technical art work by Jovian Finch Nordgren. Custom shaders, VFX, lighting, and asset optimization on a shipped Unity title.">
+  <title>Alien Age — Jovian Finch Nordgren</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="site-logo" href="/">Jovian Finch Nordgren</a>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/portfolio/" class="active">Portfolio</a>
+        <a href="/about/">About</a>
+        <a href="/resume/">Resume</a>
+        <a href="/how-i-work/">How I Work</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <header class="project-hero">
+      <div class="container">
+        <p class="project-breadcrumb">
+          <a href="/portfolio/">Portfolio</a>
+          <span>/</span>
+          Alien Age
+        </p>
+        <h1 class="project-title">Alien Age</h1>
+        <div class="project-meta">
+          <span class="project-meta-item"><strong>Studio</strong> Left Turn Studios</span>
+          <span class="project-meta-item"><strong>Role</strong> Technical Artist (sole TA)</span>
+          <span class="project-meta-item"><strong>Released</strong> 2021 — Steam</span>
+          <span class="project-meta-item"><strong>Engine</strong> Unity</span>
+        </div>
+        <ul class="skill-tags" aria-label="Skills used">
+          <li>Shader Graph</li>
+          <li>HLSL</li>
+          <li>VFX</li>
+          <li>Lighting</li>
+          <li>Asset Optimization</li>
+          <li>Retopology</li>
+          <li>Texturing</li>
+          <li>Unity</li>
+          <li>Python</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="project-media">
+      <div class="container">
+        <!-- DRAFT IMAGE: Alien Age Steam screenshot — primary hero image showing environment and lighting -->
+        <figure class="draft-image project-media-primary">
+          <img
+            src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/ss-fa8a63c8499d48e67ed6ffbde6064ffe99b5cd2c_orig.jpg"
+            alt="Alien Age screenshot showing the game environment with custom shaders, lighting, and VFX"
+            loading="lazy">
+          <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <section class="project-content">
+      <div class="container">
+        <div class="project-content__inner">
+
+          <div class="project-body">
+
+            <p>
+              Alien Age is a 2D action game released on Steam in 2021 through Left Turn Studios.
+              I was the sole Technical Artist from before the studio formally incorporated —
+              starting as a revenue-share contributor and continuing through to ship.
+              The work covered everything visual and technical: all shaders, all VFX, all lighting,
+              all materials, and the full asset pipeline from raw geometry to in-engine.
+            </p>
+
+            <h2>Shaders</h2>
+
+            <p>
+              The three shaders that defined the game's look were all custom-built in Unity Shader
+              Graph. The water surface shader uses world-space UV coordinates so the flow pattern
+              stays consistent regardless of how geometry is oriented or placed — tiling artifacts
+              from UV-based approaches were a problem on irregular terrain, and the world-space
+              approach eliminated them completely.
+            </p>
+
+            <!-- DRAFT IMAGE: Water surface shader screenshot -->
+            <figure class="draft-image">
+              <img
+                src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/watersurface.png"
+                alt="Alien Age water surface shader showing consistent world-space UV flow pattern"
+                loading="lazy">
+              <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+            </figure>
+
+            <p>
+              The volumetric fog shader fakes atmospheric depth using depth texture sampling — the
+              engine had no built-in atmosphere system, so this had to be authored from scratch.
+              The fog density and color respond to world height, giving the environments a sense
+              of scale that flat post-process fog can't produce.
+            </p>
+
+            <!-- DRAFT IMAGE: Volumetric fog shader GIF -->
+            <figure class="draft-image">
+              <img
+                src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/fog-volume-shader-sm_orig.gif"
+                alt="Alien Age volumetric fog shader showing atmospheric depth in the environment"
+                loading="lazy">
+              <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+            </figure>
+
+            <p>
+              The environment tile color-variation shader seeds per-tile color offsets from world
+              position. This lets identical tile geometry read as organic and varied in the scene
+              without needing unique texture variants for every tile type. The color range is
+              bounded so variation stays readable as a single material rather than looking
+              like mismatched assets.
+            </p>
+
+            <!-- DRAFT IMAGE: Tile color variation shader -->
+            <figure class="draft-image">
+              <img
+                src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/tiles-color_orig.png"
+                alt="Alien Age environment tiles showing world-position-seeded color variation shader"
+                loading="lazy">
+              <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+            </figure>
+
+            <h2>VFX</h2>
+
+            <p>
+              All VFX were built in Unity's particle system. The beam pickup, beam drop, and
+              cloud lightning effects were the most technically involved — the beam had to
+              read as a continuous energy column while being composed of discrete particles,
+              and timing had to sync to gameplay events without hardcoded delays.
+            </p>
+
+            <div class="project-img-pair">
+              <!-- DRAFT IMAGE: Beam drop full length GIF -->
+              <figure class="draft-image" style="margin:0">
+                <img
+                  src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/beam-drop-fulllength.gif"
+                  alt="Alien Age beam drop VFX — energy beam dropping from UFO"
+                  loading="lazy">
+                <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+              </figure>
+              <!-- DRAFT IMAGE: Clouds lightning GIF -->
+              <figure class="draft-image" style="margin:0">
+                <img
+                  src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/clouds-lightning.gif"
+                  alt="Alien Age cloud lightning VFX"
+                  loading="lazy">
+                <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+              </figure>
+            </div>
+
+            <h2>Asset Pipeline</h2>
+
+            <p>
+              The full asset pipeline was owned from the start. Geometry went through retopology
+              to hit polygon budgets without visual loss on the most visible surfaces. Textures
+              were organized into indexed atlases to cut texture lookup count — a meaningful
+              optimization for mobile-adjacent hardware targets. The approach let the game run
+              at target frame rate with the visual quality the art direction required.
+            </p>
+
+            <!-- DRAFT IMAGE: Environment tiles wireframe/optimization screenshot -->
+            <figure class="draft-image">
+              <img
+                src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/env-tiles.png"
+                alt="Alien Age environment tiles showing optimized geometry and texture atlas layout"
+                loading="lazy">
+              <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+            </figure>
+
+            <h2>Procedural Foliage Tool</h2>
+
+            <p>
+              Late in production, level designers needed a way to populate environments with
+              foliage without paying the runtime cost of a procedural system running in-game.
+              I collaborated with an engineer to build an editor-time placement tool: it ran
+              the distribution logic in the Unity editor and baked the result as placed instances,
+              so the in-game cost was the same as hand-placed assets. The tool was documented
+              so level designers could regenerate placements independently after level changes
+              without coming back to engineering or tech art.
+            </p>
+
+          </div><!-- .project-body -->
+
+          <aside class="project-sidebar">
+            <div class="sidebar-block">
+              <h3>Tools</h3>
+              <ul>
+                <li>Unity 2020</li>
+                <li>Shader Graph</li>
+                <li>Unity Particle System</li>
+                <li>Maya</li>
+                <li>ZBrush</li>
+                <li>Substance Painter</li>
+                <li>Photoshop</li>
+              </ul>
+            </div>
+            <div class="sidebar-block">
+              <h3>Skills</h3>
+              <ul>
+                <li>Shader authoring</li>
+                <li>VFX</li>
+                <li>Lighting</li>
+                <li>Retopology</li>
+                <li>Texture atlas optimization</li>
+                <li>Editor tooling</li>
+                <li>Pipeline documentation</li>
+              </ul>
+            </div>
+            <div class="sidebar-block">
+              <h3>Project</h3>
+              <p>Left Turn Studios<br>Released on Steam, 2021<br>Sole Technical Artist</p>
+            </div>
+          </aside>
+
+        </div><!-- .project-content__inner -->
+      </div>
+    </section>
+
+    <nav class="project-pagination" aria-label="Project navigation">
+      <div class="container">
+        <span></span>
+        <a href="/portfolio/snuggles/">Snuggles the Unicorn &rarr;</a>
+      </div>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-name">Jovian Finch Nordgren</span>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="/portfolio/">Portfolio</a>
+          <a href="/about/">About</a>
+          <a href="/resume/">Resume</a>
+          <a href="/how-i-work/">How I Work</a>
+        </nav>
+        <p class="footer-note">Built with <a href="/how-i-work/">Claude Code</a> &mdash; <a href="/how-i-work/">how I work</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

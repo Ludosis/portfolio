@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jovian Finch Nordgren — Technical Artist and 3D generalist with a decade of experience in AAA and indie game development. Shaders, VFX, animation pipelines, tooling.">
+  <title>Jovian Finch Nordgren — Technical Artist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="site-logo" href="/">Jovian Finch Nordgren</a>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/portfolio/">Portfolio</a>
+        <a href="/about/">About</a>
+        <a href="/resume/">Resume</a>
+        <a href="/how-i-work/">How I Work</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero page-section">
+      <div class="container">
+        <h1 class="hero-name">Jovian Finch Nordgren</h1>
+        <p class="hero-title">Technical Artist</p>
+        <p class="hero-summary">
+          Technical Artist and 3D generalist with a decade of AAA and indie game dev.
+          Shaders, VFX, animation pipelines, tooling — wherever the project needs depth.
+        </p>
+        <div class="hero-actions">
+          <a href="/portfolio/" class="btn btn--primary">View Portfolio</a>
+          <a href="/resume/" class="btn btn--secondary">Read Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED WORK -->
+    <section class="page-section">
+      <div class="container">
+        <h2 class="section-heading">Featured Work</h2>
+        <div class="featured-grid">
+
+          <!-- Wing Vertex Shader -->
+          <article class="project-card">
+            <a href="/portfolio/snuggles/#wing-shader" class="project-card__link">
+              <div class="project-card__media">
+                <!-- DRAFT IMAGE: Wing shader demo — animated GIF showing per-instance wing flap movement on enemy characters -->
+                <img
+                  src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/wing-demo_orig.gif"
+                  alt="Animated demo showing shader-driven wing flapping with independent movement per enemy instance"
+                  loading="lazy">
+              </div>
+              <div class="project-card__body">
+                <p class="project-card__studio">Left Turn Studios — Snuggles the Unicorn</p>
+                <h3 class="project-card__title">Wing Vertex Shader System</h3>
+                <p class="project-card__desc">
+                  Replaced a 32-bone-per-enemy rig with a shader-driven wing flap. Material Property Blocks randomize the phase per instance so every enemy moves independently.
+                </p>
+                <ul class="skill-tags" aria-label="Skills">
+                  <li>Unity Shader Graph</li>
+                  <li>HLSL</li>
+                  <li>Material Property Blocks</li>
+                  <li>Performance</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+          <!-- Puppet Rig -->
+          <article class="project-card">
+            <a href="/portfolio/snuggles/#puppet-rig" class="project-card__link">
+              <div class="project-card__media">
+                <!-- DRAFT IMAGE: Mech demo clip showing retargeted animations on redesigned player model -->
+                <img
+                  src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/mech-demo-clip_orig.gif"
+                  alt="Animated demo of the mech character with retargeted animations applied to the redesigned model"
+                  loading="lazy">
+              </div>
+              <div class="project-card__body">
+                <p class="project-card__studio">Left Turn Studios — Snuggles the Unicorn</p>
+                <h3 class="project-card__title">Puppet Rig Retargeting System</h3>
+                <p class="project-card__desc">
+                  Built a constraint-based retargeting system to reuse all existing animations on a redesigned player model, with scripted constraint reconnection that rebuilds automatically after asset updates.
+                </p>
+                <ul class="skill-tags" aria-label="Skills">
+                  <li>Unity</li>
+                  <li>C#</li>
+                  <li>Rigging</li>
+                  <li>Editor Scripting</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+          <!-- Depth of Field Fix -->
+          <article class="project-card">
+            <a href="/portfolio/grapple-star/#dof" class="project-card__link">
+              <div class="project-card__media">
+                <!-- DRAFT IMAGE: DoF after — Grapple Star with foreground VFX sharp against blurred background -->
+                <img
+                  src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/dof-after_orig.png"
+                  alt="Grapple Star screenshot showing sharp foreground VFX composited over a depth-of-field blurred background"
+                  loading="lazy">
+              </div>
+              <div class="project-card__body">
+                <p class="project-card__studio">Left Turn Studios — Grapple Star</p>
+                <h3 class="project-card__title">Depth-of-Field Transparency Fix</h3>
+                <p class="project-card__desc">
+                  Unity's depth-of-field pass was eating foreground VFX. Solved it with a dual-camera Cinemachine composite: background renders with post-processing, foreground VFX renders sharp.
+                </p>
+                <ul class="skill-tags" aria-label="Skills">
+                  <li>Unity</li>
+                  <li>Cinemachine</li>
+                  <li>Post-Processing</li>
+                  <li>VFX</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+          <!-- Automation Triage Tool -->
+          <article class="project-card">
+            <a href="/portfolio/lego-fortnite/#triage-tool" class="project-card__link">
+              <div class="project-card__media">
+                <!-- DRAFT IMAGE: No Weebly image available — text area describing the tool -->
+                <div class="project-card__media" style="display:flex;align-items:center;justify-content:center;height:220px;background:var(--color-bg-inset);">
+                  <span style="font-size:var(--text-sm);color:var(--color-text-muted);font-style:italic;padding:1rem;text-align:center;">Automation triage report — screenshot pending</span>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <p class="project-card__studio">Epic Games — Lego Fortnite</p>
+                <h3 class="project-card__title">Automation Triage Tool</h3>
+                <p class="project-card__desc">
+                  Built with Claude Code in a single day: an HTML report generator that pulls test results across platforms, tracks trends, and attaches Jira-linked failure notes — turning hours of manual triage into a scan.
+                </p>
+                <ul class="skill-tags" aria-label="Skills">
+                  <li>Claude Code</li>
+                  <li>Python</li>
+                  <li>API / MCP</li>
+                  <li>Jira</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+        </div><!-- .featured-grid -->
+
+        <p style="margin-top: var(--space-xl);">
+          <a href="/portfolio/" class="btn btn--secondary">See all projects</a>
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ABOUT TEASER -->
+    <section class="page-section">
+      <div class="container">
+        <div class="about-teaser">
+          <p>
+            Technical Artist and 3D generalist with a decade of experience in AAA and indie game development,
+            in both Unity and Unreal Engine. Best suited for small teams with broad scope: shaders, VFX,
+            animation pipelines, asset optimization, tooling, procedural content, and any technical
+            challenge the project surfaces.
+          </p>
+          <p style="margin-top: var(--space-md);">
+            Years of QA work on large productions built a habit of asking why a problem exists, not just
+            fixing it — and building processes so it doesn't recur.
+          </p>
+          <a href="/about/" class="teaser-link">More about Jovian &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-name">Jovian Finch Nordgren</span>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="/portfolio/">Portfolio</a>
+          <a href="/about/">About</a>
+          <a href="/resume/">Resume</a>
+          <a href="/how-i-work/">How I Work</a>
+        </nav>
+        <p class="footer-note">Built with <a href="/how-i-work/">Claude Code</a> &mdash; <a href="/how-i-work/">how I work</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
