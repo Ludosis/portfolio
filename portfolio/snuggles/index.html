@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Snuggles the Unicorn — technical art work by Jovian Finch Nordgren. Wing vertex shader system and puppet rig retargeting on a Unity action game.">
+  <title>Snuggles the Unicorn — Jovian Finch Nordgren</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="site-logo" href="/">Jovian Finch Nordgren</a>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/portfolio/" class="active">Portfolio</a>
+        <a href="/about/">About</a>
+        <a href="/resume/">Resume</a>
+        <a href="/how-i-work/">How I Work</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <header class="project-hero">
+      <div class="container">
+        <p class="project-breadcrumb">
+          <a href="/portfolio/">Portfolio</a>
+          <span>/</span>
+          Snuggles the Unicorn
+        </p>
+        <h1 class="project-title">Snuggles the Unicorn</h1>
+        <div class="project-meta">
+          <span class="project-meta-item"><strong>Studio</strong> Left Turn Studios</span>
+          <span class="project-meta-item"><strong>Role</strong> Lead Technical Artist</span>
+          <span class="project-meta-item"><strong>Dates</strong> 2021&ndash;2023 (canceled)</span>
+          <span class="project-meta-item"><strong>Engine</strong> Unity</span>
+        </div>
+        <ul class="skill-tags" aria-label="Skills used">
+          <li>Unity Shader Graph</li>
+          <li>HLSL</li>
+          <li>Material Property Blocks</li>
+          <li>Rigging</li>
+          <li>C#</li>
+          <li>Editor Scripting</li>
+          <li>VFX</li>
+          <li>Animation Pipeline</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="project-media">
+      <div class="container">
+        <!-- DRAFT IMAGE: Snuggles the Unicorn hero screenshot -->
+        <figure class="draft-image project-media-primary">
+          <img
+            src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/screenshot-2023-01-03-084039_orig.jpg"
+            alt="Snuggles the Unicorn screenshot showing the game environment with character and enemy"
+            loading="lazy">
+          <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <section class="project-content">
+      <div class="container">
+        <div class="project-content__inner">
+
+          <div class="project-body">
+
+            <p>
+              Snuggles the Unicorn was a Unity action game in development at Left Turn Studios.
+              I was lead Technical Artist with a second TA joining partway through. The project
+              was eventually canceled, but it produced two pieces of technical work worth
+              documenting: a vertex shader system that replaced an expensive bone rig, and an
+              animation retargeting system built to preserve the team's existing animation
+              investment across a major model change.
+            </p>
+
+            <!-- Wing Vertex Shader section — anchor target for home page featured card -->
+            <h2 id="wing-shader" class="project-section">Wing Vertex Shader System</h2>
+
+            <p>
+              Each enemy type had wings — and the original rigged solution used 32 bones per
+              enemy to animate the flap. At low enemy counts this was fine. As the design
+              expanded to include larger waves, the rig cost became a real performance problem.
+              The bones also produced synchronized flapping: every enemy in a group moved
+              identically, which looked mechanical even at small counts.
+            </p>
+
+            <!-- DRAFT IMAGE: Wing shader demo GIF showing per-instance movement -->
+            <figure class="draft-image">
+              <img
+                src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/wing-demo_orig.gif"
+                alt="Animated demo showing shader-driven wing flapping with independent movement per enemy instance"
+                loading="lazy">
+              <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+            </figure>
+
+            <p>
+              The replacement was a vertex shader that drives the wing flap entirely in the GPU
+              without bone evaluation. The flap motion is a sine wave applied to wing vertices,
+              with parameters for frequency, amplitude, and phase. The key piece was using Unity's
+              Material Property Blocks to set a randomized phase offset per enemy instance at
+              spawn time. This meant every enemy in a wave had its wings moving out of sync with
+              every other enemy — the same shader, zero additional draw calls, genuinely
+              independent motion.
+            </p>
+
+            <!-- DRAFT IMAGE: Flap shader node graph -->
+            <figure class="draft-image">
+              <img
+                src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/flap-shader_orig.png"
+                alt="Unity Shader Graph showing the wing flap vertex shader node network"
+                loading="lazy">
+              <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+            </figure>
+
+            <p>
+              The result: bone evaluation cost for wings dropped to zero, enemy counts could
+              scale without performance regression, and the motion looked more natural than
+              the rigged version had at any count.
+            </p>
+
+            <!-- Puppet Rig section — anchor target for home page featured card -->
+            <h2 id="puppet-rig" class="project-section">Puppet Rig Retargeting System</h2>
+
+            <p>
+              Mid-production, the player character model was redesigned. The new model had
+              different proportions and a different skeleton hierarchy than the original.
+              The existing animation library — representing a significant time investment —
+              was built for the old model. Recreating those animations from scratch wasn't
+              an option on the schedule.
+            </p>
+
+            <!-- DRAFT IMAGE: Mech demo showing retargeted animations -->
+            <figure class="draft-image">
+              <img
+                src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/mech-demo-clip_orig.gif"
+                alt="Animated demo of the mech character with retargeted animations applied to the redesigned model"
+                loading="lazy">
+              <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+            </figure>
+
+            <p>
+              The solution was a constraint-based retargeting system: the new model's bones are
+              driven by constraints that read the old model's animation data in real time.
+              The old skeleton runs the animation; the new skeleton follows via constraints,
+              with per-bone offsets to account for proportion differences. The full existing
+              animation library worked on the new model immediately, with targeted manual
+              adjustments only where the proportion differences produced visible artifacts.
+            </p>
+
+            <p>
+              The more important part was what happened next. Every time the new model was updated
+              — which happened multiple times during production — the constraint connections broke
+              and had to be rebuilt. I scripted the constraint reconnection so it could be run as
+              an editor utility, rebuilding the full rig from a saved configuration in a few
+              seconds rather than manually reconnecting each bone. The script meant the rig
+              survived model updates without requiring tech art involvement every time.
+            </p>
+
+            <!-- DRAFT IMAGE: Rig structure screenshot -->
+            <figure class="draft-image">
+              <img
+                src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/snuggles-update-rig_orig.png"
+                alt="Unity inspector showing the puppet rig constraint structure and retargeting setup"
+                loading="lazy">
+              <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+            </figure>
+
+            <h2>Other VFX Work</h2>
+
+            <p>
+              The project also included a range of gameplay VFX: enemy spawn effects, collectible
+              pickups, ability triggers, and character celebration states. A few samples below.
+            </p>
+
+            <div class="project-img-pair">
+              <!-- DRAFT IMAGE: Fuel spawner VFX GIF -->
+              <figure class="draft-image" style="margin:0">
+                <img
+                  src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/fuel-spawner-crop.gif"
+                  alt="Fuel spawner VFX effect showing collectible spawn animation"
+                  loading="lazy">
+                <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+              </figure>
+              <!-- DRAFT IMAGE: Confetti celebration GIF -->
+              <figure class="draft-image" style="margin:0">
+                <img
+                  src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/snuggles-confetti-crop-gif.gif"
+                  alt="Confetti VFX celebration effect for Snuggles the Unicorn"
+                  loading="lazy">
+                <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+              </figure>
+            </div>
+
+          </div><!-- .project-body -->
+
+          <aside class="project-sidebar">
+            <div class="sidebar-block">
+              <h3>Tools</h3>
+              <ul>
+                <li>Unity</li>
+                <li>Shader Graph</li>
+                <li>Unity Animation Rigging</li>
+                <li>C# editor scripting</li>
+                <li>Maya</li>
+                <li>Substance Painter</li>
+              </ul>
+            </div>
+            <div class="sidebar-block">
+              <h3>Skills</h3>
+              <ul>
+                <li>Vertex shader authoring</li>
+                <li>Material Property Blocks</li>
+                <li>Constraint-based rigging</li>
+                <li>Animation retargeting</li>
+                <li>Editor scripting</li>
+                <li>VFX</li>
+              </ul>
+            </div>
+            <div class="sidebar-block">
+              <h3>Project</h3>
+              <p>Left Turn Studios<br>2021–2023<br>Lead Technical Artist</p>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <nav class="project-pagination" aria-label="Project navigation">
+      <div class="container">
+        <a href="/portfolio/alien-age/">&larr; Alien Age</a>
+        <a href="/portfolio/grapple-star/">Grapple Star &rarr;</a>
+      </div>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-name">Jovian Finch Nordgren</span>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="/portfolio/">Portfolio</a>
+          <a href="/about/">About</a>
+          <a href="/resume/">Resume</a>
+          <a href="/how-i-work/">How I Work</a>
+        </nav>
+        <p class="footer-note">Built with <a href="/how-i-work/">Claude Code</a> &mdash; <a href="/how-i-work/">how I work</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

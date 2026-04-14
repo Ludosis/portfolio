@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio — Jovian Finch Nordgren. Technical art, shaders, VFX, animation pipelines, and tooling across AAA and indie game development.">
+  <title>Portfolio — Jovian Finch Nordgren</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="site-logo" href="/">Jovian Finch Nordgren</a>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/portfolio/" class="active">Portfolio</a>
+        <a href="/about/">About</a>
+        <a href="/resume/">Resume</a>
+        <a href="/how-i-work/">How I Work</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-section">
+      <div class="container">
+        <h1 class="page-title">Portfolio</h1>
+        <p class="text-secondary" style="max-width:600px; margin-bottom: var(--space-2xl); font-size: var(--text-lg);">
+          Game projects across AAA and indie development — shaders, VFX, animation pipelines,
+          asset optimization, and tooling.
+        </p>
+
+        <div class="project-grid">
+
+          <!-- Alien Age -->
+          <article class="project-card">
+            <a href="/portfolio/alien-age/" class="project-card__link">
+              <div class="project-card__media">
+                <!-- DRAFT IMAGE: Alien Age hero screenshot — Steam storefront screenshot showing the game's visual style -->
+                <img
+                  src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/ss-fa8a63c8499d48e67ed6ffbde6064ffe99b5cd2c_orig.jpg"
+                  alt="Alien Age screenshot showing the game's environment with custom lighting and VFX"
+                  loading="lazy">
+              </div>
+              <div class="project-card__body">
+                <p class="project-card__studio">Left Turn Studios &mdash; 2021</p>
+                <h3 class="project-card__title">Alien Age</h3>
+                <p class="project-card__desc">
+                  Sole TA on a shipped Steam title. Custom water, fog, and color-variation shaders; full asset pipeline including retopology and indexed texture atlases; procedural foliage placement tool.
+                </p>
+                <ul class="skill-tags" aria-label="Skills">
+                  <li>Shader Graph</li>
+                  <li>VFX</li>
+                  <li>Lighting</li>
+                  <li>Asset Optimization</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+          <!-- Snuggles the Unicorn -->
+          <article class="project-card">
+            <a href="/portfolio/snuggles/" class="project-card__link">
+              <div class="project-card__media">
+                <!-- DRAFT IMAGE: Snuggles the Unicorn hero screenshot -->
+                <img
+                  src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/screenshot-2023-01-03-084039_orig.jpg"
+                  alt="Snuggles the Unicorn screenshot showing the game environment and character"
+                  loading="lazy">
+              </div>
+              <div class="project-card__body">
+                <p class="project-card__studio">Left Turn Studios &mdash; 2021&ndash;2023</p>
+                <h3 class="project-card__title">Snuggles the Unicorn</h3>
+                <p class="project-card__desc">
+                  Lead TA on a Unity action title. Vertex shader system replacing 32-bone enemy rigs; constraint-based animation retargeting system for a redesigned player model.
+                </p>
+                <ul class="skill-tags" aria-label="Skills">
+                  <li>HLSL</li>
+                  <li>Material Property Blocks</li>
+                  <li>Rigging</li>
+                  <li>C#</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+          <!-- Grapple Star -->
+          <article class="project-card">
+            <a href="/portfolio/grapple-star/" class="project-card__link">
+              <div class="project-card__media">
+                <!-- DRAFT IMAGE: Grapple Star title screen -->
+                <img
+                  src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/gstitle-orig_orig.png"
+                  alt="Grapple Star title screen"
+                  loading="lazy">
+              </div>
+              <div class="project-card__body">
+                <p class="project-card__studio">Left Turn Studios &mdash; 2021&ndash;2023</p>
+                <h3 class="project-card__title">Grapple Star</h3>
+                <p class="project-card__desc">
+                  Unity space action demo. Solved a depth-of-field transparency issue with a dual-camera Cinemachine composite that keeps foreground VFX sharp without disabling post-processing.
+                </p>
+                <ul class="skill-tags" aria-label="Skills">
+                  <li>Cinemachine</li>
+                  <li>Post-Processing</li>
+                  <li>VFX</li>
+                  <li>Unity</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+          <!-- Lego Fortnite -->
+          <article class="project-card">
+            <a href="/portfolio/lego-fortnite/" class="project-card__link">
+              <div class="project-card__media">
+                <!-- DRAFT IMAGE: No public Weebly images available for this project (Epic/NDA) -->
+                <div style="height:220px;display:flex;align-items:center;justify-content:center;background:var(--color-bg-inset);">
+                  <span style="font-size:var(--text-sm);color:var(--color-text-muted);font-style:italic;padding:1rem;text-align:center;">Lego Fortnite — images pending</span>
+                </div>
+              </div>
+              <div class="project-card__body">
+                <p class="project-card__studio">Epic Games &mdash; 2023&ndash;2026</p>
+                <h3 class="project-card__title">Lego Fortnite</h3>
+                <p class="project-card__desc">
+                  Embedded tech art QA across FX, animation, content optimization, and procedural content on UE5. Built FX validation framework and an automation triage tool with Claude Code.
+                </p>
+                <ul class="skill-tags" aria-label="Skills">
+                  <li>Unreal Engine 5</li>
+                  <li>QA Systems</li>
+                  <li>Claude Code</li>
+                  <li>Pipeline</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+          <!-- Destiny 2 -->
+          <article class="project-card">
+            <a href="/portfolio/destiny-2/" class="project-card__link">
+              <div class="project-card__media">
+                <!-- DRAFT IMAGE: Destiny 2 hero image -->
+                <img
+                  src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/published/destiny-2_1.jpg?1574273847"
+                  alt="Destiny 2 screenshot featuring the Farm social space environment"
+                  loading="lazy">
+              </div>
+              <div class="project-card__body">
+                <p class="project-card__studio">Bungie &mdash; 2017&ndash;2018</p>
+                <h3 class="project-card__title">Destiny 2 — Ambient Life</h3>
+                <p class="project-card__desc">
+                  3D generalist work embedded in QA: modeled, rigged, and animated the owls in the Farm social space and the sea monster on Titan. Shipped in Destiny 2.
+                </p>
+                <ul class="skill-tags" aria-label="Skills">
+                  <li>Maya</li>
+                  <li>Rigging</li>
+                  <li>Character Animation</li>
+                  <li>VFX</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+          <!-- Relic -->
+          <article class="project-card">
+            <a href="/portfolio/relic/" class="project-card__link">
+              <div class="project-card__media">
+                <!-- DRAFT IMAGE: Relic game screenshot -->
+                <img
+                  src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/7734644_1.png"
+                  alt="Relic game screenshot showing environment art and lighting"
+                  loading="lazy">
+              </div>
+              <div class="project-card__body">
+                <p class="project-card__studio">Synaptic Sugar / DigiPen &mdash; 2014&ndash;2015</p>
+                <h3 class="project-card__title">Relic</h3>
+                <p class="project-card__desc">
+                  DigiPen capstone in Zero Engine. Owned all visual technical work and pushed the engine past its documented limits. First Place at 2015 DigiPen Student Showcase; exhibited at PAX West.
+                </p>
+                <ul class="skill-tags" aria-label="Skills">
+                  <li>Shader Authoring</li>
+                  <li>Lighting</li>
+                  <li>VFX</li>
+                  <li>Technical Direction</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+        </div><!-- .project-grid -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-name">Jovian Finch Nordgren</span>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="/portfolio/">Portfolio</a>
+          <a href="/about/">About</a>
+          <a href="/resume/">Resume</a>
+          <a href="/how-i-work/">How I Work</a>
+        </nav>
+        <p class="footer-note">Built with <a href="/how-i-work/">Claude Code</a> &mdash; <a href="/how-i-work/">how I work</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

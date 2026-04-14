@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Grapple Star — technical art work by Jovian Finch Nordgren. Depth-of-field transparency fix using dual-camera Cinemachine composite in Unity.">
+  <title>Grapple Star — Jovian Finch Nordgren</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="site-logo" href="/">Jovian Finch Nordgren</a>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/portfolio/" class="active">Portfolio</a>
+        <a href="/about/">About</a>
+        <a href="/resume/">Resume</a>
+        <a href="/how-i-work/">How I Work</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <header class="project-hero">
+      <div class="container">
+        <p class="project-breadcrumb">
+          <a href="/portfolio/">Portfolio</a>
+          <span>/</span>
+          Grapple Star
+        </p>
+        <h1 class="project-title">Grapple Star</h1>
+        <div class="project-meta">
+          <span class="project-meta-item"><strong>Studio</strong> Left Turn Studios</span>
+          <span class="project-meta-item"><strong>Role</strong> Lead Technical Artist</span>
+          <span class="project-meta-item"><strong>Dates</strong> 2021&ndash;2023 (demo)</span>
+          <span class="project-meta-item"><strong>Engine</strong> Unity</span>
+        </div>
+        <ul class="skill-tags" aria-label="Skills used">
+          <li>Unity</li>
+          <li>Cinemachine</li>
+          <li>Post-Processing</li>
+          <li>VFX</li>
+          <li>Rendering</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="project-media">
+      <div class="container">
+        <!-- DRAFT IMAGE: Grapple Star after-fix screenshot showing sharp VFX over blurred background -->
+        <figure class="draft-image project-media-primary">
+          <img
+            src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/dof-after_orig.png"
+            alt="Grapple Star after the fix — sharp foreground VFX composited over a depth-of-field blurred background"
+            loading="lazy">
+          <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <section class="project-content">
+      <div class="container">
+        <div class="project-content__inner">
+
+          <div class="project-body">
+
+            <p>
+              Grapple Star is a space action game in development at Left Turn Studios, built in
+              Unity. I was lead Technical Artist on the project alongside the Snuggles and Alien
+              Age work. The most technically interesting problem on this project was a rendering
+              issue with how Unity handles depth-of-field and transparent VFX — a fairly common
+              pain point that required an unconventional solution.
+            </p>
+
+            <!-- DoF fix section — anchor target for home page featured card -->
+            <h2 id="dof" class="project-section">Depth-of-Field Transparency Fix</h2>
+
+            <p>
+              The game's camera used depth-of-field post-processing to give the background a sense
+              of depth. The problem: Unity's DoF implementation applies the blur pass to the entire
+              scene before compositing transparent geometry. VFX particles — which are transparent
+              — get caught in the blur even when they're in the foreground, close to the camera.
+              The result was foreground VFX that looked soft and disconnected from the action,
+              or disappeared into the background blur entirely.
+            </p>
+
+            <div class="project-img-pair">
+              <!-- DRAFT IMAGE: DoF before (blurry foreground VFX) -->
+              <figure class="draft-image" style="margin:0">
+                <img
+                  src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/dof-before_orig.png"
+                  alt="Grapple Star before fix — foreground VFX being incorrectly blurred by depth-of-field post-processing"
+                  loading="lazy">
+                <figcaption class="draft-label">Before — VFX caught in DoF blur</figcaption>
+              </figure>
+              <!-- DRAFT IMAGE: DoF after (sharp foreground VFX) -->
+              <figure class="draft-image" style="margin:0">
+                <img
+                  src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/dof-after_orig.png"
+                  alt="Grapple Star after fix — sharp foreground VFX composited over blurred background"
+                  loading="lazy">
+                <figcaption class="draft-label">After — VFX rendered sharp, background blurred</figcaption>
+              </figure>
+            </div>
+
+            <p>
+              Disabling DoF entirely wasn't acceptable — the visual depth it produced was part
+              of the game's look. Adjusting the DoF parameters to preserve transparent objects
+              wasn't a viable option in Unity's post-processing stack without losing the
+              background blur. The standard workarounds (render layer sorting, depth prepass
+              tricks) didn't fully solve it for particle systems with varying depth.
+            </p>
+
+            <p>
+              The solution was to split the rendering into two cameras using Cinemachine's
+              camera blending and a custom composite output. The background camera renders the
+              scene geometry with full post-processing including depth-of-field. A second
+              foreground camera renders only the VFX layer with post-processing disabled —
+              the particles get no blur pass at all. The two outputs are composited at the
+              end of the frame. The foreground VFX render on top, sharp, regardless of what
+              the background DoF is doing.
+            </p>
+
+            <p>
+              The main challenge was making sure depth relationships stayed correct across the
+              two cameras — particles that should occlude background geometry still needed to
+              be occluded by foreground geometry closer to the camera. This required careful
+              depth texture sharing between the cameras and explicit layer mask configuration
+              so each camera knew exactly what to render. Once that was right, the system was
+              stable and didn't require changes as new VFX were added.
+            </p>
+
+            <h2>Other VFX Work</h2>
+
+            <p>
+              The project also included a range of gameplay VFX: ship boost effects, collectible
+              trails, and environmental ambience.
+            </p>
+
+            <div class="project-img-pair">
+              <!-- DRAFT IMAGE: Ship boost VFX GIF -->
+              <figure class="draft-image" style="margin:0">
+                <img
+                  src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/ship-boost_orig.gif"
+                  alt="Grapple Star ship boost VFX effect"
+                  loading="lazy">
+                <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+              </figure>
+              <!-- DRAFT IMAGE: Collectible trail GIF -->
+              <figure class="draft-image" style="margin:0">
+                <img
+                  src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/collect-web3_orig.gif"
+                  alt="Grapple Star collectible pickup VFX trail"
+                  loading="lazy">
+                <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+              </figure>
+            </div>
+
+          </div><!-- .project-body -->
+
+          <aside class="project-sidebar">
+            <div class="sidebar-block">
+              <h3>Tools</h3>
+              <ul>
+                <li>Unity</li>
+                <li>Cinemachine</li>
+                <li>Unity Post-Processing Stack</li>
+                <li>Unity Particle System</li>
+              </ul>
+            </div>
+            <div class="sidebar-block">
+              <h3>Skills</h3>
+              <ul>
+                <li>Rendering pipeline</li>
+                <li>Camera compositing</li>
+                <li>Post-processing</li>
+                <li>VFX</li>
+                <li>Technical problem-solving</li>
+              </ul>
+            </div>
+            <div class="sidebar-block">
+              <h3>Project</h3>
+              <p>Left Turn Studios<br>2021–2023 (demo)<br>Lead Technical Artist</p>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <nav class="project-pagination" aria-label="Project navigation">
+      <div class="container">
+        <a href="/portfolio/snuggles/">&larr; Snuggles the Unicorn</a>
+        <a href="/portfolio/lego-fortnite/">Lego Fortnite &rarr;</a>
+      </div>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-name">Jovian Finch Nordgren</span>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="/portfolio/">Portfolio</a>
+          <a href="/about/">About</a>
+          <a href="/resume/">Resume</a>
+          <a href="/how-i-work/">How I Work</a>
+        </nav>
+        <p class="footer-note">Built with <a href="/how-i-work/">Claude Code</a> &mdash; <a href="/how-i-work/">how I work</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Relic — DigiPen capstone technical art by Jovian Finch Nordgren. Visual systems, engine-limit work, and First Place at the 2015 DigiPen Student Showcase.">
+  <title>Relic — Jovian Finch Nordgren</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="site-logo" href="/">Jovian Finch Nordgren</a>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/portfolio/" class="active">Portfolio</a>
+        <a href="/about/">About</a>
+        <a href="/resume/">Resume</a>
+        <a href="/how-i-work/">How I Work</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <header class="project-hero">
+      <div class="container">
+        <p class="project-breadcrumb">
+          <a href="/portfolio/">Portfolio</a>
+          <span>/</span>
+          Relic
+        </p>
+        <h1 class="project-title">Relic</h1>
+        <div class="project-meta">
+          <span class="project-meta-item"><strong>Team</strong> Synaptic Sugar (DigiPen capstone)</span>
+          <span class="project-meta-item"><strong>Role</strong> Technical Artist</span>
+          <span class="project-meta-item"><strong>Dates</strong> July 2014 &ndash; May 2015</span>
+          <span class="project-meta-item"><strong>Engine</strong> DigiPen Zero Engine</span>
+        </div>
+        <ul class="skill-tags" aria-label="Skills used">
+          <li>Shader Authoring</li>
+          <li>Lighting</li>
+          <li>VFX</li>
+          <li>Rigging</li>
+          <li>Environment Art</li>
+          <li>Technical Direction</li>
+          <li>Engine Collaboration</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="project-media">
+      <div class="container">
+        <!-- DRAFT IMAGE: Relic primary screenshot -->
+        <figure class="draft-image project-media-primary">
+          <img
+            src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/7734644_1.png"
+            alt="Relic game screenshot showing environment art, lighting, and visual systems"
+            loading="lazy">
+          <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <section class="project-content">
+      <div class="container">
+        <div class="project-content__inner">
+
+          <div class="project-body">
+
+            <p>
+              Relic was my capstone project at DigiPen, built by the team Synaptic Sugar using
+              DigiPen's in-house Zero Engine — a 3D action adventure game that was one of the
+              most technically ambitious projects attempted in that engine at the time. I owned
+              all of the visual technical work and pushed the engine well past its documented
+              limits to meet the game's visual goals.
+            </p>
+
+            <p>
+              The project won First Place for Best Spoken Dialog and Best Characters at the 2015
+              DigiPen Student Showcase and was exhibited at PAX West 2015.
+            </p>
+
+            <h2>Visual Systems</h2>
+
+            <p>
+              Zero Engine had no atmosphere or post-processing system. To achieve the atmospheric
+              depth the game needed, I built custom shaders that faked atmospheric scattering using
+              depth values and fog density curves. The engine's material system wasn't designed for
+              this kind of use, so the shaders had to work around several documented limitations —
+              in some cases, treating material parameters as proxy inputs for calculations the
+              engine wasn't exposing directly.
+            </p>
+
+            <div class="project-img-pair">
+              <!-- DRAFT IMAGE: Relic environment screenshot 2 -->
+              <figure class="draft-image" style="margin:0">
+                <img
+                  src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/6351350_1_orig.png"
+                  alt="Relic environment screenshot showing custom atmosphere and lighting"
+                  loading="lazy">
+                <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+              </figure>
+              <!-- DRAFT IMAGE: Relic environment screenshot 3 -->
+              <figure class="draft-image" style="margin:0">
+                <img
+                  src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/8438926_1_orig.png"
+                  alt="Relic environment screenshot showing FX and atmospheric effects"
+                  loading="lazy">
+                <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+              </figure>
+            </div>
+
+            <p>
+              The full scope of visual work: FX, lighting, atmospherics, materials, rendering
+              and asset pipelines, rigging, character model, and environment art placement.
+              This was sole ownership across every visual system on a large team project —
+              the kind of scope that requires understanding the constraints of every adjacent
+              system well enough to know when something needs to escalate and when it can be
+              worked around.
+            </p>
+
+            <!-- DRAFT IMAGE: Relic character/detail screenshot -->
+            <figure class="draft-image">
+              <img
+                src="https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/3005894_1_orig.jpg"
+                alt="Relic character and environment detail screenshot"
+                loading="lazy">
+              <figcaption class="draft-label">Draft — final asset TBD</figcaption>
+            </figure>
+
+            <h2>Working with the Engine</h2>
+
+            <p>
+              Several of the project's visual goals ran directly into documented engine
+              limitations. Rather than working around them indefinitely, I went directly to
+              the chief engineer to understand what was actually blocking each goal and whether
+              a solution was possible at the engine level. I came with specific descriptions of
+              what I needed to achieve and proposals for what engine changes might enable it.
+              He implemented several of those changes during production as a result — changes
+              that benefited other teams using the engine after our project shipped.
+            </p>
+
+            <p>
+              This is a pattern that shows up in the QA work too: finding the systemic cause
+              rather than patching the symptom, and communicating it to whoever can actually
+              fix it. The DigiPen work was where that habit started.
+            </p>
+
+            <h2>Production Leadership</h2>
+
+            <p>
+              Midway through production, the team was struggling with unified direction across
+              a large group. I led a strike team that re-evaluated scope, identified what was
+              actually achievable, and helped transition the team to a structure where
+              department leads had collaborative ownership rather than waiting for top-down
+              direction. The team stabilized and shipped.
+            </p>
+
+          </div><!-- .project-body -->
+
+          <aside class="project-sidebar">
+            <div class="sidebar-block">
+              <h3>Tools</h3>
+              <ul>
+                <li>DigiPen Zero Engine</li>
+                <li>Maya</li>
+                <li>3DS Max</li>
+                <li>ZBrush</li>
+                <li>Photoshop</li>
+              </ul>
+            </div>
+            <div class="sidebar-block">
+              <h3>Skills</h3>
+              <ul>
+                <li>Shader authoring</li>
+                <li>Lighting</li>
+                <li>VFX</li>
+                <li>Rigging</li>
+                <li>Environment art</li>
+                <li>Pipeline design</li>
+                <li>Engine collaboration</li>
+              </ul>
+            </div>
+            <div class="sidebar-block">
+              <h3>Recognition</h3>
+              <p>
+                First Place: Best Spoken Dialog<br>
+                First Place: Best Characters<br>
+                2015 DigiPen Student Showcase<br><br>
+                Exhibited at PAX West 2015
+              </p>
+            </div>
+            <div class="sidebar-block">
+              <h3>Project</h3>
+              <p>Synaptic Sugar<br>DigiPen capstone<br>July 2014 – May 2015</p>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <nav class="project-pagination" aria-label="Project navigation">
+      <div class="container">
+        <a href="/portfolio/destiny-2/">&larr; Destiny 2</a>
+        <span></span>
+      </div>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-name">Jovian Finch Nordgren</span>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="/portfolio/">Portfolio</a>
+          <a href="/about/">About</a>
+          <a href="/resume/">Resume</a>
+          <a href="/how-i-work/">How I Work</a>
+        </nav>
+        <p class="footer-note">Built with <a href="/how-i-work/">Claude Code</a> &mdash; <a href="/how-i-work/">how I work</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
