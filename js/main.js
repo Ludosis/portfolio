@@ -40,7 +40,7 @@
 /* ------------------------------------------------------------
    2. RESUME MARKDOWN RENDERER
    Only runs if #resume-content exists on the page.
-   Fetches /jnordgren_resume.md and converts it to HTML.
+   Fetches /jovian-nordgren-resume.md and converts it to HTML.
    Handles the specific markdown patterns used in the resume:
      ### h3, ## h2, # h1
      **bold**
@@ -54,7 +54,7 @@
   var container = document.getElementById('resume-content');
   if (!container) return;
 
-  fetch('/jnordgren_resume.md')
+  fetch('/jovian-nordgren-resume.md')
     .then(function (res) {
       if (!res.ok) throw new Error('Could not load resume (' + res.status + ')');
       return res.text();
@@ -63,7 +63,7 @@
       container.innerHTML = parseResumeMd(md);
     })
     .catch(function (err) {
-      container.innerHTML = '<p class="resume-loading">Resume could not be loaded. <a href="/jnordgren_resume.md">View raw file</a>.</p>';
+      container.innerHTML = '<p class="resume-loading">Resume could not be loaded. <a href="/jovian-nordgren-resume.md">View raw file</a>.</p>';
       console.warn('Resume load error:', err);
     });
 
