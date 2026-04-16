@@ -5,6 +5,32 @@ Read this fully before doing any work on this project.
 
 ---
 
+## Claude Code Session Hygiene
+
+**Cloud sessions have a confirmed ~7-day TTL and terminate silently with no warning.**
+All session context that isn't committed to the repo is unrecoverable when a session ends.
+
+### Rules
+
+1. **Update `CLAUDE.md`** whenever a key decision is made, a design direction is settled,
+   or a significant new constraint is discovered. This file is the durable project memory.
+2. **Keep `_source/working-memory.md`** for in-progress context: what's actively being
+   worked on, what's blocked, what was decided mid-session but not yet reflected in code.
+3. **Never rely on session history** to carry forward important context. If it's not in
+   the repo, assume it's gone.
+4. **Commit after any significant work block** — don't let a session end with uncommitted
+   decisions or half-documented states.
+
+### What belongs in CLAUDE.md for this project
+
+- Current state of the site (which pages exist, what's live)
+- Pending work items with enough detail to resume without asking the user to re-explain
+- Any content decisions (tone, framing, attribution) that were discussed and settled
+- Technical conventions that must not be broken (paths, CSS architecture, fetch behavior)
+- Context about Jovian that informs writing tone and content choices
+
+---
+
 ## What this project is
 
 A portfolio website for **Jovian Finch Nordgren**, Technical Artist (Bungie, Epic Games,
