@@ -41,6 +41,13 @@ Revenue-share contributor on Alien Age before Left Turn Studios incorporated in 
 
 ---
 
+### Freelance & Independent Work | Seattle, WA
+**May 2019 – September 2021**
+
+Freelance creative work including graphic design and web projects. Used the period for self-directed technical study, including a crash course in Unity, real-time VFX, and shader development to stay current with industry tools.
+
+---
+
 ### Test Engineer | Bungie, Inc. | Bellevue, WA
 **May 2015 – May 2019**
 *Destiny: The Taken King, Destiny 2, D2: Curse of Osiris, D2: Forsaken*
@@ -55,13 +62,6 @@ Revenue-share contributor on Alien Age before Left Turn Studios incorporated in 
 **3D Generalist — Destiny 2 Ambient Life Project (2017–2018)**
 
 Modeled, rigged, and animated shipped ambient life characters: owls in the Farm social space and the sea monster on Titan. Also developed a reactive NPC with custom animations and VFX, and prototyped an interactive beehive obstacle in a demo environment.
-
----
-
-### Freelance & Independent Work | Seattle, WA
-**May 2019 – September 2021**
-
-Freelance creative work including graphic design and web projects. Used the period for self-directed technical study, including a crash course in Unity, real-time VFX, and shader development to stay current with industry tools.
 
 ---
 
