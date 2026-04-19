@@ -1,7 +1,7 @@
 # Jovian Finch Nordgren
 ### Technical Artist
 
-JovianFinch@gmail.com | 425-239-8167 | Ludosis.com | linkedin.com/in/Ludosis
+JovianFinch@gmail.com | 425-239-8167 | JovianFinch.com | linkedin.com/in/JovianFinch
 
 ---
 
