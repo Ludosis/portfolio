@@ -7,55 +7,33 @@ For durable project state, see `CLAUDE.md`. For Miro source content, see `_sourc
 
 ## Current status
 
-Site is live at JovianFinch.com. HTTPS cert provisioning in progress (DNS check passed,
-Let's Encrypt pending). Working branch: `claude/new-portfolio-website-cqdm9`.
+Site is live at JovianFinch.com. HTTPS cert provisioned and working.
+Working branch: `claude/new-portfolio-website-cqdm9`.
 
-All project pages have been expanded with content from the corrected Miro file.
+Skills page is complete. All project pages fully expanded. All nav updated.
 
 ---
 
 ## Just completed this session
 
-- Expanded Grapple Star: Level Select UI section (Rowan Sherwin credit), dynamic reticle, skill tags
-- Expanded Alien Age: Indie Wizards → Left Turn history, game jam origin, Tree Sizer/Rotator/Tinter
-- Expanded Snuggles: URP rendering refactor, mech kitbash detail, Status FX shader, cinematic + Vimeo link
-- Expanded Lego Fortnite: EUW animation range validator, playblast investigation, ReplayRun process
-- Renamed resume file to jovian-nordgren-resume.md, removed phone number from public version
-- Updated title to "Senior Technical Artist" across site and resume
-- Added CLAUDE.md session hygiene section, working-memory.md established
+- Built `/skills/index.html` — 9 skill discipline sections with jump nav and project backlinks
+- Added "Skills" to header and footer nav on all 11 existing pages
+- Added Grapple Star Level Select video link: https://vimeo.com/827111068
+- Added skills page CSS to `/css/style.css` (section 12)
+- Committed and pushed all work
 
 ---
 
-## Next up: Skills page (agreed approach)
-
-Skills front and center, backlink to project pages. Add "Skills" to main nav.
-
-**Sections and their project links:**
-- Shaders & Materials → Alien Age (water, fog, color-variation, world-pos seed), Snuggles (wing vertex, status FX), Relic (atmospheric)
-- VFX → Alien Age, Grapple Star (ship trails, collectibles), Destiny 2 (beehive, sea monster), Snuggles
-- Lighting & Rendering → Alien Age (URP overhaul), Relic, Grapple Star (DoF fix)
-- Rigging & Animation → Snuggles (puppet rig, mech kitbash, scripted rebuild), Destiny 2 (owls, sea monster, reactive NPC), Jerry's Rig
-- Tools & Pipeline → Alien Age (foliage tool, tree script), Snuggles (puppet rig connector, Maya compositing helper), Lego Fortnite (EUW range validator, asset audit, FX validation), Bungie (debug config tool)
-- QA & Automation → Lego Fortnite (triage tool, FX framework, ReplayRun guidelines), Bungie (test engineering)
-- Procedural Content → Alien Age (foliage placement, tree sizer), Grapple Star (procedural environment)
-- UI → Grapple Star (level select screen, dynamic reticle)
-- Scripting → C# (gameplay, VFX/shader control), Python (Maya scripts, EUW CSV), Blueprint + EUW, Claude Code
-
-Nav addition needed: add "Skills" link to every page header and footer nav.
-CSS: needs `.skills-page` section added to stylesheet.
-
----
-
-## Also pending
+## Pending work
 
 ### Earlier Work page (`/portfolio/earlier-work/index.html`)
 - Jerry's Rig (2013–2014, DigiPen junior year): Sketchfab embeds, YouTube video
   Reference: https://jnordgren.weebly.com/jerrys-rig---animation-render.html
+  Tools: Maya, Photoshop, abAutoRig, 3D-Coat, Mental Ray
+  Full production scope: story, storyboard, character concept/model/texture/rig/animation, environment
 - 221B Baker Street interior: single image, prop modeling sample
 - Add pagination link from Relic page (currently last in chain)
-
-### Grapple Star Level Select video
-Placeholder text in the page. User needs to provide the video URL.
+- Add Earlier Work card to `/portfolio/index.html`
 
 ### Portfolio index card for Grapple Star
 Currently doesn't mention Level Select UI. May want to update card description.
@@ -63,6 +41,26 @@ Currently doesn't mention Level Select UI. May want to update card description.
 ### Resume PDF
 PDF button in resume/index.html is commented out pending the file.
 Claude Design prompt was drafted — user to generate PDF with phone number added back.
+
+### Lego Fortnite images
+Text-only draft areas, pending NDA/asset clearance from Epic.
+
+### Miro content review
+`_source/Miro/miro-content.md` was user-corrected and is source of truth.
+Image 8 (Tools & Pipeline) had the most OCR errors in original extraction.
+DO NOT re-extract from images — use the corrected file only.
+
+---
+
+## Skills page decisions (for reference)
+
+Sections in order: Shaders & Materials, VFX, Lighting & Rendering, Rigging & Animation,
+Tools & Pipeline, QA & Automation, Procedural Content, UI, Scripting.
+
+Each skill-example card links to the specific project page (or anchor within it).
+CSS class structure: `.skill-discipline` > `.skill-discipline__title` + `.skill-discipline__summary` + `.skill-examples` > `.skill-example` > `.skill-example__link` > `.skill-example__project` + `.skill-example__detail`
+
+Jump nav is sticky at `top: 64px` (below fixed site header).
 
 ---
 
@@ -72,3 +70,6 @@ User works directly on main for quick changes (auto-deploys via GitHub Pages).
 Before each work session, rebase working branch on main:
   GitHub Desktop → Branch → Rebase Current Branch → main
 This avoids merge commit bounce. Force-push after rebase is safe (sole collaborators).
+
+Fetch main first: `git fetch origin main`
+Then rebase: `git rebase origin/main`

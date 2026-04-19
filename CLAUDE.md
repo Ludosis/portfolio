@@ -54,7 +54,7 @@ Left Turn Studios, DigiPen). Replacing an outdated Weebly site.
 
 ## Current state (as of last session)
 
-MVP is complete and live. All project pages have been expanded with Miro content.
+Site is live and HTTPS cert is working. All project pages expanded. Skills page complete.
 The following pages exist:
 
 | Page | Path |
@@ -70,6 +70,7 @@ The following pages exist:
 | Destiny 2 | `/portfolio/destiny-2/index.html` |
 | Relic | `/portfolio/relic/index.html` |
 | How I Work | `/how-i-work/index.html` |
+| Skills | `/skills/index.html` |
 
 ### Recent content additions (from Miro review)
 - **Alien Age**: Added Indie Wizards → Left Turn Studios studio history; game jam origin;
@@ -85,27 +86,7 @@ The following pages exist:
 
 ## Pending work (discussed but not yet built)
 
-### 1. Skills page — `/skills/index.html` ← NEXT PRIORITY
-Hiring-manager-focused page organized by skill discipline, skills front and center,
-backlinks to project pages for full context. Agreed approach: skills as the entry point,
-projects as the depth. Add "Skills" to main nav.
-
-Confirmed structure:
-- Shaders & Materials → Alien Age (water, fog, color-variation, world-pos seed), Snuggles
-  (wing vertex shader, status FX overlay), Relic (atmospheric faking)
-- VFX → Alien Age, Grapple Star (ship trails), Destiny 2 (beehive, sea monster), Snuggles
-- Lighting & Rendering → Alien Age (URP overhaul, post-processing), Relic, Grapple Star (DoF fix)
-- Rigging & Animation → Snuggles (puppet rig, mech kitbash, scripted rebuild), Destiny 2
-  (owls, sea monster, reactive NPC), Jerry's Rig
-- Tools & Pipeline → Alien Age (foliage tool, tree script), Snuggles (puppet rig connector,
-  Maya compositing helper), Lego Fortnite (EUW range validator, asset audit, FX validation),
-  Bungie (debug config tool)
-- QA & Automation → Lego Fortnite (triage tool, FX framework, ReplayRun), Bungie (test engineering)
-- Procedural Content → Alien Age (foliage, tree sizer), Grapple Star (procedural environment)
-- UI → Grapple Star (level select, dynamic reticle)
-- Scripting → C# (gameplay/VFX/shader control), Python (Maya scripts), Blueprint + EUW, Claude Code
-
-### 2. Earlier Work page — `/portfolio/earlier-work/index.html`
+### 1. Earlier Work page — `/portfolio/earlier-work/index.html`
 Two items:
 - **Jerry's Rig** (2013–2014, DigiPen junior year) — solo animation project, full production
   scope: story/storyboard, character concept/model/texture/rig/animation, environment
@@ -114,10 +95,7 @@ Two items:
   Reference: https://jnordgren.weebly.com/jerrys-rig---animation-render.html
 - **221B Baker Street interior** — single prop modeling/texturing sample image
 
-### 3. Grapple Star Level Select video link
-Video link URL not yet provided. Placeholder text in the page. User to provide URL.
-
-### 4. Miro screenshots moved
+### 2. Miro screenshots location
 Images are now at `_source/Miro/ima1–12.png`. The corrected text is at
 `_source/Miro/miro-content.md` — this is the source of truth, user has reviewed it.
 
@@ -137,10 +115,10 @@ Images are now at `_source/Miro/ima1–12.png`. The corrected text is at
 - **Mobile nav** is hidden by default (CSS), toggled via `.nav-open` on `<body>` (JS)
 - **No comments needed** in HTML/CSS/JS unless the reason is non-obvious
 
-## CSS architecture (`/css/style.css`, ~1100 lines)
+## CSS architecture (`/css/style.css`, ~1220 lines)
 
 Organized in sections: Custom properties → Reset → Layout → Typography → Nav → Footer →
-Home → About → Portfolio index → Project pages → Resume → How I Work → Responsive
+Home → About → Portfolio index → Project pages → Resume → How I Work → Skills → Responsive
 
 Key tokens:
 - `--color-bg: #F5F0E8` (warm cream)
