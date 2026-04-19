@@ -168,7 +168,7 @@
               <a href="/how-i-work/">How I Work</a> page.
             </p>
 
-            <h2>Asset Audit Tools</h2>
+            <h2>Editor Tools &amp; Investigation</h2>
 
             <p>
               Separate from the triage work, I built asset audit tools using Unreal Editor
@@ -176,6 +176,33 @@
               LOD and triangle count standards at check-in. These tools ran inside the editor,
               so artists could audit their own work before submitting rather than waiting for
               a downstream QA catch.
+            </p>
+
+            <p>
+              One of the more involved EUW projects was an animation range validation tool:
+              the purpose was to identify which animation sequences were out of sync with the
+              level sequence and needed to be resaved. I reverse-engineered an existing
+              one-off validator, refactored it for this use case, and added batching,
+              user instructions, configurable options, a progress indicator, and CSV export
+              for sorting results. The tool works by loading each selected asset in the editor
+              sequentially, evaluating its properties, caching the results, and compiling a full
+              report at the end. I had no prior knowledge of Editor Utility Widgets or Blueprint
+              before building it.
+            </p>
+
+            <p>
+              Other investigation work included root-causing TSR smearing artifacts in a
+              vendor-developed animation playblast tool used for director review of emote
+              animations — the smearing was obscuring animation quality in review sessions.
+              I identified the cause and found a workaround that meaningfully improved video
+              quality for the review pipeline.
+            </p>
+
+            <p>
+              I also researched and developed guidelines for using an existing internal scalability
+              comparison tool (ReplayRun) to capture gameplay video from a single session across
+              multiple platforms simultaneously — enabling fast identification of platform-specific
+              scalability inconsistencies without running separate sessions per platform.
             </p>
 
           </div><!-- .project-body -->

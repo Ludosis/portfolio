@@ -77,11 +77,20 @@
 
             <p>
               Snuggles the Unicorn was a Unity action game in development at Left Turn Studios.
-              I was lead Technical Artist with a second TA joining partway through. The project
-              was eventually canceled, but it produced two pieces of technical work worth
-              documenting: a vertex shader system that replaced an expensive bone rig, and an
-              animation retargeting system built to preserve the team's existing animation
-              investment across a major model change.
+              I was lead Technical Artist with a second TA joining partway through for lighting
+              and PCG level layout. The project was eventually shelved, but it produced significant
+              technical work across rendering, shaders, rigging, animation, and tooling.
+            </p>
+
+            <h2>Rendering System Refactor</h2>
+
+            <p>
+              The project was inherited with Unity's standard renderer and needed a full conversion
+              to the Universal Render Pipeline. This wasn't a settings change — it required
+              recreating every shader from scratch under the new rendering model, scripting a batch
+              conversion of all materials, and rebuilding the lighting and post-processing setup.
+              Outsourced assets brought in from the Unity store also needed cleanup and modification
+              to work within the new pipeline and match the project's visual direction.
             </p>
 
             <!-- Wing Vertex Shader section — anchor target for home page featured card -->
@@ -150,12 +159,20 @@
             </figure>
 
             <p>
-              The solution was a constraint-based retargeting system: the new model's bones are
-              driven by constraints that read the old model's animation data in real time.
-              The old skeleton runs the animation; the new skeleton follows via constraints,
-              with per-bone offsets to account for proportion differences. The full existing
-              animation library worked on the new model immediately, with targeted manual
-              adjustments only where the proportion differences produced visible artifacts.
+              The mech itself was a kitbash: an existing biped model was converted into a
+              quadruped to match concept art, with the leg animations retargeted to produce
+              a gallop. Aim constraints drive the cockpit to track with player input, with
+              bob dampening to keep it from feeling rigid. The controller aim script was
+              also written as part of this work.
+            </p>
+
+            <p>
+              The solution for the player character redesign was a constraint-based retargeting
+              system: the new model's bones are driven by constraints that read the old model's
+              animation data in real time. The old skeleton runs the animation; the new skeleton
+              follows via constraints, with per-bone offsets to account for proportion differences.
+              The full existing animation library worked on the new model immediately, with targeted
+              manual adjustments only where the proportion differences produced visible artifacts.
             </p>
 
             <p>
@@ -176,11 +193,24 @@
               <figcaption class="draft-label">Draft — final asset TBD</figcaption>
             </figure>
 
-            <h2>Other VFX Work</h2>
+            <h2>Character Status FX Shader</h2>
 
             <p>
-              The project also included a range of gameplay VFX: enemy spawn effects, collectible
-              pickups, ability triggers, and character celebration states. A few samples below.
+              Enemy characters needed visual feedback for multiple gameplay states: burning,
+              impact flash, frozen, and others. Rather than separate materials per state, I built
+              a single custom overlay shader that handles all status effects, with each effect
+              toggled by a bool passed from gameplay script via a helper component that translates
+              gameplay state into shader parameters. Multiple effects can be active simultaneously.
+              The system was designed so adding a new status required only a new bool and a new
+              shader feature — no changes to the spawning or state management code.
+            </p>
+
+            <h2>Other VFX</h2>
+
+            <p>
+              The project also included a range of gameplay VFX: fuel refill timers driven by
+              gameplay script via shader parameters, enemy spawn effects, collectible pickups,
+              and character celebration states.
             </p>
 
             <div class="project-img-pair">
@@ -202,6 +232,18 @@
               </figure>
             </div>
 
+            <h2>In-Game Cinematic</h2>
+
+            <p>
+              The project included an in-engine cinematic sequence animated in Unity's timeline
+              sequencer, with the bunny character's movements animated in Maya and brought in.
+              The sequence tied together VFX, sound, animation, camera, and gameplay state cues.
+            </p>
+
+            <p>
+              <a href="https://vimeo.com/827089176" target="_blank" rel="noopener">Watch the cinematic sequence on Vimeo &rarr;</a>
+            </p>
+
           </div><!-- .project-body -->
 
           <aside class="project-sidebar">
@@ -219,12 +261,15 @@
             <div class="sidebar-block">
               <h3>Skills</h3>
               <ul>
+                <li>Rendering pipeline conversion</li>
                 <li>Vertex shader authoring</li>
                 <li>Material Property Blocks</li>
+                <li>Gameplay-driven shaders</li>
                 <li>Constraint-based rigging</li>
                 <li>Animation retargeting</li>
                 <li>Editor scripting</li>
                 <li>VFX</li>
+                <li>Cinematic sequencing</li>
               </ul>
             </div>
             <div class="sidebar-block">

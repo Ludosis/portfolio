@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Grapple Star — technical art work by Jovian Finch Nordgren. Depth-of-field transparency fix using dual-camera Cinemachine composite in Unity.">
+  <meta name="description" content="Grapple Star — technical art work by Jovian Finch Nordgren. DoF transparency fix, Level Select UI, and VFX on a Unity space action game.">
   <title>Grapple Star — Jovian Finch Nordgren</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,6 +49,8 @@
           <li>Post-Processing</li>
           <li>VFX</li>
           <li>Rendering</li>
+          <li>UI Scripting</li>
+          <li>C#</li>
         </ul>
       </div>
     </header>
@@ -138,11 +140,32 @@
               stable and didn't require changes as new VFX were added.
             </p>
 
+            <h2 id="level-select-ui" class="project-section">Level Select UI</h2>
+
+            <p>
+              The level select screen was built entirely from scratch — no purchased assets or
+              pre-built framework. The scene composites 3D objects, particle systems, and
+              procedurally animated 2D elements. I built and assembled all the assets, scripted
+              the UI canvas with clickable objects and actions, and wrote the script to populate
+              text fields and enable/disable scene elements based on which planet was selected.
+              Concept art by Rowan Sherwin.
+            </p>
+
+            <!-- DRAFT IMAGE: Level select UI screenshots + concept art — pending -->
+            <div class="draft-text-area">
+              Level select UI screenshots and concept art — pending
+            </div>
+
+            <p>
+              The targeting reticle was also dynamic — it changed appearance based on target
+              availability, driven by gameplay state rather than sprite swapping.
+            </p>
+
             <h2>Other VFX Work</h2>
 
             <p>
-              The project also included a range of gameplay VFX: ship boost effects, collectible
-              trails, and environmental ambience.
+              The project also included a range of gameplay VFX: ship boost effects with reactive
+              jet trails, collectible pickups, and environmental ambience.
             </p>
 
             <div class="project-img-pair">
@@ -183,6 +206,7 @@
                 <li>Camera compositing</li>
                 <li>Post-processing</li>
                 <li>VFX</li>
+                <li>UI scripting</li>
                 <li>Technical problem-solving</li>
               </ul>
             </div>

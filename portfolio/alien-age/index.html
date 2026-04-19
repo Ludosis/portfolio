@@ -78,10 +78,12 @@
 
             <p>
               Alien Age is a 2D action game released on Steam in 2021 through Left Turn Studios.
-              I was the sole Technical Artist from before the studio formally incorporated —
-              starting as a revenue-share contributor and continuing through to ship.
-              The work covered everything visual and technical: all shaders, all VFX, all lighting,
-              all materials, and the full asset pipeline from raw geometry to in-engine.
+              The project originated as a one-month game jam before expanding into a full release.
+              I joined as the sole Technical Artist before the studio formally incorporated —
+              starting as a revenue-share contributor under the name Indie Wizards, continuing
+              through Left Turn Studios' incorporation in early 2022, and shipping the title the
+              same year. The work covered everything visual and technical: all shaders, all VFX,
+              all lighting, all materials, and the full asset pipeline from raw geometry to in-engine.
             </p>
 
             <h2>Shaders</h2>
@@ -183,7 +185,7 @@
               <figcaption class="draft-label">Draft — final asset TBD</figcaption>
             </figure>
 
-            <h2>Procedural Foliage Tool</h2>
+            <h2>Procedural Environment Tools</h2>
 
             <p>
               Late in production, level designers needed a way to populate environments with
@@ -193,6 +195,16 @@
               so the in-game cost was the same as hand-placed assets. The tool was documented
               so level designers could regenerate placements independently after level changes
               without coming back to engineering or tech art.
+            </p>
+
+            <p>
+              The visual variety the tool produced came from a companion script — a Tree
+              Sizer/Rotator/Tinter placed on the tree prefab itself. When an instance was placed
+              in the level, the script randomized position offset, scale, rotation, and color
+              grading automatically. The result: three rock meshes and three tree meshes produced
+              eight distinct tileset varieties with no additional asset authoring. Properties were
+              applied at placement time rather than at runtime, keeping overhead minimal and
+              giving accurate visual feedback in the editor.
             </p>
 
           </div><!-- .project-body -->
