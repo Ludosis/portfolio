@@ -1,72 +1,74 @@
 # Working Memory — JovianFinch.com Portfolio
 
-Current in-progress context. Update this during active sessions; commit before ending.
-For durable project state, see `CLAUDE.md`. For source content, see `_source/miro-content.md`.
+Current in-progress context. Update during active sessions; commit before ending.
+For durable project state, see `CLAUDE.md`. For Miro source content, see `_source/Miro/miro-content.md`.
 
 ---
 
-## Current status (as of this session)
+## Current status
 
-Site is live at JovianFinch.com. MVP complete. DNS configured via Squarespace;
-GitHub Pages serving from `main`. Working branch: `claude/new-portfolio-website-cqdm9`.
+Site is live at JovianFinch.com. HTTPS cert provisioning in progress (DNS check passed,
+Let's Encrypt pending). Working branch: `claude/new-portfolio-website-cqdm9`.
 
----
-
-## Actively in-progress
-
-Nothing currently mid-implementation. Next session can pick up any pending item from CLAUDE.md.
+All project pages have been expanded with content from the corrected Miro file.
 
 ---
 
-## Decisions made this session (not yet reflected in CLAUDE.md)
+## Just completed this session
 
-- Session hygiene protocols added to CLAUDE.md (this session)
-- Confirmed ~7-day cloud session TTL empirically across two projects
-- `_source/working-memory.md` established as the in-progress scratchpad
-
----
-
-## Blocked / waiting on user
-
-### Miro content
-`_source/miro-content.md` needs user review before any content is incorporated.
-Image 8 (Tools & Pipeline) has the most errors — tool names are almost certainly wrong.
-User cannot get a cleaner Miro export (lost access; coworker only had screenshot permissions).
-**Do not use Miro content until user confirms corrections in that file.**
-
-### Skills page
-Structure agreed on; build blocked on Miro content review (skills descriptions
-need accurate tool names from Image 8 and Image 12).
-Can build the page skeleton and cross-references without Image 8 content if needed.
-
-### Grapple Star Level Select UI
-Ready to build — user confirmed:
-- "3D objects" (not "30 objects" — OCR error)
-- Concept art by Semen Shvarts
-- Video link exists (URL unknown — user will need to provide or it can be noted as pending)
-- Project described as "shelved"; page currently says "demo" — keep as "demo"
-
-### Alien Age studio history
-Ready to add. Facts confirmed by user:
-- Started as "Indie Wizards" (rev share, 2021)
-- Officially became Left Turn Studios (2022)
-- Same team throughout — keep them grouped, just note the history on the page
-- Timeline: Alien Age (2021) → Snuggles (2022) → Grapple Star (late 2022–early 2023)
-
-### Earlier Work page (Jerry's Rig)
-Ready to build. Reference page: https://jnordgren.weebly.com/jerrys-rig---animation-render.html
-User confirmed: own a page at `/portfolio/earlier-work/index.html`
-Project: solo animation, 2013–2014, DigiPen junior year
-Scope: story/storyboard, character (concept/model/texture/rig/animation),
-environment (concept/model/texture/lighting)
-Tools: Maya, Photoshop, abAutoRig, 3D-Coat, Mental Ray
-Has: Sketchfab embeds, YouTube video
+- Expanded Grapple Star: Level Select UI section (Rowan Sherwin credit), dynamic reticle, skill tags
+- Expanded Alien Age: Indie Wizards → Left Turn history, game jam origin, Tree Sizer/Rotator/Tinter
+- Expanded Snuggles: URP rendering refactor, mech kitbash detail, Status FX shader, cinematic + Vimeo link
+- Expanded Lego Fortnite: EUW animation range validator, playblast investigation, ReplayRun process
+- Renamed resume file to jovian-nordgren-resume.md, removed phone number from public version
+- Updated title to "Senior Technical Artist" across site and resume
+- Added CLAUDE.md session hygiene section, working-memory.md established
 
 ---
 
-## Open questions (not yet resolved)
+## Next up: Skills page (agreed approach)
 
-- Grapple Star Level Select UI video link URL — user needs to provide
-- Skills page: does it go in the main nav as "Skills"? (Previously discussed — yes, but confirm)
-- Should the portfolio index card for Grapple Star be updated to mention the Level Select UI?
-- Jerry's Rig: should it appear as a card on the portfolio index, or only accessible via direct link?
+Skills front and center, backlink to project pages. Add "Skills" to main nav.
+
+**Sections and their project links:**
+- Shaders & Materials → Alien Age (water, fog, color-variation, world-pos seed), Snuggles (wing vertex, status FX), Relic (atmospheric)
+- VFX → Alien Age, Grapple Star (ship trails, collectibles), Destiny 2 (beehive, sea monster), Snuggles
+- Lighting & Rendering → Alien Age (URP overhaul), Relic, Grapple Star (DoF fix)
+- Rigging & Animation → Snuggles (puppet rig, mech kitbash, scripted rebuild), Destiny 2 (owls, sea monster, reactive NPC), Jerry's Rig
+- Tools & Pipeline → Alien Age (foliage tool, tree script), Snuggles (puppet rig connector, Maya compositing helper), Lego Fortnite (EUW range validator, asset audit, FX validation), Bungie (debug config tool)
+- QA & Automation → Lego Fortnite (triage tool, FX framework, ReplayRun guidelines), Bungie (test engineering)
+- Procedural Content → Alien Age (foliage placement, tree sizer), Grapple Star (procedural environment)
+- UI → Grapple Star (level select screen, dynamic reticle)
+- Scripting → C# (gameplay, VFX/shader control), Python (Maya scripts, EUW CSV), Blueprint + EUW, Claude Code
+
+Nav addition needed: add "Skills" link to every page header and footer nav.
+CSS: needs `.skills-page` section added to stylesheet.
+
+---
+
+## Also pending
+
+### Earlier Work page (`/portfolio/earlier-work/index.html`)
+- Jerry's Rig (2013–2014, DigiPen junior year): Sketchfab embeds, YouTube video
+  Reference: https://jnordgren.weebly.com/jerrys-rig---animation-render.html
+- 221B Baker Street interior: single image, prop modeling sample
+- Add pagination link from Relic page (currently last in chain)
+
+### Grapple Star Level Select video
+Placeholder text in the page. User needs to provide the video URL.
+
+### Portfolio index card for Grapple Star
+Currently doesn't mention Level Select UI. May want to update card description.
+
+### Resume PDF
+PDF button in resume/index.html is commented out pending the file.
+Claude Design prompt was drafted — user to generate PDF with phone number added back.
+
+---
+
+## Git workflow note
+
+User works directly on main for quick changes (auto-deploys via GitHub Pages).
+Before each work session, rebase working branch on main:
+  GitHub Desktop → Branch → Rebase Current Branch → main
+This avoids merge commit bounce. Force-push after rebase is safe (sole collaborators).
