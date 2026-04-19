@@ -3,7 +3,8 @@ Portfolio of Jovian Finch Nordgren - Senior Technical Artist and 3D Generalist
 
 See more at [JovianFinch.com](jovianfinch.com)  
 
-    
+### What makes a Technical Artist?
+
 >"The tech artists title covers a *lot* of ground. The only thing we all share is willingness to learn - or, when necessary - to
 >invent the tools that help solve the problems which confront us. Sometimes it's a clever piece of tech, and
 >sometimes it's a clever piece of artistry which just sidesteps a tech problem. Sometimes it's serious engineering and
