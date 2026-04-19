@@ -1,5 +1,5 @@
 # Jovian Finch Nordgren
-### Technical Artist
+### Senior Technical Artist
 
 JovianFinch@gmail.com | 425-239-8167 | JovianFinch.com | linkedin.com/in/JovianFinch
 
