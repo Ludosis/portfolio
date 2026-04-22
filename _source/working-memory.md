@@ -26,6 +26,37 @@ Skills page is complete. All project pages fully expanded. All nav updated.
 
 ## Pending work
 
+### Resume.html — printable resume (NEEDS INTEGRATION)
+
+`/resume/Resume.html` is a Claude Design-generated print-quality HTML resume.
+**What it is**: Two 8.5×11in pages, self-contained CSS, same color palette and fonts as
+the site (Lora + Source Sans 3, terracotta accent). Designed to print to PDF from browser.
+
+**Current content state**: Largely in sync. Verified:
+- Title: "Senior Technical Artist · 3D Generalist" ✓
+- Experience order: Epic (2023–26), Left Turn, Bungie, DigiPen — reverse-chron ✓
+- Contact: email, web, LinkedIn all current ✓
+- Phone: line 425 shows `[hidden on web]` — intentional placeholder for web version
+- Has JS toggle at bottom (lines ~695–713) for Bungie/Freelance order experimentation
+
+**Phone number situation**: Resume.html is the web-public version — phone intentionally omitted.
+To produce a PDF with phone number: open locally, edit line 425, print to PDF. Don't commit
+the phone number to the repo.
+
+**Integration plan (not yet done)**:
+Option A (simplest): Uncomment the PDF button in `/resume/index.html` and point it at
+`/resume/Resume.html` instead of a PDF file. Browser can print-to-PDF from there.
+Option B: Move to `/resume/print/index.html` for cleaner URL, then link from resume page.
+
+Leaning toward Option A — less structural change, still works. The button is currently
+commented out at the bottom of the resume page's main content area.
+
+**Sync strategy**: Resume.html is NOT auto-generated from the MD — it's manually maintained.
+When `jovian-nordgren-resume.md` changes, Resume.html needs updating too.
+Claude can do this: read the MD and update the corresponding sections in Resume.html.
+The HTML structure is: `.masthead` (name/contact), `.profile` (summary), `.section > .job`
+entries for each role.
+
 ### Earlier Work page (`/portfolio/earlier-work/index.html`)
 - Jerry's Rig (2013–2014, DigiPen junior year): Sketchfab embeds, YouTube video
   Reference: https://jnordgren.weebly.com/jerrys-rig---animation-render.html
@@ -37,10 +68,6 @@ Skills page is complete. All project pages fully expanded. All nav updated.
 
 ### Portfolio index card for Grapple Star
 Currently doesn't mention Level Select UI. May want to update card description.
-
-### Resume PDF
-PDF button in resume/index.html is commented out pending the file.
-Claude Design prompt was drafted — user to generate PDF with phone number added back.
 
 ### Lego Fortnite images
 Text-only draft areas, pending NDA/asset clearance from Epic.
@@ -58,9 +85,29 @@ Sections in order: Shaders & Materials, VFX, Lighting & Rendering, Rigging & Ani
 Tools & Pipeline, QA & Automation, Procedural Content, UI, Scripting.
 
 Each skill-example card links to the specific project page (or anchor within it).
-CSS class structure: `.skill-discipline` > `.skill-discipline__title` + `.skill-discipline__summary` + `.skill-examples` > `.skill-example` > `.skill-example__link` > `.skill-example__project` + `.skill-example__detail`
+CSS class structure: `.skill-discipline` > `.skill-discipline__title` + `.skill-discipline__summary`
++ `.skill-examples` > `.skill-example` > `.skill-example__link` > `.skill-example__project`
++ `.skill-example__detail`
 
 Jump nav is sticky at `top: 64px` (below fixed site header).
+
+---
+
+## Key decisions made in earlier sessions (not to re-litigate)
+
+- **Skills-first approach**: `/skills/index.html` is the hiring-manager entry point;
+  project pages remain intact as narrative depth. This mirrors the Miro board structure.
+- **Studio naming**: "Left Turn Studios" for Snuggles + Grapple Star;
+  "Indie Wizards → Left Turn Studios" history noted in Alien Age intro.
+- **Phone number**: Public resume MD and Resume.html (web version) omit phone.
+  PDF with phone is produced manually from Resume.html by editing line 425 locally.
+- **Grapple Star**: "demo" is fine for the project status label.
+- **Earlier Work**: Agreed — separate `/portfolio/earlier-work/` page, not part of main portfolio index.
+- **Nav order**: Portfolio > Skills > About > Resume > How I Work (Skills sits right after Portfolio)
+- **Resume.html**: Keep as-is at `/resume/Resume.html`, link to it from the resume page.
+  It is NOT a placeholder or artifact — it's a maintained print document.
+- **Draft images**: `.draft-image` / `.draft-label` classes — real Weebly work samples, temporary.
+  Don't remove or replace until user provides final assets.
 
 ---
 

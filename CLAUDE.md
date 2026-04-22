@@ -135,9 +135,17 @@ Every page shares the same `<header>`, `<nav>`, and `<footer>`. Footer always in
 
 ---
 
-## Content that does NOT yet exist
+## Content that does NOT yet exist / pending integration
 
-- `/assets/jnordgren_resume.pdf` — PDF button is in `/resume/index.html` but commented out
+- `/resume/Resume.html` exists but is NOT yet linked from the site — needs integration.
+  It's a Claude Design print-quality HTML resume (two 8.5×11 pages, self-contained CSS,
+  same color palette/fonts as site). Intended to be printed to PDF from browser.
+  Phone number is at line 425 as `[hidden on web]` — intentional. To make a PDF with
+  phone: edit line 425 locally, print to PDF, don't commit phone to repo.
+  Plan: uncomment the PDF button in `/resume/index.html` and point to `/resume/Resume.html`.
+  **Sync**: Resume.html is NOT auto-generated — manually maintained. When the MD changes,
+  update Resume.html too. Structure: `.masthead` (name/contact), `.profile` (summary),
+  `.section > .job` per role.
 - Lego Fortnite images — text-only draft areas pending NDA/asset clearance
 - Final versions of all draft images (currently Weebly-hosted)
 
@@ -152,6 +160,7 @@ Every page shares the same `<header>`, `<nav>`, and `<footer>`. Footer always in
 | `_source/portfolio_brief.md` | Original project brief (requirements doc) |
 | `_source/working-memory.md` | In-progress session scratchpad |
 | `jovian-nordgren-resume.md` | Resume — single source of truth, fetched by resume page |
+| `resume/Resume.html` | Print-quality HTML resume (Claude Design artifact). NOT auto-generated — manually synced with MD when content changes. |
 
 ---
 
