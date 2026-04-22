@@ -26,6 +26,28 @@ Skills page is complete. All project pages fully expanded. All nav updated.
 
 ## Pending work
 
+### Resume.html TODOs (not urgent, do in one pass)
+
+1. **Remove JS switch artifact** — there's a JS toggle in Resume.html (~lines 695–713)
+   for experimenting with Bungie/Freelance ordering. That was a Claude Design working
+   artifact, not intentional production code. Delete it once ordering is finalized.
+
+2. **Print button** — add a "Print" or "Save as PDF" button to `/resume/index.html` that
+   links to `/resume/Resume.html` and auto-triggers `window.print()` on load. Means the
+   user clicks one button and the browser print dialog opens directly. Button should
+   be visually distinct from the main resume content (perhaps in the sidebar or above
+   the fold), not buried.
+
+3. **Fix 4-page print bleed** — Resume.html currently bleeds onto a 3rd page (last line)
+   plus a blank 4th page, so it prints as 4 pages instead of 2. Need to audit the
+   layout — likely a margin, padding, or line-height issue in the second `.page` div.
+   Fix: open in browser, use print preview, tighten spacing until content fits clean.
+   Watch: job descriptions, skills section spacing, and the footer/meta line on page 2.
+
+4. **Phone number obfuscation** — see reasoning section below.
+
+---
+
 ### Resume.html — printable resume (NEEDS INTEGRATION)
 
 `/resume/Resume.html` is a Claude Design-generated print-quality HTML resume.
@@ -76,6 +98,47 @@ Text-only draft areas, pending NDA/asset clearance from Epic.
 `_source/Miro/miro-content.md` was user-corrected and is source of truth.
 Image 8 (Tools & Pipeline) had the most OCR errors in original extraction.
 DO NOT re-extract from images — use the corrected file only.
+
+---
+
+## Phone number obfuscation — reasoning and recommendation
+
+**Goal**: Phone visible to hiring managers visiting the site, invisible to scrapers/bots.
+
+**Why captcha is awkward here**: Requires server-side validation to be meaningful
+(otherwise the JS to validate is visible too). GitHub Pages is static — no server.
+Could use reCAPTCHA v3 (invisible) or hCaptcha but adds a Google/third-party dependency
+and the UX friction on a professional portfolio feels off.
+
+**Why phone-as-image is bad**: Can't be copied, bad accessibility, looks like a workaround.
+
+**Why CSS-only tricks are weak**: Splitting a number across reversed spans etc. can stop
+regex scrapers but modern crawlers render CSS. Not worth the implementation weirdness.
+
+**Recommended approach: JS click-to-reveal with base64 encoding**
+
+Store the phone number as a base64-encoded value in a `data-` attribute:
+```html
+<span class="phone-reveal" data-v="BASE64ENCODED">
+  <button class="reveal-btn">Show phone</button>
+</span>
+```
+Small inline script decodes on button click and replaces the button with the number.
+~10 lines of JS, no external dependencies, works on GitHub Pages.
+
+Why this works: harvesting bots are regex scrapers or simple DOM walkers — they look
+for patterns like `(\d{3})[\s.-](\d{3})[\s.-](\d{4})` and don't simulate clicks.
+A base64-encoded blob in a data attribute is invisible to them. Sophisticated bots
+that execute JS AND simulate clicks exist but are rare and economically motivated
+toward high-value targets, not personal portfolios.
+
+**Where this applies**: The interactive resume at `/resume/index.html` (rendered from MD).
+Resume.html (print version) keeps `[hidden on web]` — that file is for Jovian to print
+locally with the phone filled in manually.
+
+**Implementation note**: The resume MD (`jovian-nordgren-resume.md`) omits the phone
+entirely. The click-to-reveal would be added as a UI element in `resume/index.html`
+itself, not in the MD — hardcoded with the encoded value.
 
 ---
 
