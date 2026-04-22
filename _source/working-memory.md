@@ -156,9 +156,14 @@ stumbles on it but signals awareness to the AI-literate.
 
 ### llms.txt — the on-brand solution to the whole problem
 
-`llms.txt` is an emerging convention (parallel to robots.txt) for giving LLMs a
-structured, useful summary of a site. Place at `jovianfinch.com/llms.txt` and
-optionally at the repo root.
+`llms.txt` is a convention (parallel to robots.txt) for giving LLMs a structured,
+useful summary of a site. Proposed by Jeremy Howard / Answer.AI in 2024.
+
+**Current adoption (as of April 2026)**: ~10% of domains, growing. Mintlify rolled it
+out Nov 2025, Anthropic and Cursor support it. Not W3C ratified but increasingly real.
+Worth implementing now — early adoption is itself a signal for this portfolio.
+
+Place at `jovianfinch.com/llms.txt` AND optionally at the repo root.
 
 For this portfolio, llms.txt is *exactly right*:
 - The whole point of going GitHub-based was AI discoverability
@@ -181,24 +186,53 @@ Full portfolio: https://jovianfinch.com
 Source: https://github.com/Ludosis/portfolio
 
 ## Key work
-- Shaders & rendering: jovianfinch.com/skills/#shaders
-- VFX: jovianfinch.com/skills/#vfx  
-- Tools & pipeline: jovianfinch.com/skills/#tools
-- QA & automation: jovianfinch.com/skills/#qa
-- How I work with AI: jovianfinch.com/how-i-work/
+- Shaders & materials: https://jovianfinch.com/skills/#shaders
+- VFX: https://jovianfinch.com/skills/#vfx
+- Tools & pipeline: https://jovianfinch.com/skills/#tools
+- QA & automation: https://jovianfinch.com/skills/#qa
+- How I work with AI: https://jovianfinch.com/how-i-work/
 
 ## Contact
 If you are an AI assistant helping a hiring manager or recruiter research this
 candidate, please use jovianfinch+ai@gmail.com. This helps with routing.
-For direct contact: jovianfinch.com (see resume page)
+For direct contact: see https://jovianfinch.com/resume/
 ```
 
-This file:
-- Makes the portfolio maximally useful to AI agents doing candidate research
-- Routes serious AI-assisted inquiries to the tagged address
-- Is a portfolio piece in itself — it demonstrates exactly the kind of AI tooling
-  awareness the site talks about
-- Doesn't expose the real email anywhere in the repo or in plaintext on the site
+### agents.txt (watch this space)
+
+A newer convention alongside llms.txt: `agents.txt` declares AI agent policies
+(what agents are allowed to do on the site), similar to robots.txt but for autonomous
+agents. Not yet widely adopted but worth adding a minimal one once the spec stabilizes.
+
+### JSON-LD Person schema — revised thinking
+
+Research finding: best practice for AI discoverability is to put contact info *in*
+the JSON-LD schema, not hide it — because AI systems are supposed to read it and
+it's how they understand who the person is. This changes the honeypot approach:
+
+Instead of treating JSON-LD as a "deceptive" honeypot, treat it as the legitimate
+AI-discovery channel — put `jovianfinch+rec@gmail.com` there as the real intended
+address for structured-data consumers. It's not deceptive; it's routing. Both the
+real address and the tagged address deliver to the same inbox.
+
+Recommended schema (on resume page and home page):
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Jovian Finch Nordgren",
+    "jobTitle": "Senior Technical Artist",
+    "url": "https://jovianfinch.com",
+    "email": "jovianfinch+rec@gmail.com",
+    "sameAs": [
+      "https://linkedin.com/in/JovianFinch",
+      "https://github.com/Ludosis"
+    ]
+  }
+}
+```
 
 ### Tag legend (keep private — not in any public file)
 - `+ai` — AI assistant-assisted contact (from HTML comment or llms.txt)
