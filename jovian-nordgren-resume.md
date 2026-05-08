@@ -13,7 +13,7 @@ Technical Artist and 3D generalist with a decade of experience in AAA and indie 
 
 ## Experience
 
-### Senior QA Engineer | Tech Art Specialist | Epic Games | Remote
+### Senior QA Engineer (Tech Art) | Epic Games | Remote
 **July 2023 – March 2026**
 *Unreal Engine 5 | Lego Fortnite*
 
