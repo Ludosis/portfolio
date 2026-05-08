@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Skills overview for Jovian Finch Nordgren — Senior Technical Artist. Shaders, VFX, rigging, pipeline tools, QA automation, and more with links to project examples.">
+  <title>Skills — Jovian Finch Nordgren</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="site-logo" href="/">Jovian Finch Nordgren</a>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/portfolio/">Portfolio</a>
+        <a href="/skills/" class="active">Skills</a>
+        <a href="/about/">About</a>
+        <a href="/resume/">Resume</a>
+        <a href="/how-i-work/">How I Work</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <header class="skills-hero">
+      <div class="container">
+        <h1>Skills</h1>
+        <p class="skills-intro">Senior Technical Artist — Bungie, Epic Games, Left Turn Studios. Each section links to the project pages where the work appears.</p>
+      </div>
+    </header>
+
+    <nav class="skills-jumpnav" aria-label="Jump to skill area">
+      <div class="container">
+        <a href="#shaders">Shaders &amp; Materials</a>
+        <a href="#vfx">VFX</a>
+        <a href="#lighting">Lighting &amp; Rendering</a>
+        <a href="#rigging">Rigging &amp; Animation</a>
+        <a href="#tools">Tools &amp; Pipeline</a>
+        <a href="#qa">QA &amp; Automation</a>
+        <a href="#procedural">Procedural Content</a>
+        <a href="#ui">UI</a>
+        <a href="#scripting">Scripting</a>
+      </div>
+    </nav>
+
+    <section class="skills-content">
+      <div class="container">
+
+        <div id="shaders" class="skill-discipline">
+          <h2 class="skill-discipline__title">Shaders &amp; Materials</h2>
+          <p class="skill-discipline__summary">Custom shader authoring across Unity Shader Graph, HLSL, and Unreal. Focused on solving performance and visual problems that off-the-shelf materials can't address.</p>
+          <ul class="skill-examples">
+            <li class="skill-example">
+              <a href="/portfolio/alien-age/" class="skill-example__link">
+                <span class="skill-example__project">Alien Age</span>
+                <span class="skill-example__detail">Water surface (world-space UV, eliminates tiling artifacts on irregular terrain); volumetric fog (depth texture sampling, height-responsive density); environment tile color-variation (world-position seeded, eight tileset varieties from three source meshes)</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/snuggles/#wing-shader" class="skill-example__link">
+                <span class="skill-example__project">Snuggles the Unicorn — Wing Vertex Shader</span>
+                <span class="skill-example__detail">Replaced 32-bone-per-enemy wing rig with a GPU vertex shader; per-instance phase randomization via Material Property Blocks so every enemy flaps independently — zero extra draw calls</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/snuggles/" class="skill-example__link">
+                <span class="skill-example__project">Snuggles the Unicorn — Status FX Shader</span>
+                <span class="skill-example__detail">Single overlay shader handling all character status states (burning, frozen, impact flash); toggled by bools from gameplay script via a helper component; multiple states simultaneously active</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/relic/" class="skill-example__link">
+                <span class="skill-example__project">Relic</span>
+                <span class="skill-example__detail">Atmospheric and visual shading in Zero Engine; pushed past documented engine limits by working directly with the chief engineer on engine-level changes</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="vfx" class="skill-discipline">
+          <h2 class="skill-discipline__title">VFX</h2>
+          <p class="skill-discipline__summary">Particle systems, timing, and gameplay-driven effects. Emphasis on effects that communicate gameplay state clearly and hold up on target hardware.</p>
+          <ul class="skill-examples">
+            <li class="skill-example">
+              <a href="/portfolio/alien-age/" class="skill-example__link">
+                <span class="skill-example__project">Alien Age</span>
+                <span class="skill-example__detail">Beam pickup/drop and cloud lightning — continuous energy column from discrete particles; timing synced to gameplay events without hardcoded delays</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/grapple-star/" class="skill-example__link">
+                <span class="skill-example__project">Grapple Star</span>
+                <span class="skill-example__detail">Ship boost effects with reactive jet trails, collectible pickups, environmental ambience</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/snuggles/" class="skill-example__link">
+                <span class="skill-example__project">Snuggles the Unicorn</span>
+                <span class="skill-example__detail">Fuel refill timers driven by gameplay script via shader parameters; enemy spawn effects; collectible pickups; character celebration states</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/destiny-2/" class="skill-example__link">
+                <span class="skill-example__project">Destiny 2</span>
+                <span class="skill-example__detail">Interactive beehive obstacle prototype VFX; sea monster ambient effects</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="lighting" class="skill-discipline">
+          <h2 class="skill-discipline__title">Lighting &amp; Rendering</h2>
+          <p class="skill-discipline__summary">Rendering pipeline setup, lighting, and post-processing — including full pipeline conversions and camera compositing for complex rendering requirements.</p>
+          <ul class="skill-examples">
+            <li class="skill-example">
+              <a href="/portfolio/snuggles/" class="skill-example__link">
+                <span class="skill-example__project">Snuggles the Unicorn — URP Conversion</span>
+                <span class="skill-example__detail">Full standard-renderer-to-URP conversion: every shader rebuilt from scratch, batch material conversion scripted, lighting and post-processing rebuilt, outsourced store assets cleaned up to match pipeline</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/grapple-star/#dof" class="skill-example__link">
+                <span class="skill-example__project">Grapple Star — Depth-of-Field Fix</span>
+                <span class="skill-example__detail">Dual-camera Cinemachine composite: background renders with full post-processing including DoF, foreground camera renders VFX layer with post-processing disabled — sharp foreground particles over blurred background, correct depth relationships preserved</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/alien-age/" class="skill-example__link">
+                <span class="skill-example__project">Alien Age</span>
+                <span class="skill-example__detail">Full lighting and post-processing setup; all environment materials and lighting authored from scratch</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/relic/" class="skill-example__link">
+                <span class="skill-example__project">Relic</span>
+                <span class="skill-example__detail">All visual technical systems in Zero Engine; worked with chief engineer on engine-level rendering changes</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="rigging" class="skill-discipline">
+          <h2 class="skill-discipline__title">Rigging &amp; Animation</h2>
+          <p class="skill-discipline__summary">Character rigs, animation retargeting, and constraint systems — built to survive production realities like mid-development model redesigns and repeated asset updates.</p>
+          <ul class="skill-examples">
+            <li class="skill-example">
+              <a href="/portfolio/snuggles/#puppet-rig" class="skill-example__link">
+                <span class="skill-example__project">Snuggles the Unicorn — Puppet Rig &amp; Retargeting</span>
+                <span class="skill-example__detail">Constraint-based retargeting system for mid-production character redesign — old skeleton drives new skeleton in real time, full animation library transferred immediately; scripted constraint rebuild utility that survived repeated model updates in seconds; biped-to-quadruped mech kitbash with aim constraints, bob dampening, and controller aim script</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/destiny-2/" class="skill-example__link">
+                <span class="skill-example__project">Destiny 2</span>
+                <span class="skill-example__detail">Modeled, rigged, and animated shipped characters: owls (Farm social space), sea monster (Titan); reactive NPC with custom animations and VFX</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="tools" class="skill-discipline">
+          <h2 class="skill-discipline__title">Tools &amp; Pipeline</h2>
+          <p class="skill-discipline__summary">Editor tools and pipeline scripts written to solve specific production problems — documented so non-technical collaborators can use them independently.</p>
+          <ul class="skill-examples">
+            <li class="skill-example">
+              <a href="/portfolio/alien-age/" class="skill-example__link">
+                <span class="skill-example__project">Alien Age — Foliage Placement Tool</span>
+                <span class="skill-example__detail">Editor-time placement tool (collaborated with engineer): runs distribution logic in-editor, bakes as placed instances — zero runtime cost. Documented so level designers could regenerate placements independently after level changes</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/snuggles/#puppet-rig" class="skill-example__link">
+                <span class="skill-example__project">Snuggles the Unicorn — Rig Rebuild Utility</span>
+                <span class="skill-example__detail">Scripted constraint reconnection that rebuilt the full rig from saved configuration in seconds; Maya compositing helper scripts</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/lego-fortnite/" class="skill-example__link">
+                <span class="skill-example__project">Lego Fortnite — Editor Tools</span>
+                <span class="skill-example__detail">EUW animation range validation tool (batching, progress indicator, CSV export, configurable options); asset audit EUW with mesh LOD and triangle count enforcement at check-in via extended C++ submit validator; FX validation test suite distributed as team-specific guides</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/destiny-2/" class="skill-example__link">
+                <span class="skill-example__project">Bungie</span>
+                <span class="skill-example__detail">Debug config tool for internal use; test engineering infrastructure on live service titles</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="qa" class="skill-discipline">
+          <h2 class="skill-discipline__title">QA &amp; Automation</h2>
+          <p class="skill-discipline__summary">Test systems design, escaped defect analysis, automation tooling, and coverage strategy. QA background is central to the tech art approach — catching systemic problems before they ship.</p>
+          <ul class="skill-examples">
+            <li class="skill-example">
+              <a href="/portfolio/lego-fortnite/#triage-tool" class="skill-example__link">
+                <span class="skill-example__project">Lego Fortnite — Automation Triage Tool</span>
+                <span class="skill-example__detail">Python tool built with Claude Code in one day: pulls daily test results via API across PC, console, and Switch; generates self-contained HTML report with cross-platform comparison, trend tracking, and Jira-linked failure notes. Turned daily triage from an assembly task into a reading task</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/lego-fortnite/#fx-framework" class="skill-example__link">
+                <span class="skill-example__project">Lego Fortnite — FX Coverage Framework</span>
+                <span class="skill-example__detail">Traced escaped defects to a systemic gap in FX test coverage; built distributed test suite across platforms and scalability settings; packaged as team-specific guides so coverage scaled with content volume without scaling centralized QA load</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/destiny-2/" class="skill-example__link">
+                <span class="skill-example__project">Bungie</span>
+                <span class="skill-example__detail">QA to Test Engineer progression on live service titles; test infrastructure and coverage tooling</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="procedural" class="skill-discipline">
+          <h2 class="skill-discipline__title">Procedural Content</h2>
+          <p class="skill-discipline__summary">Procedural placement and variation — baked at editor time for zero runtime cost, with visual variety that reads as hand-crafted.</p>
+          <ul class="skill-examples">
+            <li class="skill-example">
+              <a href="/portfolio/alien-age/" class="skill-example__link">
+                <span class="skill-example__project">Alien Age</span>
+                <span class="skill-example__detail">Editor-time foliage placement tool with Tree Sizer/Rotator/Tinter: randomized position, scale, rotation, and color at placement time — three rock meshes and three tree meshes produced eight distinct tileset varieties with no additional asset authoring</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/grapple-star/#level-select-ui" class="skill-example__link">
+                <span class="skill-example__project">Grapple Star</span>
+                <span class="skill-example__detail">Procedurally animated 2D elements in the Level Select UI scene</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="ui" class="skill-discipline">
+          <h2 class="skill-discipline__title">UI</h2>
+          <p class="skill-discipline__summary">UI built from scratch — scripted canvas, data-driven content population, and dynamic state-driven elements integrated with gameplay systems.</p>
+          <ul class="skill-examples">
+            <li class="skill-example">
+              <a href="/portfolio/grapple-star/#level-select-ui" class="skill-example__link">
+                <span class="skill-example__project">Grapple Star — Level Select Screen</span>
+                <span class="skill-example__detail">Full scene built from scratch: 3D objects, particle systems, procedurally animated 2D elements; scripted UI canvas with clickable planet selection; text fields and scene elements populated and toggled based on selection state. Concept art by Rowan Sherwin</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/grapple-star/" class="skill-example__link">
+                <span class="skill-example__project">Grapple Star — Dynamic Targeting Reticle</span>
+                <span class="skill-example__detail">Reticle appearance driven by gameplay state (target availability) rather than sprite swapping</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="scripting" class="skill-discipline">
+          <h2 class="skill-discipline__title">Scripting</h2>
+          <p class="skill-discipline__summary">Scripts written to solve specific production problems across C#, Python, Blueprint, and Claude Code collaboration. Not a software engineer — a technical artist who reaches for code when it's the right tool.</p>
+          <ul class="skill-examples">
+            <li class="skill-example">
+              <a href="/portfolio/snuggles/" class="skill-example__link">
+                <span class="skill-example__project">C# — Unity</span>
+                <span class="skill-example__detail">Puppet rig constraint rebuild utility; controller aim script; status FX helper component; gameplay-to-shader parameter bridge; batch material conversion script for URP migration</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/alien-age/" class="skill-example__link">
+                <span class="skill-example__project">Python — Maya &amp; pipeline</span>
+                <span class="skill-example__detail">Maya scripts for compositing and asset pipeline tasks; foliage placement tool (collaborated with engineer); Tree Sizer/Rotator/Tinter script</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/portfolio/lego-fortnite/" class="skill-example__link">
+                <span class="skill-example__project">Blueprint &amp; EUW — Unreal Engine 5</span>
+                <span class="skill-example__detail">Animation range validation EUW with batching, progress indicator, and CSV export; asset audit EUW with LOD/poly enforcement; extended existing C++ submit validator — no prior UE5 Blueprint or EUW experience before building these</span>
+              </a>
+            </li>
+            <li class="skill-example">
+              <a href="/how-i-work/" class="skill-example__link">
+                <span class="skill-example__project">Claude Code</span>
+                <span class="skill-example__detail">Automation triage tool built in one day; this portfolio site; context and memory management across sessions; framing problems clearly enough that implementation can be delegated — see <em>How I Work</em></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-name">Jovian Finch Nordgren</span>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="/portfolio/">Portfolio</a>
+          <a href="/skills/">Skills</a>
+          <a href="/about/">About</a>
+          <a href="/resume/">Resume</a>
+          <a href="/how-i-work/">How I Work</a>
+        </nav>
+        <p class="footer-note">Built with <a href="/how-i-work/">Claude Code</a> &mdash; <a href="/how-i-work/">how I work</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -54,7 +54,8 @@ Left Turn Studios, DigiPen). Replacing an outdated Weebly site.
 
 ## Current state (as of last session)
 
-MVP is complete and live. The following pages exist:
+Site is live and HTTPS cert is working. All project pages expanded. Skills page complete.
+The following pages exist:
 
 | Page | Path |
 |------|------|
@@ -69,49 +70,34 @@ MVP is complete and live. The following pages exist:
 | Destiny 2 | `/portfolio/destiny-2/index.html` |
 | Relic | `/portfolio/relic/index.html` |
 | How I Work | `/how-i-work/index.html` |
+| Skills | `/skills/index.html` |
+
+### Recent content additions (from Miro review)
+- **Alien Age**: Added Indie Wizards → Left Turn Studios studio history; game jam origin;
+  Tree Sizer/Rotator/Tinter script detail
+- **Snuggles**: Added URP rendering system refactor section; expanded mech kitbash detail;
+  added Character Status FX Shader section; added in-game cinematic section with Vimeo link
+- **Grapple Star**: Added Level Select UI section (Rowan Sherwin concept art credit);
+  dynamic reticle detail; UI Scripting skill tag
+- **Lego Fortnite**: Added EUW animation range validator; playblast TSR investigation;
+  ReplayRun scalability comparison tool
 
 ---
 
 ## Pending work (discussed but not yet built)
 
-### 1. Skills page — `/skills/index.html`
-A hiring-manager-focused page organized by skill discipline, each with cross-references
-to where that skill was demonstrated. Discussed structure:
+### 1. Earlier Work page — `/portfolio/earlier-work/index.html`
+Two items:
+- **Jerry's Rig** (2013–2014, DigiPen junior year) — solo animation project, full production
+  scope: story/storyboard, character concept/model/texture/rig/animation, environment
+  concept/model/texture/lighting. Tools: Maya, Photoshop, abAutoRig, 3D-Coat, Mental Ray.
+  Has Sketchfab embeds and a YouTube video.
+  Reference: https://jnordgren.weebly.com/jerrys-rig---animation-render.html
+- **221B Baker Street interior** — single prop modeling/texturing sample image
 
-- Shaders & Materials → Alien Age (water, fog, color-variation), Snuggles (wing vertex shader), Relic (atmospheric faking)
-- VFX → Alien Age, Grapple Star, Destiny 2, Snuggles
-- Lighting & Rendering → Alien Age (overhaul + post-processing), Relic, Grapple Star (DoF fix)
-- Rigging & Animation → Snuggles (puppet rig, scripted rebuild), Destiny 2 (owls, sea monster), Jerry's Rig
-- Tools & Pipeline → Alien Age (foliage tool), Snuggles (scripted rig rebuild), Lego Fortnite (asset audit, FX validation), Bungie (debug config tool)
-- QA & Automation → Lego Fortnite (triage tool, FX framework), Bungie (test engineering)
-- Procedural Content → Alien Age (foliage), Grapple Star (procedural environment)
-- Scripting → C# (gameplay/VFX), Python (Maya scripts, pipeline), Blueprint + EUW, Claude Code
-
-Add "Skills" to the main nav alongside Portfolio, About, Resume, How I Work.
-
-### 2. Grapple Star — add Level Select UI section
-Current page only covers the DoF fix. Missing: Level Select UI (concept art by Semen Shvarts,
-3D objects, particle systems, procedurally animated) with a video link. The project was
-shelved (not shipped); current page says "demo" which is fine.
-
-### 3. Alien Age — add studio history
-Left Turn Studios started as "Indie Wizards" (rev share, 2021), officially became Left Turn
-Studios (2022). Same team of people throughout. The page should note this history.
-Timeline: Alien Age (Indie Wizards/Left Turn, 2021) → Snuggles (Left Turn, 2022) → Grapple Star (Left Turn, late 2022–early 2023)
-
-### 4. Earlier Work page — `/portfolio/earlier-work/index.html`
-Jerry's Rig (2013–2014, DigiPen junior year) — solo animation project, full production
-scope: story/storyboard, character concept/model/texture/rig/animation, environment
-concept/model/texture/lighting.
-Tools: Maya, Photoshop, abAutoRig, 3D-Coat, Mental Ray.
-Has Sketchfab embeds and a YouTube video.
-Reference: https://jnordgren.weebly.com/jerrys-rig---animation-render.html
-
-### 5. Miro content review
-`_source/miro-content.md` was extracted from 12 Miro board screenshots (ima1–ima12.png
-also in `_source/`). OCR was imperfect — uncertain reads marked with `[?]`.
-**Do not incorporate this content into the site until the user has reviewed and corrected
-the file.** Image 8 (Tools & Pipeline) had the most errors; tool names are likely wrong.
+### 2. Miro screenshots location
+Images are now at `_source/Miro/ima1–12.png`. The corrected text is at
+`_source/Miro/miro-content.md` — this is the source of truth, user has reviewed it.
 
 ---
 
@@ -129,10 +115,10 @@ the file.** Image 8 (Tools & Pipeline) had the most errors; tool names are likel
 - **Mobile nav** is hidden by default (CSS), toggled via `.nav-open` on `<body>` (JS)
 - **No comments needed** in HTML/CSS/JS unless the reason is non-obvious
 
-## CSS architecture (`/css/style.css`, ~1100 lines)
+## CSS architecture (`/css/style.css`, ~1220 lines)
 
 Organized in sections: Custom properties → Reset → Layout → Typography → Nav → Footer →
-Home → About → Portfolio index → Project pages → Resume → How I Work → Responsive
+Home → About → Portfolio index → Project pages → Resume → How I Work → Skills → Responsive
 
 Key tokens:
 - `--color-bg: #F5F0E8` (warm cream)
@@ -149,9 +135,17 @@ Every page shares the same `<header>`, `<nav>`, and `<footer>`. Footer always in
 
 ---
 
-## Content that does NOT yet exist
+## Content that does NOT yet exist / pending integration
 
-- `/assets/jnordgren_resume.pdf` — PDF button is in `/resume/index.html` but commented out
+- `/resume/Resume.html` exists but is NOT yet linked from the site — needs integration.
+  It's a Claude Design print-quality HTML resume (two 8.5×11 pages, self-contained CSS,
+  same color palette/fonts as site). Intended to be printed to PDF from browser.
+  Phone number is at line 425 as `[hidden on web]` — intentional. To make a PDF with
+  phone: edit line 425 locally, print to PDF, don't commit phone to repo.
+  Plan: uncomment the PDF button in `/resume/index.html` and point to `/resume/Resume.html`.
+  **Sync**: Resume.html is NOT auto-generated — manually maintained. When the MD changes,
+  update Resume.html too. Structure: `.masthead` (name/contact), `.profile` (summary),
+  `.section > .job` per role.
 - Lego Fortnite images — text-only draft areas pending NDA/asset clearance
 - Final versions of all draft images (currently Weebly-hosted)
 
@@ -161,10 +155,12 @@ Every page shares the same `<header>`, `<nav>`, and `<footer>`. Footer always in
 
 | File | Purpose |
 |------|---------|
-| `_source/miro-content.md` | Extracted Miro board content — needs user review |
-| `_source/ima1–12.png` | Original Miro board screenshots |
+| `_source/Miro/miro-content.md` | Miro board content — reviewed and corrected by user, use as source of truth |
+| `_source/Miro/ima1–12.png` | Original Miro board screenshots |
 | `_source/portfolio_brief.md` | Original project brief (requirements doc) |
+| `_source/working-memory.md` | In-progress session scratchpad |
 | `jovian-nordgren-resume.md` | Resume — single source of truth, fetched by resume page |
+| `resume/Resume.html` | Print-quality HTML resume (Claude Design artifact). NOT auto-generated — manually synced with MD when content changes. |
 
 ---
 
