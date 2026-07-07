@@ -1,0 +1,13 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-name">&copy; 2026 {{ site.name }}</span>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        {%- for item in site.nav %}
+        <a href="{{ item.url }}">{{ item.label }}</a>
+        {%- endfor %}
+      </nav>
+      <p class="footer-note">Built with <a href="/how-i-work/">Claude Code</a> &mdash; <a href="/how-i-work/">how I work</a></p>
+    </div>
+  </div>
+</footer>

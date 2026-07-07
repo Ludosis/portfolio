@@ -1,0 +1,32 @@
+name: Jovian Finch Nordgren
+title: Senior Technical Artist
+domain: https://jovianfinch.com
+repo: https://github.com/Ludosis/portfolio
+tagline: >-
+  Shaders, rigs, and the tooling between art and engineering.
+summary: >-
+  Senior Technical Artist and 3D generalist with experience at Bungie, Epic
+  Games, and Left Turn Studios. Specializations: shaders, VFX, rigging,
+  pipeline tooling, QA systems design, and LLM-assisted development.
+
+nav:
+  - label: Portfolio
+    url: /portfolio/
+  - label: Skills
+    url: /skills/
+  - label: About
+    url: /about/
+  - label: Resume
+    url: /resume/
+  - label: How I Work
+    url: /how-i-work/
+
+contact:
+  emailUser: jovianfinch
+  emailDomain: gmail.com
+  tags:
+    ai: ai
+    rec: rec
+    web: web
+  linkedin: https://linkedin.com/in/JovianFinch
+  github: https://github.com/Ludosis

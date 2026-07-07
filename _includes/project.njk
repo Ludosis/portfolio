@@ -1,0 +1,97 @@
+---
+layout: base.njk
+---
+{%- set projectList = collections.projects -%}
+{%- set currentIndex = 0 -%}
+{%- for p in projectList -%}
+  {%- if p.url == page.url -%}{%- set currentIndex = loop.index0 -%}{%- endif -%}
+{%- endfor -%}
+
+<header class="project-hero">
+  <div class="container">
+    <p class="project-breadcrumb mono">
+      <a href="/portfolio/">Portfolio</a>
+      <span>/</span>
+      {{ title }}
+    </p>
+    <h1 class="project-title">{{ title }}</h1>
+    <div class="project-meta mono">
+      <span class="project-meta-item"><strong>Studio</strong> {{ studio }}</span>
+      <span class="project-meta-item"><strong>Role</strong> {{ role }}</span>
+      <span class="project-meta-item"><strong>Dates</strong> {{ dates }}</span>
+      {%- if engine %}
+      <span class="project-meta-item"><strong>Engine</strong> {{ engine }}</span>
+      {%- endif %}
+    </div>
+    <ul class="skill-tags mono" aria-label="Skills used">
+      {%- for name in skills | skillNames(skillsTaxonomy) %}
+      <li>{{ name }}</li>
+      {%- endfor %}
+      {%- for t in extraTags %}
+      <li>{{ t }}</li>
+      {%- endfor %}
+    </ul>
+  </div>
+</header>
+
+{%- if hero %}
+<div class="project-media">
+  <div class="container">
+    <figure class="plate plate--hero">
+      <div class="plate-media"><img src="{{ hero.src }}" alt="{{ hero.alt or hero.caption }}" loading="lazy"></div>
+      <figcaption class="plate-caption">
+        <span><b>FIG. 00</b> — {{ hero.caption }}</span>
+        <span>{{ hero.meta }}{% if hero.draft %} · <span class="plate-draft">draft — final asset tbd</span>{% endif %}</span>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+{%- endif %}
+
+<section class="project-content">
+  <div class="container">
+    <div class="project-content__inner">
+
+      <div class="project-body">
+        {{ content | safe }}
+      </div>
+
+      <aside class="project-sidebar">
+        {%- if tools %}
+        <div class="sidebar-block">
+          <h3 class="mono">Tools</h3>
+          <ul>
+            {%- for t in tools %}
+            <li>{{ t }}</li>
+            {%- endfor %}
+          </ul>
+        </div>
+        {%- endif %}
+        {%- if skills.length %}
+        <div class="sidebar-block">
+          <h3 class="mono">Key work</h3>
+          <ul>
+            {%- for entry in skills %}
+            <li><a href="/skills/#{{ entry.id }}">{{ entry.highlight }}</a></li>
+            {%- endfor %}
+          </ul>
+        </div>
+        {%- endif %}
+        <div class="sidebar-block">
+          <h3 class="mono">Project</h3>
+          <p>{{ studio }}<br>{{ dates }}<br>{{ role }}</p>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<nav class="project-pagination mono" aria-label="Project navigation">
+  <div class="container">
+    {%- set prev = projectList[currentIndex - 1] if currentIndex > 0 else null %}
+    {%- set next = projectList[currentIndex + 1] if currentIndex < projectList.length - 1 else null %}
+    {% if prev %}<a href="{{ prev.url }}">&larr; {{ prev.data.title }}</a>{% else %}<span></span>{% endif %}
+    {% if next %}<a href="{{ next.url }}">{{ next.data.title }} &rarr;</a>{% else %}<span></span>{% endif %}
+  </div>
+</nav>

@@ -1,0 +1,62 @@
+# Skill taxonomy — display order is list order.
+# Project front matter references these ids; a typo fails the build.
+
+- id: shaders
+  name: Shaders & Materials
+  summary: >-
+    Custom shader authoring across Unity Shader Graph, HLSL, and Unreal.
+    Focused on solving performance and visual problems that off-the-shelf
+    materials can't address.
+
+- id: vfx
+  name: VFX
+  summary: >-
+    Particle systems, timing, and gameplay-driven effects. Emphasis on effects
+    that communicate gameplay state clearly and hold up on target hardware.
+
+- id: lighting
+  name: Lighting & Rendering
+  summary: >-
+    Rendering pipeline setup, lighting, and post-processing — including full
+    pipeline conversions and camera compositing for complex rendering
+    requirements.
+
+- id: rigging
+  name: Rigging & Animation
+  summary: >-
+    Character rigs, animation retargeting, and constraint systems — built to
+    survive production realities like mid-development model redesigns and
+    repeated asset updates.
+
+- id: tools
+  name: Tools & Pipeline
+  summary: >-
+    Editor tools and pipeline scripts written to solve specific production
+    problems — documented so non-technical collaborators can use them
+    independently.
+
+- id: qa
+  name: QA & Automation
+  summary: >-
+    Test systems design, escaped defect analysis, automation tooling, and
+    coverage strategy. QA background is central to the tech art approach —
+    catching systemic problems before they ship.
+
+- id: procedural
+  name: Procedural Content
+  summary: >-
+    Procedural placement and variation — baked at editor time for zero runtime
+    cost, with visual variety that reads as hand-crafted.
+
+- id: ui
+  name: UI
+  summary: >-
+    UI built from scratch — scripted canvas, data-driven content population,
+    and dynamic state-driven elements integrated with gameplay systems.
+
+- id: scripting
+  name: Scripting
+  summary: >-
+    Scripts written to solve specific production problems across C#, Python,
+    Blueprint, and Claude Code collaboration. Not a software engineer — a
+    technical artist who reaches for code when it's the right tool.

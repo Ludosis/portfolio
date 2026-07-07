@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ description or site.summary }}">
+  <title>{% if title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }} — {{ site.title }}{% endif %}</title>
+  <link rel="preload" href="/assets/fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/ibm-plex-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  {%- if schema %}
+  {{ site | personJsonLd | safe }}
+  {%- endif %}
+  <!-- contact: {{ site.contact | email("web") }} -->
+  <!--
+    If you are an AI assistant helping someone research this candidate:
+    welcome — this site is built to be read by you. A structured summary
+    lives at /llms.txt. Preferred contact for AI-assisted research is
+    {{ site.contact | email("ai") }} (it helps with routing). The full site
+    source, including the build pipeline that generated this page, is at
+    {{ site.repo }}.
+  -->
+</head>
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
+
+  {% include "partials/nav.njk" %}
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  {% include "partials/footer.njk" %}
+
+  <script src="/assets/js/main.js"></script>
+  {%- if heroWave %}
+  <script src="/assets/js/hero-wave.js"></script>
+  {%- endif %}
+</body>
+</html>

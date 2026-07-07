@@ -1,0 +1,5 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+{{ collections.projects | llmsTxt(site, skillsTaxonomy) | safe }}
