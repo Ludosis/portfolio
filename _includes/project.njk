@@ -22,6 +22,9 @@ layout: base.njk
       {%- if engine %}
       <span class="project-meta-item"><strong>Engine</strong> {{ engine }}</span>
       {%- endif %}
+      {%- for m in extraMeta %}
+      <span class="project-meta-item"><strong>{{ m.label }}</strong> {{ m.value }}</span>
+      {%- endfor %}
     </div>
     <ul class="skill-tags mono" aria-label="Skills used">
       {%- for name in skills | skillNames(skillsTaxonomy) %}
@@ -77,6 +80,12 @@ layout: base.njk
           </ul>
         </div>
         {%- endif %}
+        {%- for block in extraBlocks %}
+        <div class="sidebar-block">
+          <h3 class="mono">{{ block.title }}</h3>
+          <p>{{ block.lines | join("<br>") | safe }}</p>
+        </div>
+        {%- endfor %}
         <div class="sidebar-block">
           <h3 class="mono">Project</h3>
           <p>{{ studio }}<br>{{ dates }}<br>{{ role }}</p>

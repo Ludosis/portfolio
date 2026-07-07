@@ -1,0 +1,48 @@
+---
+layout: base.njk
+permalink: /portfolio/
+title: Portfolio
+description: >-
+  Game projects by Jovian Finch Nordgren — shaders, VFX, animation pipelines,
+  asset optimization, and tooling across AAA and indie development.
+---
+<section class="page-section">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow mono">Index of plates — {{ collections.projects.length | pad2 }} projects</p>
+      <h1>Portfolio</h1>
+      <div class="section-ruler" aria-hidden="true"></div>
+    </div>
+    <p class="page-lede">
+      Game projects across AAA and indie development &mdash; shaders, VFX, animation
+      pipelines, asset optimization, and tooling.
+    </p>
+
+    <div class="featured-grid">
+      {%- for project in collections.projects %}
+      <article class="card">
+        <a class="card-link" href="{{ project.url }}">
+          <div class="card-shot">
+            {%- if project.data.card.image %}
+            <img src="{{ project.data.card.image }}" alt="" loading="lazy">
+            {%- else %}
+            <span class="card-shot-pending mono">capture pending clearance</span>
+            {%- endif %}
+          </div>
+          <div class="card-body">
+            <p class="card-fig mono">Plate {{ loop.index | pad2 }} &mdash; {{ project.data.studio }}</p>
+            <h3>{{ project.data.title }}</h3>
+            <p class="card-studio">{{ project.data.dates }}</p>
+            <p class="card-blurb">{{ project.data.card.blurb }}</p>
+            <ul class="skill-tags mono">
+              {%- for name in project.data.skills | skillNames(skillsTaxonomy) %}
+              <li>{{ name }}</li>
+              {%- endfor %}
+            </ul>
+          </div>
+        </a>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

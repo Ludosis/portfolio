@@ -1,0 +1,181 @@
+---
+layout: base.njk
+permalink: /how-i-work/
+title: How I Work
+description: >-
+  How Jovian Finch Nordgren works — with people, with technology, and with
+  Claude Code. Process, collaboration, and what AI tooling doesn't replace.
+---
+<section class="page-section">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow mono">Sheet B — method</p>
+      <h1>How I Work</h1>
+      <div class="section-ruler" aria-hidden="true"></div>
+    </div>
+
+    <div class="hiw-layout">
+
+      <div class="hiw-content">
+
+        <div class="hiw-section">
+          <h2>What this page is about</h2>
+          <p>
+            This page isn't a list of tools I use. It's an attempt to describe how I
+            actually think about problems, collaborate with people and systems, and use
+            technology to get things done &mdash; including AI tools. Most portfolios describe
+            what someone made. This one tries to describe how.
+          </p>
+          <p>
+            If you're trying to figure out whether I'd be a good fit for a team, process
+            is usually more predictive than output. Output can come from anywhere. Process
+            is harder to fake.
+          </p>
+        </div>
+
+        <div class="hiw-section">
+          <h2>Working with people</h2>
+          <p>
+            The QA background shapes this more than anything else. Four years at Bungie
+            doing test engineering across large live productions taught a specific kind of
+            discipline: understanding a system well enough to know where it's most likely
+            to break, communicating that clearly to the people who can fix it, and building
+            processes so the same failure mode doesn't have to be caught twice. That habit
+            carries through all of the tech art work.
+          </p>
+          <p>
+            On the Left Turn projects, being the sole or lead TA meant owning the interface
+            between the art team, engineering, and whatever the project needed. That required
+            understanding enough of each discipline to communicate accurately &mdash; knowing what
+            an engineer needs to understand about a shader to support it, knowing what a level
+            designer actually needs from a foliage tool versus what they think they need. Good
+            tools and pipelines get used without friction. Bad ones get worked around silently.
+          </p>
+          <p>
+            At Epic, the coordination problem was different in scale: distributed QA teams
+            across multiple content verticals, a large live project, and the need to get
+            coverage to scale without requiring centralized ownership of everything. The FX
+            validation framework on Lego Fortnite was a direct product of that problem &mdash; the
+            goal wasn't to do more testing myself, it was to put the right testing in the
+            hands of the people closest to the work.
+          </p>
+        </div>
+
+        <div class="hiw-section">
+          <h2>Working with technology</h2>
+          <p>
+            There's a kind of comfort that comes from having worked in enough different
+            tools and codebases that "unfamiliar" stops feeling like an obstacle. Each new
+            engine, shader system, or scripting environment is a variation on patterns I've
+            seen before. The first thing I do with an unfamiliar tool is find the edges &mdash;
+            what it does well, where its documented behavior stops, what the actual behavior
+            is past that point. That's useful information whether I'm using the tool or
+            building something on top of it.
+          </p>
+          <p>
+            The work I did on Relic's Zero Engine is the most direct example of this: the
+            engine had documented limits, those limits blocked the project's visual goals,
+            and understanding exactly where the limits were made it possible to have a
+            productive conversation with the engineer about what was actually achievable.
+            The same pattern shows up in the shader work (working within the constraints
+            of a specific render pipeline), the rigging work (understanding what Unity's
+            animation system will and won't do with constraints), and the tooling work
+            (knowing what an editor utility widget can hook into in Unreal).
+          </p>
+        </div>
+
+        <div class="hiw-section">
+          <h2>Working with Claude Code</h2>
+          <p>
+            I use Claude Code for tooling and pipeline problems &mdash; cases where the problem
+            is well-defined, the output format is clear, and the value of having code
+            written and iterated on quickly is high. The triage tool on Lego Fortnite is
+            the clearest example: I needed a specific output (an HTML report with
+            cross-platform test comparison, trend tracking, and Jira-linked failures),
+            the data sources were documented, and I understood exactly what the report
+            needed to communicate. Within that framing, Claude Code handled the
+            implementation work and the tool was built and deployed in a day.
+          </p>
+          <p>
+            This site is the other working example. It started as plain hand-editable HTML,
+            then was rebuilt &mdash; with Claude Code &mdash; as a content pipeline: every project is
+            a structured markdown file, and a custom build inverts that data to generate the
+            <a href="/skills/">skills page</a>, a machine-readable site summary at
+            <a href="/llms.txt">/llms.txt</a>, structured schema data for search and AI
+            agents, and the pages themselves. Contact details are injected at build time
+            from secrets that never enter the repository. The
+            <a href="{{ site.repo }}" target="_blank" rel="noopener">full source is public</a> &mdash;
+            deliberately, so anyone using AI to research a candidate can read not just the
+            site but the system that builds it.
+          </p>
+          <p>
+            The way the collaboration actually works: Claude Code is most useful when I
+            can describe the problem precisely &mdash; what it is, what constraints it has,
+            what success looks like. That requires having done enough thinking to know
+            what you actually want, which is most of the work anyway. The session
+            structure matters too: Claude Code doesn't carry context between sessions,
+            so useful collaboration requires explicit orientation at the start of each
+            session &mdash; what the project is, where we left off, what the current task is.
+            I've developed a consistent set of working notes and orientation protocols
+            for ongoing projects that make that re-orientation fast.
+          </p>
+          <p>
+            The honest version of AI tooling fluency isn't "I can make AI write code."
+            It's understanding what these tools are good at, what they're not, and how
+            to structure work so the collaboration produces something worth having.
+          </p>
+        </div>
+
+        <div class="hiw-section">
+          <h2>What it doesn't replace</h2>
+          <p>
+            Knowing what to build. Knowing whether it's worth building. Knowing when
+            the technically correct solution is the wrong answer for the project.
+            The judgment about what a shader should feel like, whether a tool will
+            actually get used, whether a test coverage approach will hold up in
+            production &mdash; none of that comes from a language model. It comes from having
+            done the work, shipped things, watched them break, and built better ones.
+          </p>
+          <p>
+            AI tooling is fast and useful. It does not have taste. The craftsperson is
+            still the one who decides what good looks like.
+          </p>
+        </div>
+
+      </div>
+
+      <aside class="hiw-sidebar">
+
+        <div class="sidebar-block sidebar-block--callout">
+          <h3 class="mono">Triage Tool</h3>
+          <p>
+            The automation triage tool built with Claude Code at Epic is the most concrete
+            example of this collaboration in practice. Built and deployed in a single day.
+          </p>
+          <p class="mono"><a class="text-link" href="/portfolio/lego-fortnite/#triage-tool">Read about it &rarr;</a></p>
+        </div>
+
+        <div class="sidebar-block sidebar-block--callout">
+          <h3 class="mono">This site</h3>
+          <p>
+            Markdown content, a custom Eleventy pipeline, generated skills index and
+            llms.txt, build-time contact injection. Built with Claude Code.
+          </p>
+          <p class="mono"><a class="text-link" href="{{ site.repo }}" target="_blank" rel="noopener">View source on GitHub &rarr;</a></p>
+        </div>
+
+        <div class="sidebar-block">
+          <h3 class="mono">Site stack</h3>
+          <ul>
+            <li>Claude Code (Anthropic)</li>
+            <li>Eleventy + custom pipeline</li>
+            <li>GitHub Pages + Actions</li>
+            <li>Self-hosted fonts, no trackers</li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</section>

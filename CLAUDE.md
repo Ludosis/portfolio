@@ -56,10 +56,18 @@ Left Turn Studios, DigiPen). Replacing an outdated Weebly site.
 
 Site is live and HTTPS cert is working. All project pages expanded. Skills page complete.
 
-**⚠ A full redesign is in planning (July 2026)** — Eleventy + custom pipeline architecture,
-"Drafting Table" visual direction. See `_source/working-memory.md` § "2026 Redesign" for
-all decisions, and `_source/design-archive/` for the mockups. The current plain-HTML site
-below remains live until the redesign ships.
+**⚠ REDESIGN BUILT, AWAITING CUTOVER (July 2026)** — the Eleventy + custom pipeline
+rebuild ("Drafting Table" design) is complete in-repo alongside the legacy site:
+- Source: `content/` (projects as markdown + front matter), `_includes/` (templates),
+  `pipeline/` (skills inversion, fig numbering, llms.txt, JSON-LD, contact injection),
+  `assets/` (new CSS/JS/fonts), `eleventy.config.js`
+- Build: `npm ci && npx @11ty/eleventy` → `_site/` (gitignored). Optional env
+  `CONTACT_PHONE` for phone reveal (repo secret in CI; never commit the number).
+- The legacy plain-HTML site (root index.html, about/, portfolio/, skills/, etc.)
+  is STILL what GitHub Pages serves from main. Do content edits in `content/`,
+  not the legacy HTML — legacy is deleted at cutover.
+- Cutover steps + open content questions: `_source/working-memory.md` § "2026 Redesign".
+  Full plan: `_source/redesign-plan.md`.
 
 The following pages exist:
 

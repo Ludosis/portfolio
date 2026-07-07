@@ -62,6 +62,48 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
 - Blend: https://claude.ai/code/artifact/8f667653-a7ab-4fc5-9eee-c3ffba222123
 - Archived in repo: `_source/design-archive/` (self-contained HTML, open in browser)
 
+### BUILD STATUS (July 2026, Fable session): Phases 1–3 substantially COMPLETE
+
+Built and verified (`npx @11ty/eleventy` → `_site/`, 16 outputs):
+- Eleventy + pipeline/ modules: skills-inversion (typo'd id fails build),
+  auto-numbered {% fig %} plates, llms.txt, JSON-LD, contact injection
+- All 7 projects ported to content/projects/*.md INCLUDING new Earlier Work page
+  (Sketchfab embeds recovered from old Weebly page)
+- All pages ported: about, how-i-work (rewritten "This site" section for new
+  architecture), portfolio index (generated from card data), resume
+  (build-rendered from MD, no client fetch)
+- Contact layer LIVE in build: email assembled client-side (reveal.js), phone
+  via CONTACT_PHONE env → XOR+base64 payload → click-to-reveal (verified
+  round-trip + graceful fallback when secret absent); +web/+rec/+ai tagged
+  addresses in comment/JSON-LD/llms.txt respectively
+- Plaintext email REMOVED from jovian-nordgren-resume.md (repo is clean).
+  Note: live legacy site's resume page now renders without email line —
+  intentional, new resume page injects it via JS
+- .github/workflows/deploy.yml written but INACTIVE until cutover
+- Legacy HTML site untouched and still what main serves — new site only
+  exists as source + local build until cutover
+
+### Remaining before cutover
+1. Phase 4 polish: WebGL upgrade of hero (2D canvas version works now),
+   responsive/a11y/print pass, visual review by user
+2. USER ACTIONS at cutover: add CONTACT_PHONE repo secret; merge to main;
+   Settings → Pages → Source: "GitHub Actions"; verify CNAME/HTTPS
+3. Delete legacy HTML (root index.html, about/, portfolio/, skills/,
+   how-i-work/, css/, js/, resume/index.html) after cutover verified
+4. Update eleventy.config.js ignores list after legacy deletion
+
+### Open content questions (stashed for user)
+- Alien Age dates: old page said "Released 2021 — Steam" in meta but intro
+  said incorporated 2022 + shipped same year. New page says "2021–2022 ·
+  Released on Steam" and intro drops the year. Confirm actual release year.
+- Jerry's Rig: final animation video URL needed (old Weebly page has
+  Sketchfab embeds but no YouTube embed found). Placeholder plate in page.
+- 221B Baker Street: image URL needed — placeholder plate in page.
+- Earlier Work figure captions ("production still", "model detail") are
+  guesses from image filenames — user should verify against actual images.
+- Featured card #4 (triage tool) has no image (Epic NDA) — shows "capture
+  pending clearance" chip; fine, but user may want different 4th feature.
+
 ### Migration plan: FINALIZED — see `_source/redesign-plan.md`
 Six phases: scaffold+design system → content port → pipeline outputs+contact
 layer → hero+polish → cutover → resume unification (later).

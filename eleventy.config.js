@@ -29,6 +29,15 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("CNAME");
   // Resume MD stays fetchable at the site root for external consumers.
   eleventyConfig.addPassthroughCopy("jovian-nordgren-resume.md");
+  // Print resume (manually maintained until resume unification phase).
+  eleventyConfig.addPassthroughCopy("resume/Resume.html");
+
+  // Resume page renders the MD at build time — no client-side fetch.
+  eleventyConfig.addGlobalData("resumeHtml", () => {
+    const md = require("markdown-it")({ html: true });
+    const src = require("fs").readFileSync("jovian-nordgren-resume.md", "utf8");
+    return md.render(src);
+  });
 
   figures.register(eleventyConfig);
 
