@@ -44,11 +44,11 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
 - Production type: **Fraunces** (display serif) + **IBM Plex Sans** (body) +
   **IBM Plex Mono** (annotations/captions/nav)
 - Palette: bone #F2EDE0, ink #211E18, prussian #29506D, red pencil #A6402A
-- **Blend variant under evaluation**: Drafting Table chrome + "blueprint wells" —
-  all media (hero demo, card captures, project figures) recessed into dark
-  blueprint-blue lightboxes (#10161B) with prussian glow, captions on paper below.
-  Mockup at `_source/design-archive/2026-07-blend-drafting-lightbox.html`.
-  Awaiting user verdict: pure Drafting Table vs blend.
+- **Blend verdict (July 2026): pure Drafting Table chosen.** The blend
+  ("blueprint wells" — media recessed in dark lightboxes) is archived at
+  `_source/design-archive/2026-07-blend-drafting-lightbox.html` and can be
+  reintroduced later as a per-media front-matter flag (`presentation: well`)
+  without rework. User was torn — revisit after living with pure version.
 
 ### WebGL shader hero (DECIDED: first pass)
 - Include in initial redesign, iterate later
@@ -62,13 +62,19 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
 - Blend: https://claude.ai/code/artifact/8f667653-a7ab-4fc5-9eee-c3ffba222123
 - Archived in repo: `_source/design-archive/` (self-contained HTML, open in browser)
 
-### Not yet decided / next steps
-1. User verdict on blend vs pure Drafting Table
-2. Full migration plan (content model schema, template structure, build config,
-   GitHub Action, incremental cutover strategy)
-3. Whether the contact-protection layer (llms.txt, JSON-LD, tagged emails —
-   see section below) ships as part of the redesign build (it should — it's
-   all generated output, natural fit for the new pipeline)
+### Migration plan: FINALIZED — see `_source/redesign-plan.md`
+Six phases: scaffold+design system → content port → pipeline outputs+contact
+layer → hero+polish → cutover → resume unification (later).
+
+**Key plan decision — phone number**: build-time secret injection replaces the
+old base64-in-repo idea (base64 is trivially reversible; user requires the phone
+NOT be in the repo in any form). Phone lives in a GitHub Actions secret
+(`CONTACT_PHONE`), injected at build (XOR+base64 encoded), click-to-reveal on
+the deployed site, persists into print flow. Repo stays clean; deploy artifact
+is not a git commit. User action needed in Phase 3: add the repo secret.
+
+Contact-protection layer (llms.txt, JSON-LD, tagged emails) ships in Phase 3
+as generated pipeline output.
 
 ---
 
