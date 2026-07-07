@@ -1,0 +1,414 @@
+<title>Blend Mockup — Drafting Table × Lightbox</title>
+<style>
+  /* ============ gallery chrome (theme-aware) ============ */
+  :root {
+    --g-bg: #EAE7E0; --g-ink: #2A2722; --g-muted: #6E675C; --g-line: #CFC9BD;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --g-bg: #16140F; --g-ink: #E8E2D4; --g-muted: #9B9384; --g-line: #322E26; }
+  }
+  :root[data-theme="dark"] { --g-bg: #16140F; --g-ink: #E8E2D4; --g-muted: #9B9384; --g-line: #322E26; }
+  :root[data-theme="light"] { --g-bg: #EAE7E0; --g-ink: #2A2722; --g-muted: #6E675C; --g-line: #CFC9BD; }
+
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--g-bg); color: var(--g-ink); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.5; }
+  .g-wrap { max-width: 1060px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2.5rem); }
+  .g-head { padding: 2.6rem 0 1.6rem; }
+  .g-eyebrow {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--g-muted); margin-bottom: 0.7rem;
+  }
+  .g-head h1 { font-size: clamp(1.4rem, 3.2vw, 1.9rem); font-weight: 650; letter-spacing: -0.015em; text-wrap: balance; }
+  .g-head p { color: var(--g-muted); max-width: 64ch; margin-top: 0.55rem; font-size: 0.93rem; }
+  .g-board {
+    border: 1px solid var(--g-line); border-radius: 10px; overflow: hidden;
+    box-shadow: 0 18px 50px -28px rgba(0,0,0,0.45); margin-bottom: 1.4rem;
+  }
+  .g-notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; padding: 0.4rem 0 3.5rem; }
+  .g-note h3 {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--g-muted); font-weight: 600; margin-bottom: 0.6rem;
+  }
+  .g-note p { font-size: 0.85rem; }
+  .chips { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .chip { display: flex; flex-direction: column; gap: 0.3rem; align-items: center; }
+  .chip i { display: block; width: 44px; height: 30px; border-radius: 4px; border: 1px solid rgba(0,0,0,0.15); }
+  .chip span { font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 0.62rem; color: var(--g-muted); }
+
+  /* ================================================================
+     BLEND — Drafting Table chrome × blueprint lightbox wells
+     paper: bone/ink/prussian/red-pencil · wells: deep blue-ink
+     ================================================================ */
+  .bl {
+    background: #F2EDE0;
+    color: #211E18;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  }
+  .bl .mono { font-family: ui-monospace, "SF Mono", Consolas, monospace; }
+
+  .bl-nav {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 1.1rem clamp(1.2rem, 4vw, 2.6rem);
+    border-bottom: 1px solid #211E18;
+  }
+  .bl-logo { font-size: 1.02rem; font-weight: 600; color: #211E18; text-decoration: none; }
+  .bl-links { display: flex; gap: 1.6rem; }
+  .bl-links a {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #211E18; text-decoration: none; padding-bottom: 2px;
+  }
+  .bl-links a.on { color: #29506D; border-bottom: 1px solid #29506D; }
+
+  .bl-hero {
+    position: relative;
+    padding: clamp(2.2rem, 5vw, 3.6rem) clamp(1.2rem, 4vw, 2.6rem) 2.4rem;
+    background-image:
+      linear-gradient(rgba(41, 80, 109, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(41, 80, 109, 0.055) 1px, transparent 1px);
+    background-size: 28px 28px;
+    border-bottom: 1px solid #CDC4B0;
+  }
+  .bl-kicker {
+    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #A6402A; margin-bottom: 1.1rem;
+  }
+  .bl-hero h1 {
+    font-size: clamp(2.1rem, 5.4vw, 3.4rem);
+    font-weight: 500; line-height: 1.06; letter-spacing: -0.015em;
+    max-width: 14ch; text-wrap: balance;
+  }
+  .bl-role {
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-top: 1rem; color: #29506D;
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .bl-role::before { content: ""; width: 2.2rem; height: 1px; background: #29506D; }
+  .bl-hero p.lede { margin-top: 1.2rem; max-width: 46ch; font-size: 1.02rem; line-height: 1.6; color: #4A443A; }
+  .bl-ctas { display: flex; gap: 0.9rem; margin-top: 1.6rem; }
+  .bl-ctas a {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; padding: 0.62rem 1.1rem; border-radius: 2px;
+  }
+  .bl-ctas a.pri { background: #211E18; color: #F2EDE0; }
+  .bl-ctas a.sec { border: 1px solid #211E18; color: #211E18; }
+
+  /* the blueprint well — dark lightbox with drafting-blue field */
+  .bl-well { border: 1px solid #211E18; background: #10161B; position: relative; }
+  .bl-demo { margin-top: 2.2rem; }
+  .bl-demo canvas { display: block; width: 100%; height: 160px; }
+  .bl-hud {
+    position: absolute; inset: 0; pointer-events: none;
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.62rem; letter-spacing: 0.1em; color: #56718A;
+  }
+  .bl-hud span { position: absolute; }
+  .bl-hud .tl { top: 8px; left: 10px; }
+  .bl-hud .tr { top: 8px; right: 10px; color: #C05B3F; }
+  .bl-hud .bl-c { bottom: 8px; left: 10px; }
+  .bl-hud .br { bottom: 8px; right: 10px; }
+  .bl-capbar {
+    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    padding: 0.5rem 0.8rem;
+    background: #F6F2E7; border-top: 1px solid #211E18;
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.66rem; letter-spacing: 0.08em; color: #6B6353;
+  }
+  .bl-capbar b { color: #A6402A; font-weight: 600; }
+
+  .bl-work { padding: 2.4rem clamp(1.2rem, 4vw, 2.6rem) 2.6rem; }
+  .bl-sechead { margin-bottom: 1.8rem; }
+  .bl-sechead .mono { font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: #6B6353; }
+  .bl-sechead h2 { font-size: 1.7rem; font-weight: 500; margin-top: 0.3rem; }
+  .bl-ruler {
+    margin-top: 0.8rem; height: 9px; max-width: 240px;
+    background-image: repeating-linear-gradient(90deg, #211E18 0 1px, transparent 1px 12px);
+    border-bottom: 1px solid #211E18;
+  }
+  .bl-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.6rem; }
+  .bl-card { position: relative; background: #F6F2E7; border: 1px solid #211E18; }
+  .bl-card::before, .bl-card::after { content: ""; position: absolute; width: 12px; height: 12px; pointer-events: none; }
+  .bl-card::before { top: -5px; left: -5px; border-top: 1.5px solid #A6402A; border-left: 1.5px solid #A6402A; }
+  .bl-card::after { bottom: -5px; right: -5px; border-bottom: 1.5px solid #A6402A; border-right: 1.5px solid #A6402A; }
+  .bl-shot {
+    height: 160px; display: flex; align-items: center; justify-content: center;
+    border-bottom: 1px solid #211E18;
+    background:
+      radial-gradient(ellipse 75% 95% at 50% 115%, rgba(127, 166, 196, 0.22), transparent 62%),
+      #10161B;
+  }
+  .bl-shot span {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.66rem; letter-spacing: 0.1em; color: #A8C2D6;
+    border: 1px solid #3A5266; padding: 0.35rem 0.7rem;
+    background: rgba(16, 22, 27, 0.75);
+  }
+  .bl-card-body { padding: 1.1rem 1.2rem 1.25rem; }
+  .bl-fig {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.64rem; letter-spacing: 0.1em; color: #A6402A; text-transform: uppercase;
+  }
+  .bl-card h3 { font-size: 1.18rem; font-weight: 600; margin-top: 0.4rem; }
+  .bl-card .studio { font-style: italic; color: #6B6353; font-size: 0.85rem; margin-top: 0.1rem; }
+  .bl-card p.desc {
+    font-size: 0.9rem; line-height: 1.55; color: #4A443A; margin-top: 0.55rem;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  .bl-tags { display: flex; gap: 0.45rem; margin-top: 0.85rem; flex-wrap: wrap; padding: 0; }
+  .bl-tags li {
+    list-style: none;
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.62rem; letter-spacing: 0.08em;
+    border: 1px solid #29506D; color: #29506D;
+    padding: 0.18rem 0.5rem; border-radius: 2px;
+  }
+
+  /* project-page media sample — the treatment where it matters most */
+  .bl-media { padding: 0 clamp(1.2rem, 4vw, 2.6rem) 2.8rem; }
+  .bl-media-frame { position: relative; }
+  .bl-media-shot {
+    height: 230px; display: flex; align-items: center; justify-content: center; position: relative;
+    background:
+      radial-gradient(ellipse 60% 80% at 30% 50%, rgba(127, 166, 196, 0.3), transparent 60%),
+      radial-gradient(ellipse 50% 70% at 75% 55%, rgba(192, 91, 63, 0.14), transparent 55%),
+      #10161B;
+  }
+  .bl-media-shot span {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.68rem; letter-spacing: 0.1em; color: #A8C2D6;
+    border: 1px solid #3A5266; padding: 0.4rem 0.8rem;
+    background: rgba(16, 22, 27, 0.75);
+  }
+  .bl-media-shot .dim {
+    position: absolute; left: 24px; right: 24px; bottom: 16px; height: 8px; pointer-events: none;
+    border-left: 1px solid #56718A; border-right: 1px solid #56718A; border-bottom: 1px solid #56718A;
+  }
+  .bl-media-shot .dim i {
+    position: absolute; left: 50%; transform: translateX(-50%); top: 2px;
+    font-style: normal;
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.58rem; letter-spacing: 0.12em; color: #56718A; background: #10161B; padding: 0 0.5rem;
+  }
+
+  .bl-foot {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem;
+    padding: 1rem clamp(1.2rem, 4vw, 2.6rem);
+    border-top: 1px solid #211E18;
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.66rem; letter-spacing: 0.1em; color: #6B6353;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<header class="g-head">
+  <div class="g-wrap">
+    <div class="g-eyebrow">JovianFinch.com — redesign study · blend</div>
+    <h1>Drafting Table × Blueprint Lightbox</h1>
+    <p>Drafting Table chrome — bone paper, ink rules, figure annotations — with every capture and demo
+       recessed into a dark blueprint well so imagery glows. The dark field takes its blue from the
+       prussian accent, so the two worlds read as one drawing: paper above, blueprint below.
+       Includes a project-page media sample, since that's where the treatment earns its keep.</p>
+  </div>
+</header>
+
+<div class="g-wrap">
+  <div class="g-board">
+    <div class="bl">
+      <nav class="bl-nav">
+        <a class="bl-logo" href="#top">Jovian Finch Nordgren</a>
+        <div class="bl-links">
+          <a href="#top" class="on">Portfolio</a><a href="#top">Skills</a><a href="#top">About</a><a href="#top">Resume</a><a href="#top">How I Work</a>
+        </div>
+      </nav>
+
+      <section class="bl-hero">
+        <div class="bl-kicker mono">Portfolio · est. 2014 · rev 3.0</div>
+        <h1>Jovian Finch Nordgren</h1>
+        <div class="bl-role">Senior Technical Artist</div>
+        <p class="lede">Shaders, rigs, and the tooling between art and engineering.
+           Ten years across AAA and indie — Bungie, Epic Games, Left Turn Studios.</p>
+        <div class="bl-ctas">
+          <a class="pri" href="#top">View Portfolio</a>
+          <a class="sec" href="#top">Read Resume</a>
+        </div>
+
+        <figure class="bl-demo">
+          <div class="bl-well">
+            <canvas id="wave" aria-label="Animated sine wave in a blueprint-style dark well"></canvas>
+            <div class="bl-hud" aria-hidden="true">
+              <span class="tl">wing_flap.vert</span>
+              <span class="tr">● live</span>
+              <span class="bl-c">verts 1,204 · draws 1</span>
+              <span class="br">phase: per-instance</span>
+            </div>
+          </div>
+          <figcaption class="bl-capbar">
+            <span><b>FIG. 00</b> — wing flap, sine displacement · amplitude 24 · phase per-instance</span>
+            <span>vertex shader, GPU-driven · zero bone cost</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="bl-work">
+        <div class="bl-sechead">
+          <div class="mono">SELECTED WORK — 02 OF 06 PLATES</div>
+          <h2>Selected Work</h2>
+          <div class="bl-ruler" aria-hidden="true"></div>
+        </div>
+        <div class="bl-cards">
+          <article class="bl-card">
+            <div class="bl-shot"><span>capture — wing-demo.gif</span></div>
+            <div class="bl-card-body">
+              <div class="bl-fig">Fig. 01 — Snuggles the Unicorn</div>
+              <h3>Wing Vertex Shader System</h3>
+              <div class="studio">Left Turn Studios · Unity</div>
+              <p class="desc">32 bones per enemy replaced with a GPU sine-wave vertex shader.
+                 Per-instance phase via Material Property Blocks — every wing out of sync,
+                 zero additional draw calls.</p>
+              <ul class="bl-tags"><li>Shader Graph</li><li>HLSL</li><li>Optimization</li></ul>
+            </div>
+          </article>
+          <article class="bl-card">
+            <div class="bl-shot"><span>capture — triage-report.png</span></div>
+            <div class="bl-card-body">
+              <div class="bl-fig">Fig. 02 — Lego Fortnite</div>
+              <h3>Automation Triage Tool</h3>
+              <div class="studio">Epic Games · UE5</div>
+              <p class="desc">Cross-platform test triage built with Claude Code in a day —
+                 API pulls, trend tracking, Jira-linked failures rendered as one scannable report.</p>
+              <ul class="bl-tags"><li>Python</li><li>Claude Code</li><li>QA Systems</li></ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="bl-media">
+        <div class="bl-sechead">
+          <div class="mono">PROJECT PAGE — MEDIA TREATMENT SAMPLE</div>
+        </div>
+        <figure class="bl-media-frame">
+          <div class="bl-well">
+            <div class="bl-media-shot">
+              <span>capture — dof-after.png</span>
+              <div class="dim" aria-hidden="true"><i>1920 × 1080 · in-engine</i></div>
+            </div>
+          </div>
+          <figcaption class="bl-capbar">
+            <span><b>FIG. 03</b> — Grapple Star · foreground VFX rendered sharp over DoF-blurred field</span>
+            <span>dual-camera composite · Cinemachine</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <footer class="bl-foot">
+        <span>© 2026 JFN · SHEET 1 OF 12</span>
+        <span>BUILT WITH CLAUDE CODE — HOW I WORK</span>
+      </footer>
+    </div>
+  </div>
+
+  <div class="g-notes">
+    <div class="g-note">
+      <h3>Palette</h3>
+      <div class="chips">
+        <div class="chip"><i style="background:#F2EDE0"></i><span>bone</span></div>
+        <div class="chip"><i style="background:#211E18"></i><span>ink</span></div>
+        <div class="chip"><i style="background:#29506D"></i><span>prussian</span></div>
+        <div class="chip"><i style="background:#A6402A"></i><span>red pencil</span></div>
+        <div class="chip"><i style="background:#10161B"></i><span>blueprint well</span></div>
+      </div>
+    </div>
+    <div class="g-note">
+      <h3>Type (production)</h3>
+      <p>Fraunces (display serif) · IBM Plex Sans (body) · IBM Plex Mono (annotations, HUD, captions) — unchanged from Drafting Table.</p>
+    </div>
+    <div class="g-note">
+      <h3>What changed from Plate 01</h3>
+      <p>Every media surface — hero demo, card captures, project-page figures — sits in a recessed
+         blueprint-dark well with a soft prussian glow. Captions stay on paper below each well.
+         Viewport HUD labels from Studio Dark migrate into the wells, recolored to drafting blue.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canvas = document.getElementById("wave");
+  var state;
+
+  function setup() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = canvas.clientWidth, h = canvas.clientHeight;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    var ctx = canvas.getContext("2d");
+    ctx.scale(dpr, dpr);
+    state = { ctx: ctx, w: w, h: h };
+  }
+
+  function wavePath(ctx, w, h, amp, freq, phase, step) {
+    ctx.beginPath();
+    for (var x = 0; x <= w; x += step) {
+      var y = h / 2 + Math.sin((x / w) * Math.PI * 2 * freq + phase) * amp * Math.sin(Math.PI * (x / w));
+      if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+  }
+
+  function draw(t) {
+    var s = state, ctx = s.ctx;
+    ctx.clearRect(0, 0, s.w, s.h);
+
+    /* blueprint grid */
+    ctx.strokeStyle = "rgba(127, 166, 196, 0.1)";
+    ctx.lineWidth = 1;
+    for (var gx = 0; gx <= s.w; gx += 28) {
+      ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, s.h); ctx.stroke();
+    }
+    for (var gy = 0; gy <= s.h; gy += 28) {
+      ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(s.w, gy); ctx.stroke();
+    }
+
+    /* baseline with ticks */
+    ctx.strokeStyle = "rgba(127, 166, 196, 0.3)";
+    ctx.beginPath(); ctx.moveTo(0, s.h / 2); ctx.lineTo(s.w, s.h / 2); ctx.stroke();
+
+    /* dashed reference wave — paper white */
+    ctx.setLineDash([5, 5]);
+    ctx.strokeStyle = "rgba(242, 237, 224, 0.35)";
+    ctx.lineWidth = 1.2;
+    wavePath(ctx, s.w, s.h, 28, 2.5, 0, 4);
+
+    /* live wave — light prussian with soft glow */
+    ctx.setLineDash([]);
+    ctx.shadowColor = "rgba(127, 166, 196, 0.7)";
+    ctx.shadowBlur = 10;
+    ctx.strokeStyle = "#7FA6C4";
+    ctx.lineWidth = 2;
+    wavePath(ctx, s.w, s.h, 28, 2.5, t, 4);
+    ctx.shadowBlur = 0;
+
+    /* red-pencil sample marker */
+    ctx.fillStyle = "#C05B3F";
+    var mx = s.w * 0.72;
+    var my = s.h / 2 + Math.sin((mx / s.w) * Math.PI * 2 * 2.5 + t) * 28 * Math.sin(Math.PI * (mx / s.w));
+    ctx.beginPath(); ctx.arc(mx, my, 3, 0, Math.PI * 2); ctx.fill();
+  }
+
+  setup();
+  if (reduced) {
+    draw(1.2);
+  } else {
+    var t = 0;
+    (function loop() { t += 0.022; draw(t); requestAnimationFrame(loop); })();
+  }
+  window.addEventListener("resize", function () { setup(); if (reduced) draw(1.2); });
+})();
+</script>
