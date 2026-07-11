@@ -81,6 +81,23 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
   ("verts 556 · draws 5 · webgl"); 2D canvas fallback; reduced-motion static frame.
 - Full-site internal link check: 0 broken links.
 
+### Print bug ROOT CAUSE found and fixed (second pass, July 2026)
+User still saw a 3rd page after the first fix. Real cause: the global screen
+rule `.page + .page { margin-top: 0.35in }` (specificity 0,2,0) OVERRIDES
+`.page { margin: 0 }` (0,1,0) inside @media print — page 2 dragged a 0.35in
+top margin onto the sheet. Also page 2 content measured 11.2in under real
+font metrics (the old fixed-height version was silently CLIPPING it).
+Fix: print uses flowing height (no fixed 11in boxes), explicit
+`.page + .page { margin-top: 0 }` in print, page-2-only compaction
+(spacing + line-heights). Resume.html fonts now SELF-HOSTED (Lora +
+Source Sans 3 in assets/fonts) so headless tests match real metrics.
+VERIFIED 2 pages across: default margins, 0.4in dialog margins, 1in
+margins, A4. Also fixed p2 header to "Senior Technical Artist".
+
+### EDITING.md added at repo root
+Human-facing content-update guide: fig/figblock usage, embeds, skills
+entries, new projects, never-do list. Point the user here for content edits.
+
 ### Phase 6 remains (later): resume unification
 Single structured source → web + print resume, replacing manually-synced
 Resume.html. Until then: MD changes require manual Resume.html sync.
