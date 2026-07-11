@@ -1,3 +1,7 @@
+---
+permalink: /resume/Resume.html
+eleventyExcludeFromCollections: true
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -390,16 +394,33 @@
   @media print {
     html, body { background: var(--cream); }
     .page {
+      /* hair short of 11in — an exact-height box rounds over the printable
+         area in Chromium and spills one line onto an extra sheet */
       width: 8.5in;
-      height: 11in;
-      min-height: 11in;
+      height: 10.95in;
+      min-height: auto;
       margin: 0;
       padding: 0.45in 0.7in 0.4in;
       page-break-after: always;
       box-shadow: none;
       overflow: hidden;
     }
-    .page:last-child { page-break-after: auto; }
+    /* last-of-type, not last-child: scripts follow the final .page div */
+    .page:last-of-type { page-break-after: auto; }
+    .phone-row:has(button) { display: none; }
+  }
+
+  .reveal-btn {
+    font: inherit;
+    font-size: 8.2pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px dashed var(--terra);
+    color: var(--terra);
+    border-radius: 3px;
+    padding: 1px 7px;
+    cursor: pointer;
   }
 
   @media screen {
@@ -422,7 +443,7 @@
     </div>
     <div class="contact">
       <div><span class="lbl">Email</span> <a href="mailto:JovianFinch@gmail.com">JovianFinch@gmail.com</a></div>
-      <div><span class="lbl">Phone</span> [hidden on web]</div>
+      {% if phonePayload %}<div class="phone-row"><span class="lbl">Phone</span> <span data-ph="{{ phonePayload }}"><button class="reveal-btn" type="button">show</button></span></div>{% endif %}
       <div><span class="lbl">Web</span> <a href="https://jovianfinch.com">JovianFinch.com</a></div>
       <div><span class="lbl">LinkedIn</span> <a href="https://linkedin.com/in/JovianFinch">/in/JovianFinch</a></div>
     </div>
@@ -615,134 +636,14 @@
   </div>
 </div>
 
-<!-- ============ Tweaks ============ -->
-<style>
-  #tweaks-panel {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 260px;
-    background: #FFFBF3;
-    border: 1px solid #D9CFC1;
-    border-radius: 6px;
-    box-shadow: 0 8px 24px rgba(44,36,32,0.15);
-    padding: 14px 16px 14px;
-    font-family: 'Source Sans 3', sans-serif;
-    font-size: 12px;
-    color: #2C2420;
-    z-index: 9999;
-    display: none;
-  }
-  #tweaks-panel.on { display: block; }
-  #tweaks-panel h3 {
-    font-family: 'Lora', serif;
-    font-size: 14px;
-    margin: 0 0 10px;
-    color: #B85C38;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    padding-bottom: 6px;
-    border-bottom: 1px solid #E6DCCD;
-  }
-  #tweaks-panel label.row {
-    display: block;
-    margin: 10px 0 4px;
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #6B5C52;
-    font-weight: 600;
-  }
-  #tweaks-panel .opt {
-    display: flex;
-    gap: 6px;
-  }
-  #tweaks-panel .opt button {
-    flex: 1;
-    padding: 7px 8px;
-    border: 1px solid #D9CFC1;
-    background: transparent;
-    color: #2C2420;
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 11px;
-    transition: all 0.15s ease;
-  }
-  #tweaks-panel .opt button:hover { border-color: #B85C38; }
-  #tweaks-panel .opt button.active {
-    background: #B85C38;
-    color: #F5F0E8;
-    border-color: #B85C38;
-  }
-  #tweaks-panel .hint {
-    margin-top: 10px;
-    font-size: 10.5px;
-    color: #6B5C52;
-    line-height: 1.45;
-    font-style: italic;
-  }
-  @media print { #tweaks-panel { display: none !important; } }
-</style>
-
-<div id="tweaks-panel">
-  <h3>Tweaks</h3>
-  <label class="row">Experience Order (pg 2)</label>
-  <div class="opt" data-group="order">
-    <button data-val="chronological">Chronological</button>
-    <button data-val="reverse">Reverse-chron</button>
-  </div>
-  <div class="hint">Chronological puts Freelance (2019–21) above Bungie (2015–19). Reverse puts Bungie on top.</div>
-</div>
-
+<script src="/assets/js/reveal.js"></script>
 <script>
-  const TWEAKS = /*EDITMODE-BEGIN*/{
-    "order": "reverse"
-  }/*EDITMODE-END*/;
-
-  function applyTweaks(t) {
-    const container = document.getElementById('reorderable');
-    if (!container) return;
-    const freelance = container.querySelector('[data-key="freelance"]');
-    const bungie = container.querySelector('[data-key="bungie"]');
-    if (!freelance || !bungie) return;
-    if (t.order === 'chronological') {
-      // Oldest at top: Bungie (2015–19) above Freelance (2019–21)
-      container.insertBefore(bungie, freelance);
-    } else {
-      // Reverse-chron: Freelance above Bungie
-      container.insertBefore(freelance, bungie);
-    }
-    // Update button states
-    document.querySelectorAll('#tweaks-panel .opt button').forEach(b => {
-      const group = b.parentElement.dataset.group;
-      b.classList.toggle('active', t[group] === b.dataset.val);
+  // Opened from the site's Print button (?print) — go straight to the dialog.
+  if (new URLSearchParams(location.search).has("print")) {
+    window.addEventListener("load", function () {
+      setTimeout(function () { window.print(); }, 300);
     });
   }
-
-  // Panel wiring
-  const panel = document.getElementById('tweaks-panel');
-  document.querySelectorAll('#tweaks-panel .opt button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const group = btn.parentElement.dataset.group;
-      TWEAKS[group] = btn.dataset.val;
-      applyTweaks(TWEAKS);
-      try {
-        window.parent.postMessage({type: '__edit_mode_set_keys', edits: {[group]: btn.dataset.val}}, '*');
-      } catch(e) {}
-    });
-  });
-
-  // Register listener BEFORE announcing availability
-  window.addEventListener('message', (e) => {
-    const d = e.data || {};
-    if (d.type === '__activate_edit_mode') panel.classList.add('on');
-    else if (d.type === '__deactivate_edit_mode') panel.classList.remove('on');
-  });
-  try { window.parent.postMessage({type: '__edit_mode_available'}, '*'); } catch(e) {}
-
-  // Apply on load
-  applyTweaks(TWEAKS);
 </script>
 
 </body>

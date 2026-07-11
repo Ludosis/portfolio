@@ -21,147 +21,89 @@ All session context that isn't committed to the repo is unrecoverable when a ses
 4. **Commit after any significant work block** — don't let a session end with uncommitted
    decisions or half-documented states.
 
-### What belongs in CLAUDE.md for this project
-
-- Current state of the site (which pages exist, what's live)
-- Pending work items with enough detail to resume without asking the user to re-explain
-- Any content decisions (tone, framing, attribution) that were discussed and settled
-- Technical conventions that must not be broken (paths, CSS architecture, fetch behavior)
-- Context about Jovian that informs writing tone and content choices
-
 ---
 
 ## What this project is
 
-A portfolio website for **Jovian Finch Nordgren**, Technical Artist (Bungie, Epic Games,
-Left Turn Studios, DigiPen). Replacing an outdated Weebly site.
+A portfolio website for **Jovian Finch Nordgren**, Senior Technical Artist (Bungie, Epic
+Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
 
-- **Live site:** JovianFinch.com (GitHub Pages)
+- **Live site:** JovianFinch.com (GitHub Pages, deployed via Actions)
 - **Repo:** Ludosis/portfolio
 - **Working branch:** `claude/new-portfolio-website-cqdm9`
-- **Tech stack:** Plain HTML, CSS, JavaScript — no framework, no build step, no dependencies
-- **Content source:** `jovian-nordgren-resume.md` at repo root (fetched at runtime by resume page)
+- **Architecture (July 2026 redesign, "Drafting Table" design):** Eleventy + custom
+  pipeline. Content is markdown + YAML data; pages, skills index, llms.txt, JSON-LD,
+  and sitemap are all generated at build. No client-side framework in the output.
+
+## Architecture map
+
+| Piece | Where | Notes |
+|-------|-------|-------|
+| Project content | `content/projects/*.md` | One file per project. Front matter drives everything (see below). |
+| Static pages | `content/pages/*.njk`, `content/index.njk`, `content/skills.njk` | Skills page is 100% generated — never edit skill examples by hand. |
+| Global data | `content/_data/site.yaml` (identity, nav, contact parts), `content/_data/skillsTaxonomy.yaml` (skill ids/names/summaries) | |
+| Templates | `_includes/base.njk`, `_includes/project.njk`, `_includes/partials/` | |
+| Pipeline code | `pipeline/` — skills-inversion, figures (auto-numbered plates), llms-txt, json-ld, contact | The custom showpiece; described on /how-i-work/. |
+| Design system | `assets/css/style.css` — Drafting Table tokens (bone/ink/prussian/red-pencil), Fraunces + IBM Plex self-hosted in `assets/fonts/` | |
+| JS | `assets/js/` — main (nav), hero-wave (WebGL vertex-shader hero, 2D fallback), reveal (contact) | |
+| Print resume | `resume/Resume.html` — processed as a template (front matter permalink); phone injected at build; auto-prints with `?print` | |
+| Resume source | `jovian-nordgren-resume.md` at repo root — build-rendered into /resume/, also passthrough-copied | |
+| Deploy | `.github/workflows/deploy.yml` — push to main → build (CONTACT_PHONE secret) → Pages | |
+| Build | `npm ci && npx @11ty/eleventy` → `_site/` (gitignored) | Optional `.env` with CONTACT_PHONE locally. |
+
+### Project front-matter contract
+
+- `skills:` entries reference `skillsTaxonomy.yaml` ids — **a typo'd id fails the build**.
+  Each entry: `id`, `highlight`, `anchor`, `detail`. The skills page, project tag list,
+  and llms.txt are all generated from these.
+- `anchor:` values must match `<h2 id="...">` headings in the body (headings are raw
+  HTML in the markdown, e.g. `<h2 id="wing-shader" class="project-section">`).
+- `order:` drives portfolio index order and prev/next pagination.
+- Figures in body: `{% fig "src", "caption", "meta", true %}` (true = draft label) —
+  auto-numbered FIG. 01+ per page; the hero from front matter is always FIG. 00.
+  `{% figblock %}...{% endfigblock %}` for pending/embed plates.
+
+### Contact protection (implemented, do not regress)
+
+- **Phone is NEVER in the repo in any form.** It lives in the `CONTACT_PHONE` Actions
+  secret, is XOR+base64-encoded at build, and revealed client-side on click (site
+  resume page + print resume). No secret → builds fine, phone row simply absent.
+- **Plain email is never in repo or output.** Assembled client-side from
+  `data-eu`/`data-ed` parts. Tagged routing addresses (generated from site.yaml):
+  `+web` in an HTML comment, `+rec` in JSON-LD, `+ai` in llms.txt + AI-addressed
+  comment. Tag legend lives only in working-memory.
+- `/llms.txt` is generated — part of the deliberate AI-discoverability strategy.
+
+## Pages (all URLs unchanged from the legacy site)
+
+Home `/` · About `/about/` · Resume `/resume/` · Portfolio `/portfolio/` ·
+projects at `/portfolio/{alien-age,snuggles,grapple-star,lego-fortnite,destiny-2,relic,earlier-work}/` ·
+How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.html`
 
 ---
 
 ## Branch workflow
 
-- Develop on `claude/new-portfolio-website-cqdm9`
-- Merge to `main` to deploy (GitHub Pages serves from `main`)
-- Always push to the working branch; user merges to main
+- Develop on `claude/new-portfolio-website-cqdm9`; user merges to main (often squash).
+- **Merge to main = deploy** (Actions builds and publishes).
+- After a squash merge, reset the working branch onto origin/main
+  (`git checkout -B <branch> origin/main`) — GitHub auto-deletes the remote branch
+  on merge, so push recreates it.
 
 ---
 
-## Current state (as of last session)
+## Pending work
 
-Site is live and HTTPS cert is working. All project pages expanded. Skills page complete.
-
-**⚠ REDESIGN BUILT, AWAITING CUTOVER (July 2026)** — the Eleventy + custom pipeline
-rebuild ("Drafting Table" design) is complete in-repo alongside the legacy site:
-- Source: `content/` (projects as markdown + front matter), `_includes/` (templates),
-  `pipeline/` (skills inversion, fig numbering, llms.txt, JSON-LD, contact injection),
-  `assets/` (new CSS/JS/fonts), `eleventy.config.js`
-- Build: `npm ci && npx @11ty/eleventy` → `_site/` (gitignored). Optional env
-  `CONTACT_PHONE` for phone reveal (repo secret in CI; never commit the number).
-- The legacy plain-HTML site (root index.html, about/, portfolio/, skills/, etc.)
-  is STILL what GitHub Pages serves from main. Do content edits in `content/`,
-  not the legacy HTML — legacy is deleted at cutover.
-- Cutover steps + open content questions: `_source/working-memory.md` § "2026 Redesign".
-  Full plan: `_source/redesign-plan.md`.
-
-The following pages exist:
-
-| Page | Path |
-|------|------|
-| Home | `/index.html` |
-| About | `/about/index.html` |
-| Resume | `/resume/index.html` |
-| Portfolio index | `/portfolio/index.html` |
-| Alien Age | `/portfolio/alien-age/index.html` |
-| Snuggles the Unicorn | `/portfolio/snuggles/index.html` |
-| Grapple Star | `/portfolio/grapple-star/index.html` |
-| Lego Fortnite | `/portfolio/lego-fortnite/index.html` |
-| Destiny 2 | `/portfolio/destiny-2/index.html` |
-| Relic | `/portfolio/relic/index.html` |
-| How I Work | `/how-i-work/index.html` |
-| Skills | `/skills/index.html` |
-
-### Recent content additions (from Miro review)
-- **Alien Age**: Added Indie Wizards → Left Turn Studios studio history; game jam origin;
-  Tree Sizer/Rotator/Tinter script detail
-- **Snuggles**: Added URP rendering system refactor section; expanded mech kitbash detail;
-  added Character Status FX Shader section; added in-game cinematic section with Vimeo link
-- **Grapple Star**: Added Level Select UI section (Rowan Sherwin concept art credit);
-  dynamic reticle detail; UI Scripting skill tag
-- **Lego Fortnite**: Added EUW animation range validator; playblast TSR investigation;
-  ReplayRun scalability comparison tool
-
----
-
-## Pending work (discussed but not yet built)
-
-### 1. Earlier Work page — `/portfolio/earlier-work/index.html`
-Two items:
-- **Jerry's Rig** (2013–2014, DigiPen junior year) — solo animation project, full production
-  scope: story/storyboard, character concept/model/texture/rig/animation, environment
-  concept/model/texture/lighting. Tools: Maya, Photoshop, abAutoRig, 3D-Coat, Mental Ray.
-  Has Sketchfab embeds and a YouTube video.
-  Reference: https://jnordgren.weebly.com/jerrys-rig---animation-render.html
-- **221B Baker Street interior** — single prop modeling/texturing sample image
-
-### 2. Miro screenshots location
-Images are now at `_source/Miro/ima1–12.png`. The corrected text is at
-`_source/Miro/miro-content.md` — this is the source of truth, user has reviewed it.
-
----
-
-## Key technical conventions — read before editing anything
-
-- **All paths are root-relative** (`/css/style.css`, `/js/main.js`) — never use relative
-  paths like `../../css/` as they break from nested directories
-- **Resume is fetched at runtime** — `main.js` does `fetch('/jovian-nordgren-resume.md')`.
-  The file must stay at the repo root.
-- **Draft images** use class `.draft-image` / `.draft-label` — these are real Weebly-hosted
-  work samples (temporary), not placeholders
-- **Anchor sections** on project pages use `class="project-section"` on `<h2 id="...">`.
-  CSS sets `scroll-margin-top: 80px` for sticky nav clearance.
-- **Active nav link** is set statically per page with `class="active"`
-- **Mobile nav** is hidden by default (CSS), toggled via `.nav-open` on `<body>` (JS)
-- **No comments needed** in HTML/CSS/JS unless the reason is non-obvious
-
-## CSS architecture (`/css/style.css`, ~1220 lines)
-
-Organized in sections: Custom properties → Reset → Layout → Typography → Nav → Footer →
-Home → About → Portfolio index → Project pages → Resume → How I Work → Skills → Responsive
-
-Key tokens:
-- `--color-bg: #F5F0E8` (warm cream)
-- `--color-accent: #B85C38` (terracotta — links, active nav, tags)
-- `--color-text-primary: #2C2420`
-- Fonts: Lora (headings, serif) + Source Sans 3 (body, humanist sans)
-
-## Page template
-
-Every page shares the same `<header>`, `<nav>`, and `<footer>`. Footer always includes:
-```html
-<p class="footer-note">Built with <a href="/how-i-work/">Claude Code</a> &mdash; <a href="/how-i-work/">how I work</a></p>
-```
-
----
-
-## Content that does NOT yet exist / pending integration
-
-- `/resume/Resume.html` exists but is NOT yet linked from the site — needs integration.
-  It's a Claude Design print-quality HTML resume (two 8.5×11 pages, self-contained CSS,
-  same color palette/fonts as site). Intended to be printed to PDF from browser.
-  Phone number is at line 425 as `[hidden on web]` — intentional. To make a PDF with
-  phone: edit line 425 locally, print to PDF, don't commit phone to repo.
-  Plan: uncomment the PDF button in `/resume/index.html` and point to `/resume/Resume.html`.
-  **Sync**: Resume.html is NOT auto-generated — manually maintained. When the MD changes,
-  update Resume.html too. Structure: `.masthead` (name/contact), `.profile` (summary),
-  `.section > .job` per role.
-- Lego Fortnite images — text-only draft areas pending NDA/asset clearance
-- Final versions of all draft images (currently Weebly-hosted)
+1. **User to supply:** Jerry's Rig final animation video URL; 221B Baker Street image;
+   verify Earlier Work figure captions (they're educated guesses from filenames);
+   final replacements for Weebly-hosted draft images; Lego Fortnite captures
+   (pending Epic clearance).
+2. **Resume unification (plan Phase 6):** single structured source → web resume +
+   print resume, replacing the manually-synced Resume.html. Until then Resume.html
+   is manually maintained — when `jovian-nordgren-resume.md` changes, update it too.
+3. **Blend design variant** (blueprint media wells) — archived in
+   `_source/design-archive/`; can return as per-media front-matter flag if wanted.
+4. Full plan: `_source/redesign-plan.md`. In-progress detail: `_source/working-memory.md`.
 
 ---
 
@@ -169,21 +111,25 @@ Every page shares the same `<header>`, `<nav>`, and `<footer>`. Footer always in
 
 | File | Purpose |
 |------|---------|
-| `_source/Miro/miro-content.md` | Miro board content — reviewed and corrected by user, use as source of truth |
+| `_source/Miro/miro-content.md` | Miro board content — user-corrected source of truth. Do NOT re-extract from the images. |
 | `_source/Miro/ima1–12.png` | Original Miro board screenshots |
-| `_source/portfolio_brief.md` | Original project brief (requirements doc) |
+| `_source/portfolio_brief.md` | Original project brief |
+| `_source/redesign-plan.md` | 2026 redesign migration plan |
+| `_source/design-archive/` | Design studies (three directions + blend mockup) |
 | `_source/working-memory.md` | In-progress session scratchpad |
-| `jovian-nordgren-resume.md` | Resume — single source of truth, fetched by resume page |
-| `resume/Resume.html` | Print-quality HTML resume (Claude Design artifact). NOT auto-generated — manually synced with MD when content changes. |
 
 ---
 
 ## About Jovian (useful context for writing)
 
-- Technical Artist and 3D generalist — QA engineering background is central to approach
-- Worked at: Bungie (2015–2019, QA → Test Engineer + 3D side project), Epic Games (2023–2026,
-  Senior QA Engineer / Tech Art Specialist on Lego Fortnite), Left Turn Studios (2021–2023,
-  Lead TA on Alien Age / Snuggles / Grapple Star), DigiPen capstone (Relic, 2014–2015)
-- AI tooling fluency is a feature, not hidden — the portfolio explicitly discusses working
-  with Claude Code (see /how-i-work/)
-- Writing tone across the site: direct, precise, no marketing language, craft-focused
+- Senior Technical Artist and 3D generalist — QA engineering background is central
+- Bungie (2015–2019, QA → Test Engineer + 3D ambient-life side project), Epic Games
+  (2023–2026, Senior QA Engineer (Tech Art) on Lego Fortnite), Indie Wizards →
+  Left Turn Studios (2021–2023: Alien Age shipped 2021 under Indie Wizards, which
+  incorporated as Left Turn Studios in 2022; then Snuggles, Grapple Star),
+  DigiPen capstone (Relic, 2014–2015)
+- AI tooling fluency is a feature, not hidden — /how-i-work/ describes the site's
+  own pipeline as evidence
+- Writing tone: direct, precise, no marketing language, craft-focused
+- Epic title is "Senior QA Engineer (Tech Art)" — never "Tech Art Specialist"
+  (Specialist reads as a QA level at Epic)
