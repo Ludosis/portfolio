@@ -6,17 +6,9 @@ const { buildLlmsTxt } = require("./pipeline/llms-txt");
 const contact = require("./pipeline/contact");
 
 module.exports = function (eleventyConfig) {
-  // Legacy plain-HTML site + source material — content, not templates.
-  // Removed at cutover (Phase 5); until then Eleventy must not process them.
+  // Source material and repo docs — content, not templates.
+  // (resume/Resume.html IS processed — it's the print resume template.)
   [
-    "index.html",
-    "about/**",
-    "portfolio/**",
-    "resume/**",
-    "skills/**",
-    "how-i-work/**",
-    "css/**",
-    "js/**",
     "_source/**",
     "README.md",
     "CLAUDE.md",
@@ -29,8 +21,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("CNAME");
   // Resume MD stays fetchable at the site root for external consumers.
   eleventyConfig.addPassthroughCopy("jovian-nordgren-resume.md");
-  // Print resume (manually maintained until resume unification phase).
-  eleventyConfig.addPassthroughCopy("resume/Resume.html");
 
   // Resume page renders the MD at build time — no client-side fetch.
   eleventyConfig.addGlobalData("resumeHtml", () => {

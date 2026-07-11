@@ -62,7 +62,30 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
 - Blend: https://claude.ai/code/artifact/8f667653-a7ab-4fc5-9eee-c3ffba222123
 - Archived in repo: `_source/design-archive/` (self-contained HTML, open in browser)
 
-### BUILD STATUS (July 2026, Fable session): Phases 1–3 substantially COMPLETE
+### CUTOVER COMPLETE (July 2026). Phases 1–5 DONE, site is live on the new build.
+
+- User added CONTACT_PHONE secret, merged (squash, PR #9), flipped Pages to Actions.
+  Deploy run #1 succeeded — jovianfinch.com serves the Eleventy build.
+- Legacy plain-HTML site DELETED from repo (root index.html, about/, portfolio/,
+  skills/, how-i-work/, css/, js/, resume/index.html). resume/Resume.html kept.
+- Alien Age corrected per user: released 2021 under Indie Wizards (incorporated as
+  Left Turn Studios 2022). studio field: "Indie Wizards → Left Turn Studios".
+- Resume.html: converted to build-processed template — Claude Design tweaks-panel
+  artifact removed (static order was already reverse-chron, safe), phone injected
+  from secret with click-to-reveal, ?print auto-opens print dialog (site button
+  passes it), print bleed FIXED (was 4 pages: last-child selector broken by
+  trailing script + 11in height rounding; now 10.95in + last-of-type).
+  VERIFIED via Playwright PDF: exactly 2 pages, revealed phone prints.
+- WebGL hero SHIPPED: real vertex-shader displacement (sine + envelope, phase
+  uniform), dashed reference wave, red sample dot, honest HUD stats
+  ("verts 556 · draws 5 · webgl"); 2D canvas fallback; reduced-motion static frame.
+- Full-site internal link check: 0 broken links.
+
+### Phase 6 remains (later): resume unification
+Single structured source → web + print resume, replacing manually-synced
+Resume.html. Until then: MD changes require manual Resume.html sync.
+
+### ORIGINAL BUILD NOTES (Phases 1–3, kept for reference)
 
 Built and verified (`npx @11ty/eleventy` → `_site/`, 16 outputs):
 - Eleventy + pipeline/ modules: skills-inversion (typo'd id fails build),

@@ -3,9 +3,9 @@ title: Alien Age
 description: >-
   Alien Age — technical art work by Jovian Finch Nordgren. Custom shaders,
   VFX, lighting, and asset optimization on a shipped Unity title.
-studio: Left Turn Studios
+studio: Indie Wizards → Left Turn Studios
 role: Technical Artist (sole TA)
-dates: 2021–2022 · Released on Steam
+dates: 2021 · Released on Steam
 engine: Unity
 order: 1
 card:
@@ -76,12 +76,12 @@ skills:
       tool (collaborated with engineer); Tree Sizer/Rotator/Tinter script
 ---
 
-Alien Age is a 2D action game released on Steam through Left Turn Studios.
-The project originated as a one-month game jam before expanding into a full release.
-I joined as the sole Technical Artist before the studio formally incorporated —
-starting as a revenue-share contributor under the name Indie Wizards, continuing
-through Left Turn Studios' incorporation in early 2022, and shipping the title the
-same year. The work covered everything visual and technical: all shaders, all VFX,
+Alien Age is a 2D action game released on Steam in 2021. The project originated
+as a one-month game jam before expanding into a full release. I joined as the sole
+Technical Artist on a revenue-share basis with Indie Wizards — the developer group
+that shipped the title, and that would incorporate as Left Turn Studios in 2022,
+where I continued as lead Technical Artist on Snuggles the Unicorn and Grapple
+Star. The work covered everything visual and technical: all shaders, all VFX,
 all lighting, all materials, and the full asset pipeline from raw geometry to in-engine.
 
 <h2 id="shaders" class="project-section">Shaders</h2>
