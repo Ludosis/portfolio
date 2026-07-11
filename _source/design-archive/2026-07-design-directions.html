@@ -1,0 +1,925 @@
+<title>Design Directions — JovianFinch.com</title>
+<style>
+  /* ============ gallery chrome (theme-aware) ============ */
+  :root {
+    --g-bg: #EAE7E0;
+    --g-ink: #2A2722;
+    --g-muted: #6E675C;
+    --g-line: #CFC9BD;
+    --g-panel: #F4F2ED;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --g-bg: #16140F;
+      --g-ink: #E8E2D4;
+      --g-muted: #9B9384;
+      --g-line: #322E26;
+      --g-panel: #1E1B15;
+    }
+  }
+  :root[data-theme="dark"] {
+    --g-bg: #16140F; --g-ink: #E8E2D4; --g-muted: #9B9384;
+    --g-line: #322E26; --g-panel: #1E1B15;
+  }
+  :root[data-theme="light"] {
+    --g-bg: #EAE7E0; --g-ink: #2A2722; --g-muted: #6E675C;
+    --g-line: #CFC9BD; --g-panel: #F4F2ED;
+  }
+
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    background: var(--g-bg);
+    color: var(--g-ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.5;
+  }
+  .g-wrap { max-width: 1060px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2.5rem); }
+
+  .g-head { padding: 3rem 0 2rem; border-bottom: 1px solid var(--g-line); }
+  .g-eyebrow {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--g-muted); margin-bottom: 0.75rem;
+  }
+  .g-head h1 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 650; letter-spacing: -0.015em; text-wrap: balance; }
+  .g-head p { color: var(--g-muted); max-width: 62ch; margin-top: 0.6rem; font-size: 0.95rem; }
+  .g-jump { display: flex; gap: 1.5rem; margin-top: 1.4rem; flex-wrap: wrap; }
+  .g-jump a {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.78rem; letter-spacing: 0.08em; color: var(--g-ink);
+    text-decoration: none; border-bottom: 1px solid var(--g-line); padding-bottom: 2px;
+  }
+  .g-jump a:hover, .g-jump a:focus-visible { border-color: var(--g-ink); outline: none; }
+
+  .g-plate { padding: 3.5rem 0 1rem; }
+  .g-plate-label {
+    display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;
+    margin-bottom: 1.1rem;
+  }
+  .g-plate-label .num {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.72rem; letter-spacing: 0.16em; color: var(--g-muted);
+  }
+  .g-plate-label h2 { font-size: 1.25rem; font-weight: 650; letter-spacing: -0.01em; }
+  .g-plate-label .thesis { color: var(--g-muted); font-size: 0.9rem; }
+
+  .g-board {
+    border: 1px solid var(--g-line);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 18px 50px -28px rgba(0,0,0,0.45);
+  }
+
+  .g-notes {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem; padding: 1.4rem 0 0.5rem;
+  }
+  .g-note h3 {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--g-muted); font-weight: 600; margin-bottom: 0.6rem;
+  }
+  .g-note p { font-size: 0.85rem; color: var(--g-ink); }
+  .g-note p + p { margin-top: 0.4rem; }
+  .chips { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .chip { display: flex; flex-direction: column; gap: 0.3rem; align-items: center; }
+  .chip i {
+    display: block; width: 44px; height: 30px; border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.15);
+  }
+  .chip span {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.62rem; color: var(--g-muted);
+  }
+
+  .g-close { padding: 2.5rem 0 4rem; border-top: 1px solid var(--g-line); margin-top: 3rem; }
+  .g-close p { max-width: 68ch; color: var(--g-muted); font-size: 0.92rem; }
+  .g-close p strong { color: var(--g-ink); font-weight: 600; }
+  .g-close p + p { margin-top: 0.7rem; }
+
+  /* ================================================================
+     PLATE 01 — DRAFTING TABLE
+     bone paper · ink · prussian blue · red-pencil annotations
+     ================================================================ */
+  .p1 {
+    background: #F2EDE0;
+    color: #211E18;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  }
+  .p1 .mono { font-family: ui-monospace, "SF Mono", Consolas, monospace; }
+
+  .p1-nav {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 1.1rem clamp(1.2rem, 4vw, 2.6rem);
+    border-bottom: 1px solid #211E18;
+  }
+  .p1-logo { font-size: 1.02rem; font-weight: 600; letter-spacing: 0.01em; color: #211E18; text-decoration: none; }
+  .p1-links { display: flex; gap: 1.6rem; }
+  .p1-links a {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #211E18; text-decoration: none; padding-bottom: 2px;
+  }
+  .p1-links a.on { color: #29506D; border-bottom: 1px solid #29506D; }
+
+  .p1-hero {
+    position: relative;
+    padding: clamp(2.2rem, 5vw, 3.6rem) clamp(1.2rem, 4vw, 2.6rem) 2.2rem;
+    background-image:
+      linear-gradient(rgba(41, 80, 109, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(41, 80, 109, 0.055) 1px, transparent 1px);
+    background-size: 28px 28px;
+    border-bottom: 1px solid #CDC4B0;
+  }
+  .p1-kicker {
+    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #A6402A; margin-bottom: 1.1rem;
+  }
+  .p1-hero h1 {
+    font-size: clamp(2.1rem, 5.4vw, 3.4rem);
+    font-weight: 500; line-height: 1.06; letter-spacing: -0.015em;
+    max-width: 14ch; text-wrap: balance;
+  }
+  .p1-role {
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-top: 1rem; color: #29506D;
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .p1-role::before { content: ""; width: 2.2rem; height: 1px; background: #29506D; }
+  .p1-hero p.lede {
+    margin-top: 1.2rem; max-width: 46ch; font-size: 1.02rem; line-height: 1.6; color: #4A443A;
+  }
+  .p1-ctas { display: flex; gap: 0.9rem; margin-top: 1.6rem; }
+  .p1-ctas a {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; padding: 0.62rem 1.1rem; border-radius: 2px;
+  }
+  .p1-ctas a.pri { background: #211E18; color: #F2EDE0; }
+  .p1-ctas a.sec { border: 1px solid #211E18; color: #211E18; }
+
+  .p1-demo {
+    position: relative;
+    margin: 2.2rem 0 0;
+    border: 1px solid #211E18;
+    background: #F6F2E7;
+  }
+  .p1-demo canvas { display: block; width: 100%; height: 150px; }
+  .p1-demo figcaption {
+    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    padding: 0.5rem 0.8rem;
+    border-top: 1px solid #CDC4B0;
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.66rem; letter-spacing: 0.08em; color: #6B6353;
+  }
+  .p1-demo figcaption b { color: #A6402A; font-weight: 600; }
+
+  .p1-work { padding: 2.4rem clamp(1.2rem, 4vw, 2.6rem) 2.6rem; }
+  .p1-sechead { margin-bottom: 1.8rem; }
+  .p1-sechead .mono {
+    font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: #6B6353;
+  }
+  .p1-sechead h2 { font-size: 1.7rem; font-weight: 500; margin-top: 0.3rem; }
+  .p1-ruler {
+    margin-top: 0.8rem; height: 9px; max-width: 240px;
+    background-image: repeating-linear-gradient(90deg, #211E18 0 1px, transparent 1px 12px);
+    border-bottom: 1px solid #211E18;
+  }
+  .p1-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.6rem; }
+  .p1-card {
+    position: relative; background: #F6F2E7;
+    border: 1px solid #211E18; padding: 0;
+  }
+  .p1-card::before, .p1-card::after {
+    content: ""; position: absolute; width: 12px; height: 12px; pointer-events: none;
+  }
+  .p1-card::before { top: -5px; left: -5px; border-top: 1.5px solid #A6402A; border-left: 1.5px solid #A6402A; }
+  .p1-card::after { bottom: -5px; right: -5px; border-bottom: 1.5px solid #A6402A; border-right: 1.5px solid #A6402A; }
+  .p1-shot {
+    height: 150px; display: flex; align-items: center; justify-content: center;
+    border-bottom: 1px solid #211E18;
+    background:
+      linear-gradient(140deg, rgba(41,80,109,0.14), rgba(41,80,109,0.02) 55%),
+      repeating-linear-gradient(90deg, transparent 0 27px, rgba(41,80,109,0.08) 27px 28px),
+      #EDE7D6;
+  }
+  .p1-shot span {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.66rem; letter-spacing: 0.1em; color: #29506D;
+    border: 1px dashed #29506D; padding: 0.35rem 0.7rem; background: rgba(246,242,231,0.85);
+  }
+  .p1-card-body { padding: 1.1rem 1.2rem 1.25rem; }
+  .p1-fig {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.64rem; letter-spacing: 0.1em; color: #A6402A; text-transform: uppercase;
+  }
+  .p1-card h3 { font-size: 1.18rem; font-weight: 600; margin-top: 0.4rem; }
+  .p1-card .studio { font-style: italic; color: #6B6353; font-size: 0.85rem; margin-top: 0.1rem; }
+  .p1-card p.desc { font-size: 0.9rem; line-height: 1.55; color: #4A443A; margin-top: 0.55rem;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .p1-tags { display: flex; gap: 0.45rem; margin-top: 0.85rem; flex-wrap: wrap; }
+  .p1-tags li {
+    list-style: none;
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.62rem; letter-spacing: 0.08em;
+    border: 1px solid #29506D; color: #29506D;
+    padding: 0.18rem 0.5rem; border-radius: 2px;
+  }
+  .p1-foot {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem;
+    padding: 1rem clamp(1.2rem, 4vw, 2.6rem);
+    border-top: 1px solid #211E18;
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.66rem; letter-spacing: 0.1em; color: #6B6353;
+  }
+
+  /* ================================================================
+     PLATE 02 — STUDIO DARK
+     warm graphite · amber · lightbox imagery · viewport HUD
+     ================================================================ */
+  .p2 {
+    background: #181511;
+    color: #EDE6D8;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  .p2-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.1rem clamp(1.2rem, 4vw, 2.6rem);
+    border-bottom: 1px solid #2E2820;
+  }
+  .p2-logo { font-weight: 650; letter-spacing: -0.01em; font-size: 1rem; color: #EDE6D8; text-decoration: none; }
+  .p2-links { display: flex; gap: 1.5rem; }
+  .p2-links a { font-size: 0.8rem; color: #9F947F; text-decoration: none; letter-spacing: 0.02em; }
+  .p2-links a.on { color: #E9A23B; }
+
+  .p2-hero {
+    position: relative;
+    padding: clamp(2.4rem, 5vw, 3.8rem) clamp(1.2rem, 4vw, 2.6rem) 2.4rem;
+    border-bottom: 1px solid #2E2820;
+  }
+  .p2-kicker {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #E9A23B; margin-bottom: 1.1rem;
+  }
+  .p2-hero h1 {
+    font-size: clamp(2.2rem, 5.6vw, 3.6rem);
+    font-weight: 700; line-height: 1.02; letter-spacing: -0.03em;
+    max-width: 13ch; text-wrap: balance;
+  }
+  .p2-hero .role { margin-top: 0.9rem; font-size: 1rem; color: #9F947F; letter-spacing: 0.01em; }
+  .p2-hero .role em { font-style: normal; color: #EDE6D8; }
+  .p2-hero p.lede { margin-top: 1rem; max-width: 48ch; font-size: 0.98rem; line-height: 1.65; color: #B7AC96; }
+  .p2-ctas { display: flex; gap: 0.9rem; margin-top: 1.6rem; }
+  .p2-ctas a {
+    font-size: 0.82rem; font-weight: 600; text-decoration: none;
+    padding: 0.65rem 1.2rem; border-radius: 4px; letter-spacing: 0.01em;
+  }
+  .p2-ctas a.pri { background: #E9A23B; color: #181511; }
+  .p2-ctas a.sec { border: 1px solid #4A4234; color: #EDE6D8; }
+
+  .p2-demo {
+    margin-top: 2.2rem; position: relative;
+    border: 1px solid #2E2820; border-radius: 6px; overflow: hidden;
+    background: #12100C;
+    box-shadow: 0 0 60px -18px rgba(233, 162, 59, 0.28);
+  }
+  .p2-demo canvas { display: block; width: 100%; height: 160px; }
+  .p2-hud {
+    position: absolute; inset: 0; pointer-events: none;
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.62rem; letter-spacing: 0.1em; color: #6E6250;
+  }
+  .p2-hud span { position: absolute; }
+  .p2-hud .tl { top: 8px; left: 10px; }
+  .p2-hud .tr { top: 8px; right: 10px; color: #E9A23B; }
+  .p2-hud .bl { bottom: 8px; left: 10px; }
+  .p2-hud .br { bottom: 8px; right: 10px; }
+
+  .p2-work { padding: 2.4rem clamp(1.2rem, 4vw, 2.6rem) 2.6rem; }
+  .p2-sechead { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1.6rem; flex-wrap: wrap; gap: 0.5rem; }
+  .p2-sechead h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
+  .p2-sechead .mono {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.66rem; letter-spacing: 0.14em; color: #6E6250; text-transform: uppercase;
+  }
+  .p2-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.4rem; }
+  .p2-card {
+    background: #201C15; border: 1px solid #2E2820; border-radius: 8px; overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .p2-card:hover { border-color: #6E5B36; }
+  .p2-shot {
+    height: 160px; display: flex; align-items: center; justify-content: center;
+    background:
+      radial-gradient(ellipse 70% 90% at 50% 110%, rgba(233,162,59,0.22), transparent 60%),
+      linear-gradient(160deg, #262119 0%, #14110D 70%);
+    border-bottom: 1px solid #2E2820;
+  }
+  .p2-shot span {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.66rem; letter-spacing: 0.1em; color: #B7AC96;
+    border: 1px solid #4A4234; padding: 0.35rem 0.7rem; border-radius: 3px;
+    background: rgba(24,21,17,0.7);
+  }
+  .p2-card-body { padding: 1.1rem 1.2rem 1.3rem; }
+  .p2-card .fig {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.62rem; letter-spacing: 0.12em; color: #E9A23B; text-transform: uppercase;
+  }
+  .p2-card h3 { font-size: 1.1rem; font-weight: 650; margin-top: 0.4rem; letter-spacing: -0.01em; }
+  .p2-card .studio { color: #6E6250; font-size: 0.82rem; margin-top: 0.15rem; }
+  .p2-card p.desc { font-size: 0.88rem; line-height: 1.6; color: #B7AC96; margin-top: 0.55rem; }
+  .p2-tags { display: flex; gap: 0.45rem; margin-top: 0.9rem; flex-wrap: wrap; }
+  .p2-tags li {
+    list-style: none;
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.62rem; letter-spacing: 0.06em;
+    background: #2A2419; color: #D8B276;
+    padding: 0.2rem 0.55rem; border-radius: 3px;
+  }
+  .p2-foot {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem;
+    padding: 1rem clamp(1.2rem, 4vw, 2.6rem);
+    border-top: 1px solid #2E2820;
+    font-size: 0.75rem; color: #6E6250;
+  }
+
+  /* ================================================================
+     PLATE 03 — FIELD NOTES
+     grain paper · indigo + persimmon duotone · riso misregistration
+     ================================================================ */
+  .p3 {
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.18 0 0 0 0 0.12 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E"),
+      #F6EFE2;
+    color: #26251F;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+  .p3 .sans { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+
+  .p3-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.1rem clamp(1.2rem, 4vw, 2.6rem);
+    border-bottom: 2px solid #33418F;
+  }
+  .p3-logo { font-style: italic; font-size: 1.05rem; color: #33418F; text-decoration: none; font-weight: 600; }
+  .p3-links { display: flex; gap: 1.4rem; }
+  .p3-links a {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.78rem; font-weight: 600; color: #26251F; text-decoration: none;
+  }
+  .p3-links a.on { color: #E85A3B; }
+
+  .p3-hero {
+    position: relative; overflow: hidden;
+    padding: clamp(2.4rem, 5vw, 3.8rem) clamp(1.2rem, 4vw, 2.6rem) 2.4rem;
+    border-bottom: 2px solid #33418F;
+  }
+  .p3-blob {
+    position: absolute; border-radius: 50%; mix-blend-mode: multiply; pointer-events: none;
+  }
+  .p3-blob.b1 { width: 300px; height: 300px; background: rgba(51, 65, 143, 0.16); top: -110px; right: -60px; }
+  .p3-blob.b2 { width: 220px; height: 220px; background: rgba(232, 90, 59, 0.18); top: -50px; right: 120px; }
+  .p3-kicker {
+    display: inline-block; transform: rotate(-1.2deg);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    background: #33418F; color: #F6EFE2; padding: 0.3rem 0.65rem;
+    margin-bottom: 1.2rem;
+  }
+  .p3-hero h1 {
+    font-size: clamp(2.2rem, 5.6vw, 3.6rem);
+    font-weight: 500; font-style: italic; line-height: 1.05; letter-spacing: -0.01em;
+    color: #33418F; max-width: 14ch; text-wrap: balance;
+    text-shadow: 2.5px 2px 0 rgba(232, 90, 59, 0.55);
+  }
+  .p3-role {
+    margin-top: 1rem;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #E85A3B;
+  }
+  .p3-hero p.lede {
+    margin-top: 1.1rem; max-width: 46ch; font-size: 1.05rem; line-height: 1.62; color: #4C4638;
+  }
+  .p3-ctas { display: flex; gap: 0.9rem; margin-top: 1.6rem; }
+  .p3-ctas a {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.82rem; font-weight: 700; text-decoration: none;
+    padding: 0.65rem 1.2rem; border-radius: 999px;
+  }
+  .p3-ctas a.pri { background: #E85A3B; color: #F6EFE2; }
+  .p3-ctas a.sec { border: 2px solid #33418F; color: #33418F; }
+
+  .p3-demo {
+    margin-top: 2.2rem; border: 2px solid #33418F; background: #FBF6EA; position: relative;
+  }
+  .p3-demo canvas { display: block; width: 100%; height: 150px; }
+  .p3-demo figcaption {
+    padding: 0.5rem 0.8rem; border-top: 2px solid #33418F;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; color: #33418F;
+  }
+  .p3-demo figcaption b { color: #E85A3B; }
+
+  .p3-work { padding: 2.4rem clamp(1.2rem, 4vw, 2.6rem) 2.6rem; }
+  .p3-sechead { margin-bottom: 1.8rem; }
+  .p3-sechead h2 {
+    display: inline-block;
+    font-size: 1.8rem; font-style: italic; font-weight: 500; color: #33418F;
+    border-bottom: 3px solid #E85A3B; padding-bottom: 0.2rem;
+  }
+  .p3-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.7rem; }
+  .p3-card {
+    background: #FBF6EA;
+    border: 2px solid #26251F;
+    box-shadow: 5px 5px 0 rgba(51, 65, 143, 0.28);
+    transform: rotate(-0.4deg);
+  }
+  .p3-card:nth-child(2) { transform: rotate(0.4deg); box-shadow: 5px 5px 0 rgba(232, 90, 59, 0.32); }
+  .p3-shot {
+    height: 150px; display: flex; align-items: center; justify-content: center;
+    border-bottom: 2px solid #26251F;
+    background:
+      radial-gradient(circle at 30% 40%, rgba(51,65,143,0.2), transparent 55%),
+      radial-gradient(circle at 68% 60%, rgba(232,90,59,0.22), transparent 55%),
+      #F1E9D8;
+  }
+  .p3-shot span {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; color: #26251F;
+    background: #F6EFE2; border: 2px solid #26251F; padding: 0.3rem 0.7rem;
+    transform: rotate(-1deg);
+  }
+  .p3-card-body { padding: 1.1rem 1.2rem 1.3rem; }
+  .p3-card .fig {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #E85A3B;
+  }
+  .p3-card h3 { font-size: 1.25rem; font-style: italic; font-weight: 600; color: #33418F; margin-top: 0.35rem; }
+  .p3-card .studio {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: #7A7261; font-size: 0.8rem; margin-top: 0.15rem; font-weight: 600;
+  }
+  .p3-card p.desc {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.88rem; line-height: 1.6; color: #4C4638; margin-top: 0.55rem;
+  }
+  .p3-tags { display: flex; gap: 0.45rem; margin-top: 0.9rem; flex-wrap: wrap; }
+  .p3-tags li {
+    list-style: none;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.64rem; font-weight: 700; letter-spacing: 0.05em;
+    background: rgba(51,65,143,0.12); color: #33418F;
+    padding: 0.22rem 0.6rem; border-radius: 999px;
+  }
+  .p3-foot {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem;
+    padding: 1rem clamp(1.2rem, 4vw, 2.6rem);
+    border-top: 2px solid #33418F;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.74rem; font-weight: 600; color: #7A7261;
+  }
+
+  ul { padding: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<header class="g-head">
+  <div class="g-wrap">
+    <div class="g-eyebrow">JovianFinch.com — redesign study · 3 directions</div>
+    <h1>Design Directions</h1>
+    <p>The same home page — real content, identical structure — rendered in three visual languages.
+       Each hero includes a live canvas sketch of the shader-hero concept: the wing-flap sine wave,
+       drawn in that direction's voice. Fonts here are system approximations; production faces are
+       noted under each plate.</p>
+    <nav class="g-jump" aria-label="Jump to plate">
+      <a href="#plate1">01 · Drafting Table</a>
+      <a href="#plate2">02 · Studio Dark</a>
+      <a href="#plate3">03 · Field Notes</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ==================== PLATE 01 ==================== -->
+<section class="g-plate" id="plate1">
+  <div class="g-wrap">
+    <div class="g-plate-label">
+      <span class="num">PLATE 01</span>
+      <h2>Drafting Table</h2>
+      <span class="thesis">the portfolio as an annotated technical drawing</span>
+    </div>
+
+    <div class="g-board">
+      <div class="p1">
+        <nav class="p1-nav">
+          <a class="p1-logo" href="#plate1">Jovian Finch Nordgren</a>
+          <div class="p1-links">
+            <a href="#plate1" class="on">Portfolio</a><a href="#plate1">Skills</a><a href="#plate1">About</a><a href="#plate1">Resume</a><a href="#plate1">How I Work</a>
+          </div>
+        </nav>
+
+        <section class="p1-hero">
+          <div class="p1-kicker mono">Portfolio · est. 2014 · rev 3.0</div>
+          <h1>Jovian Finch Nordgren</h1>
+          <div class="p1-role">Senior Technical Artist</div>
+          <p class="lede">Shaders, rigs, and the tooling between art and engineering.
+             Ten years across AAA and indie — Bungie, Epic Games, Left Turn Studios.</p>
+          <div class="p1-ctas">
+            <a class="pri" href="#plate1">View Portfolio</a>
+            <a class="sec" href="#plate1">Read Resume</a>
+          </div>
+
+          <figure class="p1-demo">
+            <canvas id="wave1" aria-label="Animated sine wave sketch, drafting style"></canvas>
+            <figcaption>
+              <span><b>FIG. 00</b> — wing flap, sine displacement · amplitude 24 · phase per-instance</span>
+              <span>vertex shader, GPU-driven · zero bone cost</span>
+            </figcaption>
+          </figure>
+        </section>
+
+        <section class="p1-work">
+          <div class="p1-sechead">
+            <div class="mono">SELECTED WORK — 02 OF 06 PLATES</div>
+            <h2>Selected Work</h2>
+            <div class="p1-ruler" aria-hidden="true"></div>
+          </div>
+          <div class="p1-cards">
+            <article class="p1-card">
+              <div class="p1-shot"><span>capture — wing-demo.gif</span></div>
+              <div class="p1-card-body">
+                <div class="p1-fig">Fig. 01 — Snuggles the Unicorn</div>
+                <h3>Wing Vertex Shader System</h3>
+                <div class="studio">Left Turn Studios · Unity</div>
+                <p class="desc">32 bones per enemy replaced with a GPU sine-wave vertex shader.
+                   Per-instance phase via Material Property Blocks — every wing out of sync,
+                   zero additional draw calls.</p>
+                <ul class="p1-tags"><li>Shader Graph</li><li>HLSL</li><li>Optimization</li></ul>
+              </div>
+            </article>
+            <article class="p1-card">
+              <div class="p1-shot"><span>capture — triage-report.png</span></div>
+              <div class="p1-card-body">
+                <div class="p1-fig">Fig. 02 — Lego Fortnite</div>
+                <h3>Automation Triage Tool</h3>
+                <div class="studio">Epic Games · UE5</div>
+                <p class="desc">Cross-platform test triage built with Claude Code in a day —
+                   API pulls, trend tracking, Jira-linked failures rendered as one scannable report.</p>
+                <ul class="p1-tags"><li>Python</li><li>Claude Code</li><li>QA Systems</li></ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <footer class="p1-foot">
+          <span>© 2026 JFN · SHEET 1 OF 12</span>
+          <span>BUILT WITH CLAUDE CODE — HOW I WORK</span>
+        </footer>
+      </div>
+    </div>
+
+    <div class="g-notes">
+      <div class="g-note">
+        <h3>Palette</h3>
+        <div class="chips">
+          <div class="chip"><i style="background:#F2EDE0"></i><span>bone</span></div>
+          <div class="chip"><i style="background:#211E18"></i><span>ink</span></div>
+          <div class="chip"><i style="background:#29506D"></i><span>prussian</span></div>
+          <div class="chip"><i style="background:#A6402A"></i><span>red pencil</span></div>
+        </div>
+      </div>
+      <div class="g-note">
+        <h3>Type (production)</h3>
+        <p>Fraunces (display serif) · IBM Plex Sans (body) · IBM Plex Mono (annotations, figure captions, nav)</p>
+      </div>
+      <div class="g-note">
+        <h3>Why it fits</h3>
+        <p>Reads as an artist-engineer who documents work like a drafter: figure numbers, measurement
+           ticks, crop marks, red-pencil annotations. Distinctive — nobody else's portfolio looks like this.
+           Light-first, calm, precise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PLATE 02 ==================== -->
+<section class="g-plate" id="plate2">
+  <div class="g-wrap">
+    <div class="g-plate-label">
+      <span class="num">PLATE 02</span>
+      <h2>Studio Dark</h2>
+      <span class="thesis">the portfolio as a render viewport / screening room</span>
+    </div>
+
+    <div class="g-board">
+      <div class="p2">
+        <nav class="p2-nav">
+          <a class="p2-logo" href="#plate2">Jovian Finch Nordgren</a>
+          <div class="p2-links">
+            <a href="#plate2" class="on">Portfolio</a><a href="#plate2">Skills</a><a href="#plate2">About</a><a href="#plate2">Resume</a><a href="#plate2">How I Work</a>
+          </div>
+        </nav>
+
+        <section class="p2-hero">
+          <div class="p2-kicker">Senior Technical Artist</div>
+          <h1>Jovian Finch Nordgren</h1>
+          <p class="role">Bungie · Epic Games · Left Turn Studios — <em>shaders, rigs, and the tooling between art and engineering.</em></p>
+          <p class="lede">Ten years across AAA and indie. The work below ships: vertex shaders that replaced
+             rig cost with GPU math, pipelines that survived production, tools built with AI in a day.</p>
+          <div class="p2-ctas">
+            <a class="pri" href="#plate2">View Portfolio</a>
+            <a class="sec" href="#plate2">Read Resume</a>
+          </div>
+
+          <div class="p2-demo">
+            <canvas id="wave2" aria-label="Animated glowing sine wave, viewport style"></canvas>
+            <div class="p2-hud" aria-hidden="true">
+              <span class="tl">wing_flap.vert</span>
+              <span class="tr">● live</span>
+              <span class="bl">verts 1,204 · draws 1</span>
+              <span class="br">phase: per-instance</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="p2-work">
+          <div class="p2-sechead">
+            <h2>Selected Work</h2>
+            <span class="mono">02 / 06 projects</span>
+          </div>
+          <div class="p2-cards">
+            <article class="p2-card">
+              <div class="p2-shot"><span>capture — wing-demo.gif</span></div>
+              <div class="p2-card-body">
+                <div class="fig">Snuggles the Unicorn</div>
+                <h3>Wing Vertex Shader System</h3>
+                <div class="studio">Left Turn Studios · Unity</div>
+                <p class="desc">32 bones per enemy replaced with a GPU sine-wave vertex shader.
+                   Per-instance phase via Material Property Blocks — every wing out of sync,
+                   zero additional draw calls.</p>
+                <ul class="p2-tags"><li>Shader Graph</li><li>HLSL</li><li>Optimization</li></ul>
+              </div>
+            </article>
+            <article class="p2-card">
+              <div class="p2-shot"><span>capture — triage-report.png</span></div>
+              <div class="p2-card-body">
+                <div class="fig">Lego Fortnite</div>
+                <h3>Automation Triage Tool</h3>
+                <div class="studio">Epic Games · UE5</div>
+                <p class="desc">Cross-platform test triage built with Claude Code in a day —
+                   API pulls, trend tracking, Jira-linked failures rendered as one scannable report.</p>
+                <ul class="p2-tags"><li>Python</li><li>Claude Code</li><li>QA Systems</li></ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <footer class="p2-foot">
+          <span>© 2026 Jovian Finch Nordgren</span>
+          <span>Built with Claude Code — how I work</span>
+        </footer>
+      </div>
+    </div>
+
+    <div class="g-notes">
+      <div class="g-note">
+        <h3>Palette</h3>
+        <div class="chips">
+          <div class="chip"><i style="background:#181511"></i><span>graphite</span></div>
+          <div class="chip"><i style="background:#EDE6D8"></i><span>warm white</span></div>
+          <div class="chip"><i style="background:#E9A23B"></i><span>amber</span></div>
+          <div class="chip"><i style="background:#2E2820"></i><span>hairline</span></div>
+        </div>
+      </div>
+      <div class="g-note">
+        <h3>Type (production)</h3>
+        <p>Archivo or General Sans (display, tight tracking) · same face for body at 400 · JetBrains Mono (HUD metadata, tags)</p>
+      </div>
+      <div class="g-note">
+        <h3>Why it fits</h3>
+        <p>Game captures pop like a lightbox — the strongest presentation for actual imagery. Viewport-HUD
+           details (vert counts, live badges) speak fluent tech-artist. Tradeoff: dark portfolios are the
+           most common genre in games.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PLATE 03 ==================== -->
+<section class="g-plate" id="plate3">
+  <div class="g-wrap">
+    <div class="g-plate-label">
+      <span class="num">PLATE 03</span>
+      <h2>Field Notes</h2>
+      <span class="thesis">the portfolio as a printmaker's notebook</span>
+    </div>
+
+    <div class="g-board">
+      <div class="p3">
+        <nav class="p3-nav">
+          <a class="p3-logo" href="#plate3">Jovian Finch Nordgren</a>
+          <div class="p3-links">
+            <a href="#plate3" class="on">Portfolio</a><a href="#plate3">Skills</a><a href="#plate3">About</a><a href="#plate3">Resume</a><a href="#plate3">How I Work</a>
+          </div>
+        </nav>
+
+        <section class="p3-hero">
+          <div class="p3-blob b1" aria-hidden="true"></div>
+          <div class="p3-blob b2" aria-hidden="true"></div>
+          <div class="p3-kicker">Senior Technical Artist</div>
+          <h1>Jovian Finch Nordgren</h1>
+          <div class="p3-role">Bungie · Epic Games · Left Turn Studios</div>
+          <p class="lede">Shaders, rigs, and the tooling between art and engineering.
+             Ten years of making things work — and making them beautiful on the way.</p>
+          <div class="p3-ctas">
+            <a class="pri" href="#plate3">View Portfolio</a>
+            <a class="sec" href="#plate3">Read Resume</a>
+          </div>
+
+          <figure class="p3-demo">
+            <canvas id="wave3" aria-label="Two misregistered sine waves, riso print style"></canvas>
+            <figcaption><b>fig 00</b> — the wing flap wave, two-color pass · registration intentionally loose</figcaption>
+          </figure>
+        </section>
+
+        <section class="p3-work">
+          <div class="p3-sechead">
+            <h2>Selected Work</h2>
+          </div>
+          <div class="p3-cards">
+            <article class="p3-card">
+              <div class="p3-shot"><span>capture — wing-demo.gif</span></div>
+              <div class="p3-card-body">
+                <div class="fig">Snuggles the Unicorn</div>
+                <h3>Wing Vertex Shader System</h3>
+                <div class="studio">Left Turn Studios · Unity</div>
+                <p class="desc">32 bones per enemy replaced with a GPU sine-wave vertex shader.
+                   Per-instance phase via Material Property Blocks — every wing out of sync,
+                   zero additional draw calls.</p>
+                <ul class="p3-tags"><li>Shader Graph</li><li>HLSL</li><li>Optimization</li></ul>
+              </div>
+            </article>
+            <article class="p3-card">
+              <div class="p3-shot"><span>capture — triage-report.png</span></div>
+              <div class="p3-card-body">
+                <div class="fig">Lego Fortnite</div>
+                <h3>Automation Triage Tool</h3>
+                <div class="studio">Epic Games · UE5</div>
+                <p class="desc">Cross-platform test triage built with Claude Code in a day —
+                   API pulls, trend tracking, Jira-linked failures rendered as one scannable report.</p>
+                <ul class="p3-tags"><li>Python</li><li>Claude Code</li><li>QA Systems</li></ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <footer class="p3-foot">
+          <span>© 2026 Jovian Finch Nordgren</span>
+          <span>Built with Claude Code — how I work</span>
+        </footer>
+      </div>
+    </div>
+
+    <div class="g-notes">
+      <div class="g-note">
+        <h3>Palette</h3>
+        <div class="chips">
+          <div class="chip"><i style="background:#F6EFE2"></i><span>grain paper</span></div>
+          <div class="chip"><i style="background:#33418F"></i><span>indigo</span></div>
+          <div class="chip"><i style="background:#E85A3B"></i><span>persimmon</span></div>
+          <div class="chip"><i style="background:#26251F"></i><span>ink</span></div>
+        </div>
+      </div>
+      <div class="g-note">
+        <h3>Type (production)</h3>
+        <p>Instrument Serif (display, italic-forward) · Public Sans (body, UI) · duotone offsets on display type only</p>
+      </div>
+      <div class="g-note">
+        <h3>Why it fits</h3>
+        <p>Most artistic and hand-made — the riso misregistration is a genuine printmaking gesture.
+           Warmest personality of the three. Tradeoff: leans art-school; the technical half of the
+           identity carries less visual weight.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="g-close">
+  <div class="g-wrap">
+    <p><strong>A note on blending:</strong> the strongest hybrid is Drafting Table chrome with Studio Dark's
+       lightbox treatment for project media — light, annotated pages where each game capture sits in a
+       recessed dark frame so imagery pops without committing the whole site to dark.</p>
+    <p>All three keep the current URL structure, root-relative paths, and every word of existing content.
+       The choice here is chrome, not content.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function setup(canvas) {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = canvas.clientWidth, h = canvas.clientHeight;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    var ctx = canvas.getContext("2d");
+    ctx.scale(dpr, dpr);
+    return { ctx: ctx, w: w, h: h };
+  }
+
+  function wavePath(ctx, w, h, amp, freq, phase, step) {
+    ctx.beginPath();
+    for (var x = 0; x <= w; x += step) {
+      var y = h / 2 + Math.sin((x / w) * Math.PI * 2 * freq + phase) * amp * Math.sin(Math.PI * (x / w));
+      if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+  }
+
+  /* Plate 01 — drafting: ink dashed "as designed" + prussian solid "as simulated" */
+  function drawP1(t) {
+    var s = p1; var ctx = s.ctx;
+    ctx.clearRect(0, 0, s.w, s.h);
+    ctx.strokeStyle = "rgba(41,80,109,0.18)";
+    ctx.lineWidth = 1;
+    ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(0, s.h / 2); ctx.lineTo(s.w, s.h / 2); ctx.stroke();
+    for (var x = 0; x <= s.w; x += 28) {
+      ctx.beginPath(); ctx.moveTo(x, s.h / 2 - 3); ctx.lineTo(x, s.h / 2 + 3); ctx.stroke();
+    }
+    ctx.setLineDash([5, 5]);
+    ctx.strokeStyle = "rgba(33,30,24,0.5)";
+    ctx.lineWidth = 1.2;
+    wavePath(ctx, s.w, s.h, 26, 2.5, 0, 4);
+    ctx.setLineDash([]);
+    ctx.strokeStyle = "#29506D";
+    ctx.lineWidth = 1.8;
+    wavePath(ctx, s.w, s.h, 26, 2.5, t, 4);
+    ctx.fillStyle = "#A6402A";
+    var mx = s.w * 0.72;
+    var my = s.h / 2 + Math.sin((mx / s.w) * Math.PI * 2 * 2.5 + t) * 26 * Math.sin(Math.PI * (mx / s.w));
+    ctx.beginPath(); ctx.arc(mx, my, 3, 0, Math.PI * 2); ctx.fill();
+  }
+
+  /* Plate 02 — dark: glowing amber line over dot grid */
+  function drawP2(t) {
+    var s = p2; var ctx = s.ctx;
+    ctx.clearRect(0, 0, s.w, s.h);
+    ctx.fillStyle = "rgba(233,162,59,0.1)";
+    for (var gx = 14; gx < s.w; gx += 26)
+      for (var gy = 14; gy < s.h; gy += 26) {
+        ctx.beginPath(); ctx.arc(gx, gy, 0.8, 0, Math.PI * 2); ctx.fill();
+      }
+    ctx.shadowColor = "rgba(233,162,59,0.8)";
+    ctx.shadowBlur = 14;
+    ctx.strokeStyle = "#E9A23B";
+    ctx.lineWidth = 2;
+    wavePath(ctx, s.w, s.h, 30, 2.5, t, 4);
+    ctx.shadowBlur = 0;
+    ctx.strokeStyle = "rgba(233,162,59,0.25)";
+    ctx.lineWidth = 1;
+    wavePath(ctx, s.w, s.h, 30, 2.5, t - 0.6, 4);
+  }
+
+  /* Plate 03 — riso: indigo + persimmon misregistered, multiply */
+  function drawP3(t) {
+    var s = p3; var ctx = s.ctx;
+    ctx.clearRect(0, 0, s.w, s.h);
+    ctx.globalCompositeOperation = "multiply";
+    ctx.strokeStyle = "#E85A3B";
+    ctx.lineWidth = 3;
+    wavePath(ctx, s.w, s.h, 26, 2.5, t + 0.25, 4);
+    ctx.strokeStyle = "#33418F";
+    ctx.lineWidth = 3;
+    wavePath(ctx, s.w, s.h, 26, 2.5, t, 4);
+    ctx.globalCompositeOperation = "source-over";
+  }
+
+  var c1 = document.getElementById("wave1");
+  var c2 = document.getElementById("wave2");
+  var c3 = document.getElementById("wave3");
+  var p1 = setup(c1), p2 = setup(c2), p3 = setup(c3);
+
+  if (reduced) {
+    drawP1(1.2); drawP2(1.2); drawP3(1.2);
+  } else {
+    var t = 0;
+    (function loop() {
+      t += 0.022;
+      drawP1(t); drawP2(t); drawP3(t);
+      requestAnimationFrame(loop);
+    })();
+  }
+
+  window.addEventListener("resize", function () {
+    p1 = setup(c1); p2 = setup(c2); p3 = setup(c3);
+    if (reduced) { drawP1(1.2); drawP2(1.2); drawP3(1.2); }
+  });
+})();
+</script>

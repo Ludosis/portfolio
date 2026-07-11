@@ -1,7 +1,7 @@
 # Jovian Finch Nordgren
 ### Senior Technical Artist
 
-JovianFinch@gmail.com | JovianFinch.com | linkedin.com/in/JovianFinch
+JovianFinch.com | linkedin.com/in/JovianFinch
 
 ---
 

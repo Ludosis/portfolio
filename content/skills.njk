@@ -1,0 +1,53 @@
+---
+layout: base.njk
+permalink: /skills/
+title: Skills
+description: >-
+  Skills overview for Jovian Finch Nordgren — Senior Technical Artist. Shaders,
+  VFX, rigging, pipeline tools, QA automation, and more with links to project
+  examples.
+---
+{%- set sections = collections.projects | invertSkills(skillsTaxonomy) %}
+
+<header class="skills-hero">
+  <div class="container">
+    <p class="hero-kicker mono">Index of disciplines</p>
+    <h1>Skills</h1>
+    <p class="skills-intro">{{ site.title }} &mdash; Bungie, Epic Games, Left Turn Studios.
+       Each section links to the project pages where the work appears. This page is
+       generated from project metadata &mdash; it can't drift out of sync.</p>
+  </div>
+</header>
+
+<nav class="skills-jumpnav mono" aria-label="Jump to skill area">
+  <div class="container">
+    {%- for s in sections %}
+    <a href="#{{ s.id }}">{{ s.name }}</a>
+    {%- endfor %}
+  </div>
+</nav>
+
+<section class="skills-content">
+  <div class="container">
+    {%- for s in sections %}
+    <div id="{{ s.id }}" class="skill-discipline">
+      <div class="section-head">
+        <p class="section-eyebrow mono">{{ loop.index | pad2 }} / {{ sections.length | pad2 }}</p>
+        <h2>{{ s.name }}</h2>
+        <div class="section-ruler" aria-hidden="true"></div>
+      </div>
+      <p class="skill-discipline__summary">{{ s.summary }}</p>
+      <ul class="skill-examples">
+        {%- for ex in s.examples %}
+        <li class="skill-example">
+          <a href="{{ ex.url }}" class="skill-example__link">
+            <span class="skill-example__project mono">{{ ex.project }} &mdash; {{ ex.highlight }}</span>
+            <span class="skill-example__detail">{{ ex.detail }}</span>
+          </a>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- endfor %}
+  </div>
+</section>

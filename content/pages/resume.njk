@@ -1,0 +1,42 @@
+---
+layout: base.njk
+permalink: /resume/
+title: Resume
+schema: true
+description: >-
+  Resume of Jovian Finch Nordgren — Senior Technical Artist. Bungie, Epic
+  Games, Left Turn Studios, DigiPen.
+---
+<section class="page-section">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow mono">Sheet C — record</p>
+      <h1>Resume</h1>
+      <div class="section-ruler" aria-hidden="true"></div>
+    </div>
+
+    <div class="resume-actions mono">
+      <a class="btn btn--secondary" href="/resume/Resume.html" target="_blank" rel="noopener">Print version</a>
+      <a class="btn btn--secondary" href="/jovian-nordgren-resume.md" download>Markdown source</a>
+    </div>
+
+    <div class="contact-block contact-block--resume">
+      <h3 class="mono">Contact</h3>
+      <p class="contact-item">
+        Email: <span data-eu="{{ site.contact.emailUser }}" data-ed="{{ site.contact.emailDomain }}"><noscript>enable JavaScript, or find me on LinkedIn</noscript></span>
+      </p>
+      {%- if phonePayload %}
+      <p class="contact-item">
+        Phone: <span data-ph="{{ phonePayload }}"><button class="reveal-btn mono" type="button">Show phone</button></span>
+      </p>
+      {%- endif %}
+      <p class="contact-item">
+        LinkedIn: <a href="{{ site.contact.linkedin }}" target="_blank" rel="noopener">linkedin.com/in/JovianFinch</a>
+      </p>
+    </div>
+
+    <div class="resume-body">
+      {{ resumeHtml | safe }}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,132 @@
+---
+layout: base.njk
+permalink: /
+schema: true
+heroWave: true
+description: >-
+  Jovian Finch Nordgren — Senior Technical Artist. Shaders, VFX, rigging,
+  pipeline tooling, and QA systems across Bungie, Epic Games, and Left Turn
+  Studios.
+featured:
+  - fig: Snuggles the Unicorn
+    title: Wing Vertex Shader System
+    studio: Left Turn Studios · Unity
+    url: /portfolio/snuggles/#wing-shader
+    image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/wing-demo_orig.gif
+    blurb: >-
+      32 bones per enemy replaced with a GPU sine-wave vertex shader.
+      Per-instance phase via Material Property Blocks — every wing out of
+      sync, zero additional draw calls.
+    tags: [Shader Graph, HLSL, Optimization]
+  - fig: Snuggles the Unicorn
+    title: Puppet Rig Retargeting
+    studio: Left Turn Studios · Unity
+    url: /portfolio/snuggles/#puppet-rig
+    image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/mech-demo-clip_orig.gif
+    blurb: >-
+      Constraint-based retargeting that survived a mid-production character
+      redesign — and a scripted rebuild utility that survived every model
+      update after it.
+    tags: [Rigging, Animation, Editor Scripting]
+  - fig: Grapple Star
+    title: Depth-of-Field Transparency Fix
+    studio: Left Turn Studios · Unity
+    url: /portfolio/grapple-star/#dof
+    image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/dof-after_orig.png
+    blurb: >-
+      Dual-camera Cinemachine composite: background rendered with full
+      post-processing, foreground VFX rendered sharp on top.
+    tags: [Rendering, Cinemachine, Post-Processing]
+  - fig: Lego Fortnite
+    title: Automation Triage Tool
+    studio: Epic Games · UE5
+    url: /portfolio/lego-fortnite/#triage-tool
+    image: ""
+    blurb: >-
+      Cross-platform test triage built with Claude Code in a day — API pulls,
+      trend tracking, Jira-linked failures rendered as one scannable report.
+    tags: [Python, Claude Code, QA Systems]
+---
+
+<header class="home-hero">
+  <div class="container">
+    <p class="hero-kicker mono">Portfolio · est. 2014 · rev 3.0</p>
+    <h1 class="hero-name">{{ site.name }}</h1>
+    <p class="hero-title mono">{{ site.title }}</p>
+    <p class="hero-lede">{{ site.tagline }} Ten years across AAA and indie &mdash; Bungie, Epic Games, Left Turn Studios.</p>
+    <div class="hero-ctas mono">
+      <a class="btn btn--primary" href="/portfolio/">View Portfolio</a>
+      <a class="btn btn--secondary" href="/resume/">Read Resume</a>
+    </div>
+
+    <figure class="plate plate--demo">
+      <div class="plate-media plate-media--canvas">
+        <canvas id="hero-wave" width="960" height="150" aria-label="Animated sine wave — the wing-flap vertex displacement from the Snuggles wing shader"></canvas>
+        <div class="hud mono" aria-hidden="true">
+          <span class="hud-tl">wing_flap.vert</span>
+          <span class="hud-tr">&#9679; live</span>
+          <span class="hud-bl">verts 1,204 &middot; draws 1</span>
+          <span class="hud-br">phase: per-instance</span>
+        </div>
+      </div>
+      <figcaption class="plate-caption">
+        <span><b>FIG. 00</b> &mdash; wing flap, sine displacement &middot; amplitude 24 &middot; phase per-instance</span>
+        <span>vertex shader, GPU-driven &middot; zero bone cost</span>
+      </figcaption>
+    </figure>
+  </div>
+</header>
+
+<section class="home-featured">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow mono">Selected work — 04 of 12 plates</p>
+      <h2>Selected Work</h2>
+      <div class="section-ruler" aria-hidden="true"></div>
+    </div>
+    <div class="featured-grid">
+      {%- for item in featured %}
+      <article class="card">
+        <a class="card-link" href="{{ item.url }}">
+          <div class="card-shot">
+            {%- if item.image %}
+            <img src="{{ item.image }}" alt="" loading="lazy">
+            {%- else %}
+            <span class="card-shot-pending mono">capture pending clearance</span>
+            {%- endif %}
+          </div>
+          <div class="card-body">
+            <p class="card-fig mono">Fig. {{ loop.index | pad2 }} &mdash; {{ item.fig }}</p>
+            <h3>{{ item.title }}</h3>
+            <p class="card-studio">{{ item.studio }}</p>
+            <p class="card-blurb">{{ item.blurb }}</p>
+            <ul class="skill-tags mono">
+              {%- for t in item.tags %}
+              <li>{{ t }}</li>
+              {%- endfor %}
+            </ul>
+          </div>
+        </a>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="home-about">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow mono">About</p>
+      <h2>The unusual combination</h2>
+      <div class="section-ruler" aria-hidden="true"></div>
+    </div>
+    <p class="home-about-text">
+      Senior Technical Artist and 3D generalist with a decade in AAA and indie game
+      development. Years of QA work on large productions built a habit of asking why
+      a problem exists, not just fixing it &mdash; and building processes so it doesn't
+      recur. Currently using Claude Code and LLM workflows for tooling and pipeline
+      problems &mdash; including <a href="/how-i-work/">this site</a>.
+    </p>
+    <p class="mono"><a class="text-link" href="/about/">More about me &rarr;</a></p>
+  </div>
+</section>
