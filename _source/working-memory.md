@@ -120,9 +120,16 @@ were parsed as real template syntax and broke the build).
 Human-facing content-update guide: fig/figblock usage, embeds, skills
 entries, new projects, never-do list. Point the user here for content edits.
 
-### Phase 6 remains (later): resume unification
-Single structured source → web + print resume, replacing manually-synced
-Resume.html. Until then: MD changes require manual Resume.html sync.
+### Phase 6 COMPLETE: resume unification (July 2026)
+`content/_data/resume.yaml` is the single resume source. Generates all three
+outputs per build: /resume/ (web, structured markup), /resume/Resume.html
+(print — body is now njk loops over the data, CSS/design untouched), and
+/jovian-nordgren-resume.md (markdown text output; the root source file was
+DELETED — the URL is now a build artifact). Content converged on the print
+wording where the two old sources differed (print was newer/user-refined).
+`page: 1|2` per job controls print pagination. Verified: print still exactly
+2 pages in all margin scenarios; generated MD is entity-clean; web page
+renders from data. Manual Resume.html sync is no longer a thing.
 
 ### ORIGINAL BUILD NOTES (Phases 1–3, kept for reference)
 

@@ -46,8 +46,7 @@ Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
 | Pipeline code | `pipeline/` — skills-inversion, figures (auto-numbered plates), llms-txt, json-ld, contact | The custom showpiece; described on /how-i-work/. |
 | Design system | `assets/css/style.css` — Drafting Table tokens (bone/ink/prussian/red-pencil), Fraunces + IBM Plex self-hosted in `assets/fonts/` | |
 | JS | `assets/js/` — main (nav), hero-wave (WebGL vertex-shader hero, 2D fallback), reveal (contact) | |
-| Print resume | `resume/Resume.html` — processed as a template (front matter permalink); phone injected at build; auto-prints with `?print` | |
-| Resume source | `jovian-nordgren-resume.md` at repo root — build-rendered into /resume/, also passthrough-copied | |
+| Resume source | `content/_data/resume.yaml` — SINGLE source generating /resume/ (web), /resume/Resume.html (print, phone injected, auto-prints with `?print`), and /jovian-nordgren-resume.md | Never edit the outputs. `page: 1|2` per job controls print sheet. |
 | Deploy | `.github/workflows/deploy.yml` — push to main → build (CONTACT_PHONE secret) → Pages | |
 | Build | `npm ci && npx @11ty/eleventy` → `_site/` (gitignored) | Optional `.env` with CONTACT_PHONE locally. |
 
@@ -98,10 +97,7 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
    verify Earlier Work figure captions (they're educated guesses from filenames);
    final replacements for Weebly-hosted draft images; Lego Fortnite captures
    (pending Epic clearance).
-2. **Resume unification (plan Phase 6):** single structured source → web resume +
-   print resume, replacing the manually-synced Resume.html. Until then Resume.html
-   is manually maintained — when `jovian-nordgren-resume.md` changes, update it too.
-3. **Blend design variant** (blueprint media wells) — archived in
+2. **Blend design variant** (blueprint media wells) — archived in
    `_source/design-archive/`; can return as per-media front-matter flag if wanted.
 4. Full plan: `_source/redesign-plan.md`. In-progress detail: `_source/working-memory.md`.
 

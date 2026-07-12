@@ -7,11 +7,20 @@ no local tooling needed. (For local preview: `npm ci && npx @11ty/eleventy --ser
 ## Text changes
 
 Edit the markdown in `content/projects/*.md` (project pages) or the templates in
-`content/pages/*.njk` (About, How I Work, Resume page chrome). The resume body
-itself is `jovian-nordgren-resume.md` at the repo root.
+`content/pages/*.njk` (About, How I Work, Resume page chrome).
 
-⚠ Until resume unification: changes to `jovian-nordgren-resume.md` must be
-mirrored by hand in `resume/Resume.html` (the print version).
+## The resume — ONE file
+
+`content/_data/resume.yaml` is the single source. Editing it updates all three
+outputs in the same build: the web resume page (`/resume/`), the print version
+(`/resume/Resume.html`), and the markdown at `/jovian-nordgren-resume.md`.
+Never edit those outputs directly.
+
+Structure per job: `title`, `company`, `location`, `dates` (short, print),
+`datesLong` (web/md), `projectLine`, `intro`, `bullets`, optional `subRole` and
+`subSections`. The `page: 1|2` field controls which printed sheet a job lands
+on — if you add enough content that page 2 overflows in print preview, move a
+job or trim bullets.
 
 ## Adding an image
 

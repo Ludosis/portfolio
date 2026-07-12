@@ -13,22 +13,14 @@ module.exports = function (eleventyConfig) {
     "README.md",
     "CLAUDE.md",
     "EDITING.md",
-    "jovian-nordgren-resume.md",
   ].forEach((p) => eleventyConfig.ignores.add(p));
 
   eleventyConfig.addDataExtension("yaml,yml", (contents) => yaml.load(contents));
 
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("CNAME");
-  // Resume MD stays fetchable at the site root for external consumers.
-  eleventyConfig.addPassthroughCopy("jovian-nordgren-resume.md");
-
-  // Resume page renders the MD at build time — no client-side fetch.
-  eleventyConfig.addGlobalData("resumeHtml", () => {
-    const md = require("markdown-it")({ html: true });
-    const src = require("fs").readFileSync("jovian-nordgren-resume.md", "utf8");
-    return md.render(src);
-  });
+  // Resume is fully generated from content/_data/resume.yaml: the web page,
+  // the print version, and /jovian-nordgren-resume.md are all build outputs.
 
   figures.register(eleventyConfig);
 
