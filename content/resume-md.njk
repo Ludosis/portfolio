@@ -1,0 +1,58 @@
+---
+permalink: /jovian-nordgren-resume.md
+eleventyExcludeFromCollections: true
+---
+# {{ site.name | safe }}
+### {{ resume.role | safe }}
+
+JovianFinch.com | linkedin.com/in/JovianFinch
+
+---
+
+## Profile
+
+{{ resume.profile | safe }}
+
+---
+
+## Experience
+{% for j in resume.experience %}
+### {{ j.title | safe }}{% if j.company %} | {{ j.company | safe }}{% endif %} | {{ j.location | safe }}
+**{{ j.datesLong | safe }}**
+{%- if j.projectLine %}
+*{{ j.projectLine | safe }}*
+{%- endif %}
+{%- if j.subRole %}
+
+*{{ j.subRole | safe }}*
+{%- endif %}
+{%- if j.intro %}
+
+{{ j.intro | safe }}
+{%- endif %}
+{%- if j.bullets %}
+{% for b in j.bullets %}
+- {{ b | safe }}
+{%- endfor %}
+{%- endif %}
+{%- for sub in j.subSections %}
+
+**{{ sub.headingLead | safe }} — {{ sub.headingRest | safe }} ({{ sub.dates | safe }})**
+
+{{ sub.text | safe }}
+{%- endfor %}
+
+---
+{% endfor %}
+## Skills
+{% for s in resume.skillsGrid %}
+**{{ s.label | safe }}:** {{ s.items | safe }}
+{%- endfor %}
+
+---
+
+## Education
+{% for e in resume.education %}
+**{{ e.degree | safe }}{% if e.extra %} | {{ e.extra | safe }}{% endif %}**
+{{ e.school | safe }}
+{% endfor %}

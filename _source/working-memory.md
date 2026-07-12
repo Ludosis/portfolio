@@ -81,9 +81,55 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
   ("verts 556 · draws 5 · webgl"); 2D canvas fallback; reduced-motion static frame.
 - Full-site internal link check: 0 broken links.
 
-### Phase 6 remains (later): resume unification
-Single structured source → web + print resume, replacing manually-synced
-Resume.html. Until then: MD changes require manual Resume.html sync.
+### Print bug ROOT CAUSE found and fixed (second pass, July 2026)
+User still saw a 3rd page after the first fix. Real cause: the global screen
+rule `.page + .page { margin-top: 0.35in }` (specificity 0,2,0) OVERRIDES
+`.page { margin: 0 }` (0,1,0) inside @media print — page 2 dragged a 0.35in
+top margin onto the sheet. Also page 2 content measured 11.2in under real
+font metrics (the old fixed-height version was silently CLIPPING it).
+Fix: print uses flowing height (no fixed 11in boxes), explicit
+`.page + .page { margin-top: 0 }` in print, page-2-only compaction
+(spacing + line-heights). Resume.html fonts now SELF-HOSTED (Lora +
+Source Sans 3 in assets/fonts) so headless tests match real metrics.
+VERIFIED 2 pages across: default margins, 0.4in dialog margins, 1in
+margins, A4. Also fixed p2 header to "Senior Technical Artist".
+
+### Contact protection v2 (July 2026) — email hardened
+User concern: JS-rendering crawlers see load-injected email; +tag honeypots
+leak the base address via tag-stripping. Changes:
+- Email is CLICK-TO-REVEAL everywhere (about, resume, print resume) using the
+  same XOR+base64 payload as phone. No address material in served HTML at all
+  (verified by grep scan + browser test: nothing pre-click, correct post-click).
+- +web comment honeypot REMOVED (was a liability: strip the tag → base address).
+- JSON-LD email field REMOVED (sameAs LinkedIn/GitHub carries discovery).
+- llms.txt: contact = LinkedIn + reveal-page pointer + COMPREHENSION GATE:
+  the +ai address is base64-encoded with a decode instruction. LLM agents
+  decode it; regex harvesters see no email pattern. Verified decode.
+- Stage 2 (user action, then flip site.yaml): set up domain email forwarding
+  (Squarespace → Domains → Email Forwarding: ai@/hello@jovianfinch.com → Gmail).
+  Then aliases replace Gmail everywhere; base address never public; aliases
+  rotate freely if spammed. Documented in site.yaml comment.
+- Tag legend now: +ai = llms.txt gate. (+rec/+web channels retired.)
+
+### Also added: favicon.svg (drafting wave mark), OG/Twitter meta + generated
+og-card.png (1200×630 drafting-style), 404 page ("Sheet Not Found", FIG. 404
+flatline joke). EDITING.md added to eleventy ignores (its shortcode examples
+were parsed as real template syntax and broke the build).
+
+### EDITING.md added at repo root
+Human-facing content-update guide: fig/figblock usage, embeds, skills
+entries, new projects, never-do list. Point the user here for content edits.
+
+### Phase 6 COMPLETE: resume unification (July 2026)
+`content/_data/resume.yaml` is the single resume source. Generates all three
+outputs per build: /resume/ (web, structured markup), /resume/Resume.html
+(print — body is now njk loops over the data, CSS/design untouched), and
+/jovian-nordgren-resume.md (markdown text output; the root source file was
+DELETED — the URL is now a build artifact). Content converged on the print
+wording where the two old sources differed (print was newer/user-refined).
+`page: 1|2` per job controls print pagination. Verified: print still exactly
+2 pages in all margin scenarios; generated MD is entity-clean; web page
+renders from data. Manual Resume.html sync is no longer a thing.
 
 ### ORIGINAL BUILD NOTES (Phases 1–3, kept for reference)
 

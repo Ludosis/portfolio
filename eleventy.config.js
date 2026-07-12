@@ -12,22 +12,15 @@ module.exports = function (eleventyConfig) {
     "_source/**",
     "README.md",
     "CLAUDE.md",
-    "jovian-nordgren-resume.md",
+    "EDITING.md",
   ].forEach((p) => eleventyConfig.ignores.add(p));
 
   eleventyConfig.addDataExtension("yaml,yml", (contents) => yaml.load(contents));
 
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("CNAME");
-  // Resume MD stays fetchable at the site root for external consumers.
-  eleventyConfig.addPassthroughCopy("jovian-nordgren-resume.md");
-
-  // Resume page renders the MD at build time — no client-side fetch.
-  eleventyConfig.addGlobalData("resumeHtml", () => {
-    const md = require("markdown-it")({ html: true });
-    const src = require("fs").readFileSync("jovian-nordgren-resume.md", "utf8");
-    return md.render(src);
-  });
+  // Resume is fully generated from content/_data/resume.yaml: the web page,
+  // the print version, and /jovian-nordgren-resume.md are all build outputs.
 
   figures.register(eleventyConfig);
 
@@ -53,7 +46,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("personJsonLd", personJsonLd);
   eleventyConfig.addFilter("llmsTxt", buildLlmsTxt);
 
-  eleventyConfig.addFilter("email", (c, tag) => contact.email(c, tag));
+  // Click-to-reveal payload for the email — the address never appears in
+  // served HTML in any greppable form; reveal.js decodes on click.
+  eleventyConfig.addFilter("emailPayload", (c) => contact.payload(contact.email(c)));
 
   eleventyConfig.addFilter("pad2", (n) => String(n).padStart(2, "0"));
 

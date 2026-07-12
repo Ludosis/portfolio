@@ -23,7 +23,7 @@ description: >-
     <div class="contact-block contact-block--resume">
       <h3 class="mono">Contact</h3>
       <p class="contact-item">
-        Email: <span data-eu="{{ site.contact.emailUser }}" data-ed="{{ site.contact.emailDomain }}"><noscript>enable JavaScript, or find me on LinkedIn</noscript></span>
+        Email: <span data-em="{{ site.contact | emailPayload }}"><button class="reveal-btn mono" type="button">Show email</button><noscript>enable JavaScript, or find me on LinkedIn</noscript></span>
       </p>
       {%- if phonePayload %}
       <p class="contact-item">
@@ -36,7 +36,44 @@ description: >-
     </div>
 
     <div class="resume-body">
-      {{ resumeHtml | safe }}
+      <h1>{{ site.name }}</h1>
+      <h3>{{ resume.role }}</h3>
+
+      <h2>Profile</h2>
+      <p>{{ resume.profile }}</p>
+
+      <h2>Experience</h2>
+      {%- for j in resume.experience %}
+      <h3>{{ j.title }}{% if j.company %} | {{ j.company }}{% endif %} | {{ j.location }}</h3>
+      <p><strong>{{ j.datesLong }}</strong>{% if j.projectLine %}<br><em>{{ j.projectLine }}</em>{% endif %}{% if j.subRole %}<br><em>{{ j.subRole }}</em>{% endif %}</p>
+      {%- if j.intro %}
+      <p>{{ j.intro }}</p>
+      {%- endif %}
+      {%- if j.bullets %}
+      <ul>
+        {%- for b in j.bullets %}
+        <li>{{ b }}</li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+      {%- for sub in j.subSections %}
+      <p><strong>{{ sub.headingLead }} — {{ sub.headingRest }} ({{ sub.dates }})</strong></p>
+      <p>{{ sub.text }}</p>
+      {%- endfor %}
+      {%- if not loop.last %}<hr>{% endif %}
+      {%- endfor %}
+
+      <h2>Skills</h2>
+      <ul>
+        {%- for s in resume.skillsGrid %}
+        <li><strong>{{ s.label }}:</strong> {{ s.items }}</li>
+        {%- endfor %}
+      </ul>
+
+      <h2>Education</h2>
+      {%- for e in resume.education %}
+      <p><strong>{{ e.degree }}{% if e.extra %} | {{ e.extra }}{% endif %}</strong><br>{{ e.school }}</p>
+      {%- endfor %}
     </div>
   </div>
 </section>

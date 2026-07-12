@@ -48,7 +48,7 @@ description: >-
       <div class="contact-block">
         <h3 class="mono">Get in touch</h3>
         <p class="contact-item">
-          Email: <span data-eu="{{ site.contact.emailUser }}" data-ed="{{ site.contact.emailDomain }}"><noscript>enable JavaScript, or find me on LinkedIn</noscript></span>
+          Email: <span data-em="{{ site.contact | emailPayload }}"><button class="reveal-btn mono" type="button">Show email</button><noscript>enable JavaScript, or find me on LinkedIn</noscript></span>
         </p>
         <p class="contact-item">
           LinkedIn: <a href="{{ site.contact.linkedin }}" target="_blank" rel="noopener">linkedin.com/in/JovianFinch</a>

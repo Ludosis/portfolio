@@ -33,13 +33,27 @@ function email(contact, tag) {
 }
 
 /** payload format: base64(key byte + xor-ciphertext) — decoded by assets/js/reveal.js */
-function phonePayload() {
-  const phone = process.env.CONTACT_PHONE;
-  if (!phone) return null;
+function payload(value) {
   const key = 1 + Math.floor(Math.random() * 254);
   const bytes = [key];
-  for (const ch of Buffer.from(phone, "utf8")) bytes.push(ch ^ key);
+  for (const ch of Buffer.from(value, "utf8")) bytes.push(ch ^ key);
   return Buffer.from(bytes).toString("base64");
 }
 
-module.exports = { email, phonePayload };
+function phonePayload() {
+  const phone = process.env.CONTACT_PHONE;
+  if (!phone) return null;
+  return payload(phone);
+}
+
+/**
+ * The AI-agent channel is a comprehension gate: the tagged address ships
+ * base64-encoded with a decode instruction. LLM agents decode it trivially;
+ * regex harvesters see no address pattern. Plus-tags are never published in
+ * plaintext anywhere — tag-stripping would expose the base address.
+ */
+function aiEmailEncoded(contact) {
+  return Buffer.from(email(contact, "ai"), "utf8").toString("base64");
+}
+
+module.exports = { email, payload, phonePayload, aiEmailEncoded };
