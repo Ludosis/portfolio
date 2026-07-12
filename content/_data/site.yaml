@@ -21,6 +21,11 @@ nav:
   - label: How I Work
     url: /how-i-work/
 
+# Contact upgrade path (Stage 2): once domain email forwarding is set up
+# (Squarespace → Domains → jovianfinch.com → Email Forwarding: create
+# ai@ / hello@ → Gmail), change emailUser/emailDomain to the alias and the
+# entire site (reveals, llms.txt gate) switches to it — the Gmail address
+# then never appears anywhere. Aliases are disposable: rotate if spammed.
 contact:
   emailUser: jovianfinch
   emailDomain: gmail.com

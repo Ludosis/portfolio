@@ -12,6 +12,7 @@ module.exports = function (eleventyConfig) {
     "_source/**",
     "README.md",
     "CLAUDE.md",
+    "EDITING.md",
     "jovian-nordgren-resume.md",
   ].forEach((p) => eleventyConfig.ignores.add(p));
 
@@ -53,7 +54,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("personJsonLd", personJsonLd);
   eleventyConfig.addFilter("llmsTxt", buildLlmsTxt);
 
-  eleventyConfig.addFilter("email", (c, tag) => contact.email(c, tag));
+  // Click-to-reveal payload for the email — the address never appears in
+  // served HTML in any greppable form; reveal.js decodes on click.
+  eleventyConfig.addFilter("emailPayload", (c) => contact.payload(contact.email(c)));
 
   eleventyConfig.addFilter("pad2", (n) => String(n).padStart(2, "0"));
 

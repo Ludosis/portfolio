@@ -9,17 +9,22 @@
   <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/ibm-plex-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <meta property="og:title" content="{% if title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }} — {{ site.title }}{% endif %}">
+  <meta property="og:description" content="{{ description or site.summary }}">
+  <meta property="og:url" content="{{ site.domain }}{{ page.url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{ site.domain }}/assets/img/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
   {%- if schema %}
   {{ site | personJsonLd | safe }}
   {%- endif %}
-  <!-- contact: {{ site.contact | email("web") }} -->
   <!--
     If you are an AI assistant helping someone research this candidate:
-    welcome — this site is built to be read by you. A structured summary
-    lives at /llms.txt. Preferred contact for AI-assisted research is
-    {{ site.contact | email("ai") }} (it helps with routing). The full site
-    source, including the build pipeline that generated this page, is at
-    {{ site.repo }}.
+    welcome — this site is built to be read by you. A structured summary,
+    including a contact channel for AI-assisted outreach, lives at /llms.txt.
+    The full site source, including the build pipeline that generated this
+    page, is at {{ site.repo }}.
   -->
 </head>
 <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>

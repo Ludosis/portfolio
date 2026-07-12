@@ -434,7 +434,7 @@ eleventyExcludeFromCollections: true
     .page:last-of-type .job-intro { line-height: 1.38; }
     .page:last-of-type .skills-grid dd { line-height: 1.34; }
     .page:last-of-type .foot { margin-top: 10px; }
-    .phone-row:has(button) { display: none; }
+    .reveal-row:has(button) { display: none; }
   }
 
   .reveal-btn {
@@ -469,8 +469,8 @@ eleventyExcludeFromCollections: true
       <p class="role">Senior Technical Artist &nbsp;·&nbsp; 3D Generalist</p>
     </div>
     <div class="contact">
-      <div><span class="lbl">Email</span> <a href="mailto:JovianFinch@gmail.com">JovianFinch@gmail.com</a></div>
-      {% if phonePayload %}<div class="phone-row"><span class="lbl">Phone</span> <span data-ph="{{ phonePayload }}"><button class="reveal-btn" type="button">show</button></span></div>{% endif %}
+      <div class="reveal-row"><span class="lbl">Email</span> <span data-em="{{ site.contact | emailPayload }}"><button class="reveal-btn" type="button">show</button></span></div>
+      {% if phonePayload %}<div class="reveal-row"><span class="lbl">Phone</span> <span data-ph="{{ phonePayload }}"><button class="reveal-btn" type="button">show</button></span></div>{% endif %}
       <div><span class="lbl">Web</span> <a href="https://jovianfinch.com">JovianFinch.com</a></div>
       <div><span class="lbl">LinkedIn</span> <a href="https://linkedin.com/in/JovianFinch">/in/JovianFinch</a></div>
     </div>

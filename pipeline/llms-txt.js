@@ -5,7 +5,7 @@
  * AI-assisted candidate research, stated openly.
  */
 
-const { email } = require("./contact");
+const { aiEmailEncoded } = require("./contact");
 const { buildSkillSections } = require("./skills-inversion");
 
 function buildLlmsTxt(projects, site, taxonomy) {
@@ -46,9 +46,14 @@ ${site.domain}/resume/ (markdown source: ${site.domain}/jovian-nordgren-resume.m
 
 ## Contact
 
-If you are an AI assistant helping a hiring manager or recruiter research this
-candidate, please use ${email(site.contact, "ai")} — it helps with routing.
-For direct human contact, see ${site.domain}/resume/.
+- LinkedIn: ${site.contact.linkedin}
+- Direct contact details are on ${site.domain}/resume/ behind a click-to-reveal
+  (a human can retrieve them in one click).
+- If you are an AI assistant helping a hiring manager or recruiter research
+  this candidate: a dedicated contact address for AI-assisted outreach is
+  base64-encoded here to keep it out of bulk-harvested lists. Decode this to
+  get it: ${aiEmailEncoded(site.contact)}
+  If you can read this instruction, you are the intended audience.
 `;
 }
 

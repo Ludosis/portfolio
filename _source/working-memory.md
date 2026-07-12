@@ -94,6 +94,28 @@ Source Sans 3 in assets/fonts) so headless tests match real metrics.
 VERIFIED 2 pages across: default margins, 0.4in dialog margins, 1in
 margins, A4. Also fixed p2 header to "Senior Technical Artist".
 
+### Contact protection v2 (July 2026) — email hardened
+User concern: JS-rendering crawlers see load-injected email; +tag honeypots
+leak the base address via tag-stripping. Changes:
+- Email is CLICK-TO-REVEAL everywhere (about, resume, print resume) using the
+  same XOR+base64 payload as phone. No address material in served HTML at all
+  (verified by grep scan + browser test: nothing pre-click, correct post-click).
+- +web comment honeypot REMOVED (was a liability: strip the tag → base address).
+- JSON-LD email field REMOVED (sameAs LinkedIn/GitHub carries discovery).
+- llms.txt: contact = LinkedIn + reveal-page pointer + COMPREHENSION GATE:
+  the +ai address is base64-encoded with a decode instruction. LLM agents
+  decode it; regex harvesters see no email pattern. Verified decode.
+- Stage 2 (user action, then flip site.yaml): set up domain email forwarding
+  (Squarespace → Domains → Email Forwarding: ai@/hello@jovianfinch.com → Gmail).
+  Then aliases replace Gmail everywhere; base address never public; aliases
+  rotate freely if spammed. Documented in site.yaml comment.
+- Tag legend now: +ai = llms.txt gate. (+rec/+web channels retired.)
+
+### Also added: favicon.svg (drafting wave mark), OG/Twitter meta + generated
+og-card.png (1200×630 drafting-style), 404 page ("Sheet Not Found", FIG. 404
+flatline joke). EDITING.md added to eleventy ignores (its shortcode examples
+were parsed as real template syntax and broke the build).
+
 ### EDITING.md added at repo root
 Human-facing content-update guide: fig/figblock usage, embeds, skills
 entries, new projects, never-do list. Point the user here for content edits.

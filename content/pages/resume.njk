@@ -23,7 +23,7 @@ description: >-
     <div class="contact-block contact-block--resume">
       <h3 class="mono">Contact</h3>
       <p class="contact-item">
-        Email: <span data-eu="{{ site.contact.emailUser }}" data-ed="{{ site.contact.emailDomain }}"><noscript>enable JavaScript, or find me on LinkedIn</noscript></span>
+        Email: <span data-em="{{ site.contact | emailPayload }}"><button class="reveal-btn mono" type="button">Show email</button><noscript>enable JavaScript, or find me on LinkedIn</noscript></span>
       </p>
       {%- if phonePayload %}
       <p class="contact-item">

@@ -1,10 +1,9 @@
 /**
  * Person / ProfilePage structured data for AI-agent and search discovery.
- * The email here uses the structured-data routing tag — intentional: this is
- * the address we WANT schema consumers to use (same inbox, tagged for routing).
+ * Deliberately NO email field: any plaintext plus-tagged address leaks the
+ * base address via tag-stripping. Machine contact goes through llms.txt's
+ * comprehension-gated channel; sameAs links carry identity discovery.
  */
-
-const { email } = require("./contact");
 
 function personJsonLd(site) {
   const data = {
@@ -15,7 +14,6 @@ function personJsonLd(site) {
       name: site.name,
       jobTitle: site.title,
       url: site.domain,
-      email: `mailto:${email(site.contact, "rec")}`,
       sameAs: [site.contact.linkedin, site.contact.github],
       knowsAbout: [
         "Technical Art",
