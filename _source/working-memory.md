@@ -68,7 +68,7 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
   fixed and some rebuild wording might have been better. Also: I had degraded three
   Skills entries ("with"/"for" removed) to satisfy my checker. Those three are back to
   the readable versions. Site otherwise left as restored (no further sweeping change).
-- Side-by-side of all 63 differing restored items: `_source/version-audit-2026-10-06-copy-comparison.md`.
+- Side-by-side of all 63 differing restored items: `_source/audits/version-audit-2026-10-06-copy-comparison.md`.
   User will pick rebuild wording to bring back later, item by item.
 - LinkedIn confirmed: `/in/JovianFinch` (already correct everywhere).
 - Remaining open audit items: glanced at by user, not major; deferred.
@@ -85,7 +85,7 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
 - Gotcha found: `tags` is reserved by Eleventy (collections). Restored header tags use
   `headerTags`.
 - Print check added (warn-only, separate workflow; user's choice). Tested both paths.
-- Audit file renamed by user's request: `_source/version-audit-2026-10-06.md`. Open
+- Audit file renamed by user's request: `_source/audits/version-audit-2026-10-06.md`. Open
   items there await the user's review (How I Work paragraph, LinkedIn handle, invented
   labels, captions, Earlier Work copy, machine-facing copy, OG image em dash).
 
@@ -128,7 +128,7 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
   skills list (Adobe Creative Suite, HLSL added, Midjourney and skinning removed),
   Epic triage "in one day ... into an HTML report". User is applying for a full-time
   Tools and Pipeline TA role at Riot.
-- **Audit of unilateral decisions:** `_source/version-audit-2026-10-06.md`, verified against
+- **Audit of unilateral decisions:** `_source/audits/version-audit-2026-10-06.md`, verified against
   commit 339d4e2. Top items: LinkedIn handle (Ludosis vs JovianFinch), Skills page
   lost the Claude Code entry, home hero line rewritten, How I Work paragraph replaced.
 - (superseded) **Two-column print prototype (user's idea, measured, NOT applied):** sheet 1 =

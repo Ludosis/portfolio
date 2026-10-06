@@ -19,7 +19,7 @@ Restored from `339d4e2`, word for word apart from em dash punctuation.
 egregious replacements fixed, not every item reverted; some rebuild wording may have
 been better, and I also briefly made three Skills entries read worse to satisfy an
 overly strict checker (since put back). Nothing is lost: every restored item sits next
-to its rebuild version in `_source/version-audit-2026-10-06-copy-comparison.md`
+to its rebuild version in `_source/audits/version-audit-2026-10-06-copy-comparison.md`
 (63 items whose wording differs). Pick any you want back, whenever you have time.
 
 - **Home page:** your hero line, the "Featured Work" heading, all four featured cards

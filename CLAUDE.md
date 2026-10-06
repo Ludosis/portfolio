@@ -42,7 +42,7 @@ All session context that isn't committed to the repo is unrecoverable when a ses
 - **Fix proportionately.** When asked to undo overreach, fix the egregious cases, not
   everything. Small wording tweaks that help readability are welcome. Never change the
   user's wording to make a checker or test pass; fix the checker instead.
-- `_source/version-audit-2026-10-06.md` records what was changed without asking, what
+- `_source/audits/version-audit-2026-10-06.md` records what was changed without asking, what
   was restored, and what is still open for the user's review. Its companion
   `..._copy-comparison.md` lists each restored item next to the rebuild version, so the
   user can bring back any rebuild wording they prefer.
@@ -150,6 +150,7 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
 | `_source/redesign-plan.md` | 2026 redesign migration plan |
 | `_source/design-archive/` | Design studies (three directions + blend mockup) |
 | `_source/working-memory.md` | In-progress session scratchpad |
+| `_source/audits/` | Audits and reviews (not source files). Put new audit or review docs here, not in the `_source/` root. |
 
 ---
 
