@@ -25,14 +25,28 @@ The print version must fit on two sheets. The web resume and the markdown have n
 page limit, so print-only overrides let you trim the printout without losing
 anything online:
 
-- `print: false` on a bullet leaves it out of print only. Write the bullet as
-  `- print: false` with the text under `text: >-` (see the DigiPen entry).
+- `print: false` on a bullet leaves it out of print only. Write the bullet as:
+
+  ```yaml
+      - print: false
+        text: >-
+          The bullet text, indented under text.
+  ```
 - `printIntro`, `printSubRole`, `printProjectLine` on a job replace that line in
   print only (`printIntro: false` drops it).
 - `printText` on a sub-section replaces its paragraph in print only.
 
 After any resume edit, open `/resume/Resume.html`, use print preview, and confirm
 it is still exactly two pages.
+
+YAML pitfalls when editing on GitHub:
+
+- Text under `>-` can be re-wrapped freely, but every line must keep the same
+  indentation as the lines around it.
+- On a single-line value, a colon followed by a space breaks the file. Wrap the
+  value in double quotes: `projectLine: "Destiny: The Taken King"`.
+- If the file doesn't parse, the build fails and the live site stays as it was.
+  GitHub emails you about the failed run; the Actions tab shows the line number.
 
 ## Adding an image
 

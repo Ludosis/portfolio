@@ -82,6 +82,18 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
   all four margin scenarios; no screen-view overlaps.
 - **Em dash sweep.** 301 visible em dashes on the built site went to 0, each rewritten
   by hand (sentences) or by convention (separators; see CLAUDE.md house style).
+- **CORRECTION (user feedback, same day):** I chose the print trims without asking;
+  the user wanted to discuss ("open to suggestions"), and I had cut the items most
+  relevant to their current work (Animation Instructor = teaching; Bungie workflow
+  guides = core TA documentation). ALL print-only content trims were reverted. The
+  override mechanism stays (unused). Layout changes (type 9.4pt, 0.6in margins, skills
+  label width, inline certificate, flowing continues marker) are still applied but
+  were also never approved; listed to the user with their measured value.
+  **Branch state: print resume is 3 sheets** (sheet 1 10.82in, sheet 2 12.72in,
+  1.72in over). Awaiting the user's choice from the options menu. Do not merge-advise
+  until print fits.
+- Riot bullet 2 restored to the user's "counteracting benchmark optimization" wording;
+  ending clarified per user: each user's own workspace improves (not shared).
 - **Open decision for user:** add Riot to site-wide employer mentions (home hero,
   About, Skills intro, site.yaml summary, OG card)? Not done; flagged in CLAUDE.md.
 

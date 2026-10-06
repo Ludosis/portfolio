@@ -136,6 +136,16 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
   own pipeline as evidence
 - Writing tone: direct, precise, no marketing language, craft-focused. Don't oversell
   (e.g. management or leadership claims)
+- **Editorial calls are the user's.** When the user says they're "open to suggestions",
+  that means discuss first: bring options with measured costs, don't pick and apply.
+  This applies especially to cutting resume content or trading layout for fit.
+- **Relevance is not age.** Items the user considers most relevant to current work:
+  the Bungie workflow-guides bullet (core TA documentation work) and the DigiPen
+  Animation Instructor bullet (shows teaching). The Riot entry is intentionally the
+  longest: most current, most meaningful, most likely to be read.
+- Some jargon is deliberate. "counteracting benchmark optimization" (Riot bullet) is
+  intentional: recruiters skim past it, practitioners recognize it. Don't simplify
+  the user's chosen technical phrasing without asking.
 - **No em dashes, anywhere** (site, resume, code comments, docs). The user dislikes them;
   the site, resume, code, CLAUDE.md, and EDITING.md were swept in Oct 2026
   (historical notes under `_source/` were left as written). Rewrite with commas, colons, semicolons,
