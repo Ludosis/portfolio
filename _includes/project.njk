@@ -16,6 +16,11 @@ layout: base.njk
     </p>
     <h1 class="project-title">{{ title }}</h1>
     <div class="project-meta mono">
+      {%- if meta %}
+      {%- for m in meta %}
+      <span class="project-meta-item"><strong>{{ m.label }}</strong> {{ m.value }}</span>
+      {%- endfor %}
+      {%- else %}
       <span class="project-meta-item"><strong>Studio</strong> {{ studio }}</span>
       <span class="project-meta-item"><strong>Role</strong> {{ role }}</span>
       <span class="project-meta-item"><strong>Dates</strong> {{ dates }}</span>
@@ -25,14 +30,22 @@ layout: base.njk
       {%- for m in extraMeta %}
       <span class="project-meta-item"><strong>{{ m.label }}</strong> {{ m.value }}</span>
       {%- endfor %}
+      {%- endif %}
     </div>
     <ul class="skill-tags mono" aria-label="Skills used">
+      {#- headerTags, not tags: Eleventy reserves "tags" for collections -#}
+      {%- if headerTags and headerTags.length %}
+      {%- for t in headerTags %}
+      <li>{{ t }}</li>
+      {%- endfor %}
+      {%- else %}
       {%- for name in skills | skillNames(skillsTaxonomy) %}
       <li>{{ name }}</li>
       {%- endfor %}
       {%- for t in extraTags %}
       <li>{{ t }}</li>
       {%- endfor %}
+      {%- endif %}
     </ul>
   </div>
 </header>
@@ -60,6 +73,24 @@ layout: base.njk
       </div>
 
       <aside class="project-sidebar">
+        {#- A hand-written sidebar (from the original site) wins over the generated one. #}
+        {%- if sidebar %}
+        {%- for block in sidebar %}
+        <div class="sidebar-block">
+          <h3 class="mono">{{ block.title }}</h3>
+          {%- if block.items %}
+          <ul>
+            {%- for i in block.items %}
+            <li>{{ i }}</li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+          {%- if block.lines %}
+          <p>{% for l in block.lines %}{{ l }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
+          {%- endif %}
+        </div>
+        {%- endfor %}
+        {%- else %}
         {%- if tools %}
         <div class="sidebar-block">
           <h3 class="mono">Tools</h3>
@@ -90,6 +121,7 @@ layout: base.njk
           <h3 class="mono">Project</h3>
           <p>{{ studio }}<br>{{ dates }}<br>{{ role }}</p>
         </div>
+        {%- endif %}
       </aside>
 
     </div>

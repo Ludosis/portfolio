@@ -1,0 +1,33 @@
+# Warn-only check that the print resume still fits on two sheets.
+# Separate from the deploy on purpose: a failure here marks this check red and
+# GitHub emails you, but the site still deploys.
+name: Print check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - jovian-nordgren-resume.md
+      - resume/**
+      - pipeline/resume-markdown.js
+      - assets/fonts/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  print-fit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx @11ty/eleventy
+      - name: Serve the build
+        run: (cd _site && python3 -m http.server 8899 > /dev/null 2>&1 &) && sleep 1
+      - name: Check the print resume is two sheets
+        run: node pipeline/check-print-fit.mjs http://localhost:8899

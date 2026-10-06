@@ -60,3 +60,8 @@
     Scripts written to solve specific production problems across C#, Python,
     Blueprint, and Claude Code collaboration. Not a software engineer; a
     technical artist who reaches for code when it's the right tool.
+  extraExamples:
+    - label: "Claude Code"
+      href: "/how-i-work/"
+      rank: 4
+      detail: "Automation triage tool built in one day; this portfolio site; context and memory management across sessions; framing problems clearly enough that implementation can be delegated; see How I Work"

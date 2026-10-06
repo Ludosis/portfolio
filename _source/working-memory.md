@@ -62,6 +62,22 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
 - Blend: https://claude.ai/code/artifact/8f667653-a7ab-4fc5-9eee-c3ffba222123
 - Archived in repo: `_source/design-archive/` (self-contained HTML, open in browser)
 
+### 2026-10-06 (later): restoration of the user's own copy
+
+- User's standing rule (now in CLAUDE.md): never replace their written or closely
+  collaborated text, or a past decision, without a good reason and their agreement.
+- Restored verbatim from commit 339d4e2 (98 items, script-verified 0 mismatches): home
+  hero, featured cards, About teaser, "See all projects"; portfolio card text, labels,
+  tags, alt text; project header tags, meta rows, full sidebars (incl. Destiny's Bungie
+  tenure); the hand-curated Skills page (labels, wording, links, order, Claude Code
+  entry); all page meta descriptions; CLAUDE.md "What belongs in CLAUDE.md" section.
+- Gotcha found: `tags` is reserved by Eleventy (collections). Restored header tags use
+  `headerTags`.
+- Print check added (warn-only, separate workflow; user's choice). Tested both paths.
+- Audit file renamed by user's request: `_source/version-audit-2026-10-06.md`. Open
+  items there await the user's review (How I Work paragraph, LinkedIn handle, invented
+  labels, captions, Earlier Work copy, machine-facing copy, OG image em dash).
+
 ### Oct 2026 session: Riot role, print refit, em dash sweep
 
 - **Riot Games added to resume** (May 2026 to present, contract Senior TA via
@@ -101,7 +117,7 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
   skills list (Adobe Creative Suite, HLSL added, Midjourney and skinning removed),
   Epic triage "in one day ... into an HTML report". User is applying for a full-time
   Tools and Pipeline TA role at Riot.
-- **Audit of unilateral decisions:** `_source/review-later.md`, verified against
+- **Audit of unilateral decisions:** `_source/version-audit-2026-10-06.md`, verified against
   commit 339d4e2. Top items: LinkedIn handle (Ludosis vs JovianFinch), Skills page
   lost the Claude Code entry, home hero line rewritten, How I Work paragraph replaced.
 - (superseded) **Two-column print prototype (user's idea, measured, NOT applied):** sheet 1 =

@@ -1,79 +1,103 @@
 ---
 title: Alien Age
-description: >-
-  Alien Age: technical art work by Jovian Finch Nordgren. Custom shaders,
-  VFX, lighting, and asset optimization on a shipped Unity title.
-studio: Indie Wizards → Left Turn Studios
+description: "Alien Age: technical art work by Jovian Finch Nordgren. Custom shaders, VFX, lighting, and asset optimization on a shipped Unity title."
+studio: Left Turn Studios
 role: Technical Artist (sole TA)
 dates: 2021 · Released on Steam
 engine: Unity
 order: 1
 card:
-  blurb: >-
-    Sole TA on a shipped Steam title, owning all shaders, VFX, lighting, and the
-    full asset pipeline from raw geometry to in-engine.
+  label: "Left Turn Studios · 2021"
+  blurb: "Sole TA on a shipped Steam title. Custom water, fog, and color-variation shaders; full asset pipeline including retopology and indexed texture atlases; procedural foliage placement tool."
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/ss-fa8a63c8499d48e67ed6ffbde6064ffe99b5cd2c_orig.jpg
+  alt: "Alien Age screenshot showing the game's environment with custom lighting and VFX"
+  tags:
+    - "Shader Graph"
+    - "VFX"
+    - "Lighting"
+    - "Asset Optimization"
 hero:
   src: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/ss-fa8a63c8499d48e67ed6ffbde6064ffe99b5cd2c_orig.jpg
   alt: Alien Age screenshot showing the game environment with custom shaders, lighting, and VFX
   caption: in-game environment with custom shaders, lighting, and VFX
   meta: Unity · Steam release
   draft: true
-tools:
-  - Unity 2020
-  - Shader Graph
-  - Unity Particle System
-  - Maya
-  - ZBrush
-  - Substance Painter
-  - Photoshop
-extraTags:
-  - Retopology
-  - Texture Atlases
+# Header meta, tags, and sidebar: restored verbatim from the hand-written site.
+meta:
+  - label: "Studio"
+    value: "Left Turn Studios"
+  - label: "Role"
+    value: "Technical Artist (sole TA)"
+  - label: "Released"
+    value: "2021 · Steam"
+  - label: "Engine"
+    value: "Unity"
+headerTags:
+  - "Shader Graph"
+  - "HLSL"
+  - "VFX"
+  - "Lighting"
+  - "Asset Optimization"
+  - "Retopology"
+  - "Texturing"
+  - "Unity"
+  - "Python"
+sidebar:
+  - title: "Tools"
+    items:
+      - "Unity 2020"
+      - "Shader Graph"
+      - "Unity Particle System"
+      - "Maya"
+      - "ZBrush"
+      - "Substance Painter"
+      - "Photoshop"
+  - title: "Skills"
+    items:
+      - "Shader authoring"
+      - "VFX"
+      - "Lighting"
+      - "Retopology"
+      - "Texture atlas optimization"
+      - "Editor tooling"
+      - "Pipeline documentation"
+  - title: "Project"
+    lines:
+      - "Left Turn Studios"
+      - "Released on Steam, 2021"
+      - "Sole Technical Artist"
+# Skills-page entries: the original labels, wording, links, and order.
 skills:
   - id: shaders
-    highlight: Water, Fog & Tile Shaders
-    anchor: shaders
-    detail: >-
-      Water surface (world-space UV, eliminates tiling artifacts on irregular
-      terrain); volumetric fog (depth texture sampling, height-responsive
-      density); environment tile color-variation (world-position seeded, eight
-      tileset varieties from three source meshes)
+    label: "Alien Age"
+    href: "/portfolio/alien-age/"
+    rank: 1
+    detail: "Water surface (world-space UV, eliminates tiling artifacts on irregular terrain); volumetric fog (depth texture sampling, height-responsive density); environment tile color-variation (world-position seeded, eight tileset varieties from three source meshes)"
   - id: vfx
-    highlight: Beam & Lightning VFX
-    anchor: vfx
-    detail: >-
-      Beam pickup/drop and cloud lightning: continuous energy column from
-      discrete particles; timing synced to gameplay events without hardcoded
-      delays
+    label: "Alien Age"
+    href: "/portfolio/alien-age/"
+    rank: 1
+    detail: "Beam pickup/drop and cloud lightning: continuous energy column from discrete particles; timing synced to gameplay events without hardcoded delays"
   - id: lighting
-    highlight: Full Lighting & Post
-    anchor: shaders
-    detail: >-
-      Full lighting and post-processing setup; all environment materials and
-      lighting authored from scratch
+    label: "Alien Age"
+    href: "/portfolio/alien-age/"
+    rank: 3
+    detail: "Full lighting and post-processing setup; all environment materials and lighting authored from scratch"
   - id: tools
-    highlight: Foliage Placement Tool
-    anchor: procedural
-    detail: >-
-      Editor-time placement tool (collaborated with engineer): runs
-      distribution logic in-editor, bakes as placed instances for zero runtime
-      cost. Documented so level designers could regenerate placements
-      independently after level changes
+    label: "Alien Age / Foliage Placement Tool"
+    href: "/portfolio/alien-age/"
+    rank: 1
+    detail: "Editor-time placement tool (collaborated with engineer): runs distribution logic in-editor, bakes as placed instances: zero runtime cost. Documented so level designers could regenerate placements independently after level changes"
   - id: procedural
-    highlight: Tree Sizer/Rotator/Tinter
-    anchor: procedural
-    detail: >-
-      Editor-time foliage placement with randomized position, scale, rotation,
-      and color at placement time; three rock meshes and three tree meshes
-      produced eight distinct tileset varieties with no additional asset
-      authoring
+    label: "Alien Age"
+    href: "/portfolio/alien-age/"
+    rank: 1
+    detail: "Editor-time foliage placement tool with Tree Sizer/Rotator/Tinter: randomized position, scale, rotation, and color at placement time; three rock meshes and three tree meshes produced eight distinct tileset varieties with no additional asset authoring"
   - id: scripting
-    highlight: Python (Maya & Pipeline)
-    anchor: procedural
-    detail: >-
-      Maya scripts for compositing and asset pipeline tasks; foliage placement
-      tool (collaborated with engineer); Tree Sizer/Rotator/Tinter script
+    label: "Python / Maya & pipeline"
+    href: "/portfolio/alien-age/"
+    rank: 2
+    detail: "Maya scripts for compositing and asset pipeline tasks; foliage placement tool (collaborated with engineer); Tree Sizer/Rotator/Tinter script"
 ---
 
 Alien Age is a 2D action game released on Steam in 2021. The project originated

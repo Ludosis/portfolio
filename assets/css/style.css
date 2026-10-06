@@ -561,6 +561,8 @@ p + .plate, h2 + .plate { margin-top: var(--space-lg); }
   gap: var(--space-lg);
 }
 
+.home-more { margin-top: var(--space-xl); }
+
 .home-about { padding: var(--space-2xl) 0 0; }
 .home-about-text {
   font-size: var(--text-lg);

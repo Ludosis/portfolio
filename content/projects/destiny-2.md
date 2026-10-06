@@ -1,62 +1,85 @@
 ---
 title: "Destiny 2: Ambient Life"
-description: >-
-  Destiny 2 Ambient Life: 3D character work by Jovian Finch Nordgren at
-  Bungie. Shipped ambient NPCs including owls and the Titan sea monster.
+description: "Destiny 2 Ambient Life: 3D character work by Jovian Finch Nordgren at Bungie. Shipped ambient NPCs including owls and the Titan sea monster."
 studio: Bungie
 role: 3D Generalist (embedded in QA)
 dates: 2017–2018
 order: 5
-extraMeta:
-  - label: Title
-    value: Destiny 2, Curse of Osiris, Forsaken
 card:
-  blurb: >-
-    Shipped ambient life characters (the Farm owls and the Titan sea monster),
-    modeled, rigged, and animated alongside QA engineering work.
+  label: "Bungie · 2017–2018"
+  blurb: "3D generalist work embedded in QA: modeled, rigged, and animated the owls in the Farm social space and the sea monster on Titan. Shipped in Destiny 2."
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/published/destiny-2_1.jpg?1574273847
+  alt: "Destiny 2 screenshot featuring the Farm social space environment"
+  tags:
+    - "Maya"
+    - "Rigging"
+    - "Character Animation"
+    - "VFX"
 hero:
   src: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/published/destiny-2_1.jpg?1574273847
   alt: Destiny 2 environment screenshot showing the Farm social space
   caption: the Farm social space
   meta: Destiny 2 · shipped
   draft: true
-tools:
-  - Maya
-  - 3DS Max
-  - Photoshop
-  - Bungie internal tools
-extraTags:
-  - Modeling
-  - Skinning
-  - UV Layout
+# Header meta, tags, and sidebar: restored verbatim from the hand-written site.
+meta:
+  - label: "Studio"
+    value: "Bungie"
+  - label: "Role"
+    value: "3D Generalist (embedded in QA)"
+  - label: "Dates"
+    value: "2017–2018"
+  - label: "Title"
+    value: "Destiny 2, Curse of Osiris, Forsaken"
+headerTags:
+  - "Maya"
+  - "3DS Max"
+  - "Modeling"
+  - "Rigging"
+  - "Skinning"
+  - "Character Animation"
+  - "VFX"
+sidebar:
+  - title: "Tools"
+    items:
+      - "Maya"
+      - "3DS Max"
+      - "Photoshop"
+      - "Bungie internal tools"
+  - title: "Skills"
+    items:
+      - "Character modeling"
+      - "Rigging & skinning"
+      - "Character animation"
+      - "VFX"
+      - "UV layout"
+  - title: "Role"
+    lines:
+      - "Bungie, Inc."
+      - "May 2015 – May 2019"
+      - "Test Engineer / 3D Generalist"
+# Skills-page entries: the original labels, wording, links, and order.
 skills:
-  - id: rigging
-    highlight: Shipped Ambient Characters
-    anchor: shipped
-    detail: >-
-      Modeled, rigged, and animated shipped characters: owls (Farm social
-      space), sea monster (Titan); reactive NPC prototype with custom
-      animations and VFX
   - id: vfx
-    highlight: Beehive & Ambient VFX
-    anchor: prototypes
-    detail: >-
-      Interactive beehive obstacle prototype with destruction states and swarm
-      VFX response; sea monster ambient effects
+    label: "Destiny 2"
+    href: "/portfolio/destiny-2/"
+    rank: 4
+    detail: "Interactive beehive obstacle prototype VFX; sea monster ambient effects"
+  - id: rigging
+    label: "Destiny 2"
+    href: "/portfolio/destiny-2/"
+    rank: 2
+    detail: "Modeled, rigged, and animated shipped characters: owls (Farm social space), sea monster (Titan); reactive NPC with custom animations and VFX"
   - id: tools
-    highlight: Debug Config Tool
-    anchor: qa-engineering
-    detail: >-
-      Debug config tool letting testers trigger public event completion at any
-      reward tier on demand; adopted independently by the audio team
+    label: "Bungie"
+    href: "/portfolio/destiny-2/"
+    rank: 4
+    detail: "Debug config tool for internal use; test engineering infrastructure on live service titles"
   - id: qa
-    highlight: Test Engineering
-    anchor: qa-engineering
-    detail: >-
-      QA to Test Engineer progression on live service titles; content workflow
-      mapping to find systemic failure points; runtime memory analysis in
-      high-risk areas
+    label: "Bungie"
+    href: "/portfolio/destiny-2/"
+    rank: 3
+    detail: "QA to Test Engineer progression on live service titles; test infrastructure and coverage tooling"
 ---
 
 I joined Bungie in 2015 as a QA tester on Destiny: The Taken King and moved into

@@ -1,65 +1,92 @@
 ---
 title: Grapple Star
-description: >-
-  Grapple Star: technical art work by Jovian Finch Nordgren. DoF transparency
-  fix, Level Select UI, and VFX on a Unity space action game.
+description: "Grapple Star: technical art work by Jovian Finch Nordgren. DoF transparency fix, Level Select UI, and VFX on a Unity space action game."
 studio: Left Turn Studios
 role: Lead Technical Artist
 dates: 2021–2023 (demo)
 engine: Unity
 order: 3
 card:
-  blurb: >-
-    A dual-camera fix for Unity's depth-of-field transparency problem, a
-    from-scratch Level Select UI, and gameplay VFX on a space action demo.
+  label: "Left Turn Studios · 2021–2023"
+  blurb: "Unity space action demo. Solved a depth-of-field transparency issue with a dual-camera Cinemachine composite that keeps foreground VFX sharp without disabling post-processing."
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/gstitle-orig_orig.png
+  alt: "Grapple Star title screen"
+  tags:
+    - "Cinemachine"
+    - "Post-Processing"
+    - "VFX"
+    - "Unity"
 hero:
   src: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/dof-after_orig.png
   alt: Grapple Star after the fix, with sharp foreground VFX composited over a depth-of-field blurred background
   caption: after the fix, sharp foreground VFX over DoF-blurred background
   meta: Unity · Cinemachine
   draft: true
-tools:
-  - Unity
-  - Cinemachine
-  - Unity Post-Processing Stack
-  - Unity Particle System
-extraTags:
-  - C#
+# Header meta, tags, and sidebar: restored verbatim from the hand-written site.
+meta:
+  - label: "Studio"
+    value: "Left Turn Studios"
+  - label: "Role"
+    value: "Lead Technical Artist"
+  - label: "Dates"
+    value: "2021–2023 (demo)"
+  - label: "Engine"
+    value: "Unity"
+headerTags:
+  - "Unity"
+  - "Cinemachine"
+  - "Post-Processing"
+  - "VFX"
+  - "Rendering"
+  - "UI Scripting"
+  - "C#"
+sidebar:
+  - title: "Tools"
+    items:
+      - "Unity"
+      - "Cinemachine"
+      - "Unity Post-Processing Stack"
+      - "Unity Particle System"
+  - title: "Skills"
+    items:
+      - "Rendering pipeline"
+      - "Camera compositing"
+      - "Post-processing"
+      - "VFX"
+      - "UI scripting"
+      - "Technical problem-solving"
+  - title: "Project"
+    lines:
+      - "Left Turn Studios"
+      - "2021–2023 (demo)"
+      - "Lead Technical Artist"
+# Skills-page entries: the original labels, wording, links, and order.
 skills:
-  - id: lighting
-    highlight: Depth-of-Field Transparency Fix
-    anchor: dof
-    detail: >-
-      Dual-camera Cinemachine composite: background renders with full
-      post-processing including DoF, foreground camera renders VFX layer with
-      post-processing disabled, for sharp foreground particles over a blurred
-      background with correct depth relationships preserved
-  - id: ui
-    highlight: Level Select Screen
-    anchor: level-select-ui
-    detail: >-
-      Full scene built from scratch: 3D objects, particle systems, procedurally
-      animated 2D elements; scripted UI canvas with clickable planet selection;
-      text fields and scene elements populated and toggled based on selection
-      state. Concept art by Rowan Sherwin
-  - id: ui
-    highlight: Dynamic Targeting Reticle
-    anchor: level-select-ui
-    detail: >-
-      Reticle appearance driven by gameplay state (target availability) rather
-      than sprite swapping
-  - id: procedural
-    highlight: Procedural UI Animation
-    anchor: level-select-ui
-    detail: >-
-      Procedurally animated 2D elements in the Level Select UI scene
   - id: vfx
-    highlight: Ship & Pickup VFX
-    anchor: other-vfx
-    detail: >-
-      Ship boost effects with reactive jet trails, collectible pickups,
-      environmental ambience
+    label: "Grapple Star"
+    href: "/portfolio/grapple-star/"
+    rank: 2
+    detail: "Ship boost effects with reactive jet trails, collectible pickups, environmental ambience"
+  - id: lighting
+    label: "Grapple Star / Depth-of-Field Fix"
+    href: "/portfolio/grapple-star/#dof"
+    rank: 2
+    detail: "Dual-camera Cinemachine composite: background renders with full post-processing including DoF, foreground camera renders VFX layer with post-processing disabled: sharp foreground particles over blurred background, correct depth relationships preserved"
+  - id: procedural
+    label: "Grapple Star"
+    href: "/portfolio/grapple-star/#level-select-ui"
+    rank: 2
+    detail: "Procedurally animated 2D elements in the Level Select UI scene"
+  - id: ui
+    label: "Grapple Star / Level Select Screen"
+    href: "/portfolio/grapple-star/#level-select-ui"
+    rank: 1
+    detail: "Full scene built from scratch: 3D objects, particle systems, procedurally animated 2D elements; scripted UI canvas with clickable planet selection; text fields and scene elements populated and toggled based on selection state. Concept art by Rowan Sherwin"
+  - id: ui
+    label: "Grapple Star / Dynamic Targeting Reticle"
+    href: "/portfolio/grapple-star/"
+    rank: 2
+    detail: "Reticle appearance driven by gameplay state (target availability) rather than sprite swapping"
 ---
 
 Grapple Star is a space action game in development at Left Turn Studios, built in

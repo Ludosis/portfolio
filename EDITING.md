@@ -50,9 +50,11 @@ the file:
 - `<!-- print: hide -->` at the end of a bullet keeps that bullet off the printout
   while leaving it on the web resume and the markdown.
 
-**The print version has to fit on two sheets, and nothing checks that
-automatically yet.** Both sheets are close to full, so after an edit open
-`/resume/Resume.html`, use print preview, and confirm it's still two pages.
+**The print version has to fit on two sheets.** Both sheets are close to full, so
+a wording change can push one line over. When that happens the site still updates
+normally, and a separate "Print check" run emails you that the printout spilled onto a
+third sheet, with the measurements. Trimming a few words on the overflowing sheet
+fixes it.
 
 If the file's structure breaks (a missing dates line, a misspelled section name),
 the build stops with the line number, the live site stays as it was, and GitHub
@@ -103,17 +105,24 @@ Edit the `hero:` block in that project's front matter (`src`, `caption`, `meta`,
 
 ## Adding a skill example (drives the Skills page)
 
-Add an entry to the project's `skills:` front matter:
+Add an entry to the project's `skills:` front matter, in the same shape as the
+entries already there:
 
 ```yaml
-  - id: shaders            # must exist in content/_data/skillsTaxonomy.yaml
-    highlight: Short Name  # shown on skills page + project sidebar
-    anchor: my-section     # must match an <h2 id="my-section"> in the body
-    detail: One-sentence description shown on the skills page.
+  - id: shaders                         # a section in content/_data/skillsTaxonomy.yaml
+    label: "Snuggles the Unicorn / Wing Vertex Shader"   # shown on the Skills page
+    href: "/portfolio/snuggles/#wing-shader"             # where it links
+    rank: 2                             # position within that section (1 = first)
+    detail: "One-sentence description shown on the Skills page."
 ```
 
-The Skills page, the project's tag list, and `/llms.txt` all regenerate from
-this automatically. A typo'd `id` fails the build (on purpose).
+A typo'd `id` fails the build (on purpose). An example that isn't a project (like
+the Claude Code entry) goes in `skillsTaxonomy.yaml` under that section's
+`extraExamples`.
+
+Project header tags are the `headerTags:` list, the sidebar is the `sidebar:` list,
+and portfolio card text lives under `card:`. These are your original text from the
+hand-built site; edit them directly.
 
 ## Adding a whole new project
 

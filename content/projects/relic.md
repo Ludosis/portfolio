@@ -1,57 +1,85 @@
 ---
 title: Relic
-description: >-
-  Relic: DigiPen capstone technical art by Jovian Finch Nordgren. Custom
-  atmosphere shaders, engine-level collaboration, and production leadership in
-  Zero Engine.
+description: "Relic: DigiPen capstone technical art by Jovian Finch Nordgren. Visual systems, engine-limit work, and First Place at the 2015 DigiPen Student Showcase."
 studio: Synaptic Sugar (DigiPen capstone)
 role: Technical Artist
 dates: July 2014 – May 2015
 engine: DigiPen Zero Engine
 order: 6
 card:
-  blurb: >-
-    All visual technical work on a DigiPen capstone that pushed Zero Engine
-    past its documented limits. Award winner, exhibited at PAX West 2015.
+  label: "Synaptic Sugar / DigiPen · 2014–2015"
+  blurb: "DigiPen capstone in Zero Engine. Owned all visual technical work and pushed the engine past its documented limits. First Place at 2015 DigiPen Student Showcase; exhibited at PAX West."
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/7734644_1.png
+  alt: "Relic game screenshot showing environment art and lighting"
+  tags:
+    - "Shader Authoring"
+    - "Lighting"
+    - "VFX"
+    - "Technical Direction"
 hero:
   src: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/7734644_1.png
   alt: Relic game screenshot showing environment art, lighting, and visual systems
   caption: environment art, lighting, and custom visual systems
   meta: Zero Engine
   draft: true
-tools:
-  - DigiPen Zero Engine
-  - Maya
-  - 3DS Max
-  - ZBrush
-  - Photoshop
-extraTags:
-  - Environment Art
-  - Technical Direction
-extraBlocks:
-  - title: Recognition
+# Header meta, tags, and sidebar: restored verbatim from the hand-written site.
+meta:
+  - label: "Team"
+    value: "Synaptic Sugar (DigiPen capstone)"
+  - label: "Role"
+    value: "Technical Artist"
+  - label: "Dates"
+    value: "July 2014 – May 2015"
+  - label: "Engine"
+    value: "DigiPen Zero Engine"
+headerTags:
+  - "Shader Authoring"
+  - "Lighting"
+  - "VFX"
+  - "Rigging"
+  - "Environment Art"
+  - "Technical Direction"
+  - "Engine Collaboration"
+sidebar:
+  - title: "Tools"
+    items:
+      - "DigiPen Zero Engine"
+      - "Maya"
+      - "3DS Max"
+      - "ZBrush"
+      - "Photoshop"
+  - title: "Skills"
+    items:
+      - "Shader authoring"
+      - "Lighting"
+      - "VFX"
+      - "Rigging"
+      - "Environment art"
+      - "Pipeline design"
+      - "Engine collaboration"
+  - title: "Recognition"
     lines:
       - "First Place: Best Spoken Dialog"
       - "First Place: Best Characters"
-      - 2015 DigiPen Student Showcase
-      - Exhibited at PAX West 2015
+      - "2015 DigiPen Student Showcase"
+      - "Exhibited at PAX West 2015"
+  - title: "Project"
+    lines:
+      - "Synaptic Sugar"
+      - "DigiPen capstone"
+      - "July 2014 – May 2015"
+# Skills-page entries: the original labels, wording, links, and order.
 skills:
   - id: shaders
-    highlight: Atmosphere Shaders in Zero Engine
-    anchor: visual-systems
-    detail: >-
-      Atmospheric scattering faked with depth values and fog density curves in
-      an engine with no atmosphere or post-processing system; pushed past
-      documented engine limits by working directly with the chief engineer on
-      engine-level changes
+    label: "Relic"
+    href: "/portfolio/relic/"
+    rank: 4
+    detail: "Atmospheric and visual shading in Zero Engine; pushed past documented engine limits by working directly with the chief engineer on engine-level changes"
   - id: lighting
-    highlight: All Visual Systems
-    anchor: visual-systems
-    detail: >-
-      All visual technical systems in Zero Engine: FX, lighting, atmospherics,
-      materials, rendering and asset pipelines; worked with chief engineer on
-      engine-level rendering changes
+    label: "Relic"
+    href: "/portfolio/relic/"
+    rank: 4
+    detail: "All visual technical systems in Zero Engine; worked with chief engineer on engine-level rendering changes"
 ---
 
 Relic was my capstone project at DigiPen, built by the team Synaptic Sugar using

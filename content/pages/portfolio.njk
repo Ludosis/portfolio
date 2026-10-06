@@ -2,9 +2,7 @@
 layout: base.njk
 permalink: /portfolio/
 title: Portfolio
-description: >-
-  Game projects by Jovian Finch Nordgren: shaders, VFX, animation pipelines,
-  asset optimization, and tooling across AAA and indie development.
+description: "Portfolio: Jovian Finch Nordgren. Technical art, shaders, VFX, animation pipelines, and tooling across AAA and indie game development."
 ---
 <section class="page-section">
   <div class="container">
@@ -24,20 +22,31 @@ description: >-
         <a class="card-link" href="{{ project.url }}">
           <div class="card-shot">
             {%- if project.data.card.image %}
-            <img src="{{ project.data.card.image }}" alt="" loading="lazy">
+            <img src="{{ project.data.card.image }}" alt="{{ project.data.card.alt or '' }}" loading="lazy">
             {%- else %}
-            <span class="card-shot-pending mono">capture pending clearance</span>
+            <span class="card-shot-pending mono">{{ project.data.card.pending or "capture pending clearance" }}</span>
             {%- endif %}
           </div>
           <div class="card-body">
+            {%- if project.data.card.label %}
+            <p class="card-fig mono">Plate {{ loop.index | pad2 }}: {{ project.data.card.label }}</p>
+            <h3>{{ project.data.title }}</h3>
+            {%- else %}
             <p class="card-fig mono">Plate {{ loop.index | pad2 }}: {{ project.data.studio }}</p>
             <h3>{{ project.data.title }}</h3>
             <p class="card-studio">{{ project.data.dates }}</p>
+            {%- endif %}
             <p class="card-blurb">{{ project.data.card.blurb }}</p>
             <ul class="skill-tags mono">
+              {%- if project.data.card.tags %}
+              {%- for t in project.data.card.tags %}
+              <li>{{ t }}</li>
+              {%- endfor %}
+              {%- else %}
               {%- for name in project.data.skills | skillNames(skillsTaxonomy) %}
               <li>{{ name }}</li>
               {%- endfor %}
+              {%- endif %}
             </ul>
           </div>
         </a>

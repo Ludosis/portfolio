@@ -1,84 +1,108 @@
 ---
 title: Snuggles the Unicorn
-description: >-
-  Snuggles the Unicorn: technical art work by Jovian Finch Nordgren. Wing
-  vertex shader system, URP conversion, and puppet rig retargeting on a Unity
-  action game.
+description: "Snuggles the Unicorn: technical art work by Jovian Finch Nordgren. Wing vertex shader system and puppet rig retargeting on a Unity action game."
 studio: Left Turn Studios
 role: Lead Technical Artist
 dates: 2021–2023 (canceled)
 engine: Unity
 order: 2
 card:
-  blurb: >-
-    Wing vertex shaders, a constraint-based retargeting rig that survived
-    repeated model redesigns, and a full URP conversion on a Unity action game.
+  label: "Left Turn Studios · 2021–2023"
+  blurb: "Lead TA on a Unity action title. Vertex shader system replacing 32-bone enemy rigs; constraint-based animation retargeting system for a redesigned player model."
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/screenshot-2023-01-03-084039_orig.jpg
+  alt: "Snuggles the Unicorn screenshot showing the game environment and character"
+  tags:
+    - "HLSL"
+    - "Material Property Blocks"
+    - "Rigging"
+    - "C#"
 hero:
   src: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/screenshot-2023-01-03-084039_orig.jpg
   alt: Snuggles the Unicorn screenshot showing the game environment with character and enemy
   caption: in-game environment with character and enemy
   meta: Unity · URP
   draft: true
-tools:
-  - Unity
-  - Shader Graph
-  - Unity Animation Rigging
-  - C# editor scripting
-  - Maya
-  - Substance Painter
-extraTags:
-  - Material Property Blocks
-  - HLSL
+# Header meta, tags, and sidebar: restored verbatim from the hand-written site.
+meta:
+  - label: "Studio"
+    value: "Left Turn Studios"
+  - label: "Role"
+    value: "Lead Technical Artist"
+  - label: "Dates"
+    value: "2021–2023 (canceled)"
+  - label: "Engine"
+    value: "Unity"
+headerTags:
+  - "Unity Shader Graph"
+  - "HLSL"
+  - "Material Property Blocks"
+  - "Rigging"
+  - "C#"
+  - "Editor Scripting"
+  - "VFX"
+  - "Animation Pipeline"
+sidebar:
+  - title: "Tools"
+    items:
+      - "Unity"
+      - "Shader Graph"
+      - "Unity Animation Rigging"
+      - "C# editor scripting"
+      - "Maya"
+      - "Substance Painter"
+  - title: "Skills"
+    items:
+      - "Rendering pipeline conversion"
+      - "Vertex shader authoring"
+      - "Material Property Blocks"
+      - "Gameplay-driven shaders"
+      - "Constraint-based rigging"
+      - "Animation retargeting"
+      - "Editor scripting"
+      - "VFX"
+      - "Cinematic sequencing"
+  - title: "Project"
+    lines:
+      - "Left Turn Studios"
+      - "2021–2023"
+      - "Lead Technical Artist"
+# Skills-page entries: the original labels, wording, links, and order.
 skills:
   - id: shaders
-    highlight: Wing Vertex Shader System
-    anchor: wing-shader
-    detail: >-
-      Replaced 32-bone-per-enemy wing rig with a GPU vertex shader;
-      per-instance phase randomization via Material Property Blocks so every
-      enemy flaps independently, with zero extra draw calls
+    label: "Snuggles the Unicorn / Wing Vertex Shader"
+    href: "/portfolio/snuggles/#wing-shader"
+    rank: 2
+    detail: "Replaced 32-bone-per-enemy wing rig with a GPU vertex shader; per-instance phase randomization via Material Property Blocks so every enemy flaps independently; zero extra draw calls"
   - id: shaders
-    highlight: Character Status FX Shader
-    anchor: status-fx
-    detail: >-
-      Single overlay shader handling all character status states (burning,
-      frozen, impact flash); toggled by bools from gameplay script via a helper
-      component; multiple states simultaneously active
-  - id: lighting
-    highlight: URP Rendering Conversion
-    anchor: urp
-    detail: >-
-      Full standard-renderer-to-URP conversion: every shader rebuilt from
-      scratch, batch material conversion scripted, lighting and post-processing
-      rebuilt, outsourced store assets cleaned up to match pipeline
-  - id: rigging
-    highlight: Puppet Rig & Retargeting
-    anchor: puppet-rig
-    detail: >-
-      Constraint-based retargeting system for mid-production character redesign:
-      old skeleton drives new skeleton in real time, full animation library
-      transferred immediately; scripted constraint rebuild utility; biped-to-
-      quadruped mech kitbash with aim constraints and bob dampening
-  - id: tools
-    highlight: Rig Rebuild Utility
-    anchor: puppet-rig
-    detail: >-
-      Scripted constraint reconnection that rebuilt the full rig from saved
-      configuration in seconds; Maya compositing helper scripts
+    label: "Snuggles the Unicorn / Status FX Shader"
+    href: "/portfolio/snuggles/"
+    rank: 3
+    detail: "Single overlay shader handling all character status states (burning, frozen, impact flash); toggled by bools from gameplay script via a helper component; multiple states simultaneously active"
   - id: vfx
-    highlight: Gameplay VFX
-    anchor: other-vfx
-    detail: >-
-      Fuel refill timers driven by gameplay script via shader parameters; enemy
-      spawn effects; collectible pickups; character celebration states
+    label: "Snuggles the Unicorn"
+    href: "/portfolio/snuggles/"
+    rank: 3
+    detail: "Fuel refill timers driven by gameplay script via shader parameters; enemy spawn effects; collectible pickups; character celebration states"
+  - id: lighting
+    label: "Snuggles the Unicorn / URP Conversion"
+    href: "/portfolio/snuggles/"
+    rank: 1
+    detail: "Full standard-renderer-to-URP conversion: every shader rebuilt from scratch, batch material conversion scripted, lighting and post-processing rebuilt, outsourced store assets cleaned up to match pipeline"
+  - id: rigging
+    label: "Snuggles the Unicorn / Puppet Rig & Retargeting"
+    href: "/portfolio/snuggles/#puppet-rig"
+    rank: 1
+    detail: "Constraint-based retargeting system for mid-production character redesign: old skeleton drives new skeleton in real time, full animation library transferred immediately; scripted constraint rebuild utility that survived repeated model updates in seconds; biped-to-quadruped mech kitbash with aim constraints, bob dampening, and controller aim script"
+  - id: tools
+    label: "Snuggles the Unicorn / Rig Rebuild Utility"
+    href: "/portfolio/snuggles/#puppet-rig"
+    rank: 2
+    detail: "Scripted constraint reconnection that rebuilt the full rig from saved configuration in seconds; Maya compositing helper scripts"
   - id: scripting
-    highlight: C# (Unity)
-    anchor: puppet-rig
-    detail: >-
-      Puppet rig constraint rebuild utility; controller aim script; status FX
-      helper component; gameplay-to-shader parameter bridge; batch material
-      conversion script for URP migration
+    label: "C# / Unity"
+    href: "/portfolio/snuggles/"
+    rank: 1
+    detail: "Puppet rig constraint rebuild utility; controller aim script; status FX helper component; gameplay-to-shader parameter bridge; batch material conversion script for URP migration"
 ---
 
 Snuggles the Unicorn was a Unity action game in development at Left Turn Studios.

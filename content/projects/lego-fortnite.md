@@ -1,61 +1,87 @@
 ---
 title: Lego Fortnite
-description: >-
-  Lego Fortnite: technical art QA work by Jovian Finch Nordgren at Epic Games.
-  FX coverage framework and automation triage tool built with Claude Code.
+description: "Lego Fortnite: technical art QA work by Jovian Finch Nordgren at Epic Games. FX coverage framework and automation triage tool built with Claude Code."
 studio: Epic Games
 role: Senior QA Engineer (Tech Art)
 dates: July 2023 – March 2026
 engine: Unreal Engine 5
 order: 4
 card:
-  blurb: >-
-    An FX validation framework that scaled coverage without scaling QA, and an
-    automation triage tool built with Claude Code in a single day.
+  label: "Epic Games · 2023–2026"
+  blurb: "Embedded tech art QA across FX, animation, content optimization, and procedural content on UE5. Built FX validation framework and an automation triage tool with Claude Code."
+  pending: "Lego Fortnite · images pending"
+  tags:
+    - "Unreal Engine 5"
+    - "QA Systems"
+    - "Claude Code"
+    - "Pipeline"
 hero:
-tools:
-  - Unreal Engine 5
-  - Editor Utility Widgets
-  - C++ (extend existing)
-  - Python
-  - Claude Code
-  - Jira API
-  - MCP integration
-extraTags:
-  - Live Service
+# Header meta, tags, and sidebar: restored verbatim from the hand-written site.
+meta:
+  - label: "Studio"
+    value: "Epic Games"
+  - label: "Role"
+    value: "Senior QA Engineer (Tech Art)"
+  - label: "Dates"
+    value: "July 2023 – March 2026"
+  - label: "Engine"
+    value: "Unreal Engine 5"
+headerTags:
+  - "Unreal Engine 5"
+  - "QA Systems Design"
+  - "FX Validation"
+  - "Asset Audit Tools"
+  - "Claude Code"
+  - "Python"
+  - "API / MCP"
+  - "Jira"
+  - "Pipeline"
+sidebar:
+  - title: "Tools"
+    items:
+      - "Unreal Engine 5"
+      - "Editor Utility Widgets"
+      - "C++ (extend existing)"
+      - "Python"
+      - "Claude Code"
+      - "Jira API"
+      - "MCP integration"
+  - title: "Skills"
+    items:
+      - "QA systems design"
+      - "FX validation"
+      - "Test case development"
+      - "Pipeline tooling"
+      - "LLM-assisted development"
+      - "Cross-team coordination"
+      - "Root cause analysis"
+  - title: "Role"
+    lines:
+      - "Epic Games"
+      - "July 2023 – March 2026"
+      - "Senior QA Engineer (Tech Art)"
+# Skills-page entries: the original labels, wording, links, and order.
 skills:
-  - id: qa
-    highlight: Automation Triage Tool
-    anchor: triage-tool
-    detail: >-
-      Python tool built with Claude Code in one day: pulls daily test results
-      via API across PC, console, and Switch; generates self-contained HTML
-      report with cross-platform comparison, trend tracking, and Jira-linked
-      failure notes. Turned daily triage from an assembly task into a reading
-      task
-  - id: qa
-    highlight: FX Coverage Framework
-    anchor: fx-framework
-    detail: >-
-      Traced escaped defects to a systemic gap in FX test coverage; built
-      distributed test suite across platforms and scalability settings;
-      packaged as team-specific guides so coverage scaled with content volume
-      without scaling centralized QA load
   - id: tools
-    highlight: EUW Editor Tools
-    anchor: editor-tools
-    detail: >-
-      EUW animation range validation tool (batching, progress indicator, CSV
-      export, configurable options); asset audit EUW with mesh LOD and triangle
-      count enforcement at check-in via extended C++ submit validator
+    label: "Lego Fortnite / Editor Tools"
+    href: "/portfolio/lego-fortnite/"
+    rank: 3
+    detail: "EUW animation range validation tool (batching, progress indicator, CSV export, configurable options); asset audit EUW with mesh LOD and triangle count enforcement at check-in via extended C++ submit validator; FX validation test suite distributed as team-specific guides"
+  - id: qa
+    label: "Lego Fortnite / Automation Triage Tool"
+    href: "/portfolio/lego-fortnite/#triage-tool"
+    rank: 1
+    detail: "Python tool built with Claude Code in one day: pulls daily test results via API across PC, console, and Switch; generates self-contained HTML report with cross-platform comparison, trend tracking, and Jira-linked failure notes. Turned daily triage from an assembly task into a reading task"
+  - id: qa
+    label: "Lego Fortnite / FX Coverage Framework"
+    href: "/portfolio/lego-fortnite/#fx-framework"
+    rank: 2
+    detail: "Traced escaped defects to a systemic gap in FX test coverage; built distributed test suite across platforms and scalability settings; packaged as team-specific guides so coverage scaled with content volume without scaling centralized QA load"
   - id: scripting
-    highlight: Blueprint & EUW (UE5)
-    anchor: editor-tools
-    detail: >-
-      Animation range validation EUW with batching, progress indicator, and CSV
-      export; asset audit EUW with LOD/poly enforcement; extended existing C++
-      submit validator, with no prior UE5 Blueprint or EUW experience before
-      building these
+    label: "Blueprint & EUW / Unreal Engine 5"
+    href: "/portfolio/lego-fortnite/"
+    rank: 3
+    detail: "Animation range validation EUW with batching, progress indicator, and CSV export; asset audit EUW with LOD/poly enforcement; extended existing C++ submit validator; no prior UE5 Blueprint or EUW experience before building these"
 ---
 
 At Epic Games I was embedded across multiple Tech Art and content teams on Unreal

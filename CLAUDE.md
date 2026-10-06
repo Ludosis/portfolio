@@ -21,6 +21,27 @@ All session context that isn't committed to the repo is unrecoverable when a ses
 4. **Commit after any significant work block.** Don't let a session end with uncommitted
    decisions or half-documented states.
 
+### What belongs in CLAUDE.md for this project
+
+- Current state of the site (which pages exist, what's live)
+- Pending work items with enough detail to resume without asking the user to re-explain
+- Any content decisions (tone, framing, attribution) that were discussed and settled
+- Technical conventions that must not be broken (paths, CSS architecture, fetch behavior)
+- Context about Jovian that informs writing tone and content choices
+
+### Decisions are the user's currency (standing rule, Oct 2026)
+
+- **Never replace something the user wrote, or worked out closely with Claude, without a
+  good reason and the user's explicit agreement.** Changing copy Claude wrote first is
+  fine; replacing the user's hand-written or collaborated copy with new copy is not.
+  "Build a new site" did not mean "rewrite the copy".
+- A decision made once stands. Don't quietly reverse it later (for example, the resume
+  source format, or content the user chose to keep).
+- When a change touches the user's words or past decisions, propose it with the
+  original quoted, and wait.
+- `_source/version-audit-2026-10-06.md` records what was changed without asking, what
+  was restored, and what is still open for the user's review.
+
 ---
 
 ## What this project is
@@ -47,14 +68,22 @@ Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
 | Design system | `assets/css/style.css`: Drafting Table tokens (bone/ink/prussian/red-pencil), Fraunces + IBM Plex self-hosted in `assets/fonts/` | |
 | JS | `assets/js/`: main (nav), hero-wave (WebGL vertex-shader hero, 2D fallback), reveal (contact) | |
 | Resume source | `jovian-nordgren-resume.md` (repo root): the SINGLE source, hand-edited by the user, often from a phone. Parsed by `pipeline/resume-markdown.js` (via `content/_data/resume.js`) into the web resume, the print `resume/Resume.html` (phone injected, auto-prints with `?print`), and the served markdown (comment tags stripped). | **The markdown is the source because the user edits it from their phone. Never move the source to another format.** Print controls are comment tags: `<!-- print: page 2 starts here -->` between jobs, `<!-- print: hide -->` on a bullet. The parser fails the build with a line number on bad structure. Print layout: sheet 1 is two columns (experience 74%, sidebar 26% with Profile + Skills); sheet 2 full width with Education at the bottom. Verify the print is exactly 2 sheets after any resume edit. |
-| Deploy | `.github/workflows/deploy.yml`: push to main → build (CONTACT_PHONE secret) → Pages | |
+| Deploy | `.github/workflows/deploy.yml`: push to main → build (CONTACT_PHONE secret) → Pages | `.github/workflows/print-check.yml` runs separately on resume changes: it emails the user if the print resume exceeds two sheets but never blocks the deploy (user's choice). Checker: `pipeline/check-print-fit.mjs`. |
 | Build | `npm ci && npx @11ty/eleventy` → `_site/` (gitignored) | Optional `.env` with CONTACT_PHONE locally. |
 
 ### Project front-matter contract
 
 - `skills:` entries reference `skillsTaxonomy.yaml` ids; **a typo'd id fails the build**.
-  Each entry: `id`, `highlight`, `anchor`, `detail`. The skills page, project tag list,
-  and llms.txt are all generated from these.
+  The Skills page is generated from these. On the six original projects each entry
+  carries the user's own `label`, `href`, `rank` (their hand-set order) and `detail`,
+  restored verbatim from the hand-built site; keep them. New entries may use
+  `highlight` + `anchor` instead. Non-project examples (the Claude Code entry) live in
+  `skillsTaxonomy.yaml` under `extraExamples`.
+- **User-written fields (restored Oct 2026, do not regenerate or rewrite):** `meta`
+  (header meta row), `headerTags` (header tags; not `tags`, which Eleventy reserves for
+  collections), `sidebar` (Tools / Skills / Role blocks), and the `card` block's
+  `label`, `blurb`, `tags`, `alt`, `pending`. Projects without them (Earlier Work) fall
+  back to generated versions.
 - `anchor:` values must match `<h2 id="...">` headings in the body (headings are raw
   HTML in the markdown, e.g. `<h2 id="wing-shader" class="project-section">`).
 - `order:` drives portfolio index order and prev/next pagination.
