@@ -9,44 +9,54 @@ no local tooling needed. (For local preview: `npm ci && npx @11ty/eleventy --ser
 Edit the markdown in `content/projects/*.md` (project pages) or the templates in
 `content/pages/*.njk` (About, How I Work, Resume page chrome).
 
-## The resume: ONE file
+## The resume: one markdown file
 
-`content/_data/resume.yaml` is the single source. Editing it updates all three
-outputs in the same build: the web resume page (`/resume/`), the print version
-(`/resume/Resume.html`), and the markdown at `/jovian-nordgren-resume.md`.
-Never edit those outputs directly.
+`jovian-nordgren-resume.md` at the repo root is the resume. Edit it on GitHub (the
+mobile site works fine) and the build updates all three versions: the web resume
+(`/resume/`), the print version (`/resume/Resume.html`), and the downloadable
+markdown (`/jovian-nordgren-resume.md`).
 
-Structure per job: `title`, `company`, `location`, `dates` (short, print),
-`datesLong` (web/md), `projectLine`, `intro`, `bullets`, optional `subRole` and
-`subSections`. The `page: 1|2` field controls which printed sheet a job lands
-on.
+The format is the one the file already uses. Keep each job shaped like this:
 
-The print version must fit on two sheets. The web resume and the markdown have no
-page limit, so print-only overrides let you trim the printout without losing
-anything online:
+```
+### Title | Company | Location
+**Month Year – Month Year**
+*Project | Project*
+*Optional second line, e.g. a contract or role history*
 
-- `print: false` on a bullet leaves it out of print only. Write the bullet as:
+One intro paragraph.
 
-  ```yaml
-      - print: false
-        text: >-
-          The bullet text, indented under text.
-  ```
-- `printIntro`, `printSubRole`, `printProjectLine` on a job replace that line in
-  print only (`printIntro: false` drops it).
-- `printText` on a sub-section replaces its paragraph in print only.
+- Bullet
+- Bullet
 
-After any resume edit, open `/resume/Resume.html`, use print preview, and confirm
-it is still exactly two pages.
+**Lead: Rest (2017 – 2018)**
 
-YAML pitfalls when editing on GitHub:
+Optional sub-section paragraph (like the Destiny ambient life work).
+```
 
-- Text under `>-` can be re-wrapped freely, but every line must keep the same
-  indentation as the lines around it.
-- On a single-line value, a colon followed by a space breaks the file. Wrap the
-  value in double quotes: `projectLine: "Destiny: The Taken King"`.
-- If the file doesn't parse, the build fails and the live site stays as it was.
-  GitHub emails you about the failed run; the Actions tab shows the line number.
+- Spell months out in full in the dates line; the print version shortens them.
+  A plain `-` between the dates is fine; it's converted to a proper dash.
+- `|` separates parts and shows as `·` on the site. Spaces around it are optional.
+- A job with no company is `### Title | Location` (see Freelance).
+- Skills lines are `**Label:** item, item, item`. Education is a `**Degree**` line
+  followed by the school line.
+
+Print-only controls, written as comments that are invisible when GitHub displays
+the file:
+
+- `<!-- print: page 2 starts here -->` sits between two jobs and decides where the
+  printed resume breaks onto sheet 2. Sheet 1 is the two-column layout (experience
+  plus a profile and skills sidebar); everything after the marker prints on sheet 2.
+- `<!-- print: hide -->` at the end of a bullet keeps that bullet off the printout
+  while leaving it on the web resume and the markdown.
+
+**The print version has to fit on two sheets, and nothing checks that
+automatically yet.** Both sheets are close to full, so after an edit open
+`/resume/Resume.html`, use print preview, and confirm it's still two pages.
+
+If the file's structure breaks (a missing dates line, a misspelled section name),
+the build stops with the line number, the live site stays as it was, and GitHub
+emails you about the failed run. The Actions tab shows the message.
 
 ## Adding an image
 

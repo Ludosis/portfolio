@@ -94,7 +94,17 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
   until print fits.
 - User approved the existing layout changes (type 9.4pt, 0.6in margins, skills label
   width, inline certificate, flowing continues marker).
-- **Two-column print prototype (user's idea, measured, NOT applied):** sheet 1 =
+- **APPLIED (user approved):** markdown is the resume source again
+  (`jovian-nordgren-resume.md`, parsed by `pipeline/resume-markdown.js`; YAML deleted;
+  verified field-for-field identical apart from approved edits). Two-column print
+  layout built for real (10.80in / 10.72in, 2 sheets in all four margin scenarios), approved
+  skills list (Adobe Creative Suite, HLSL added, Midjourney and skinning removed),
+  Epic triage "in one day ... into an HTML report". User is applying for a full-time
+  Tools and Pipeline TA role at Riot.
+- **Audit of unilateral decisions:** `_source/review-later.md`, verified against
+  commit 339d4e2. Top items: LinkedIn handle (Ludosis vs JovianFinch), Skills page
+  lost the Claude Code entry, home hero line rewritten, How I Work paragraph replaced.
+- (superseded) **Two-column print prototype (user's idea, measured, NOT applied):** sheet 1 =
   experience column 74% + sidebar 26% (Profile + Skills); Education moves to the bottom
   of sheet 2; sheet 2 stays full width; job location moves from the title row onto the
   project line ("Lego Fortnite · Remote") so titles never wrap. With the proposed

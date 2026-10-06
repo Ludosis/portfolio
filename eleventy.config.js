@@ -13,14 +13,17 @@ module.exports = function (eleventyConfig) {
     "README.md",
     "CLAUDE.md",
     "EDITING.md",
+    // the resume source: parsed by content/_data/resume.js, never a page itself
+    "jovian-nordgren-resume.md",
   ].forEach((p) => eleventyConfig.ignores.add(p));
 
   eleventyConfig.addDataExtension("yaml,yml", (contents) => yaml.load(contents));
 
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("CNAME");
-  // Resume is fully generated from content/_data/resume.yaml: the web page,
-  // the print version, and /jovian-nordgren-resume.md are all build outputs.
+  // Resume source is jovian-nordgren-resume.md (parsed by pipeline/resume-markdown.js);
+  // the web page, print version, and served markdown are all built from it.
+  eleventyConfig.addWatchTarget("jovian-nordgren-resume.md");
 
   figures.register(eleventyConfig);
 

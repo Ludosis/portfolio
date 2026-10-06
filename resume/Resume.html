@@ -2,25 +2,25 @@
 permalink: /resume/Resume.html
 eleventyExcludeFromCollections: true
 ---
-{%- macro job(j) %}
+{#- narrow = the sheet-1 experience column: location moves from the title row
+    onto the project line, so title + dates always fit on one line -#}
+{%- macro job(j, narrow=false) %}
+    {%- set locOnProjectLine = narrow and j.projectLine %}
     <div class="job">
       <div class="job-head">
         <h3 class="job-title">
-          {{ j.title }}{% if j.company %} <span class="sep">·</span> <span class="co">{{ j.company }}</span>{% endif %} <span class="sep">·</span> <span class="loc">{{ j.location }}</span>
+          {{ j.title }}{% if j.company %} <span class="sep">·</span> <span class="co">{{ j.company }}</span>{% endif %}{% if not locOnProjectLine %} <span class="sep">·</span> <span class="loc">{{ j.location }}</span>{% endif %}
         </h3>
         <div class="dates">{{ j.dates }}</div>
       </div>
-      {%- set projectLine = j.printProjectLine if j.printProjectLine is defined else j.projectLine %}
-      {%- if projectLine %}
-      <p class="project-line">{{ projectLine }}</p>
+      {%- if j.projectLine %}
+      <p class="project-line">{{ j.projectLine }}{% if locOnProjectLine %} · {{ j.location }}{% endif %}</p>
       {%- endif %}
-      {%- set subRole = j.printSubRole if j.printSubRole is defined else j.subRole %}
-      {%- set intro = j.printIntro if j.printIntro is defined else j.intro %}
-      {%- if subRole %}
-      <p class="sub-role">{{ subRole }}</p>
+      {%- if j.subRole %}
+      <p class="sub-role">{{ j.subRole }}</p>
       {%- endif %}
-      {%- if intro %}
-      <p class="job-intro">{{ intro }}</p>
+      {%- if j.intro %}
+      <p class="job-intro">{{ j.intro }}</p>
       {%- endif %}
       {%- if j.bullets %}
       <ul class="bullets">
@@ -31,7 +31,7 @@ eleventyExcludeFromCollections: true
       {%- endif %}
       {%- for sub in j.subSections %}
       <div class="mini-head">{{ sub.headingLead }} <span class="sep-mark">&middot;</span> {{ sub.headingRest }} <span style="color:var(--muted); font-weight:400; font-family:'Source Sans 3'; font-size:9.4pt; font-style: italic;">({{ sub.dates }})</span></div>
-      <p class="job-intro" style="margin-top:2px;">{{ sub.printText if sub.printText is defined else sub.text }}</p>
+      <p class="job-intro" style="margin-top:2px;">{{ sub.text }}</p>
       {%- endfor %}
     </div>
 {%- endmacro %}
@@ -438,8 +438,21 @@ eleventyExcludeFromCollections: true
   .job { margin-bottom: 9px; }
   .job-intro { font-size: 9.5pt; line-height: 1.38; }
   ul.bullets li { font-size: 9.4pt; line-height: 1.38; margin-bottom: 2px; }
-  /* wide enough that no skill label wraps to a second line */
-  .skills-grid { grid-template-columns: 172px 1fr; }
+  /* Sheet 1: experience 74% | sidebar 26% (profile + skills). The split is
+     where the two columns come out the same height; measure before changing. */
+  .twocol {
+    display: grid;
+    grid-template-columns: minmax(0, 37fr) minmax(0, 13fr);
+    gap: 0.28in;
+    align-items: start;
+  }
+  .col-main > .section { margin-top: 0; }
+  .col-side .section { margin-top: 0; }
+  .col-side .section + .section { margin-top: 14px; }
+  .col-side .profile { font-size: 9.2pt; line-height: 1.38; margin: 0; }
+  .col-side .skills-grid { grid-template-columns: 1fr; row-gap: 0; }
+  .col-side .skills-grid dt { padding-top: 6px; }
+  .col-side .skills-grid dd { font-size: 9.2pt; line-height: 1.36; }
 
   /* ====== Print ====== */
   @page {
@@ -528,14 +541,30 @@ eleventyExcludeFromCollections: true
     </div>
   </header>
 
-  <p class="profile">{{ resume.profile }}</p>
+  <div class="twocol">
+    <div class="col-main">
+      <section class="section">
+        <h2 class="section-title">Experience <span class="tick">{{ resume.tick }}</span></h2>
+        {%- for j in resume.experience %}{% if j.page == 1 %}{{ job(j, true) }}{% endif %}{% endfor %}
+      </section>
+    </div>
 
-  <section class="section">
-    <h2 class="section-title">Experience <span class="tick">{{ resume.tick }}</span></h2>
-
-    {%- for j in resume.experience %}{% if j.page == 1 %}{{ job(j) }}{% endif %}{% endfor %}
-
-  </section>
+    <aside class="col-side">
+      <section class="section">
+        <h2 class="section-title">Profile</h2>
+        <p class="profile">{{ resume.profile }}</p>
+      </section>
+      <section class="section">
+        <h2 class="section-title">Skills</h2>
+        <dl class="skills-grid">
+          {%- for s in resume.skillsGrid %}
+          <dt>{{ s.label }}</dt>
+          <dd>{{ s.items }}</dd>
+          {%- endfor %}
+        </dl>
+      </section>
+    </aside>
+  </div>
 
   <div class="continues">
     <span class="c-rule"></span>
@@ -567,16 +596,6 @@ eleventyExcludeFromCollections: true
   </section>
 
   <section class="section">
-    <h2 class="section-title">Skills</h2>
-    <dl class="skills-grid">
-      {%- for s in resume.skillsGrid %}
-      <dt>{{ s.label }}</dt>
-      <dd>{{ s.items }}</dd>
-      {%- endfor %}
-    </dl>
-  </section>
-
-  <section class="section">
     <h2 class="section-title">Education</h2>
     <div class="edu-block">
       {%- for e in resume.education %}
@@ -589,7 +608,7 @@ eleventyExcludeFromCollections: true
   </section>
 
   <div class="foot">
-    <span>{{ resume.footNote }}</span>
+    <span>References available on request</span>
     <span class="rule"></span>
     <span>Page 2 / 2</span>
   </div>
