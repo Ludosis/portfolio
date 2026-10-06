@@ -81,7 +81,7 @@ skills:
     label: "Blueprint & EUW / Unreal Engine 5"
     href: "/portfolio/lego-fortnite/"
     rank: 3
-    detail: "Animation range validation EUW with batching, progress indicator, and CSV export; asset audit EUW with LOD/poly enforcement; extended existing C++ submit validator; no prior UE5 Blueprint or EUW experience before building these"
+    detail: "Animation range validation EUW with batching, progress indicator, and CSV export; asset audit EUW with LOD/poly enforcement; extended existing C++ submit validator, with no prior UE5 Blueprint or EUW experience before building these"
 ---
 
 At Epic Games I was embedded across multiple Tech Art and content teams on Unreal

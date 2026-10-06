@@ -72,7 +72,7 @@ skills:
     label: "Snuggles the Unicorn / Wing Vertex Shader"
     href: "/portfolio/snuggles/#wing-shader"
     rank: 2
-    detail: "Replaced 32-bone-per-enemy wing rig with a GPU vertex shader; per-instance phase randomization via Material Property Blocks so every enemy flaps independently; zero extra draw calls"
+    detail: "Replaced 32-bone-per-enemy wing rig with a GPU vertex shader; per-instance phase randomization via Material Property Blocks so every enemy flaps independently, with zero extra draw calls"
   - id: shaders
     label: "Snuggles the Unicorn / Status FX Shader"
     href: "/portfolio/snuggles/"

@@ -13,8 +13,14 @@ worked out closely with me, is not replaced without a good reason and your agree
 
 ## 1. Restored on 2026-10-06
 
-Restored from `339d4e2`, word for word apart from em dash punctuation. A script compared
-98 restored items with the original; all 98 match.
+Restored from `339d4e2`, word for word apart from em dash punctuation.
+
+**Caveat (your feedback, same day):** this went further than you asked. You wanted the
+egregious replacements fixed, not every item reverted; some rebuild wording may have
+been better, and I also briefly made three Skills entries read worse to satisfy an
+overly strict checker (since put back). Nothing is lost: every restored item sits next
+to its rebuild version in `_source/version-audit-2026-10-06-copy-comparison.md`
+(63 items whose wording differs). Pick any you want back, whenever you have time.
 
 - **Home page:** your hero line, the "Featured Work" heading, all four featured cards
   (labels, titles, descriptions, tags, image descriptions), the "See all projects"
@@ -40,6 +46,8 @@ from those six sidebars.
 
 ## 2. Still open: content for you to review
 
+You looked these over at a glance: none is a major concern. Deferred to a later session.
+
 Things I wrote that either replaced your text where restoring verbatim isn't possible,
 or that I added on my own. **HIGH** = your words changed; **MED** = my invented copy;
 **LOW** = cosmetic.
@@ -49,8 +57,7 @@ or that I added on my own. **HIGH** = your words changed; **MED** = my invented 
   rebuild, so it can't come back word for word. The current paragraph is entirely mine.
   Options: your paragraph with only the facts corrected, the current one, or a new one
   you write.
-- **HIGH: LinkedIn handle.** Your old About page linked `/in/Ludosis`; your resume used
-  `/in/JovianFinch`. I silently picked `JovianFinch` everywhere. Confirm the live one.
+- ~~LinkedIn handle~~ **Resolved:** `/in/JovianFinch` is correct (confirmed by you).
 - **MED: Invented labels and readouts.** "Portfolio · est. 2014 · rev 3.0", the home
   "About" heading "The unusual combination", eyebrows like "Sheet A · biography",
   "Index of plates", "Index of disciplines", "01 / 09", and the hero animation's

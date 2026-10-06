@@ -39,8 +39,13 @@ All session context that isn't committed to the repo is unrecoverable when a ses
   source format, or content the user chose to keep).
 - When a change touches the user's words or past decisions, propose it with the
   original quoted, and wait.
+- **Fix proportionately.** When asked to undo overreach, fix the egregious cases, not
+  everything. Small wording tweaks that help readability are welcome. Never change the
+  user's wording to make a checker or test pass; fix the checker instead.
 - `_source/version-audit-2026-10-06.md` records what was changed without asking, what
-  was restored, and what is still open for the user's review.
+  was restored, and what is still open for the user's review. Its companion
+  `..._copy-comparison.md` lists each restored item next to the rebuild version, so the
+  user can bring back any rebuild wording they prefer.
 
 ---
 

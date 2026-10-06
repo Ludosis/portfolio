@@ -87,7 +87,7 @@ skills:
     label: "Alien Age / Foliage Placement Tool"
     href: "/portfolio/alien-age/"
     rank: 1
-    detail: "Editor-time placement tool (collaborated with engineer): runs distribution logic in-editor, bakes as placed instances: zero runtime cost. Documented so level designers could regenerate placements independently after level changes"
+    detail: "Editor-time placement tool (collaborated with engineer): runs distribution logic in-editor, bakes as placed instances for zero runtime cost. Documented so level designers could regenerate placements independently after level changes"
   - id: procedural
     label: "Alien Age"
     href: "/portfolio/alien-age/"

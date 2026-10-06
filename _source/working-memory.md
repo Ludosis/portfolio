@@ -62,6 +62,17 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
 - Blend: https://claude.ai/code/artifact/8f667653-a7ab-4fc5-9eee-c3ffba222123
 - Archived in repo: `_source/design-archive/` (self-contained HTML, open in browser)
 
+### 2026-10-06 (latest): feedback on the restoration
+
+- User: the full word-for-word restore overshot; they wanted the egregious replacements
+  fixed and some rebuild wording might have been better. Also: I had degraded three
+  Skills entries ("with"/"for" removed) to satisfy my checker. Those three are back to
+  the readable versions. Site otherwise left as restored (no further sweeping change).
+- Side-by-side of all 63 differing restored items: `_source/version-audit-2026-10-06-copy-comparison.md`.
+  User will pick rebuild wording to bring back later, item by item.
+- LinkedIn confirmed: `/in/JovianFinch` (already correct everywhere).
+- Remaining open audit items: glanced at by user, not major; deferred.
+
 ### 2026-10-06 (later): restoration of the user's own copy
 
 - User's standing rule (now in CLAUDE.md): never replace their written or closely
