@@ -62,6 +62,92 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
 - Blend: https://claude.ai/code/artifact/8f667653-a7ab-4fc5-9eee-c3ffba222123
 - Archived in repo: `_source/design-archive/` (self-contained HTML, open in browser)
 
+### 2026-10-06 (latest): feedback on the restoration
+
+- User: the full word-for-word restore overshot; they wanted the egregious replacements
+  fixed and some rebuild wording might have been better. Also: I had degraded three
+  Skills entries ("with"/"for" removed) to satisfy my checker. Those three are back to
+  the readable versions. Site otherwise left as restored (no further sweeping change).
+- Side-by-side of all 63 differing restored items: `_source/audits/version-audit-2026-10-06-copy-comparison.md`.
+  User will pick rebuild wording to bring back later, item by item.
+- LinkedIn confirmed: `/in/JovianFinch` (already correct everywhere).
+- Remaining open audit items: glanced at by user, not major; deferred.
+
+### 2026-10-06 (later): restoration of the user's own copy
+
+- User's standing rule (now in CLAUDE.md): never replace their written or closely
+  collaborated text, or a past decision, without a good reason and their agreement.
+- Restored verbatim from commit 339d4e2 (98 items, script-verified 0 mismatches): home
+  hero, featured cards, About teaser, "See all projects"; portfolio card text, labels,
+  tags, alt text; project header tags, meta rows, full sidebars (incl. Destiny's Bungie
+  tenure); the hand-curated Skills page (labels, wording, links, order, Claude Code
+  entry); all page meta descriptions; CLAUDE.md "What belongs in CLAUDE.md" section.
+- Gotcha found: `tags` is reserved by Eleventy (collections). Restored header tags use
+  `headerTags`.
+- Print check added (warn-only, separate workflow; user's choice). Tested both paths.
+- Audit file renamed by user's request: `_source/audits/version-audit-2026-10-06.md`. Open
+  items there await the user's review (How I Work paragraph, LinkedIn handle, invented
+  labels, captions, Earlier Work copy, machine-facing copy, OG image em dash).
+
+### Oct 2026 session: Riot role, print refit, em dash sweep
+
+- **Riot Games added to resume** (May 2026 to present, contract Senior TA via
+  Innovative Employee Solutions, Teamfight Tactics UE5 migration). User's draft
+  lightly edited: UE5 dropped from the project line (per the user's own rule from
+  the Epic entry), contract agency moved to the sub-role line (parallels Bungie's
+  Randstad line), intro fragments joined, bullets joined with semicolons to match
+  house style, "benchmark optimization" clause clarified. Edits listed to the user
+  for approval; waiting on their verdict.
+- **Print refit for six roles.** Riot + Epic on sheet 1; Left Turn moves to sheet 2.
+  Type tightened slightly on both screen and print (bullets 9.4pt, intros 9.5pt,
+  side margins 0.6in). New print-only override mechanism in resume.yaml so the
+  web/md resume keeps everything. Current print-only trims: DigiPen intro, strike-
+  team bullet, Animation Instructor bullet, awards bullet (folded into the print
+  project line); Bungie workflow-guides bullet and the prototype sentence of the
+  ambient-life paragraph; shorter Freelance intro and Bungie sub-role. Education
+  certificate moved inline (layout only). Verified: 10.82in / 10.79in, 2 sheets in
+  all four margin scenarios; no screen-view overlaps.
+- **Em dash sweep.** 301 visible em dashes on the built site went to 0, each rewritten
+  by hand (sentences) or by convention (separators; see CLAUDE.md house style).
+- **CORRECTION (user feedback, same day):** I chose the print trims without asking;
+  the user wanted to discuss ("open to suggestions"), and I had cut the items most
+  relevant to their current work (Animation Instructor = teaching; Bungie workflow
+  guides = core TA documentation). ALL print-only content trims were reverted. The
+  override mechanism stays (unused). Layout changes (type 9.4pt, 0.6in margins, skills
+  label width, inline certificate, flowing continues marker) are still applied but
+  were also never approved; listed to the user with their measured value.
+  **Branch state: print resume is 3 sheets** (sheet 1 10.82in, sheet 2 12.72in,
+  1.72in over). Awaiting the user's choice from the options menu. Do not merge-advise
+  until print fits.
+- User approved the existing layout changes (type 9.4pt, 0.6in margins, skills label
+  width, inline certificate, flowing continues marker).
+- **APPLIED (user approved):** markdown is the resume source again
+  (`jovian-nordgren-resume.md`, parsed by `pipeline/resume-markdown.js`; YAML deleted;
+  verified field-for-field identical apart from approved edits). Two-column print
+  layout built for real (10.80in / 10.72in, 2 sheets in all four margin scenarios), approved
+  skills list (Adobe Creative Suite, HLSL added, Midjourney and skinning removed),
+  Epic triage "in one day ... into an HTML report". User is applying for a full-time
+  Tools and Pipeline TA role at Riot.
+- **Audit of unilateral decisions:** `_source/audits/version-audit-2026-10-06.md`, verified against
+  commit 339d4e2. Top items: LinkedIn handle (Ludosis vs JovianFinch), Skills page
+  lost the Claude Code entry, home hero line rewritten, How I Work paragraph replaced.
+- (superseded) **Two-column print prototype (user's idea, measured, NOT applied):** sheet 1 =
+  experience column 74% + sidebar 26% (Profile + Skills); Education moves to the bottom
+  of sheet 2; sheet 2 stays full width; job location moves from the title row onto the
+  project line ("Lego Fortnite · Remote") so titles never wrap. With the proposed
+  compressed skills list, one Epic triage-bullet rewording, and one skills trim, it fits
+  with ALL content restored: sheet 1 10.80in, sheet 2 10.72in. Prototype script saved
+  at `_source/resume-twocol-prototype.mjs` (Playwright DOM restructure of the built
+  print page). Awaiting user decision on layout, skills list, and wording.
+- **Markdown-as-source question:** user expected `jovian-nordgren-resume.md` to be the
+  editable source. Phase 6 switched it to YAML without asking. Options given to user:
+  restore markdown as the source (parser + comment tags for print-only data) or keep
+  YAML. Awaiting decision.
+- Riot bullet 2 restored to the user's "counteracting benchmark optimization" wording;
+  ending clarified per user: each user's own workspace improves (not shared).
+- **Open decision for user:** add Riot to site-wide employer mentions (home hero,
+  About, Skills intro, site.yaml summary, OG card)? Not done; flagged in CLAUDE.md.
+
 ### CUTOVER COMPLETE (July 2026). Phases 1–5 DONE, site is live on the new build.
 
 - User added CONTACT_PHONE secret, merged (squash, PR #9), flipped Pages to Actions.

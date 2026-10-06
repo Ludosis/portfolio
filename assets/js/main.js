@@ -1,4 +1,4 @@
-// Mobile nav toggle — nav hidden by default on small screens (CSS),
+// Mobile nav toggle: nav hidden by default on small screens (CSS),
 // .nav-open on <body> shows it.
 (function () {
   var toggle = document.querySelector(".nav-toggle");

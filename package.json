@@ -20,6 +20,7 @@
     "@fontsource/ibm-plex-sans": "^5.2.8",
     "@fontsource/lora": "^5.2.8",
     "@fontsource/source-sans-3": "^5.2.9",
-    "js-yaml": "^5.2.1"
+    "js-yaml": "^5.2.1",
+    "playwright-core": "^1.63.0"
   }
 }

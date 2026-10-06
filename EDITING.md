@@ -1,7 +1,7 @@
 # Editing the site
 
 Every merge/commit to `main` triggers the GitHub Action, which rebuilds and
-deploys in about a minute. You can edit any file directly on GitHub web —
+deploys in about a minute. You can edit any file directly on GitHub web,
 no local tooling needed. (For local preview: `npm ci && npx @11ty/eleventy --serve`.)
 
 ## Text changes
@@ -9,18 +9,56 @@ no local tooling needed. (For local preview: `npm ci && npx @11ty/eleventy --ser
 Edit the markdown in `content/projects/*.md` (project pages) or the templates in
 `content/pages/*.njk` (About, How I Work, Resume page chrome).
 
-## The resume — ONE file
+## The resume: one markdown file
 
-`content/_data/resume.yaml` is the single source. Editing it updates all three
-outputs in the same build: the web resume page (`/resume/`), the print version
-(`/resume/Resume.html`), and the markdown at `/jovian-nordgren-resume.md`.
-Never edit those outputs directly.
+`jovian-nordgren-resume.md` at the repo root is the resume. Edit it on GitHub (the
+mobile site works fine) and the build updates all three versions: the web resume
+(`/resume/`), the print version (`/resume/Resume.html`), and the downloadable
+markdown (`/jovian-nordgren-resume.md`).
 
-Structure per job: `title`, `company`, `location`, `dates` (short, print),
-`datesLong` (web/md), `projectLine`, `intro`, `bullets`, optional `subRole` and
-`subSections`. The `page: 1|2` field controls which printed sheet a job lands
-on — if you add enough content that page 2 overflows in print preview, move a
-job or trim bullets.
+The format is the one the file already uses. Keep each job shaped like this:
+
+```
+### Title | Company | Location
+**Month Year – Month Year**
+*Project | Project*
+*Optional second line, e.g. a contract or role history*
+
+One intro paragraph.
+
+- Bullet
+- Bullet
+
+**Lead: Rest (2017 – 2018)**
+
+Optional sub-section paragraph (like the Destiny ambient life work).
+```
+
+- Spell months out in full in the dates line; the print version shortens them.
+  A plain `-` between the dates is fine; it's converted to a proper dash.
+- `|` separates parts and shows as `·` on the site. Spaces around it are optional.
+- A job with no company is `### Title | Location` (see Freelance).
+- Skills lines are `**Label:** item, item, item`. Education is a `**Degree**` line
+  followed by the school line.
+
+Print-only controls, written as comments that are invisible when GitHub displays
+the file:
+
+- `<!-- print: page 2 starts here -->` sits between two jobs and decides where the
+  printed resume breaks onto sheet 2. Sheet 1 is the two-column layout (experience
+  plus a profile and skills sidebar); everything after the marker prints on sheet 2.
+- `<!-- print: hide -->` at the end of a bullet keeps that bullet off the printout
+  while leaving it on the web resume and the markdown.
+
+**The print version has to fit on two sheets.** Both sheets are close to full, so
+a wording change can push one line over. When that happens the site still updates
+normally, and a separate "Print check" run emails you that the printout spilled onto a
+third sheet, with the measurements. Trimming a few words on the overflowing sheet
+fixes it.
+
+If the file's structure breaks (a missing dates line, a misspelled section name),
+the build stops with the line number, the live site stays as it was, and GitHub
+emails you about the failed run. The Actions tab shows the message.
 
 ## Adding an image
 
@@ -30,8 +68,8 @@ In any project body, use the plate shortcode where you want the figure:
 {% fig "/assets/img/my-shot.png", "caption text", "Unity · Shader Graph", true %}
 ```
 
-- Arg 4 (`true`) adds the "draft — final asset TBD" label; omit it for final assets.
-- Figures auto-number top to bottom (FIG. 01, 02, …) — never number by hand.
+- Arg 4 (`true`) adds the "draft, final asset TBD" label; omit it for final assets.
+- Figures auto-number top to bottom (FIG. 01, 02, …); never number by hand.
   The front-matter `hero:` image is always FIG. 00.
 - Host images in the repo: upload to `assets/img/` and reference as
   `/assets/img/filename.png`. (Weebly URLs still work but are meant to be replaced.)
@@ -40,11 +78,11 @@ In any project body, use the plate shortcode where you want the figure:
 
 ## Embedding Sketchfab / YouTube / Vimeo
 
-Use the block variant with an iframe inside — working Sketchfab examples are in
+Use the block variant with an iframe inside. Working Sketchfab examples are in
 `content/projects/earlier-work.md`:
 
 ```
-{% figblock "character model — interactive 3D", "Sketchfab" %}
+{% figblock "character model, interactive 3D", "Sketchfab" %}
 <iframe title="..." src="https://sketchfab.com/models/MODEL_ID/embed"
         width="100%" height="400" frameborder="0" allowfullscreen loading="lazy"></iframe>
 {% endfigblock %}
@@ -67,17 +105,24 @@ Edit the `hero:` block in that project's front matter (`src`, `caption`, `meta`,
 
 ## Adding a skill example (drives the Skills page)
 
-Add an entry to the project's `skills:` front matter:
+Add an entry to the project's `skills:` front matter, in the same shape as the
+entries already there:
 
 ```yaml
-  - id: shaders            # must exist in content/_data/skillsTaxonomy.yaml
-    highlight: Short Name  # shown on skills page + project sidebar
-    anchor: my-section     # must match an <h2 id="my-section"> in the body
-    detail: One-sentence description shown on the skills page.
+  - id: shaders                         # a section in content/_data/skillsTaxonomy.yaml
+    label: "Snuggles the Unicorn / Wing Vertex Shader"   # shown on the Skills page
+    href: "/portfolio/snuggles/#wing-shader"             # where it links
+    rank: 2                             # position within that section (1 = first)
+    detail: "One-sentence description shown on the Skills page."
 ```
 
-The Skills page, the project's tag list, and `/llms.txt` all regenerate from
-this automatically. A typo'd `id` fails the build (on purpose).
+A typo'd `id` fails the build (on purpose). An example that isn't a project (like
+the Claude Code entry) goes in `skillsTaxonomy.yaml` under that section's
+`extraExamples`.
+
+Project header tags are the `headerTags:` list, the sidebar is the `sidebar:` list,
+and portfolio card text lives under `card:`. These are your original text from the
+hand-built site; edit them directly.
 
 ## Adding a whole new project
 
@@ -89,6 +134,6 @@ llms.txt, and the sitemap all update automatically.
 
 - Don't put the phone number anywhere in the repo (it lives in the
   `CONTACT_PHONE` Actions secret only).
-- Don't write a plain email address in any content file — the contact system
+- Don't write a plain email address in any content file; the contact system
   assembles it at runtime.
-- Don't edit the Skills page markup — it's generated.
+- Don't edit the Skills page markup; it's generated.

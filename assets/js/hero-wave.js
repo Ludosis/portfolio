@@ -1,5 +1,5 @@
 // Home hero: the wing-flap displacement, running as an actual GPU vertex
-// shader — the same math the Snuggles wing shader used (sine displacement
+// shader, using the same math the Snuggles wing shader used (sine displacement
 // with an envelope, phase as a parameter). Falls back to a 2D-canvas version
 // when WebGL is unavailable; renders a single frame under reduced motion.
 (function () {
@@ -147,19 +147,19 @@
       // ticks
       gl.drawArrays(gl.LINES, tickStart, tickCount);
 
-      // dashed authored wave — ink
+      // dashed authored wave: ink
       gl.uniform1f(loc.dash, 1);
       gl.uniform1f(loc.amp, AMP);
       gl.uniform4f(loc.color, 0.129, 0.118, 0.094, 0.5);
       gl.drawArrays(gl.LINE_STRIP, dashStart, N + 1);
 
-      // animated instance — prussian ribbon (GPU-displaced)
+      // animated instance: prussian ribbon (GPU-displaced)
       gl.uniform1f(loc.dash, 0);
       gl.uniform1f(loc.phase, phase);
       gl.uniform4f(loc.color, 0.161, 0.314, 0.427, 1.0);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, ribbonCount);
 
-      // sampled vertex — red pencil
+      // sampled vertex: red pencil
       gl.uniform1f(loc.point, 1);
       gl.uniform4f(loc.color, 0.651, 0.251, 0.165, 1.0);
       gl.drawArrays(gl.POINTS, markStart, 1);

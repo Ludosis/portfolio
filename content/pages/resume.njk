@@ -3,14 +3,12 @@ layout: base.njk
 permalink: /resume/
 title: Resume
 schema: true
-description: >-
-  Resume of Jovian Finch Nordgren — Senior Technical Artist. Bungie, Epic
-  Games, Left Turn Studios, DigiPen.
+description: "Resume: Jovian Finch Nordgren, Technical Artist and 3D generalist."
 ---
 <section class="page-section">
   <div class="container">
     <div class="section-head">
-      <p class="section-eyebrow mono">Sheet C — record</p>
+      <p class="section-eyebrow mono">Sheet C · record</p>
       <h1>Resume</h1>
       <div class="section-ruler" aria-hidden="true"></div>
     </div>
@@ -52,12 +50,12 @@ description: >-
       {%- if j.bullets %}
       <ul>
         {%- for b in j.bullets %}
-        <li>{{ b }}</li>
+        <li>{{ b.text or b }}</li>
         {%- endfor %}
       </ul>
       {%- endif %}
       {%- for sub in j.subSections %}
-      <p><strong>{{ sub.headingLead }} — {{ sub.headingRest }} ({{ sub.dates }})</strong></p>
+      <p><strong>{{ sub.headingLead }}: {{ sub.headingRest }} ({{ sub.dates }})</strong></p>
       <p>{{ sub.text }}</p>
       {%- endfor %}
       {%- if not loop.last %}<hr>{% endif %}

@@ -1,9 +1,10 @@
 /**
- * The skills page is never hand-written: every project declares its skills in
- * front matter against the taxonomy in content/_data/skills.yaml, and this
- * module inverts that mapping (project → skills becomes skill → projects).
- * Adding a skill entry to one project file updates the skills page, the
- * project's own tag list, and llms.txt in the same build.
+ * The skills page is built from data: every project declares its skills in
+ * front matter against content/_data/skillsTaxonomy.yaml, and this module
+ * inverts that mapping (project → skills becomes skill → projects). Entries can
+ * carry the owner's own label, link, and position (label / href / rank, as
+ * restored from the hand-written page); examples that aren't a project, like
+ * the Claude Code entry, live in the taxonomy's extraExamples.
  */
 
 function buildSkillSections(projects, taxonomy) {
@@ -22,12 +23,10 @@ function buildSkillSections(projects, taxonomy) {
         continue;
       }
       section.examples.push({
-        project: data.title,
-        studio: data.studio,
-        url: entry.anchor ? `${project.url}#${entry.anchor}` : project.url,
-        highlight: entry.highlight || data.title,
+        label: entry.label || `${data.title} / ${entry.highlight || data.title}`,
+        url: entry.href || (entry.anchor ? `${project.url}#${entry.anchor}` : project.url),
         detail: entry.detail || "",
-        order: data.order ?? 99,
+        sort: entry.rank ?? 1000 + (data.order ?? 99),
       });
     }
   }
@@ -35,12 +34,17 @@ function buildSkillSections(projects, taxonomy) {
   // A typo'd skill id should fail the build, not silently drop content.
   if (unknown.length) {
     throw new Error(
-      `Unknown skill id(s) in project front matter — add to skills.yaml or fix the typo:\n  ${unknown.join("\n  ")}`
+      `Unknown skill id(s) in project front matter. Add them to skillsTaxonomy.yaml or fix the typo:\n  ${unknown.join("\n  ")}`
     );
   }
 
   for (const section of byId.values()) {
-    section.examples.sort((a, b) => a.order - b.order);
+    for (const ex of section.extraExamples || []) {
+      section.examples.push({ label: ex.label, url: ex.href, detail: ex.detail, sort: ex.rank ?? 2000 });
+    }
+    // Hand-set rank first (the owner's original order); unranked entries follow
+    // in project order.
+    section.examples.sort((a, b) => a.sort - b.sort);
   }
 
   // Taxonomy order is display order; skip skills with no examples yet.

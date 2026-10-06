@@ -1,5 +1,5 @@
 /* ============================================================
-   JovianFinch.com — Drafting Table design system
+   JovianFinch.com: Drafting Table design system
    Generated site: content/ + _includes/ + pipeline/ → _site/
    ============================================================ */
 
@@ -68,7 +68,7 @@
   --ink-muted:    #6B6353;
   --hairline:     #CDC4B0;
 
-  /* Accents — prussian for structure, red pencil for annotation only */
+  /* Accents: prussian for structure, red pencil for annotation only */
   --prussian:       #29506D;
   --prussian-soft:  rgba(41, 80, 109, 0.55);
   --prussian-faint: rgba(41, 80, 109, 0.055);
@@ -96,7 +96,7 @@
   --space-xl:  2.5rem;
   --space-2xl: 4rem;
 
-  /* Drafting grid unit — hero grid, canvas ticks */
+  /* Drafting grid unit: hero grid, canvas ticks */
   --grid-unit: 28px;
 }
 
@@ -560,6 +560,8 @@ p + .plate, h2 + .plate { margin-top: var(--space-lg); }
   grid-template-columns: 1fr;
   gap: var(--space-lg);
 }
+
+.home-more { margin-top: var(--space-xl); }
 
 .home-about { padding: var(--space-2xl) 0 0; }
 .home-about-text {
