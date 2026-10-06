@@ -92,6 +92,20 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
   **Branch state: print resume is 3 sheets** (sheet 1 10.82in, sheet 2 12.72in,
   1.72in over). Awaiting the user's choice from the options menu. Do not merge-advise
   until print fits.
+- User approved the existing layout changes (type 9.4pt, 0.6in margins, skills label
+  width, inline certificate, flowing continues marker).
+- **Two-column print prototype (user's idea, measured, NOT applied):** sheet 1 =
+  experience column 74% + sidebar 26% (Profile + Skills); Education moves to the bottom
+  of sheet 2; sheet 2 stays full width; job location moves from the title row onto the
+  project line ("Lego Fortnite · Remote") so titles never wrap. With the proposed
+  compressed skills list, one Epic triage-bullet rewording, and one skills trim, it fits
+  with ALL content restored: sheet 1 10.80in, sheet 2 10.72in. Prototype script saved
+  at `_source/resume-twocol-prototype.mjs` (Playwright DOM restructure of the built
+  print page). Awaiting user decision on layout, skills list, and wording.
+- **Markdown-as-source question:** user expected `jovian-nordgren-resume.md` to be the
+  editable source. Phase 6 switched it to YAML without asking. Options given to user:
+  restore markdown as the source (parser + comment tags for print-only data) or keep
+  YAML. Awaiting decision.
 - Riot bullet 2 restored to the user's "counteracting benchmark optimization" wording;
   ending clarified per user: each user's own workspace improves (not shared).
 - **Open decision for user:** add Riot to site-wide employer mentions (home hero,
