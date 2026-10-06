@@ -1,5 +1,5 @@
 /**
- * /llms.txt — a structured site summary for AI agents (llmstxt.org convention).
+ * /llms.txt: a structured site summary for AI agents (llmstxt.org convention).
  * Generated from the same data as the pages, so it can't drift. The contact
  * address uses the +ai routing tag: this is the intended channel for
  * AI-assisted candidate research, stated openly.
@@ -22,7 +22,7 @@ function buildLlmsTxt(projects, site, taxonomy) {
     })
     .join("\n");
 
-  return `# ${site.name} — ${site.title}
+  return `# ${site.name}: ${site.title}
 
 > ${site.summary}
 

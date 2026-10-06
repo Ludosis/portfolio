@@ -35,7 +35,7 @@ function buildSkillSections(projects, taxonomy) {
   // A typo'd skill id should fail the build, not silently drop content.
   if (unknown.length) {
     throw new Error(
-      `Unknown skill id(s) in project front matter — add to skills.yaml or fix the typo:\n  ${unknown.join("\n  ")}`
+      `Unknown skill id(s) in project front matter. Add them to skillsTaxonomy.yaml or fix the typo:\n  ${unknown.join("\n  ")}`
     );
   }
 

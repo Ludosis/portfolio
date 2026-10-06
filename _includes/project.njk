@@ -43,8 +43,8 @@ layout: base.njk
     <figure class="plate plate--hero">
       <div class="plate-media"><img src="{{ hero.src }}" alt="{{ hero.alt or hero.caption }}" loading="lazy"></div>
       <figcaption class="plate-caption">
-        <span><b>FIG. 00</b> — {{ hero.caption }}</span>
-        <span>{{ hero.meta }}{% if hero.draft %} · <span class="plate-draft">draft — final asset tbd</span>{% endif %}</span>
+        <span><b>FIG. 00</b>: {{ hero.caption }}</span>
+        <span>{{ hero.meta }}{% if hero.draft %} · <span class="plate-draft">draft, final asset tbd</span>{% endif %}</span>
       </figcaption>
     </figure>
   </div>

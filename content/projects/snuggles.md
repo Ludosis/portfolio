@@ -1,7 +1,7 @@
 ---
 title: Snuggles the Unicorn
 description: >-
-  Snuggles the Unicorn — technical art work by Jovian Finch Nordgren. Wing
+  Snuggles the Unicorn: technical art work by Jovian Finch Nordgren. Wing
   vertex shader system, URP conversion, and puppet rig retargeting on a Unity
   action game.
 studio: Left Turn Studios
@@ -37,7 +37,7 @@ skills:
     detail: >-
       Replaced 32-bone-per-enemy wing rig with a GPU vertex shader;
       per-instance phase randomization via Material Property Blocks so every
-      enemy flaps independently — zero extra draw calls
+      enemy flaps independently, with zero extra draw calls
   - id: shaders
     highlight: Character Status FX Shader
     anchor: status-fx
@@ -56,8 +56,8 @@ skills:
     highlight: Puppet Rig & Retargeting
     anchor: puppet-rig
     detail: >-
-      Constraint-based retargeting system for mid-production character redesign
-      — old skeleton drives new skeleton in real time, full animation library
+      Constraint-based retargeting system for mid-production character redesign:
+      old skeleton drives new skeleton in real time, full animation library
       transferred immediately; scripted constraint rebuild utility; biped-to-
       quadruped mech kitbash with aim constraints and bob dampening
   - id: tools
@@ -73,7 +73,7 @@ skills:
       Fuel refill timers driven by gameplay script via shader parameters; enemy
       spawn effects; collectible pickups; character celebration states
   - id: scripting
-    highlight: C# — Unity
+    highlight: C# (Unity)
     anchor: puppet-rig
     detail: >-
       Puppet rig constraint rebuild utility; controller aim script; status FX
@@ -89,7 +89,7 @@ technical work across rendering, shaders, rigging, animation, and tooling.
 <h2 id="urp" class="project-section">Rendering System Refactor</h2>
 
 The project was inherited with Unity's standard renderer and needed a full conversion
-to the Universal Render Pipeline. This wasn't a settings change — it required
+to the Universal Render Pipeline. This wasn't a settings change: it required
 recreating every shader from scratch under the new rendering model, scripting a batch
 conversion of all materials, and rebuilding the lighting and post-processing setup.
 Outsourced assets brought in from the Unity store also needed cleanup and modification
@@ -97,7 +97,7 @@ to work within the new pipeline and match the project's visual direction.
 
 <h2 id="wing-shader" class="project-section">Wing Vertex Shader System</h2>
 
-Each enemy type had wings — and the original rigged solution used 32 bones per
+Each enemy type had wings, and the original rigged solution used 32 bones per
 enemy to animate the flap. At low enemy counts this was fine. As the design
 expanded to include larger waves, the rig cost became a real performance problem.
 The bones also produced synchronized flapping: every enemy in a group moved
@@ -110,7 +110,7 @@ without bone evaluation. The flap motion is a sine wave applied to wing vertices
 with parameters for frequency, amplitude, and phase. The key piece was using Unity's
 Material Property Blocks to set a randomized phase offset per enemy instance at
 spawn time. This meant every enemy in a wave had its wings moving out of sync with
-every other enemy — the same shader, zero additional draw calls, genuinely
+every other enemy: the same shader, zero additional draw calls, genuinely
 independent motion.
 
 {% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/flap-shader_orig.png", "wing flap vertex shader node network", "Shader Graph", true %}
@@ -123,7 +123,7 @@ the rigged version had at any count.
 
 Mid-production, the player character model was redesigned. The new model had
 different proportions and a different skeleton hierarchy than the original.
-The existing animation library — representing a significant time investment —
+The existing animation library, representing a significant time investment,
 was built for the old model. Recreating those animations from scratch wasn't
 an option on the schedule.
 
@@ -143,7 +143,7 @@ The full existing animation library worked on the new model immediately, with ta
 manual adjustments only where the proportion differences produced visible artifacts.
 
 The more important part was what happened next. Every time the new model was updated
-— which happened multiple times during production — the constraint connections broke
+(which happened multiple times during production), the constraint connections broke
 and had to be rebuilt. I scripted the constraint reconnection so it could be run as
 an editor utility, rebuilding the full rig from a saved configuration in a few
 seconds rather than manually reconnecting each bone. The script meant the rig
@@ -159,7 +159,7 @@ a single custom overlay shader that handles all status effects, with each effect
 toggled by a bool passed from gameplay script via a helper component that translates
 gameplay state into shader parameters. Multiple effects can be active simultaneously.
 The system was designed so adding a new status required only a new bool and a new
-shader feature — no changes to the spawning or state management code.
+shader feature, with no changes to the spawning or state management code.
 
 <h2 id="other-vfx" class="project-section">Other VFX</h2>
 

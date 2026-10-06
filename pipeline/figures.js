@@ -1,7 +1,7 @@
 /**
  * Drafting Table plate figures with automatic per-page numbering.
  * {% fig "https://…/wing-demo.gif", "shader-driven wing flap", "Unity · Shader Graph", true %}
- * renders a bordered plate with a mono caption: "FIG. 01 — shader-driven wing flap".
+ * renders a bordered plate with a mono caption: "FIG. 01: shader-driven wing flap".
  * Counters reset per page per build, so figures can never be misnumbered.
  */
 
@@ -28,12 +28,12 @@ function register(eleventyConfig) {
     const num = nextNumber(this.page.inputPath);
     const cap = escapeHtml(caption);
     const draftLabel = draft
-      ? `<span class="plate-draft">draft — final asset tbd</span>`
+      ? `<span class="plate-draft">draft, final asset tbd</span>`
       : "";
     return `<figure class="plate">
   <div class="plate-media"><img src="${escapeHtml(src)}" alt="${cap}" loading="lazy"></div>
   <figcaption class="plate-caption">
-    <span><b>FIG. ${num}</b> — ${cap}</span>
+    <span><b>FIG. ${num}</b>: ${cap}</span>
     <span>${escapeHtml(meta)}${meta && draft ? " · " : ""}${draftLabel}</span>
   </figcaption>
 </figure>`;
@@ -46,7 +46,7 @@ function register(eleventyConfig) {
     return `<figure class="plate">
   <div class="plate-media plate-media--pending">${content}</div>
   <figcaption class="plate-caption">
-    <span><b>FIG. ${num}</b> — ${cap}</span>
+    <span><b>FIG. ${num}</b>: ${cap}</span>
     <span>${escapeHtml(meta)}</span>
   </figcaption>
 </figure>`;

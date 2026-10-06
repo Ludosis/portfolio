@@ -3,13 +3,13 @@ layout: base.njk
 permalink: /how-i-work/
 title: How I Work
 description: >-
-  How Jovian Finch Nordgren works — with people, with technology, and with
+  How Jovian Finch Nordgren works with people, with technology, and with
   Claude Code. Process, collaboration, and what AI tooling doesn't replace.
 ---
 <section class="page-section">
   <div class="container">
     <div class="section-head">
-      <p class="section-eyebrow mono">Sheet B — method</p>
+      <p class="section-eyebrow mono">Sheet B · method</p>
       <h1>How I Work</h1>
       <div class="section-ruler" aria-hidden="true"></div>
     </div>
@@ -23,7 +23,7 @@ description: >-
           <p>
             This page isn't a list of tools I use. It's an attempt to describe how I
             actually think about problems, collaborate with people and systems, and use
-            technology to get things done &mdash; including AI tools. Most portfolios describe
+            technology to get things done, including AI tools. Most portfolios describe
             what someone made. This one tries to describe how.
           </p>
           <p>
@@ -46,7 +46,7 @@ description: >-
           <p>
             On the Left Turn projects, being the sole or lead TA meant owning the interface
             between the art team, engineering, and whatever the project needed. That required
-            understanding enough of each discipline to communicate accurately &mdash; knowing what
+            understanding enough of each discipline to communicate accurately: knowing what
             an engineer needs to understand about a shader to support it, knowing what a level
             designer actually needs from a foliage tool versus what they think they need. Good
             tools and pipelines get used without friction. Bad ones get worked around silently.
@@ -55,7 +55,7 @@ description: >-
             At Epic, the coordination problem was different in scale: distributed QA teams
             across multiple content verticals, a large live project, and the need to get
             coverage to scale without requiring centralized ownership of everything. The FX
-            validation framework on Lego Fortnite was a direct product of that problem &mdash; the
+            validation framework on Lego Fortnite was a direct product of that problem: the
             goal wasn't to do more testing myself, it was to put the right testing in the
             hands of the people closest to the work.
           </p>
@@ -67,7 +67,7 @@ description: >-
             There's a kind of comfort that comes from having worked in enough different
             tools and codebases that "unfamiliar" stops feeling like an obstacle. Each new
             engine, shader system, or scripting environment is a variation on patterns I've
-            seen before. The first thing I do with an unfamiliar tool is find the edges &mdash;
+            seen before. The first thing I do with an unfamiliar tool is find the edges:
             what it does well, where its documented behavior stops, what the actual behavior
             is past that point. That's useful information whether I'm using the tool or
             building something on top of it.
@@ -87,7 +87,7 @@ description: >-
         <div class="hiw-section">
           <h2>Working with Claude Code</h2>
           <p>
-            I use Claude Code for tooling and pipeline problems &mdash; cases where the problem
+            I use Claude Code for tooling and pipeline problems: cases where the problem
             is well-defined, the output format is clear, and the value of having code
             written and iterated on quickly is high. The triage tool on Lego Fortnite is
             the clearest example: I needed a specific output (an HTML report with
@@ -98,24 +98,24 @@ description: >-
           </p>
           <p>
             This site is the other working example. It started as plain hand-editable HTML,
-            then was rebuilt &mdash; with Claude Code &mdash; as a content pipeline: every project is
+            then was rebuilt with Claude Code as a content pipeline: every project is
             a structured markdown file, and a custom build inverts that data to generate the
             <a href="/skills/">skills page</a>, a machine-readable site summary at
             <a href="/llms.txt">/llms.txt</a>, structured schema data for search and AI
             agents, and the pages themselves. Contact details are injected at build time
             from secrets that never enter the repository. The
-            <a href="{{ site.repo }}" target="_blank" rel="noopener">full source is public</a> &mdash;
-            deliberately, so anyone using AI to research a candidate can read not just the
+            <a href="{{ site.repo }}" target="_blank" rel="noopener">full source is public</a>
+            on purpose, so anyone using AI to research a candidate can read not just the
             site but the system that builds it.
           </p>
           <p>
             The way the collaboration actually works: Claude Code is most useful when I
-            can describe the problem precisely &mdash; what it is, what constraints it has,
-            what success looks like. That requires having done enough thinking to know
+            can describe the problem precisely (what it is, what constraints it has,
+            what success looks like). That requires having done enough thinking to know
             what you actually want, which is most of the work anyway. The session
             structure matters too: Claude Code doesn't carry context between sessions,
             so useful collaboration requires explicit orientation at the start of each
-            session &mdash; what the project is, where we left off, what the current task is.
+            session (what the project is, where we left off, what the current task is).
             I've developed a consistent set of working notes and orientation protocols
             for ongoing projects that make that re-orientation fast.
           </p>
@@ -133,7 +133,7 @@ description: >-
             the technically correct solution is the wrong answer for the project.
             The judgment about what a shader should feel like, whether a tool will
             actually get used, whether a test coverage approach will hold up in
-            production &mdash; none of that comes from a language model. It comes from having
+            production: none of that comes from a language model. It comes from having
             done the work, shipped things, watched them break, and built better ones.
           </p>
           <p>

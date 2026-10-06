@@ -6,8 +6,8 @@ const { buildLlmsTxt } = require("./pipeline/llms-txt");
 const contact = require("./pipeline/contact");
 
 module.exports = function (eleventyConfig) {
-  // Source material and repo docs — content, not templates.
-  // (resume/Resume.html IS processed — it's the print resume template.)
+  // Source material and repo docs: content, not templates.
+  // (resume/Resume.html IS processed; it's the print resume template.)
   [
     "_source/**",
     "README.md",
@@ -46,14 +46,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("personJsonLd", personJsonLd);
   eleventyConfig.addFilter("llmsTxt", buildLlmsTxt);
 
-  // Click-to-reveal payload for the email — the address never appears in
+  // Click-to-reveal payload for the email. The address never appears in
   // served HTML in any greppable form; reveal.js decodes on click.
   eleventyConfig.addFilter("emailPayload", (c) => contact.payload(contact.email(c)));
 
   eleventyConfig.addFilter("pad2", (n) => String(n).padStart(2, "0"));
 
   // Phone number: injected from CONTACT_PHONE (Actions secret / local .env),
-  // never present in the repo. Null when unset — templates degrade gracefully.
+  // never present in the repo. Null when unset; templates degrade gracefully.
   eleventyConfig.addGlobalData("phonePayload", () => contact.phonePayload());
 
   return {

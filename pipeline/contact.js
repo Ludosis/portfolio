@@ -1,12 +1,12 @@
 /**
  * Contact protection.
  *
- * Email: the real address is assembled from parts at build time (the plain
- * string never sits in the repo) and injected client-side by assets/js/reveal.js.
- * Tagged variants (+ai, +rec, +web) route bot-facing channels to the same inbox
- * so inbound mail identifies its own source.
+ * Email: assembled from site.yaml parts at build time and shipped only as an
+ * XOR+base64 payload that assets/js/reveal.js decodes on click. No address
+ * material appears in served HTML. The one bot-facing channel is the +ai
+ * address in llms.txt, behind the comprehension gate below.
  *
- * Phone: read from CONTACT_PHONE (GitHub Actions secret in CI, .env locally —
+ * Phone: read from CONTACT_PHONE (GitHub Actions secret in CI, .env locally;
  * both outside git). Encoded as XOR+base64 so the deployed page contains no
  * digit patterns for scrapers. This is obfuscation, not cryptography: the goal
  * is defeating pattern-matching harvesters, and the repo itself stays clean
@@ -32,7 +32,7 @@ function email(contact, tag) {
   return `${contact.emailUser}${suffix}@${contact.emailDomain}`;
 }
 
-/** payload format: base64(key byte + xor-ciphertext) — decoded by assets/js/reveal.js */
+/** payload format: base64(key byte + xor-ciphertext), decoded by assets/js/reveal.js */
 function payload(value) {
   const key = 1 + Math.floor(Math.random() * 254);
   const bytes = [key];
@@ -50,7 +50,7 @@ function phonePayload() {
  * The AI-agent channel is a comprehension gate: the tagged address ships
  * base64-encoded with a decode instruction. LLM agents decode it trivially;
  * regex harvesters see no address pattern. Plus-tags are never published in
- * plaintext anywhere — tag-stripping would expose the base address.
+ * plaintext anywhere: tag-stripping would expose the base address.
  */
 function aiEmailEncoded(contact) {
   return Buffer.from(email(contact, "ai"), "utf8").toString("base64");

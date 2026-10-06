@@ -1,7 +1,7 @@
 # Editing the site
 
 Every merge/commit to `main` triggers the GitHub Action, which rebuilds and
-deploys in about a minute. You can edit any file directly on GitHub web —
+deploys in about a minute. You can edit any file directly on GitHub web,
 no local tooling needed. (For local preview: `npm ci && npx @11ty/eleventy --serve`.)
 
 ## Text changes
@@ -9,7 +9,7 @@ no local tooling needed. (For local preview: `npm ci && npx @11ty/eleventy --ser
 Edit the markdown in `content/projects/*.md` (project pages) or the templates in
 `content/pages/*.njk` (About, How I Work, Resume page chrome).
 
-## The resume — ONE file
+## The resume: ONE file
 
 `content/_data/resume.yaml` is the single source. Editing it updates all three
 outputs in the same build: the web resume page (`/resume/`), the print version
@@ -19,8 +19,20 @@ Never edit those outputs directly.
 Structure per job: `title`, `company`, `location`, `dates` (short, print),
 `datesLong` (web/md), `projectLine`, `intro`, `bullets`, optional `subRole` and
 `subSections`. The `page: 1|2` field controls which printed sheet a job lands
-on — if you add enough content that page 2 overflows in print preview, move a
-job or trim bullets.
+on.
+
+The print version must fit on two sheets. The web resume and the markdown have no
+page limit, so print-only overrides let you trim the printout without losing
+anything online:
+
+- `print: false` on a bullet leaves it out of print only. Write the bullet as
+  `- print: false` with the text under `text: >-` (see the DigiPen entry).
+- `printIntro`, `printSubRole`, `printProjectLine` on a job replace that line in
+  print only (`printIntro: false` drops it).
+- `printText` on a sub-section replaces its paragraph in print only.
+
+After any resume edit, open `/resume/Resume.html`, use print preview, and confirm
+it is still exactly two pages.
 
 ## Adding an image
 
@@ -30,8 +42,8 @@ In any project body, use the plate shortcode where you want the figure:
 {% fig "/assets/img/my-shot.png", "caption text", "Unity · Shader Graph", true %}
 ```
 
-- Arg 4 (`true`) adds the "draft — final asset TBD" label; omit it for final assets.
-- Figures auto-number top to bottom (FIG. 01, 02, …) — never number by hand.
+- Arg 4 (`true`) adds the "draft, final asset TBD" label; omit it for final assets.
+- Figures auto-number top to bottom (FIG. 01, 02, …); never number by hand.
   The front-matter `hero:` image is always FIG. 00.
 - Host images in the repo: upload to `assets/img/` and reference as
   `/assets/img/filename.png`. (Weebly URLs still work but are meant to be replaced.)
@@ -40,11 +52,11 @@ In any project body, use the plate shortcode where you want the figure:
 
 ## Embedding Sketchfab / YouTube / Vimeo
 
-Use the block variant with an iframe inside — working Sketchfab examples are in
+Use the block variant with an iframe inside. Working Sketchfab examples are in
 `content/projects/earlier-work.md`:
 
 ```
-{% figblock "character model — interactive 3D", "Sketchfab" %}
+{% figblock "character model, interactive 3D", "Sketchfab" %}
 <iframe title="..." src="https://sketchfab.com/models/MODEL_ID/embed"
         width="100%" height="400" frameborder="0" allowfullscreen loading="lazy"></iframe>
 {% endfigblock %}
@@ -89,6 +101,6 @@ llms.txt, and the sitemap all update automatically.
 
 - Don't put the phone number anywhere in the repo (it lives in the
   `CONTACT_PHONE` Actions secret only).
-- Don't write a plain email address in any content file — the contact system
+- Don't write a plain email address in any content file; the contact system
   assembles it at runtime.
-- Don't edit the Skills page markup — it's generated.
+- Don't edit the Skills page markup; it's generated.

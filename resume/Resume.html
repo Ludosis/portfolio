@@ -10,25 +10,28 @@ eleventyExcludeFromCollections: true
         </h3>
         <div class="dates">{{ j.dates }}</div>
       </div>
-      {%- if j.projectLine %}
-      <p class="project-line">{{ j.projectLine }}</p>
+      {%- set projectLine = j.printProjectLine if j.printProjectLine is defined else j.projectLine %}
+      {%- if projectLine %}
+      <p class="project-line">{{ projectLine }}</p>
       {%- endif %}
-      {%- if j.subRole %}
-      <p class="sub-role">{{ j.subRole }}</p>
+      {%- set subRole = j.printSubRole if j.printSubRole is defined else j.subRole %}
+      {%- set intro = j.printIntro if j.printIntro is defined else j.intro %}
+      {%- if subRole %}
+      <p class="sub-role">{{ subRole }}</p>
       {%- endif %}
-      {%- if j.intro %}
-      <p class="job-intro">{{ j.intro }}</p>
+      {%- if intro %}
+      <p class="job-intro">{{ intro }}</p>
       {%- endif %}
       {%- if j.bullets %}
       <ul class="bullets">
-        {%- for b in j.bullets %}
-        <li>{{ b }}</li>
-        {%- endfor %}
+        {%- for b in j.bullets %}{% if b.print !== false %}
+        <li>{{ b.text or b }}</li>
+        {%- endif %}{% endfor %}
       </ul>
       {%- endif %}
       {%- for sub in j.subSections %}
-      <div class="mini-head">{{ sub.headingLead }} <span class="em-dash">—</span> {{ sub.headingRest }} <span style="color:var(--muted); font-weight:400; font-family:'Source Sans 3'; font-size:9.4pt; font-style: italic;">({{ sub.dates }})</span></div>
-      <p class="job-intro" style="margin-top:2px;">{{ sub.text }}</p>
+      <div class="mini-head">{{ sub.headingLead }} <span class="sep-mark">&middot;</span> {{ sub.headingRest }} <span style="color:var(--muted); font-weight:400; font-family:'Source Sans 3'; font-size:9.4pt; font-style: italic;">({{ sub.dates }})</span></div>
+      <p class="job-intro" style="margin-top:2px;">{{ sub.printText if sub.printText is defined else sub.text }}</p>
       {%- endfor %}
     </div>
 {%- endmacro %}
@@ -36,10 +39,10 @@ eleventyExcludeFromCollections: true
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Jovian Finch Nordgren — Resume</title>
+<title>Jovian Finch Nordgren | Resume</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <style>
-  /* Self-hosted fonts — same files the main site uses, no external requests */
+  /* Self-hosted fonts: the same files the main site uses, no external requests */
   @font-face { font-family: 'Lora'; font-style: normal; font-weight: 400; src: url('/assets/fonts/lora-latin-400-normal.woff2') format('woff2'); }
   @font-face { font-family: 'Lora'; font-style: normal; font-weight: 500; src: url('/assets/fonts/lora-latin-500-normal.woff2') format('woff2'); }
   @font-face { font-family: 'Lora'; font-style: normal; font-weight: 600; src: url('/assets/fonts/lora-latin-600-normal.woff2') format('woff2'); }
@@ -74,7 +77,7 @@ eleventyExcludeFromCollections: true
     text-rendering: optimizeLegibility;
   }
 
-  /* Screen frame — one continuous sheet visually, two page-breaks on print */
+  /* Screen frame: one continuous sheet visually, two page-breaks on print */
   .page {
     width: 8.5in;
     height: 11in;
@@ -254,7 +257,7 @@ eleventyExcludeFromCollections: true
     color: var(--ink);
     margin: 5px 0 2px;
   }
-  .mini-head .em-dash {
+  .mini-head .sep-mark {
     color: var(--terra);
     margin: 0 6px;
     font-weight: 400;
@@ -313,8 +316,8 @@ eleventyExcludeFromCollections: true
   /* ====== Education ====== */
   .edu-block {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    grid-template-columns: max-content 1fr;
+    gap: 48px;
   }
   .edu-item .edu-degree {
     font-family: 'Lora', serif;
@@ -329,6 +332,8 @@ eleventyExcludeFromCollections: true
     margin: 0 0 2px;
   }
   .edu-item .edu-extra {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
     font-size: 9.2pt;
     color: var(--muted);
     font-style: italic;
@@ -425,6 +430,17 @@ eleventyExcludeFromCollections: true
     margin: 0;
   }
 
+  /* ====== Density: six roles on two sheets ======
+     Applies on screen and in print so the preview matches the printout. */
+  .page { padding-left: 0.6in; padding-right: 0.6in; }
+  .continues, .foot { left: 0.6in; right: 0.6in; }
+  .profile { font-size: 9.7pt; line-height: 1.42; }
+  .job { margin-bottom: 9px; }
+  .job-intro { font-size: 9.5pt; line-height: 1.38; }
+  ul.bullets li { font-size: 9.4pt; line-height: 1.38; margin-bottom: 2px; }
+  /* wide enough that no skill label wraps to a second line */
+  .skills-grid { grid-template-columns: 172px 1fr; }
+
   /* ====== Print ====== */
   @page {
     size: letter;
@@ -441,23 +457,29 @@ eleventyExcludeFromCollections: true
       height: auto;
       min-height: auto;
       margin: 0;
-      padding: 0.45in 0.7in 0.4in;
+      padding: 0.45in 0.6in 0.4in;
       page-break-after: always;
       box-shadow: none;
       overflow: visible;
     }
     /* last-of-type, not last-child: scripts follow the final .page div */
     .page:last-of-type { page-break-after: auto; }
-    /* the screen sheet-gap rule outspecifies .page { margin: 0 } above —
+    /* the screen sheet-gap rule outspecifies .page { margin: 0 } above;
        without this, page 2 drags a 0.35in top margin onto the sheet */
     .page + .page { margin-top: 0; }
-    /* foot follows the content instead of pinning to a fixed sheet bottom */
+    /* foot and the continues marker follow the content instead of pinning
+       to a fixed sheet bottom, so added text can never collide with them */
     .foot {
       position: static;
       margin-top: 16px;
     }
-    /* page 2 measures ~11.2in with real font metrics — compact it under 11in */
-    .page:last-of-type { padding-top: 0.35in; padding-bottom: 0.3in; }
+    .continues {
+      position: static;
+      margin-top: 10px;
+    }
+    .continues + .foot { margin-top: 8px; }
+    /* page 2 measures ~11.2in with real font metrics; compact it under 11in */
+    .page:last-of-type { padding-top: 0.3in; padding-bottom: 0.25in; }
     .page:last-of-type .section { margin-top: 9px; }
     .page:last-of-type .job { margin-bottom: 8px; }
     .page:last-of-type ul.bullets li { margin-bottom: 2px; line-height: 1.36; }
@@ -559,11 +581,8 @@ eleventyExcludeFromCollections: true
     <div class="edu-block">
       {%- for e in resume.education %}
       <div class="edu-item">
-        <p class="edu-degree">{{ e.degree }}</p>
+        <p class="edu-degree">{{ e.degree }}{% if e.extra %} <span class="edu-extra">&middot; {{ e.extra }}</span>{% endif %}</p>
         <p class="edu-school">{{ e.school }}</p>
-        {%- if e.extra %}
-        <p class="edu-extra">{{ e.extra }}</p>
-        {%- endif %}
       </div>
       {%- endfor %}
     </div>
@@ -578,7 +597,7 @@ eleventyExcludeFromCollections: true
 
 <script src="/assets/js/reveal.js"></script>
 <script>
-  // Opened from the site's Print button (?print) — go straight to the dialog.
+  // Opened from the site's Print button (?print): go straight to the dialog.
   if (new URLSearchParams(location.search).has("print")) {
     window.addEventListener("load", function () {
       setTimeout(function () { window.print(); }, 300);

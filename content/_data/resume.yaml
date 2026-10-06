@@ -1,11 +1,11 @@
 # SINGLE SOURCE OF TRUTH for the resume.
 # Generates: /resume/ (web page), /resume/Resume.html (print), and
 # /jovian-nordgren-resume.md (markdown for external/AI consumers).
-# Edit here only — never edit those outputs directly.
+# Edit here only; never edit those outputs directly.
 
 role: Senior Technical Artist
 roleSuffix: 3D Generalist
-tick: 2014 — Present
+tick: 2014 – Present
 
 profile: >-
   Technical Artist and 3D generalist with a decade of experience in AAA and
@@ -13,16 +13,59 @@ profile: >-
   small teams with broad scope: shaders, VFX, animation pipelines, asset
   optimization, tooling, procedural content, and any technical challenge the
   project surfaces. Years of QA work on large productions built a habit of
-  asking why a problem exists, not just fixing it — and building processes so
+  asking why a problem exists, not just fixing it, and building processes so
   it doesn't recur. Picks up new tools, techniques, and codebases fast;
   currently using Claude Code and LLM workflows for tooling and pipeline
   problems. Comfortable at the deep end of a codebase or in a creative review.
 
 experience:
+  - title: Senior Technical Artist
+    company: Riot Games
+    location: Remote
+    dates: May 2026 – Present
+    datesLong: May 2026 – Present
+    projectLine: Teamfight Tactics
+    subRole: Contract via Innovative Employee Solutions
+    page: 1
+    intro: >-
+      Technical Artist on Teamfight Tactics during the game's move from Riot's
+      in-house engine to Unreal Engine 5, fixing edge-case bugs left by the
+      conversion import across the legacy and UE5 projects in parallel. Focus
+      is on repeatable fixes, automating tedious manual conversion tasks, and
+      better detection and review of hand fixes, resolving issues before
+      content reaches QA and removing the downstream cost of testing,
+      reporting, and triage.
+    bullets:
+      - >-
+        Engineered an agentic AI assistant framework to accelerate bug
+        investigation and fixes for Tech Artists, built on context packs,
+        skills, MCP connections to team domain knowledge, and a base rule set.
+      - >-
+        Authored the framework's base rule set to address common LLM failures
+        at the root, counteracting habits models pick up from benchmark
+        optimization for better-calibrated confidence and stronger context
+        discovery; persistent context and carried-forward user corrections let
+        the workspace improve over time with each user.
+      - >-
+        Developed systemic batch fix tools for recurring issues in converted
+        assets, using legacy engine data as the source for equivalent UE5
+        properties.
+      - >-
+        Designed collaborative batch fixers that resolve procedural issues
+        automatically and generate an interactive HTML guide for the rest,
+        pinpointing each issue, proposing the specific fix, and completing the
+        automatable steps, so unavoidable manual fixes skip the search and
+        start at the solution.
+      - >-
+        Built a database of known bug causes and fixes that serves as a library
+        for the team's other AI triage and investigation tools; audited hand
+        fixes on cosmetics shipped with the UE5 launch against it to rank
+        automation opportunities for unreleased content.
+
   - title: Senior QA Engineer (Tech Art)
     company: Epic Games
     location: Remote
-    dates: Jul 2023 — Mar 2026
+    dates: Jul 2023 – Mar 2026
     datesLong: July 2023 – March 2026
     projectLine: Lego Fortnite
     page: 1
@@ -60,10 +103,10 @@ experience:
   - title: Technical Artist
     company: Left Turn Studios
     location: Seattle, WA / Remote
-    dates: Oct 2021 — Jan 2023
+    dates: Oct 2021 – Jan 2023
     datesLong: October 2021 – January 2023
     projectLine: Alien Age (Steam, 2021) · Snuggles the Unicorn (canceled) · Grapple Star (demo)
-    page: 1
+    page: 2
     intro: >-
       Revenue-share contributor on Alien Age before Left Turn Studios
       incorporated in January 2022. Lead Technical Artist across all three
@@ -96,8 +139,11 @@ experience:
   - title: Freelance & Independent Work
     company: null
     location: Seattle, WA
-    dates: May 2019 — Sep 2021
+    dates: May 2019 – Sep 2021
     datesLong: May 2019 – September 2021
+    printIntro: >-
+      Graphic design and web projects, alongside self-directed study in Unity,
+      real-time VFX, and shader development.
     page: 2
     intro: >-
       Freelance creative work including graphic design and web projects. Used
@@ -108,12 +154,13 @@ experience:
   - title: Test Engineer
     company: Bungie, Inc.
     location: Bellevue, WA
-    dates: May 2015 — May 2019
+    dates: May 2015 – May 2019
     datesLong: May 2015 – May 2019
     projectLine: "Destiny: The Taken King · Destiny 2 · D2: Curse of Osiris · D2: Forsaken"
     subRole: >-
       Test Engineer (Nov 2017 – May 2019) · QA Tester (Mar 2016 – Nov 2017) ·
       Embedded Contract via Randstad USA (May 2015 – Mar 2016)
+    printSubRole: Test Engineer · QA Tester · Embedded Contract via Randstad USA
     page: 2
     bullets:
       - >-
@@ -127,9 +174,10 @@ experience:
         conditions on demand at any reward tier; the audio team adopted it
         independently for bucket testing that had been too time-consuming to
         run manually.
-      - >-
-        Established and documented workflow guides to accelerate onboarding
-        and help the team operate independently.
+      - print: false
+        text: >-
+          Established and documented workflow guides to accelerate onboarding
+          and help the team operate independently.
     subSections:
       - headingLead: 3D Generalist
         headingRest: Destiny 2 Ambient Life Project
@@ -139,13 +187,20 @@ experience:
           in the Farm social space and the sea monster on Titan. Also
           developed a reactive NPC with custom animations and VFX, and
           prototyped an interactive beehive obstacle in a demo environment.
+        printText: >-
+          Modeled, rigged, and animated shipped ambient life characters: owls
+          in the Farm social space and the sea monster on Titan.
 
   - title: Technical Artist, Capstone
     company: DigiPen Institute of Technology
     location: Redmond, WA
-    dates: Jul 2014 — May 2015
+    dates: Jul 2014 – May 2015
     datesLong: July 2014 – May 2015
     projectLine: Relic · 3D action adventure · DigiPen Zero Engine
+    printIntro: false
+    printProjectLine: >-
+      Relic · DigiPen Zero Engine · First Place: Best Spoken Dialog, Best
+      Characters (2015 Showcase) · PAX West 2015
     page: 2
     intro: >-
       One of the most technically ambitious projects attempted in Zero Engine
@@ -161,17 +216,20 @@ experience:
         worked directly with the chief engineer to understand and propose
         solutions rather than working around them; he implemented several
         engine-level changes as a result.
-      - >-
-        Led a mid-production strike team to re-evaluate scope; helped
-        transition to a collaborative department-leads structure that
-        stabilized a large team struggling with unified direction.
-      - >-
-        Won First Place for Best Spoken Dialog and Best Characters at the 2015
-        DigiPen Student Showcase; exhibited at PAX West 2015.
-      - >-
-        Also served as Animation Instructor for DigiPen's Project FUN (Summer
-        2013 & 2014), teaching traditional and digital animation workflows to
-        students at varied skill levels.
+      - print: false
+        text: >-
+          Led a mid-production strike team to re-evaluate scope; helped
+          transition to a collaborative department-leads structure that
+          stabilized a large team struggling with unified direction.
+      - print: false
+        text: >-
+          Won First Place for Best Spoken Dialog and Best Characters at the
+          2015 DigiPen Student Showcase; exhibited at PAX West 2015.
+      - print: false
+        text: >-
+          Also served as Animation Instructor for DigiPen's Project FUN (Summer
+          2013 & 2014), teaching traditional and digital animation workflows to
+          students at varied skill levels.
 
 skillsGrid:
   - label: Real-Time & Rendering
@@ -190,9 +248,9 @@ skillsGrid:
     items: Unreal Engine, Unity 3D, ZBrush, Maya, 3DS Max, Photoshop, Illustrator, After Effects, Premiere, InDesign, Substance Designer & Painter, Visual Studio
 
 education:
-  - degree: BFA — Digital Art and Animation
+  - degree: BFA, Digital Art and Animation
     school: DigiPen Institute of Technology · Redmond, WA
-  - degree: AA — General Studies
+  - degree: AA, General Studies
     school: Everett Community College · Everett, WA
     extra: "Certificate: Digital Illustration"
 

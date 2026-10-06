@@ -32,12 +32,12 @@ JovianFinch.com | linkedin.com/in/JovianFinch
 {%- endif %}
 {%- if j.bullets %}
 {% for b in j.bullets %}
-- {{ b | safe }}
+- {{ (b.text or b) | safe }}
 {%- endfor %}
 {%- endif %}
 {%- for sub in j.subSections %}
 
-**{{ sub.headingLead | safe }} — {{ sub.headingRest | safe }} ({{ sub.dates | safe }})**
+**{{ sub.headingLead | safe }}: {{ sub.headingRest | safe }} ({{ sub.dates | safe }})**
 
 {{ sub.text | safe }}
 {%- endfor %}

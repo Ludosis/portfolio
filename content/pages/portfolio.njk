@@ -3,18 +3,18 @@ layout: base.njk
 permalink: /portfolio/
 title: Portfolio
 description: >-
-  Game projects by Jovian Finch Nordgren — shaders, VFX, animation pipelines,
+  Game projects by Jovian Finch Nordgren: shaders, VFX, animation pipelines,
   asset optimization, and tooling across AAA and indie development.
 ---
 <section class="page-section">
   <div class="container">
     <div class="section-head">
-      <p class="section-eyebrow mono">Index of plates — {{ collections.projects.length | pad2 }} projects</p>
+      <p class="section-eyebrow mono">Index of plates · {{ collections.projects.length | pad2 }} projects</p>
       <h1>Portfolio</h1>
       <div class="section-ruler" aria-hidden="true"></div>
     </div>
     <p class="page-lede">
-      Game projects across AAA and indie development &mdash; shaders, VFX, animation
+      Game projects across AAA and indie development: shaders, VFX, animation
       pipelines, asset optimization, and tooling.
     </p>
 
@@ -30,7 +30,7 @@ description: >-
             {%- endif %}
           </div>
           <div class="card-body">
-            <p class="card-fig mono">Plate {{ loop.index | pad2 }} &mdash; {{ project.data.studio }}</p>
+            <p class="card-fig mono">Plate {{ loop.index | pad2 }}: {{ project.data.studio }}</p>
             <h3>{{ project.data.title }}</h3>
             <p class="card-studio">{{ project.data.dates }}</p>
             <p class="card-blurb">{{ project.data.card.blurb }}</p>

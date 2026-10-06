@@ -1,8 +1,8 @@
-// Contact reveal — email and phone both decode on click, never on load.
+// Contact reveal: email and phone both decode on click, never on load.
 // Payloads are XOR+base64, injected at build from values that live outside
 // the repo (phone) or are assembled from parts (email). The raw strings
-// exist nowhere in the served HTML, so crawlers — including ones that
-// execute JS — get nothing without simulating the click.
+// exist nowhere in the served HTML, so crawlers (including ones that
+// execute JS) get nothing without simulating the click.
 // Payload format: base64(keyByte + xorCipherBytes).
 (function () {
   function decode(b64) {

@@ -62,6 +62,29 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
 - Blend: https://claude.ai/code/artifact/8f667653-a7ab-4fc5-9eee-c3ffba222123
 - Archived in repo: `_source/design-archive/` (self-contained HTML, open in browser)
 
+### Oct 2026 session: Riot role, print refit, em dash sweep
+
+- **Riot Games added to resume** (May 2026 to present, contract Senior TA via
+  Innovative Employee Solutions, Teamfight Tactics UE5 migration). User's draft
+  lightly edited: UE5 dropped from the project line (per the user's own rule from
+  the Epic entry), contract agency moved to the sub-role line (parallels Bungie's
+  Randstad line), intro fragments joined, bullets joined with semicolons to match
+  house style, "benchmark optimization" clause clarified. Edits listed to the user
+  for approval; waiting on their verdict.
+- **Print refit for six roles.** Riot + Epic on sheet 1; Left Turn moves to sheet 2.
+  Type tightened slightly on both screen and print (bullets 9.4pt, intros 9.5pt,
+  side margins 0.6in). New print-only override mechanism in resume.yaml so the
+  web/md resume keeps everything. Current print-only trims: DigiPen intro, strike-
+  team bullet, Animation Instructor bullet, awards bullet (folded into the print
+  project line); Bungie workflow-guides bullet and the prototype sentence of the
+  ambient-life paragraph; shorter Freelance intro and Bungie sub-role. Education
+  certificate moved inline (layout only). Verified: 10.82in / 10.79in, 2 sheets in
+  all four margin scenarios; no screen-view overlaps.
+- **Em dash sweep.** 301 visible em dashes on the built site went to 0, each rewritten
+  by hand (sentences) or by convention (separators; see CLAUDE.md house style).
+- **Open decision for user:** add Riot to site-wide employer mentions (home hero,
+  About, Skills intro, site.yaml summary, OG card)? Not done; flagged in CLAUDE.md.
+
 ### CUTOVER COMPLETE (July 2026). Phases 1–5 DONE, site is live on the new build.
 
 - User added CONTACT_PHONE secret, merged (squash, PR #9), flipped Pages to Actions.
