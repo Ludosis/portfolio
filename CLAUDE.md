@@ -181,7 +181,10 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
 - Some jargon is deliberate. "counteracting benchmark optimization" (Riot bullet) is
   intentional: recruiters skim past it, practitioners recognize it. Don't simplify
   the user's chosen technical phrasing without asking.
-- **No em dashes, anywhere** (site, resume, code comments, docs). The user dislikes them;
+- **No em dashes, anywhere** (site, resume, code comments, docs). Not a taste preference:
+  em dashes are now widely read as a sign of AI-generated slop, and the user won't have
+  their work perceived that way. It's a brown-M&Ms canary: if a reviewer spots one,
+  they wonder what else was missed. So treat a stray em dash as a quality failure;
   the site, resume, code, CLAUDE.md, and EDITING.md were swept in Oct 2026
   (historical notes under `_source/` were left as written). Rewrite with commas, colons, semicolons,
   parentheses, or a new sentence. Separator conventions: figure captions
