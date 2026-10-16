@@ -62,6 +62,16 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
 - Blend: https://claude.ai/code/artifact/8f667653-a7ab-4fc5-9eee-c3ffba222123
 - Archived in repo: `_source/design-archive/` (self-contained HTML, open in browser)
 
+### 2026-10-16 (end of session): state for the next session
+
+- Print fix merged as #13 (41002bc); Jovi confirmed the print resume works ("works
+  perfectly now"). Branch reset onto main after the squash merge.
+- Nothing in flight. Next steps are Jovi's review items in
+  `_source/audits/version-audit-2026-10-06.md` and the copy comparison: go through them
+  a few at a time, quote the original, let Jovi choose.
+- A session journal (experiential notes, not project facts) was shared with Jovi as a
+  file and deliberately NOT committed: this repo is public.
+
 ### 2026-10-16: print bugs after merge (#12 + phone edit)
 
 - User saw an extra blank page after page 1, and no bullet dashes in the printout.
