@@ -71,6 +71,11 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
   a few at a time, quote the original, let Jovi choose.
 - A session journal (experiential notes, not project facts) was shared with Jovi as a
   file and deliberately NOT committed: this repo is public.
+- **Bookmarked for later (Jovi, 2026-10-16): the `?print` auto-print opens the print
+  dialog before the Show buttons can be clicked**, so email and phone can't be revealed
+  first. Think it through together before changing anything (options to discuss, not
+  pick: reveal automatically in print mode, delay the dialog until after reveal, or a
+  "reveal and print" button). Note the print check assumes revealed contacts.
 
 ### 2026-10-16: print bugs after merge (#12 + phone edit)
 
