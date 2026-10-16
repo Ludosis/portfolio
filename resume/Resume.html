@@ -285,8 +285,8 @@ eleventyExcludeFromCollections: true
     left: 2px;
     top: 0.62em;
     width: 6px;
-    height: 1px;
-    background: var(--terra);
+    height: 0;
+    border-top: 1px solid var(--terra);
   }
 
   /* ====== Skills ====== */
@@ -358,8 +358,8 @@ eleventyExcludeFromCollections: true
   }
   .p2-rule {
     flex: 1;
-    height: 1px;
-    background: var(--hair);
+    height: 0;
+    border-top: 1px solid var(--hair);
   }
   .p2-meta {
     font-family: 'Source Sans 3', sans-serif;
@@ -387,8 +387,8 @@ eleventyExcludeFromCollections: true
   [data-screen-label="02 Page 2"] ul.bullets li { margin-bottom: 2px; line-height: 1.38; }
   .continues .c-rule {
     flex: 1;
-    height: 1px;
-    background: var(--terra);
+    height: 0;
+    border-top: 1px solid var(--terra);
     opacity: 0.3;
   }
   .continues .c-text {
@@ -425,8 +425,8 @@ eleventyExcludeFromCollections: true
   .foot .rule {
     flex: 1 1 auto;
     min-width: 20px;
-    height: 1px;
-    background: var(--hair);
+    height: 0;
+    border-top: 1px solid var(--hair);
     margin: 0;
   }
 
@@ -470,7 +470,9 @@ eleventyExcludeFromCollections: true
       height: auto;
       min-height: auto;
       margin: 0;
-      padding: 0.45in 0.6in 0.4in;
+      /* no bottom padding in print: it is invisible on paper but counts toward the
+         sheet's height, and was what pushed sheet 1 onto an extra, empty-looking page */
+      padding: 0.45in 0.6in 0;
       page-break-after: always;
       box-shadow: none;
       overflow: visible;
@@ -492,7 +494,7 @@ eleventyExcludeFromCollections: true
     }
     .continues + .foot { margin-top: 8px; }
     /* page 2 measures ~11.2in with real font metrics; compact it under 11in */
-    .page:last-of-type { padding-top: 0.3in; padding-bottom: 0.25in; }
+    .page:last-of-type { padding-top: 0.3in; padding-bottom: 0; }
     .page:last-of-type .section { margin-top: 9px; }
     .page:last-of-type .job { margin-bottom: 8px; }
     .page:last-of-type ul.bullets li { margin-bottom: 2px; line-height: 1.36; }

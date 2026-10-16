@@ -62,6 +62,21 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
 - Blend: https://claude.ai/code/artifact/8f667653-a7ab-4fc5-9eee-c3ffba222123
 - Archived in repo: `_source/design-archive/` (self-contained HTML, open in browser)
 
+### 2026-10-16: print bugs after merge (#12 + phone edit)
+
+- User saw an extra blank page after page 1, and no bullet dashes in the printout.
+- Bullets: drawn as 1px backgrounds; print dialogs omit backgrounds by default. My PDF
+  tests always used printBackground: true, so never saw it. Fixed: bullets and the three
+  divider rules are now borders. Verified by rasterizing a real PDF (backgrounds off).
+- Extra page: revealing email + phone (as instructed) grows the header; sheet 1 went to
+  10.90in, leaving 0.1in, and the user's machine tipped over. The overflow was only the
+  "Continued" marker and footer, so the page looked blank. Fixed with no visible change:
+  removed the invisible bottom padding on printed sheets. Now 10.50in / 10.47in.
+- Print check now reveals contacts, prints without backgrounds, honors the CSS page
+  size, and warns above 10.8in. My earlier "four margin scenarios" claim was weaker than
+  stated: the CSS @page margin overrides those settings, so they tested little.
+- User's phone edit (Riot intro and two bullets) merged as 8d3227b; no layout impact.
+
 ### 2026-10-06 (latest): feedback on the restoration
 
 - User: the full word-for-word restore overshot; they wanted the egregious replacements
