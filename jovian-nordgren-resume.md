@@ -18,11 +18,11 @@ Technical Artist and 3D generalist with a decade of experience in AAA and indie 
 *Teamfight Tactics*
 *Contract via Innovative Employee Solutions*
 
-Technical Artist on Teamfight Tactics during the game's move from Riot's in-house engine to Unreal Engine 5, fixing edge-case bugs left by the conversion import across the legacy and UE5 projects in parallel. Focus is on repeatable fixes, automating tedious manual conversion tasks, and better detection and review of hand fixes, resolving issues before content reaches QA and removing the downstream cost of testing, reporting, and triage.
+Technical Artist on Teamfight Tactics during the game's move from Riot's in-house engine to Unreal Engine 5, fixing edge-case bugs left by the conversion import, working in both the legacy and UE5 project. Focus is on repeatable fixes, automating tedious manual conversion tasks, and better detection and review of hand fixes, aiming to resolve issues before content reaches QA and removing the downstream cost of testing, reporting, and triage.
 
 - Engineered an agentic AI assistant framework to accelerate bug investigation and fixes for Tech Artists, built on context packs, skills, MCP connections to team domain knowledge, and a base rule set.
-- Authored the framework's base rule set to address common LLM failures at the root, counteracting benchmark optimization for better-calibrated confidence and stronger context discovery; persistent context and carried-forward corrections let each user's workspace improve over time for them.
-- Developed systemic batch fix tools for recurring issues in converted assets, using legacy engine data as the source for equivalent UE5 properties.
+- Authored the framework's base rule set to address common LLM failures at the root, counteracting benchmark optimization for better accuracy and stronger context discovery; persistent context and carried-forward corrections let each user's workspace improve over time for them.
+- Developed systemic batch fix tools for recurring issues in converted assets, using legacy engine data as the source and applied to translated UE5 properties.
 - Designed collaborative batch fixers that resolve procedural issues automatically and generate an interactive HTML guide for the rest, pinpointing each issue, proposing the specific fix, and completing the automatable steps, so unavoidable manual fixes skip the search and start at the solution.
 - Built a database of known bug causes and fixes that serves as a library for the team's other AI triage and investigation tools; audited hand fixes on cosmetics shipped with the UE5 launch against it to rank automation opportunities for unreleased content.
 
