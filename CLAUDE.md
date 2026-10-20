@@ -104,7 +104,8 @@ Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
 - **Email is click-to-reveal everywhere** (about, resume, print resume), using the same
   XOR+base64 payload as the phone. No address material appears in any served HTML.
 - **No plus-tagged address is ever published in plaintext** (spammers strip tags and
-  get the base address). The `+web` comment honeypot and the JSON-LD email field were
+  get the base address). That includes repo files that aren't served, such as notes
+  under `_source/`: the repo is public. Refer to addresses as "the +ai address" etc. The `+web` comment honeypot and the JSON-LD email field were
   removed deliberately; do not reintroduce them.
 - **AI-agent channel:** `/llms.txt` publishes the `+ai` address base64-encoded with a
   decode instruction (a comprehension gate: LLMs decode it, regex harvesters can't).
