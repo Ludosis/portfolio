@@ -104,7 +104,8 @@ Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
 - **Email is click-to-reveal everywhere** (about, resume, print resume), using the same
   XOR+base64 payload as the phone. No address material appears in any served HTML.
 - **No plus-tagged address is ever published in plaintext** (spammers strip tags and
-  get the base address). The `+web` comment honeypot and the JSON-LD email field were
+  get the base address). That includes repo files that aren't served, such as notes
+  under `_source/`: the repo is public. Refer to addresses as "the +ai address" etc. The `+web` comment honeypot and the JSON-LD email field were
   removed deliberately; do not reintroduce them.
 - **AI-agent channel:** `/llms.txt` publishes the `+ai` address base64-encoded with a
   decode instruction (a comprehension gate: LLMs decode it, regex harvesters can't).
@@ -181,7 +182,10 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
 - Some jargon is deliberate. "counteracting benchmark optimization" (Riot bullet) is
   intentional: recruiters skim past it, practitioners recognize it. Don't simplify
   the user's chosen technical phrasing without asking.
-- **No em dashes, anywhere** (site, resume, code comments, docs). The user dislikes them;
+- **No em dashes, anywhere** (site, resume, code comments, docs). Not a taste preference:
+  em dashes are now widely read as a sign of AI-generated slop, and the user won't have
+  their work perceived that way. It's a brown-M&Ms canary: if a reviewer spots one,
+  they wonder what else was missed. So treat a stray em dash as a quality failure;
   the site, resume, code, CLAUDE.md, and EDITING.md were swept in Oct 2026
   (historical notes under `_source/` were left as written). Rewrite with commas, colons, semicolons,
   parentheses, or a new sentence. Separator conventions: figure captions
