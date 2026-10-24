@@ -7,7 +7,7 @@ JovianFinch.com | linkedin.com/in/JovianFinch
 
 ## Profile
 
-Technical Artist and 3D generalist with a decade of experience in AAA and indie game development, in both Unity and Unreal Engine. Best suited for small teams with broad scope: shaders, VFX, animation pipelines, asset optimization, tooling, procedural content, and any technical challenge the project surfaces. Years of QA work on large productions built a habit of asking why a problem exists, not just fixing it, and building processes so it doesn't recur. Picks up new tools, techniques, and codebases fast; currently using Claude Code and LLM workflows for tooling and pipeline problems. Comfortable at the deep end of a codebase or in a creative review.
+Technical Artist and 3D generalist with a decade of experience in AAA and indie game development, in both Unity and Unreal Engine. Best suited for small teams with broad scope: shaders, VFX, animation pipelines, asset optimization, tooling, procedural content, and any technical challenge the project surfaces. Years of QA work on large productions built a habit of asking why a problem exists, not just fixing it, and building processes so it doesn't recur. Approaches tools as an artist first: knows the workflows hands-on, is quick to take on new skills, tools, and codebases, and uses agentic coding to support good design and usability, not replace it. Comfortable at the deep end of a codebase or in a creative review.
 
 ---
 
@@ -18,7 +18,7 @@ Technical Artist and 3D generalist with a decade of experience in AAA and indie 
 *Teamfight Tactics*
 *Contract via Innovative Employee Solutions*
 
-Technical Artist on Teamfight Tactics during the game's move from Riot's in-house engine to Unreal Engine 5, fixing edge-case bugs left by the conversion import, working in both the legacy and UE5 project. Focus is on repeatable fixes, automating tedious manual conversion tasks, and better detection and review of hand fixes, aiming to resolve issues before content reaches QA and removing the downstream cost of testing, reporting, and triage.
+Technical Artist on Teamfight Tactics during its move from Riot's in-house engine to Unreal Engine 5, patching conversion import issues and mitigating architectural differences between engines. Focus is on repeatable fixes, automating tedious manual conversion tasks, and better detection and review of hand fixes, aiming to resolve issues before content reaches QA and removing the downstream cost of testing, reporting, and triage.
 
 - Engineered an agentic AI assistant framework to accelerate bug investigation and fixes for Tech Artists, built on context packs, skills, MCP connections to team domain knowledge, and a base rule set.
 - Authored the framework's base rule set to address common LLM failures at the root, counteracting benchmark optimization for better accuracy and stronger context discovery; persistent context and carried-forward corrections let each user's workspace improve over time for them.
