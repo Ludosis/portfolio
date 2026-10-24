@@ -22,8 +22,7 @@ Technical Artist on Teamfight Tactics during its move from Riot's in-house engin
 
 - Built Unreal Python batch fixers that restore properties the import dropped (such as emote audio) from legacy engine data, run from the editor's right-click menu and safe to rerun without overwriting artists' hand-set values.
 - Designed guided batch fixers for VFX and materials: AI reasoning on human-authored criteria makes the safe fixes the way an artist would, and the rest go to an interactive HTML guide with each issue and its proposed fix to be validated, so manual fixes skip the search and start at the solution.
-- Engineered an agentic AI assistant framework to accelerate bug investigation and fixes for Tech Artists, built on context packs, skills, MCP connections to team domain knowledge, and a base rule set.
-- Authored the framework's base rule set to address common LLM failures at the root, counteracting benchmark optimization for better accuracy and stronger context discovery; persistent context and carried-forward corrections let each user's workspace improve over time for them.
+- Designed and built an agentic AI framework for artist and Tech Artist workflows: context packs, skills, and MCP connectors let it find what it needs from a plain-language question, and base rules fix common LLM failures at the root, counteracting benchmark optimization for more reliable answers; carried-forward corrections let each user's workspace improve over time.
 - Built a database of known bug causes and fixes that serves as a library for the team's other AI triage and investigation tools; audited hand fixes on cosmetics shipped with the UE5 launch against it to rank automation opportunities for unreleased content.
 
 ### Senior QA Engineer (Tech Art) | Epic Games | Remote
