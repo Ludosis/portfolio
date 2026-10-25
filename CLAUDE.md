@@ -118,7 +118,7 @@ Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
 ## Pages (all URLs unchanged from the legacy site)
 
 Home `/` · About `/about/` · Resume `/resume/` · Portfolio `/portfolio/` ·
-projects at `/portfolio/{alien-age,snuggles,grapple-star,lego-fortnite,destiny-2,relic,earlier-work}/` ·
+projects at `/portfolio/{teamfight-tactics,alien-age,snuggles,grapple-star,lego-fortnite,destiny-2,relic,earlier-work}/` ·
 How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.html`
 
 ---
@@ -183,7 +183,9 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
   Innovative Employee Solutions on Teamfight Tactics during its move to UE5; built an
   agentic AI assistant framework, batch fix tools, and a known-bug database for TAs.
   In the site's employer mentions since Oct 2026 (About, Skills intro, site.yaml
-  summary). A Riot project page is planned.
+  summary) and with its own project page, `/portfolio/teamfight-tactics/` (Oct 2026).
+  Never publish internal tool names there (e.g. the timeline tool), people's names,
+  ticket keys, or asset names. Numbers are fine (user's call).
 - Bungie (2015–2019, QA → Test Engineer + 3D ambient-life side project), Epic Games
   (2023–2026, Senior QA Engineer (Tech Art) on Lego Fortnite), Indie Wizards →
   Left Turn Studios (2021–2023: Alien Age shipped 2021 under Indie Wizards, which
