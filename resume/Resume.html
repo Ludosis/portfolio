@@ -522,6 +522,19 @@ eleventyExcludeFromCollections: true
       box-shadow: 0 2px 1px rgba(44,36,32,0.04), 0 12px 32px rgba(44,36,32,0.10);
     }
     body { padding: 32px 0 48px; }
+    /* Footer marks sit below the text instead of pinned to the sheet bottom, as in
+       print. Pinned, they cut into the last line on machines that lay text out a
+       little wider (Mac, Windows, Android). The sheet grows if the text runs long. */
+    .page {
+      height: auto;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 0.28in;
+    }
+    .continues, .foot { position: static; }
+    .page > .continues, .page > .foot { margin-top: auto; padding-top: 16px; }
+    .page > .continues + .foot { margin-top: 8px; padding-top: 0; }
   }
 </style>
 </head>
