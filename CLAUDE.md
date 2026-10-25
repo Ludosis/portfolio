@@ -121,11 +121,25 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
 
 ## Branch workflow
 
-- Develop on `claude/new-portfolio-website-cqdm9`; user merges to main (often squash).
+- Develop on `claude/new-portfolio-website-cqdm9`. Small iterative commits belong on
+  the working branch; that noise never goes to main.
+- **Main is always squash-merged, one change per piece of work** (e.g. "Resume
+  iteration", "Add Riot page"), so main reads as a clean change list. The user either
+  merges the PR themselves or asks Claude to open and merge it.
+- **Squash PR titles and descriptions:** short and succinct, saying what the work was.
+  Never a list of every commit. **Main and the repo are public:** no line-by-line
+  details or private reasons (job applications, workplace details) in commit messages,
+  PR text, or branch commits.
+- **Pushing straight to main:** only when the user says so for that change. Claude can,
+  but asks first and uses the strictest judgment (a small fix to something broken on
+  the live site is the kind of case where it might be offered).
 - **Merge to main = deploy** (Actions builds and publishes).
-- After a squash merge, reset the working branch onto origin/main
-  (`git checkout -B <branch> origin/main`). GitHub auto-deletes the remote branch
-  on merge, so push recreates it.
+- After every squash merge, reset the working branch onto origin/main
+  (`git checkout -B <branch> origin/main`) and force-push it (GitHub may have deleted it).
+  The user keeps a local copy of the branch to review work in GitHub Desktop; after a
+  squash merge that copy goes stale (it still holds the pre-squash commits). Fix in
+  GitHub Desktop: delete the local branch, then select it again from the branch list
+  to recreate it from origin. Never ask the user to merge a stale local copy.
 
 ---
 
