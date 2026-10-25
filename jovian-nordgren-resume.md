@@ -44,14 +44,13 @@ Embedded across multiple Tech Art and content teams on Lego Fortnite, owning pip
 **October 2021 – January 2023**
 *Alien Age (Steam, 2021) | Snuggles the Unicorn (canceled) | Grapple Star (demo)*
 
-Revenue-share contributor on Alien Age before Left Turn Studios incorporated in January 2022. Lead Technical Artist across all three Unity projects, with a second TA joining later on Snuggles.
+Revenue-share contributor on Alien Age before Left Turn Studios incorporated in January 2022. Technical Artist across all three Unity projects, solo until a second TA joined on Snuggles.
 
 - Owned all shaders, VFX, lighting, and materials on Alien Age: custom water, volumetric fog, and world-position-seeded color variation shaders; full asset optimization including retopology, indexed textures, and reduced texture lookups.
-- Collaborated with an engineer to build a procedural foliage placement tool running in-editor to avoid runtime cost; documented it for level designers to regenerate independently.
+- Designed a procedural foliage placement tool and set its requirements for the engineer who built it, then tested it against production needs; runs in-editor to avoid runtime cost, documented for level designers to regenerate independently.
 - Converted Snuggles from Unity's standard renderer to URP: rebuilt every shader from scratch, scripted batch material conversion, reworked outsourced store assets to match the pipeline, and rebuilt lighting and post-processing.
-- Developed a vertex shader system for enemy wings on Snuggles, replacing a 32-bone-per-enemy rig with a shader-driven flap; used Material Property Blocks to randomize phase per instance so wings moved independently.
-- Built the animation state machines for all characters.
-- Built a puppet rig system to retarget existing animations onto a redesigned player model, preserving the existing animation investment without recreating them; scripted the constraint reconnection to rebuild automatically after asset updates.
+- Developed a vertex shader system for enemy wings on Snuggles, replacing a 32-bone-per-enemy rig with a shader-driven flap; used Material Property Blocks to offset each enemy's flap timing, so on-screen enemies didn't all flap in unison.
+- Built the animation state machines for all characters and a puppet rig system to retarget existing animations onto a redesigned player model, preserving the existing animation investment without recreating them; scripted the constraint reconnection to rebuild automatically after asset updates.
 
 ### Freelance & Independent Work | Seattle, WA
 **May 2019 – September 2021**
