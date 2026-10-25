@@ -18,12 +18,12 @@ Technical Artist and 3D generalist with a decade of experience in AAA and indie 
 *Teamfight Tactics*
 *Contract via Innovative Employee Solutions*
 
-Technical Artist on Teamfight Tactics during its move from Riot's in-house engine to Unreal Engine 5, patching conversion import issues and mitigating architectural differences between engines. Focus is on repeatable fixes, automating tedious manual conversion tasks, and better detection and review of hand fixes, aiming to resolve issues before content reaches QA and removing the downstream cost of testing, reporting, and triage.
+Technical Artist on Teamfight Tactics during its move from Riot's in-house engine to Unreal Engine 5, patching conversion import issues and mitigating architectural differences between engines. Focus is on repeatable fixes: automating tedious manual conversion work so artist time goes to the fixes that need an artist's eye, and catching issues before content reaches QA, removing the downstream cost of testing, reporting, and triage.
 
 - Built Unreal Python batch fixers that restore properties the import dropped (such as emote audio) from legacy engine data, run from the editor's right-click menu and safe to rerun without overwriting artists' hand-set values.
 - Designed guided batch fixers for VFX and materials: AI reasoning on human-authored criteria makes the safe fixes the way an artist would, and the rest go to an interactive HTML guide with each issue and its proposed fix to be validated, so manual fixes skip the search and start at the solution.
 - Designed and built an agentic AI framework for artist and Tech Artist workflows: context packs, skills, and MCP connectors let it find what it needs from a plain-language question, and base rules fix common LLM failures at the root, counteracting benchmark optimization for more reliable answers; carried-forward corrections let each user's workspace improve over time.
-- Built a database of known bug causes and fixes that serves as a library for the team's other AI triage and investigation tools; audited hand fixes on cosmetics shipped with the UE5 launch against it to rank automation opportunities for unreleased content.
+- Built a two-layer Python/SQLite bug patterns system: a shared library of known causes and fixes that anyone can add to and the team's other AI tools can query, and an audit of past bugs and hand fixes, with a browsable dashboard, that ranks recurring patterns into importer fixes, batch fixers, or other systemic fixes before unreleased content ships.
 
 ### Senior QA Engineer (Tech Art) | Epic Games | Remote
 **July 2023 – March 2026**
