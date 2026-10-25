@@ -33,7 +33,7 @@ Technical Artist on Teamfight Tactics during its move from Riot's in-house engin
 Embedded across multiple Tech Art and content teams on Lego Fortnite, owning pipeline integrity and quality across FX, animation, platforms and scalability, world/terrain, and procedural content. Served as animation domain liaison, mapping the full pipeline from DCC to in-engine setup to running game and every handoff between, coordinating test coverage, communicating risk, and keeping distributed QA teams in sync across a large-scale live project.
 
 - Root-caused TSR smearing that obscured animation quality in the anim review playblast exporter; found a mitigation and helped set requirements for the in-house replacement.
-- Root-caused and solved multiple rare Switch-only rendering bugs, isolating platform-specific interactions between materials and animation.
+- Diagnosed multiple rare Switch-only rendering bugs by isolating platform-specific interactions between materials and animation.
 - Recognized a pattern in escaped defects tracing back to untested FX across platforms and scalability settings; developed test cases and distributed them as team-specific guides so each content team could fold FX validation into their own workflows.
 - Built Unreal Editor Utility Widget tools for animation range validation and asset audits; extended a C++ submit validator to enforce LOD and triangle limits at check-in.
 - Built an automation triage tool with Claude Code in one day, integrating APIs and MCPs into an HTML report with cross-platform comparison, trend tracking, and Jira-linked failure notes.
