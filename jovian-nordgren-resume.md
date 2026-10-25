@@ -50,7 +50,7 @@ Revenue-share contributor on Alien Age before Left Turn Studios incorporated in 
 - Designed a procedural foliage placement tool and set its requirements for the engineer who built it, then tested it against production needs; runs in-editor to avoid runtime cost, documented for level designers to regenerate independently.
 - Converted Snuggles from Unity's standard renderer to URP: rebuilt every shader from scratch, scripted batch material conversion, reworked outsourced store assets to match the pipeline, and rebuilt lighting and post-processing.
 - Developed a vertex shader system for enemy wings on Snuggles, replacing a 32-bone-per-enemy rig with a shader-driven flap; used Material Property Blocks to offset each enemy's flap timing, so on-screen enemies didn't all flap in unison.
-- Built the animation state machines for all characters and a puppet rig system to retarget existing animations onto a redesigned player model, preserving the existing animation investment without recreating them; scripted the constraint reconnection to rebuild automatically after asset updates.
+- Built the animation state machines for all characters and a puppet rig system to retarget existing animations onto a redesigned player model, so existing animations didn't have to be redone; scripted the constraint reconnection to rebuild automatically after asset updates.
 
 ### Freelance & Independent Work | Seattle, WA
 **May 2019 – September 2021**
