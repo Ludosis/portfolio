@@ -94,10 +94,10 @@ skills:
     rank: 1
     detail: "Editor-time foliage placement tool with Tree Sizer/Rotator/Tinter: randomized position, scale, rotation, and color at placement time; three rock meshes and three tree meshes produced eight distinct tileset varieties with no additional asset authoring"
   - id: scripting
-    label: "Alien Age / Editor & pipeline scripts"
+    label: "Alien Age / C# editor scripts"
     href: "/portfolio/alien-age/"
     rank: 2
-    detail: "Maya scripts for compositing and asset pipeline tasks; foliage placement tool (designed; built by an engineer); Tree Sizer/Rotator/Tinter script"
+    detail: "Tree Sizer/Rotator/Tinter script; foliage placement tool (designed; built by an engineer)"
 ---
 
 Alien Age is a 2D action game released on Steam in 2021. The project originated

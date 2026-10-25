@@ -81,12 +81,11 @@ skills:
     label: "Blueprint & EUW / Unreal Engine 5"
     href: "/portfolio/lego-fortnite/"
     rank: 3
-    detail: "Animation range validation EUW with batching, progress indicator, and CSV export; asset audit EUW with LOD/poly enforcement; extended existing C++ submit validator; learned EUW and Blueprint on the job to build these before building these"
+    detail: "Animation range validation EUW with batching, progress indicator, and CSV export; asset audit EUW with LOD/poly enforcement; extended existing C++ submit validator; learned EUW and Blueprint on the job to build these"
 ---
 
 At Epic Games I was embedded across multiple Tech Art and content teams on Unreal
-Engine 5 and Lego Fortnite, working as both a QA engineer and a technical artist
-specialist. The role covered pipeline integrity across FX, animation, content
+Engine 5 and Lego Fortnite, working as a Senior QA Engineer (Tech Art). The role covered pipeline integrity across FX, animation, content
 optimization, world/terrain, and procedural content, serving as the animation domain
 liaison and coordinating test coverage across a large-scale live service project with
 distributed teams.

@@ -97,7 +97,7 @@ skills:
     label: "Snuggles the Unicorn / Rig Rebuild Utility"
     href: "/portfolio/snuggles/#puppet-rig"
     rank: 2
-    detail: "Scripted constraint reconnection that rebuilt the full rig from saved configuration in seconds; Maya compositing helper scripts"
+    detail: "Scripted constraint reconnection that rebuilt the full rig from saved configuration in seconds"
   - id: scripting
     label: "C# / Unity"
     href: "/portfolio/snuggles/"

@@ -36,6 +36,13 @@ skills:
       Solo animation production, full pipeline ownership: script, storyboard,
       and animatic; character concept, model, textures, rig (abAutoRig), and
       animation; environment concept, models, textures, and lighting
+  - id: scripting
+    highlight: "Jerry's Rig: PyMEL Tools"
+    anchor: jerrys-rig
+    detail: >-
+      Maya scene compositing helper that applies the render-layer property to
+      every selected object, replacing one-by-one clicks across hundreds of
+      objects; procedural asset scattering by distance and placement criteria
 ---
 
 Before the professional work, two student projects worth keeping on the record,
@@ -47,7 +54,10 @@ Jerry's Rig was a solo animation production from my junior year (2013–2014): o
 person carrying a short film through the full pipeline. Story work covered the
 script, storyboard, animatic, and post-processing with audio. Character work
 included concept, model, textures, rig (using abAutoRig), and animation. The
-environment encompassed concept, models, textures, and lighting.
+environment encompassed concept, models, textures, and lighting. Two PyMEL tools
+sped up the production: a compositing helper that applied the render-layer property
+to every selected object (previously one click per object, across hundreds of them),
+and a procedural scatter for placing assets by distance and placement criteria.
 
 It's the earliest piece here, and the reason it stays in the portfolio: the
 generalist habit (owning every step between idea and rendered frame) started
