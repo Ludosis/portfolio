@@ -36,7 +36,7 @@ Embedded across multiple Tech Art and content teams on Lego Fortnite, owning pip
 - Diagnosed multiple rare Switch-only rendering bugs by isolating platform-specific interactions between materials and animation.
 - Recognized a pattern in escaped defects tracing back to untested FX across platforms and scalability settings; developed test cases and distributed them as team-specific guides so each content team could fold FX validation into their own workflows.
 - Built Unreal Editor Utility Widget tools for animation range validation and asset audits; extended a C++ submit validator to enforce LOD and triangle limits at check-in.
-- Built an automation triage tool with Claude Code in one day, integrating APIs and MCPs into an HTML report with cross-platform comparison, trend tracking, and Jira-linked failure notes.
+- Created an automation triage tool with Claude Code in one day, integrating APIs and MCPs into an HTML report with cross-platform comparison, trend tracking, and Jira-linked failure notes.
 
 <!-- print: page 2 starts here -->
 
@@ -77,7 +77,7 @@ Modeled, rigged, and animated shipped ambient life characters in Maya: owls in t
 
 Owned all visual technical work, pushing the engine past its documented limits to realize the project's ambitious vision.
 
-- Built the FX, lighting, materials, and rendering and asset pipelines, with atmospherics simulated in custom shaders.
+- Authored the FX, lighting, materials, and rendering and asset pipelines, with atmospherics simulated in custom shaders.
 - Modeled and rigged the player character in Maya, and composed the environments.
 - Identified engine constraints blocking the project's visual goals and worked directly with the chief engineer to understand and propose solutions rather than working around them; he implemented several engine-level changes as a result.
 - Led a mid-production strike team to re-evaluate scope; helped transition to a collaborative department-leads structure that stabilized a large team struggling with unified direction.
