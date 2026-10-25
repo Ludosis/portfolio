@@ -21,9 +21,9 @@ Technical Artist and 3D generalist with a decade in AAA and indie games across T
 Technical Artist on Teamfight Tactics during its move from Riot's in-house engine to Unreal Engine 5, patching conversion import issues and mitigating architectural differences between engines. Focus is on repeatable fixes: automating tedious manual conversion work so artist time goes to the fixes that need an artist's eye, and catching issues before content reaches QA, removing the downstream cost of testing, reporting, and triage.
 
 - Built Unreal Python batch fixers that restore properties the import dropped (such as emote audio) from legacy engine data, run from the editor's right-click menu and safe to rerun without overwriting artists' hand-set values.
-- Designed guided batch fixers for VFX and materials: AI reasoning on human-authored criteria makes the safe fixes the way an artist would, and the rest go to an interactive HTML guide with each issue and its proposed fix to be validated, so manual fixes skip the search and start at the solution.
+- Designed guided fixers for VFX and materials: AI reasoning on human-authored criteria makes the safe fixes the way an artist would, and the rest go to an interactive guide listing each issue and a fix to validate, so manual fixes skip the search and start at the solution.
 - Dug into every layer of the game's timeline-based animation state system, from gameplay triggers through animation, VFX, and audio clips, to fix conversion bugs inside it; built right-click reimport helpers for assets that imported incorrectly.
-- Designed and built an agentic AI framework for artist and Tech Artist workflows: context packs, skills, and MCP connectors let it find what it needs from a plain-language question, and base rules fix common LLM failures at the root, counteracting benchmark optimization for more reliable answers; carried-forward corrections let each user's workspace improve over time.
+- Designed and built an agentic AI framework for artist and Tech Artist workflows: context packs, skills, and MCP connectors let it find what it needs from a plain-language question, and base rules fix common LLM failures at the root, counteracting benchmark optimization for more reliable answers; carried-forward corrections let each user's workspace improve.
 - Built a two-layer Python/SQLite bug patterns system: a shared library of known causes and fixes that anyone can add to and the team's other AI tools can query, and an audit of past bugs and hand fixes, with a browsable dashboard, that ranks recurring patterns into importer fixes, batch fixers, or other systemic fixes before unreleased content ships.
 
 ### Senior QA Engineer (Tech Art) | Epic Games | Remote
@@ -32,10 +32,10 @@ Technical Artist on Teamfight Tactics during its move from Riot's in-house engin
 
 Embedded across multiple Tech Art and content teams on Lego Fortnite, owning pipeline integrity and quality across FX, animation, content optimization, world/terrain, and procedural content. Served as animation domain liaison, mapping the full pipeline from DCC to in-engine setup to running game and every handoff between, coordinating test coverage, communicating risk, and keeping distributed QA teams in sync across a large-scale live project.
 
-- Root-caused TSR smearing that obscured animation quality in the anim review playblast exporter; identified a working mitigation and contributed to requirements for the in-house replacement.
+- Root-caused TSR smearing that obscured animation quality in the anim review playblast exporter; found a mitigation and helped set requirements for the in-house replacement.
 - Root-caused and solved multiple rare Switch-only rendering bugs, isolating platform-specific interactions between materials and animation.
 - Recognized a pattern in escaped defects tracing back to untested FX across platforms and scalability settings; developed test cases and distributed them as team-specific guides so each content team could fold FX validation into their own workflows.
-- Built Unreal Editor Utility Widget tools for animation range validation and asset audits; extended an existing C++ submit validator to enforce mesh LOD and triangle count standards at check-in.
+- Built Unreal Editor Utility Widget tools for animation range validation and asset audits; extended a C++ submit validator to enforce LOD and triangle limits at check-in.
 - Built an automation triage tool with Claude Code in one day, integrating APIs and MCPs into an HTML report with cross-platform comparison, trend tracking, and Jira-linked failure notes.
 
 <!-- print: page 2 starts here -->
