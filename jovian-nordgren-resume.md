@@ -46,16 +46,16 @@ Embedded across multiple Tech Art and content teams on Lego Fortnite, owning pip
 
 Revenue-share contributor on Alien Age before Left Turn Studios incorporated in January 2022. Technical Artist across all three Unity projects, solo until a second TA joined on Snuggles.
 
+- Converted Snuggles from Unity's standard renderer to URP: rebuilt every shader from scratch, scripted batch material conversion, reworked outsourced store assets to match the pipeline, and rebuilt lighting and post-processing.
 - Owned all shaders, VFX, lighting, and materials on Alien Age: custom water, volumetric fog, and world-position-seeded color variation shaders; full asset optimization including retopology, indexed textures, and reduced texture lookups.
 - Designed a procedural foliage placement tool and set its requirements for the engineer who built it, then tested it against production needs; runs in-editor to avoid runtime cost, documented for level designers to regenerate independently.
-- Converted Snuggles from Unity's standard renderer to URP: rebuilt every shader from scratch, scripted batch material conversion, reworked outsourced store assets to match the pipeline, and rebuilt lighting and post-processing.
-- Developed a vertex shader system for enemy wings on Snuggles, replacing a 32-bone-per-enemy rig with a shader-driven flap; used Material Property Blocks to offset each enemy's flap timing, so on-screen enemies didn't all flap in unison.
+- Developed a vertex shader system for enemy wings on Snuggles, replacing a heavy skeletal rig with a shader-driven mesh; used Material Property Blocks to offset each enemy's flap timing, so on-screen enemies didn't all flap in unison.
 - Built the animation state machines for all characters and a puppet rig system to retarget existing animations onto a redesigned player model, so existing animations didn't have to be redone; scripted the constraint reconnection to rebuild automatically after asset updates.
 
 ### Freelance & Independent Work | Seattle, WA
 **May 2019 – September 2021**
 
-Freelance creative work including graphic design and web projects. Used the period for self-directed technical study, including a crash course in Unity, real-time VFX, and shader development.
+Freelance creative work including graphic design and web projects. Self-directed technical study, including a crash course in Unity, real-time VFX, and shader development.
 
 ### Test Engineer | Bungie, Inc. | Bellevue, WA
 **May 2015 – May 2019**
@@ -64,8 +64,8 @@ Freelance creative work including graphic design and web projects. Used the peri
 
 - Traced content through each production step to identify systemic failure points, improving fix rates and preventing issues before they became bugs.
 - Analyzed runtime memory in high-risk areas, helping steer the project into memory budget for launch.
-- Built a debug config tool that triggered public event completion conditions on demand at any reward tier; the audio team adopted it independently for bucket testing that had been too time-consuming to run manually.
-- Created workflows for the team and wrote guides for them, speeding up onboarding and helping the team work independently.
+- Built a debug tool for rapid testing of gameplay events that were too time-consuming to run manually; adopted by multiple teams.
+- Created team workflows and wrote their guides, speeding up onboarding and helping the team work independently.
 
 **3D Generalist: Destiny 2 Ambient Life Project (2017 – 2018)**
 
@@ -75,11 +75,12 @@ Modeled, rigged, and animated shipped ambient life characters in Maya: owls in t
 **July 2014 – May 2015**
 *Relic | 3D action adventure | DigiPen Zero Engine*
 
-Owned all visual technical work, pushing the engine past its documented limits to realize the project's ambitious vision.
+Owned all visual technical work, getting creative within the engine's limits to realize the project's ambitious vision.
 
-- Authored the FX, lighting, materials, and rendering and asset pipelines, with atmospherics simulated in custom shaders.
-- Modeled and rigged the player character in Maya, and composed the environments.
-- Identified engine constraints blocking the project's visual goals and worked directly with the chief engineer to understand and propose solutions rather than working around them; he implemented several engine-level changes as a result.
+- Authored the FX, lighting, materials, rendering, and asset pipelines.
+- Composed the environments in engine, with atmospherics simulated in custom shaders.
+- Modeled and rigged the player character in Maya and established its animation import pipeline.
+- Identified engine constraints blocking the project's visual goals and worked with the chief engineer on solutions, leading to several engine-level changes.
 - Led a mid-production strike team to re-evaluate scope; helped transition to a collaborative department-leads structure that stabilized a large team struggling with unified direction.
 - Wrote PyMEL tools for other projects: batch render-pass assignment and procedural asset scattering.
 - Served as Animation Instructor for DigiPen's Project FUN (Summer 2013 & 2014), teaching traditional and digital animation workflows to students at varied skill levels.
