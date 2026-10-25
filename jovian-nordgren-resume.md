@@ -62,7 +62,7 @@ Freelance creative work including graphic design and web projects. Used the peri
 *Destiny: The Taken King | Destiny 2 | D2: Curse of Osiris | D2: Forsaken*
 *Test Engineer (Nov 2017 – May 2019) | QA Tester (Mar 2016 – Nov 2017) | Embedded Contract via Randstad USA (May 2015 – Mar 2016)*
 
-- Mapped content workflows to identify systemic failure points, improving fix rates and overall product quality.
+- Traced content through each production step to identify systemic failure points, improving fix rates and preventing issues before they became bugs.
 - Analyzed runtime memory in high-risk areas, helping steer the project into memory budget for launch.
 - Built a debug config tool that triggered public event completion conditions on demand at any reward tier; the audio team adopted it independently for bucket testing that had been too time-consuming to run manually.
 - Created workflows for the team and wrote guides for them, speeding up onboarding and helping the team work independently.
