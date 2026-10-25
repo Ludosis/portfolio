@@ -22,6 +22,7 @@ Technical Artist on Teamfight Tactics during its move from Riot's in-house engin
 
 - Built Unreal Python batch fixers that restore properties the import dropped (such as emote audio) from legacy engine data, run from the editor's right-click menu and safe to rerun without overwriting artists' hand-set values.
 - Designed guided batch fixers for VFX and materials: AI reasoning on human-authored criteria makes the safe fixes the way an artist would, and the rest go to an interactive HTML guide with each issue and its proposed fix to be validated, so manual fixes skip the search and start at the solution.
+- Dug into every layer of the game's timeline-based animation state system, from gameplay triggers through animation, VFX, and audio clips, to fix conversion bugs inside it; built right-click reimport helpers for assets that imported incorrectly.
 - Designed and built an agentic AI framework for artist and Tech Artist workflows: context packs, skills, and MCP connectors let it find what it needs from a plain-language question, and base rules fix common LLM failures at the root, counteracting benchmark optimization for more reliable answers; carried-forward corrections let each user's workspace improve over time.
 - Built a two-layer Python/SQLite bug patterns system: a shared library of known causes and fixes that anyone can add to and the team's other AI tools can query, and an audit of past bugs and hand fixes, with a browsable dashboard, that ranks recurring patterns into importer fixes, batch fixers, or other systemic fixes before unreleased content ships.
 
@@ -49,6 +50,7 @@ Revenue-share contributor on Alien Age before Left Turn Studios incorporated in 
 - Collaborated with an engineer to build a procedural foliage placement tool running in-editor to avoid runtime cost; documented it for level designers to regenerate independently.
 - Converted Snuggles from Unity's standard renderer to URP: rebuilt every shader from scratch, scripted batch material conversion, reworked outsourced store assets to match the pipeline, and rebuilt lighting and post-processing.
 - Developed a vertex shader system for enemy wings on Snuggles, replacing a 32-bone-per-enemy rig with a shader-driven flap; used Material Property Blocks to randomize phase per instance so wings moved independently.
+- Built the animation state machines for all characters.
 - Built a puppet rig system to retarget existing animations onto a redesigned player model, preserving the existing animation investment without recreating them; scripted the constraint reconnection to rebuild automatically after asset updates.
 
 ### Freelance & Independent Work | Seattle, WA
