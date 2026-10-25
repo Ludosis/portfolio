@@ -55,7 +55,7 @@ Revenue-share contributor on Alien Age before Left Turn Studios incorporated in 
 ### Freelance & Independent Work | Seattle, WA
 **May 2019 – September 2021**
 
-Freelance creative work including graphic design and web projects. Used the period for self-directed technical study, including a crash course in Unity, real-time VFX, and shader development to stay current with industry tools.
+Freelance creative work including graphic design and web projects. Used the period for self-directed technical study, including a crash course in Unity, real-time VFX, and shader development.
 
 ### Test Engineer | Bungie, Inc. | Bellevue, WA
 **May 2015 – May 2019**
@@ -91,7 +91,7 @@ Owned all visual technical work, pushing the engine past its documented limits t
 **Real-Time & Rendering:** Shader authoring, VFX, lighting, rendering, optimization
 **3D Art:** Modeling, sculpting, UVs, texturing, rigging, animation
 **Tools & Pipeline:** Asset validation, pipeline tooling, workflow documentation, Perforce, Git
-**Scripting:** Python, C#, HLSL, Lua
+**Scripting:** Python, C#, HLSL
 **AI & Automation:** Agentic coding, agent-assisted workflow development, harness customization, context management, MCP / API integration
 **Software:** Unreal Engine, Unity, Maya, Photoshop, 3ds Max, Substance 3D, Adobe Creative Suite
 
