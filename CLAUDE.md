@@ -138,8 +138,10 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
   (`git checkout -B <branch> origin/main`) and force-push it (GitHub may have deleted it).
   The user keeps a local copy of the branch to review work in GitHub Desktop; after a
   squash merge that copy goes stale (it still holds the pre-squash commits). Fix in
-  GitHub Desktop: delete the local branch, then select it again from the branch list
-  to recreate it from origin. Never ask the user to merge a stale local copy.
+  GitHub Desktop, in this order: Fetch origin FIRST, switch to main, delete the local
+  branch (not the remote), then select it again from the branch list. Without the
+  fetch, Desktop recreates it from its stale remote ref. Never tell the user to
+  "Pull origin" on a stale copy: it merges the old commits back. Never ask the user to merge a stale local copy.
 
 ---
 
