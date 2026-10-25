@@ -72,7 +72,7 @@ skills:
     label: "Snuggles the Unicorn / Wing Vertex Shader"
     href: "/portfolio/snuggles/#wing-shader"
     rank: 2
-    detail: "Replaced 32-bone-per-enemy wing rig with a GPU vertex shader; per-instance phase randomization via Material Property Blocks so every enemy flaps independently, with zero extra draw calls"
+    detail: "Replaced a heavy skeletal wing rig with a GPU vertex shader; per-instance phase randomization via Material Property Blocks so every enemy flaps independently, with zero extra draw calls"
   - id: shaders
     label: "Snuggles the Unicorn / Status FX Shader"
     href: "/portfolio/snuggles/"
@@ -126,7 +126,7 @@ to work within the new pipeline and match the project's visual direction.
 <h2 id="wing-shader" class="project-section">Shader-Driven Enemy Wings</h2>
 
 Each enemy type needed flapping wings. In prototyping we tried a rigged wing package
-from the Unity store, at 32 bones per enemy, and it was clear right away that the
+from the Unity store, a heavy skeletal rig, and it was clear right away that the
 bone cost wouldn't hold up with 40 enemies on screen, let alone on mobile hardware.
 So we pivoted to a vertex shader before the rig went any further.
 
