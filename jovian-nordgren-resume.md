@@ -81,9 +81,9 @@ Owned all visual technical work, getting creative within the engine's limits to 
 - Composed the environments in engine, with atmospherics simulated in custom shaders.
 - Modeled and rigged the player character in Maya and established its animation import pipeline.
 - Identified engine constraints blocking the project's visual goals and worked with the chief engineer on solutions, leading to several engine-level changes.
-- Led a mid-production strike team to re-evaluate scope; helped transition to a collaborative department-leads structure that stabilized a large team struggling with unified direction.
+- Rallied the most engaged teammates mid-production to redefine the project's direction and take it to leadership; the team moved from a single director to a collaborative department-leads structure.
 - Wrote PyMEL tools for other projects: batch render-pass assignment and procedural asset scattering.
-- Served as Animation Instructor for DigiPen's Project FUN (Summer 2013 & 2014), teaching traditional and digital animation workflows to students at varied skill levels.
+- Taught a Project FUN animation class for high school credit at a DigiPen satellite location (Summer 2013 & 2014), developing its curriculum for traditional and digital animation.
 
 ---
 
