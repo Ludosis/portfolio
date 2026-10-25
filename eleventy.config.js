@@ -15,6 +15,8 @@ module.exports = function (eleventyConfig) {
     "EDITING.md",
     // the resume source: parsed by content/_data/resume.js, never a page itself
     "jovian-nordgren-resume.md",
+    // build tooling, not pages (og-card.html is the source for the link-preview image)
+    "pipeline/**",
   ].forEach((p) => eleventyConfig.ignores.add(p));
 
   eleventyConfig.addDataExtension("yaml,yml", (contents) => yaml.load(contents));
