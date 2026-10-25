@@ -138,8 +138,9 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
   (`git checkout -B <branch> --no-track origin/main`, then `git push -u origin <branch>`, forcing if needed). Without `--no-track` the branch tracks main and a bare `git push` targets main.
   The user keeps a local copy of the branch to review work in GitHub Desktop; after a
   squash merge that copy goes stale (it still holds the pre-squash commits). Fix in
-  GitHub Desktop, in this order: Fetch origin FIRST, switch to main, delete the local
-  branch (not the remote), then select it again from the branch list. Without the
+  GitHub Desktop, in this order: Fetch origin FIRST, then while ON the working branch use
+  Branch > Delete (local only; Desktop deletes the current branch and switches to main),
+  then select the branch again from the branch list. Without the
   fetch, Desktop recreates it from its stale remote ref. Never tell the user to
   "Pull origin" on a stale copy: it merges the old commits back. Never ask the user to merge a stale local copy.
 
