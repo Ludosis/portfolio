@@ -65,7 +65,7 @@ Freelance creative work including graphic design and web projects. Used the peri
 - Mapped content workflows to identify systemic failure points, improving fix rates and overall product quality.
 - Analyzed runtime memory in high-risk areas, helping steer the project into memory budget for launch.
 - Built a debug config tool that triggered public event completion conditions on demand at any reward tier; the audio team adopted it independently for bucket testing that had been too time-consuming to run manually.
-- Established and documented workflow guides to accelerate onboarding and help the team operate independently.
+- Created workflows for the team and wrote guides for them, speeding up onboarding and helping the team work independently.
 
 **3D Generalist: Destiny 2 Ambient Life Project (2017 – 2018)**
 
@@ -75,7 +75,7 @@ Modeled, rigged, and animated shipped ambient life characters in Maya: owls in t
 **July 2014 – May 2015**
 *Relic | 3D action adventure | DigiPen Zero Engine*
 
-One of the most technically ambitious projects attempted in Zero Engine at the time. Owned all visual technical work and pushed the engine well past its documented limits.
+Owned all visual technical work, pushing the engine past its documented limits to realize the project's ambitious vision.
 
 - Built the FX, lighting, materials, and rendering and asset pipelines, with atmospherics simulated in custom shaders.
 - Modeled and rigged the player character in Maya, and composed the environments.
