@@ -7,7 +7,7 @@ JovianFinch.com | linkedin.com/in/JovianFinch
 
 ## Profile
 
-Technical Artist and 3D generalist with a decade in AAA and indie games across tech art and QA engineering, in Unity and Unreal Engine. Best suited for small teams with broad scope: shaders, VFX, animation pipelines, asset optimization, tooling, procedural content, and any technical challenge the project surfaces. Success in both QA Engineering and Tech Art comes from the same habit: asking why a problem exists, not just fixing it, and building processes so it doesn't recur. Approaches tools as an artist first: knows the workflows hands-on, is quick to take on new skills, tools, and codebases, and uses agentic coding to support good design and usability, not replace it. Comfortable at the deep end of a codebase or in a creative review.
+Technical Artist and 3D generalist with a decade in AAA and indie games across Tech Art and QA Engineering, in Unity and Unreal Engine. Best suited for small teams with broad scope: shaders, VFX, animation pipelines, asset optimization, tooling, procedural content, and any technical challenge the project surfaces. Success in both QA Engineering and Tech Art comes from the same habit: asking why a problem exists, not just fixing it, and building processes so it doesn't recur. Approaches tools as an artist first: knows the workflows hands-on, is quick to take on new skills, tools, and codebases, and uses agentic coding to support good design and usability, not replace it. Comfortable at the deep end of a codebase or in a creative review.
 
 ---
 
@@ -90,7 +90,7 @@ One of the most technically ambitious projects attempted in Zero Engine at the t
 **3D Art:** Modeling, sculpting, UVs, texturing, rigging, animation
 **Tools & Pipeline:** Asset validation, pipeline tooling, workflow documentation, Perforce, Git
 **Scripting:** Python, C#, HLSL, Lua
-**AI & Automation:** Claude Code, agentic AI frameworks, LLM tooling, MCP / API integration
+**AI & Automation:** Agentic coding, agent-assisted workflow development, harness customization, context management, MCP / API integration
 **Software:** Unreal Engine, Unity, Maya, Photoshop, 3ds Max, ZBrush, Substance 3D, Adobe Creative Suite
 
 ---
