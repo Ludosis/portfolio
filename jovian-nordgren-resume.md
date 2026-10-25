@@ -91,7 +91,7 @@ One of the most technically ambitious projects attempted in Zero Engine at the t
 **Tools & Pipeline:** Asset validation, pipeline tooling, workflow documentation, Perforce, Git
 **Scripting:** Python, C#, HLSL, Lua
 **AI & Automation:** Claude Code, agentic AI frameworks, LLM tooling, MCP / API integration
-**Software:** Unreal Engine, Unity, Maya, 3ds Max, ZBrush, Substance 3D, Adobe Creative Suite
+**Software:** Unreal Engine, Unity, Maya, Photoshop, 3ds Max, ZBrush, Substance 3D, Adobe Creative Suite
 
 ---
 
