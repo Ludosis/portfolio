@@ -1,6 +1,6 @@
 ---
 title: Snuggles the Unicorn
-description: "Snuggles the Unicorn: technical art work by Jovian Finch Nordgren. A full URP conversion, mobile optimization, and puppet rig retargeting on a Unity action game."
+description: "Snuggles the Unicorn: technical art work by Jovian Finch Nordgren. A full URP conversion, performance-first shaders, and puppet rig retargeting on a Unity action game planned for mobile."
 studio: Left Turn Studios
 role: Technical Artist
 dates: 2021–2023 (canceled)
@@ -8,7 +8,7 @@ engine: Unity
 order: 2
 card:
   label: "Left Turn Studios · 2021–2023"
-  blurb: "Sole TA on a Unity action title, until a second TA joined. Full conversion to URP with every shader rebuilt; mobile optimization, including shader-driven enemy wings; constraint-based retargeting for a redesigned player model."
+  blurb: "Sole TA on a Unity action title, until a second TA joined. Full conversion to URP with every shader rebuilt; performance-first choices like shader-driven enemy wings; constraint-based retargeting for a redesigned player model."
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/screenshot-2023-01-03-084039_orig.jpg
   alt: "Snuggles the Unicorn screenshot showing the game environment and character"
   tags:
@@ -109,8 +109,10 @@ Snuggles the Unicorn was a Unity action game in development at Left Turn Studios
 I was the sole Technical Artist until a second TA joined partway through for lighting
 and PCG level layout. The project was eventually shelved, but it produced significant
 technical work across rendering, shaders, rigging, animation, and tooling. The biggest
-piece was a full conversion to Unity's Universal Render Pipeline, alongside a run of
-optimizations to get the game performing well on mobile.
+piece was a full conversion to Unity's Universal Render Pipeline. The game was planned
+for mobile from the start, so performance shaped the technical choices from day one:
+the render pipeline, the kinds of effects, and procedural or shader-driven solutions
+in place of heavy skeletal rigs.
 
 <h2 id="urp" class="project-section">URP Conversion</h2>
 
@@ -121,13 +123,12 @@ conversion of all materials, and rebuilding the lighting and post-processing set
 Outsourced assets brought in from the Unity store also needed cleanup and modification
 to work within the new pipeline and match the project's visual direction.
 
-<h2 id="wing-shader" class="project-section">Mobile Optimization: Enemy Wings</h2>
+<h2 id="wing-shader" class="project-section">Shader-Driven Enemy Wings</h2>
 
-Getting the game to run well on mobile meant finding where the frame budget was
-going, and enemy wings were one of the clearest wins. Each enemy type had wings, and
-the original rigged solution used 32 bones per enemy to animate the flap. At low
-enemy counts this was fine. As the design expanded to include larger waves, the rig
-cost became a real performance problem, especially on mobile hardware.
+Each enemy type needed flapping wings. In prototyping we tried a rigged wing package
+from the Unity store, at 32 bones per enemy, and it was clear right away that the
+bone cost wouldn't hold up with 40 enemies on screen, let alone on mobile hardware.
+So we pivoted to a vertex shader before the rig went any further.
 
 {% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/wing-demo_orig.gif", "shader-driven wing flap, independent movement per instance", "Unity · Shader Graph", true %}
 
@@ -142,8 +143,8 @@ independent motion.
 
 {% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/flap-shader_orig.png", "wing flap vertex shader node network", "Shader Graph", true %}
 
-The result: bone evaluation cost for wings dropped to zero, and enemy counts could
-scale without a performance regression.
+The result: no bone evaluation for wings at all, so enemy counts could grow without
+the wings adding to the cost.
 
 <h2 id="puppet-rig" class="project-section">Puppet Rig Retargeting System</h2>
 

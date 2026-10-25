@@ -15,13 +15,13 @@ off or delete them as they're settled. Newest additions at the bottom of each se
     review notes flagged it as the most internal-sounding part.
   - New terms worked in: "auto fixers" (intro), "orchestration layer" (Devin section),
     "Agent orchestration" (sidebar).
-- [ ] **Snuggles page:** URP conversion now leads (intro sentence, "URP Conversion"
-  heading, card blurb and tags, page description). The wing shader section is now
-  "Mobile Optimization: Enemy Wings". Confirm the mobile framing is accurate, including
-  "especially on mobile hardware". Removed a claim that the bone rig made wings flap in
-  sync (the sync problem was the shader's, solved by Material Property Blocks).
-  `headerTags` and sidebar (your restored fields) still lead with shader terms; change
-  if you want URP there too.
+- [ ] **Snuggles page:** URP conversion now leads (intro, "URP Conversion" heading, card
+  blurb and tags, page description). Intro says the game was planned for mobile from the
+  start, so performance shaped choices from day one. Wing section is "Shader-Driven Enemy
+  Wings": a store wing rig was tried in prototyping, judged too costly for 40 enemies on
+  screen, and replaced by the shader before going further. No shipped or benchmarked
+  performance claims. `headerTags` and sidebar (your restored fields) still lead with
+  shader terms; change if you want URP there too.
 - [ ] **About page:** "Currently..." paragraph now says "building auto fixers, tools
   that support agentic workflows, and an agentic AI framework for artists and Tech
   Artists". QA paragraphs reframed (mindset first, QA honed it).
