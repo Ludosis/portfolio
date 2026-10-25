@@ -93,7 +93,7 @@ Owned all visual technical work, pushing the engine past its documented limits t
 **Tools & Pipeline:** Asset validation, pipeline tooling, workflow documentation, Perforce, Git
 **Scripting:** Python, C#, HLSL, Lua
 **AI & Automation:** Agentic coding, agent-assisted workflow development, harness customization, context management, MCP / API integration
-**Software:** Unreal Engine, Unity, Maya, Photoshop, 3ds Max, ZBrush, Substance 3D, Adobe Creative Suite
+**Software:** Unreal Engine, Unity, Maya, Photoshop, 3ds Max, Substance 3D, Adobe Creative Suite
 
 ---
 
