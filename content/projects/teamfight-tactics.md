@@ -52,6 +52,7 @@ sidebar:
       - "Animation systems"
       - "Root cause analysis"
       - "Bug pattern analysis"
+      - "Agent orchestration"
       - "Agentic workflow design"
       - "LLM rule design"
       - "Tool UX for artists"
@@ -107,8 +108,9 @@ from the legacy project, where the source data lives, and fixing in the UE5 proj
 
 My focus is on the bugs that repeat. A single fix is quick. Finding the hundred other
 assets with the same problem, and being sure a change is safe on each of them, is the
-slow part. So most of my work is tools: Python batch fixers that use the legacy
-engine's data as the source of truth, guided fixers that turn the leftover hand fixes
+slow part. So most of my work is auto fixers, for anything that can be batched,
+scripted, or fixed agentically: Python batch fixers that use the legacy engine's data
+as the source of truth, guided fixers that turn the leftover hand fixes
 into a review board, a bug patterns system, and an agentic AI framework that helps
 artists and Tech Artists investigate and fix problems faster. The goal underneath all
 of it is artist time: automating the tedious conversion work so it goes to the things
@@ -274,7 +276,8 @@ it.
 <h3 id="devin">Working in Devin</h3>
 
 At Riot the agent tool is Devin, running Claude and other model families, so the
-framework is built on Devin's harness. A lot of it is a layer of my own on top:
+framework is built on Devin's harness. A lot of it is an orchestration layer of my
+own on top:
 hooks that keep track of the session and restore the rules after the agent's memory
 gets compacted, a start-of-session step that loads the right context, custom
 subagent setups with a model picked for each job, and skills that carry their own
