@@ -30,7 +30,7 @@ Technical Artist on Teamfight Tactics during its move from Riot's in-house engin
 **July 2023 – March 2026**
 *Lego Fortnite*
 
-Embedded across multiple Tech Art and content teams on Lego Fortnite, owning pipeline integrity and quality across FX, animation, content optimization, world/terrain, and procedural content. Served as animation domain liaison, mapping the full pipeline from DCC to in-engine setup to running game and every handoff between, coordinating test coverage, communicating risk, and keeping distributed QA teams in sync across a large-scale live project.
+Embedded across multiple Tech Art and content teams on Lego Fortnite, owning pipeline integrity and quality across FX, animation, platforms and scalability, world/terrain, and procedural content. Served as animation domain liaison, mapping the full pipeline from DCC to in-engine setup to running game and every handoff between, coordinating test coverage, communicating risk, and keeping distributed QA teams in sync across a large-scale live project.
 
 - Root-caused TSR smearing that obscured animation quality in the anim review playblast exporter; found a mitigation and helped set requirements for the in-house replacement.
 - Root-caused and solved multiple rare Switch-only rendering bugs, isolating platform-specific interactions between materials and animation.
