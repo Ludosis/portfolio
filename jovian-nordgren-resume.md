@@ -68,7 +68,7 @@ Freelance creative work including graphic design and web projects. Used the peri
 
 **3D Generalist: Destiny 2 Ambient Life Project (2017 – 2018)**
 
-Modeled, rigged, and animated shipped ambient life characters: owls in the Farm social space and the sea monster on Titan. Also developed a reactive NPC with custom animations and VFX, and prototyped an interactive beehive obstacle in a demo environment.
+Modeled, rigged, and animated shipped ambient life characters in Maya: owls in the Farm social space and the sea monster on Titan. Also built a reactive NPC with custom animation and VFX, and prototyped an interactive beehive obstacle.
 
 ### Technical Artist, Capstone | DigiPen Institute of Technology | Redmond, WA
 **July 2014 – May 2015**
