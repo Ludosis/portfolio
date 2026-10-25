@@ -7,7 +7,7 @@ JovianFinch.com | linkedin.com/in/JovianFinch
 
 ## Profile
 
-Technical Artist and 3D generalist with a decade in AAA and indie games across Tech Art and QA Engineering, in Unity and Unreal Engine. Success in both comes from the same habit: asking why a problem exists, not just fixing it, and building processes so it doesn't recur. Best suited for small teams with broad scope: shaders, VFX, animation pipelines, asset optimization, tooling, procedural content, and whatever technical challenges arise. Approaches tools as an artist first: knows the workflows hands-on, is quick to take on new skills, tools, and codebases, and uses agentic coding to support good design and usability, not replace it.
+Technical Artist and 3D generalist with a decade in AAA and indie games across Tech Art and QA Engineering, in Unity and Unreal Engine. Success in both comes from the same habit: asking why a problem exists, not just fixing it, and building processes so it doesn't recur. Works best in a broad role on a small team: shaders, VFX, animation pipelines, asset optimization, tooling, and procedural content. Most driven by work that lets others do their best work. Approaches tools as an artist first: knows the workflows hands-on, is quick to take on new skills, tools, and codebases, and uses agentic coding to support good design and usability, not replace it.
 
 ---
 
