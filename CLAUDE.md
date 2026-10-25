@@ -173,6 +173,8 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
 | `_source/design-archive/` | Design studies (three directions + blend mockup) |
 | `_source/working-memory.md` | In-progress session scratchpad |
 | `_source/audits/` | Audits and reviews (not source files). Put new audit or review docs here, not in the `_source/` root. |
+| `_source/audits/review-queue.md` | **Everything parked for the user to review at a computer.** Add to it instead of scattering review notes; the user checks items off. |
+| `_source/drafts/` | Unpublished drafts for the user to rewrite (e.g. How I Work with AI). Never live. |
 
 ---
 
