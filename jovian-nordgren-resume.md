@@ -47,9 +47,9 @@ Revenue-share contributor on Alien Age before Left Turn Studios incorporated in 
 
 - Owned all shaders, VFX, lighting, and materials on Alien Age: custom water, volumetric fog, and world-position-seeded color variation shaders; full asset optimization including retopology, indexed textures, and reduced texture lookups.
 - Collaborated with an engineer to build a procedural foliage placement tool running in-editor to avoid runtime cost; documented it for level designers to regenerate independently.
+- Converted Snuggles from Unity's standard renderer to URP: rebuilt every shader from scratch, scripted batch material conversion, reworked outsourced store assets to match the pipeline, and rebuilt lighting and post-processing.
 - Developed a vertex shader system for enemy wings on Snuggles, replacing a 32-bone-per-enemy rig with a shader-driven flap; used Material Property Blocks to randomize phase per instance so wings moved independently.
 - Built a puppet rig system to retarget existing animations onto a redesigned player model, preserving the existing animation investment without recreating them; scripted the constraint reconnection to rebuild automatically after asset updates.
-- Solved a Unity depth-of-field transparency issue on Grapple Star with a dual-camera Cinemachine composite: background rendered with post-processing, foreground VFX rendered sharp.
 
 ### Freelance & Independent Work | Seattle, WA
 **May 2019 – September 2021**
