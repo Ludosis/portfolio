@@ -2,7 +2,7 @@
 title: Grapple Star
 description: "Grapple Star: technical art work by Jovian Finch Nordgren. DoF transparency fix, Level Select UI, and VFX on a Unity space action game."
 studio: Left Turn Studios
-role: Lead Technical Artist
+role: Technical Artist
 dates: 2021–2023 (demo)
 engine: Unity
 order: 3
@@ -27,7 +27,7 @@ meta:
   - label: "Studio"
     value: "Left Turn Studios"
   - label: "Role"
-    value: "Lead Technical Artist"
+    value: "Technical Artist"
   - label: "Dates"
     value: "2021–2023 (demo)"
   - label: "Engine"
@@ -59,7 +59,7 @@ sidebar:
     lines:
       - "Left Turn Studios"
       - "2021–2023 (demo)"
-      - "Lead Technical Artist"
+      - "Technical Artist"
 # Skills-page entries: the original labels, wording, links, and order.
 skills:
   - id: vfx
@@ -89,9 +89,8 @@ skills:
     detail: "Reticle appearance driven by gameplay state (target availability) rather than sprite swapping"
 ---
 
-Grapple Star is a space action game in development at Left Turn Studios, built in
-Unity. I was lead Technical Artist on the project alongside the Snuggles and Alien
-Age work. The most technically interesting problem on this project was a rendering
+Grapple Star is a space action demo built at Left Turn Studios in Unity. I was the
+Technical Artist on the project alongside the Snuggles and Alien Age work. The most technically interesting problem on this project was a rendering
 issue with how Unity handles depth-of-field and transparent VFX, a fairly common
 pain point that required an unconventional solution.
 
@@ -141,10 +140,6 @@ procedurally animated 2D elements. I built and assembled all the assets, scripte
 the UI canvas with clickable objects and actions, and wrote the script to populate
 text fields and enable/disable scene elements based on which planet was selected.
 Concept art by Rowan Sherwin.
-
-{% figblock "level select UI screenshots and concept art", "pending" %}
-Level select UI screenshots and concept art (pending)
-{% endfigblock %}
 
 [Watch the Level Select UI walkthrough on Vimeo &rarr;](https://vimeo.com/827111068)
 

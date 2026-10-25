@@ -27,19 +27,16 @@ function register(eleventyConfig) {
   eleventyConfig.addShortcode("fig", function (src, caption, meta = "", draft = false) {
     const num = nextNumber(this.page.inputPath);
     const cap = escapeHtml(caption);
-    const draftLabel = draft
-      ? `<span class="plate-draft">draft, final asset tbd</span>`
-      : "";
     return `<figure class="plate">
   <div class="plate-media"><img src="${escapeHtml(src)}" alt="${cap}" loading="lazy"></div>
   <figcaption class="plate-caption">
     <span><b>FIG. ${num}</b>: ${cap}</span>
-    <span>${escapeHtml(meta)}${meta && draft ? " · " : ""}${draftLabel}</span>
+    <span>${escapeHtml(meta)}</span>
   </figcaption>
 </figure>`;
   });
 
-  // Paired variant for non-image plates (pending captures, embeds).
+  // Paired variant for non-image plates (embeds).
   eleventyConfig.addPairedShortcode("figblock", function (content, caption, meta = "") {
     const num = nextNumber(this.page.inputPath);
     const cap = escapeHtml(caption);

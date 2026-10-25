@@ -71,15 +71,8 @@ with this project.
 <iframe title="Jerry's Rig truck model on Sketchfab" src="https://sketchfab.com/models/ed3a2f7e7da44142b187457968e75af0/embed" width="100%" height="400" frameborder="0" allowfullscreen loading="lazy"></iframe>
 {% endfigblock %}
 
-{% figblock "the finished animation", "video pending" %}
-Jerry's Rig final animation render (video link pending)
-{% endfigblock %}
-
 <h2 id="baker-street" class="project-section">221B Baker Street: Prop Modeling</h2>
 
 A prop modeling and texturing sample: an interior environment study of 221B Baker
 Street, focused on prop detail (modeling, UV layout, and texturing).
 
-{% figblock "221B Baker Street interior, prop details", "image pending" %}
-221B Baker Street interior environment, prop modeling sample (image pending)
-{% endfigblock %}

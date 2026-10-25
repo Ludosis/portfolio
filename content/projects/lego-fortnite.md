@@ -81,7 +81,7 @@ skills:
     label: "Blueprint & EUW / Unreal Engine 5"
     href: "/portfolio/lego-fortnite/"
     rank: 3
-    detail: "Animation range validation EUW with batching, progress indicator, and CSV export; asset audit EUW with LOD/poly enforcement; extended existing C++ submit validator, with no prior UE5 Blueprint or EUW experience before building these"
+    detail: "Animation range validation EUW with batching, progress indicator, and CSV export; asset audit EUW with LOD/poly enforcement; extended existing C++ submit validator; learned EUW and Blueprint on the job to build these before building these"
 ---
 
 At Epic Games I was embedded across multiple Tech Art and content teams on Unreal
@@ -94,10 +94,6 @@ distributed teams.
 Two pieces of work from this role are worth detailing: an FX validation framework
 that addressed a systemic gap in test coverage, and an automation triage tool built
 with Claude Code that changed how the team handled daily test results.
-
-{% figblock "screenshots and captures from Lego Fortnite development", "pending clearance for portfolio use" %}
-Screenshots and screen captures from Lego Fortnite development (pending clearance for portfolio use)
-{% endfigblock %}
 
 <h2 id="fx-framework" class="project-section">FX Coverage Framework</h2>
 
@@ -144,10 +140,6 @@ a self-contained HTML report. The report includes:
 - Jira-linked failure notes pulled from the relevant ticket via MCP integration
 - A clean, scannable layout that makes daily triage a reading task rather than an assembly task
 
-{% figblock "triage tool HTML report", "pending" %}
-Triage tool HTML report screenshot (pending)
-{% endfigblock %}
-
 The tool itself is a concrete example of how the Claude Code collaboration
 workflow functions in practice. The problem was well-understood, the output
 format was clear, and the integration points (APIs, MCPs, Jira) were documented.
@@ -174,8 +166,8 @@ one-off validator, refactored it for this use case, and added batching,
 user instructions, configurable options, a progress indicator, and CSV export
 for sorting results. The tool works by loading each selected asset in the editor
 sequentially, evaluating its properties, caching the results, and compiling a full
-report at the end. I had no prior knowledge of Editor Utility Widgets or Blueprint
-before building it.
+report at the end. I learned Editor Utility Widgets and Blueprint on the job to
+build it.
 
 Other investigation work included root-causing TSR smearing artifacts in a
 vendor-developed animation playblast tool used for director review of emote

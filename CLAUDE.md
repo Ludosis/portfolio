@@ -51,7 +51,7 @@ All session context that isn't committed to the repo is unrecoverable when a ses
 
 ## What this project is
 
-A portfolio website for **Jovian Finch Nordgren**, Senior Technical Artist (Bungie, Epic
+A portfolio website for **Jovian Finch Nordgren**, Senior Technical Artist (Riot Games, Bungie, Epic
 Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
 
 - **Live site:** JovianFinch.com (GitHub Pages, deployed via Actions)
@@ -92,9 +92,12 @@ Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
 - `anchor:` values must match `<h2 id="...">` headings in the body (headings are raw
   HTML in the markdown, e.g. `<h2 id="wing-shader" class="project-section">`).
 - `order:` drives portfolio index order and prev/next pagination.
-- Figures in body: `{% fig "src", "caption", "meta", true %}` (true = draft label),
+- Figures in body: `{% fig "src", "caption", "meta", true %}` (the `true` draft flag no
+  longer renders a label: placeholder wording was removed site-wide in Oct 2026),
   auto-numbered FIG. 01+ per page; the hero from front matter is always FIG. 00.
-  `{% figblock %}...{% endfigblock %}` for pending/embed plates.
+  `{% figblock %}...{% endfigblock %}` for embed plates. **No placeholder plates or
+  "pending"/"tbd" text on the live site** (it reads as unfinished): add a plate only
+  when the asset exists. Cards without an image show the project title.
 
 ### Contact protection (implemented, do not regress)
 
@@ -107,8 +110,9 @@ Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
   get the base address). That includes repo files that aren't served, such as notes
   under `_source/`: the repo is public. Refer to addresses as "the +ai address" etc. The `+web` comment honeypot and the JSON-LD email field were
   removed deliberately; do not reintroduce them.
-- **AI-agent channel:** `/llms.txt` publishes the `+ai` address base64-encoded with a
-  decode instruction (a comprehension gate: LLMs decode it, regex harvesters can't).
+- **AI agents:** `/llms.txt` carries no address in any form (Oct 2026, user's call: the
+  old base64 `+ai` "comprehension gate" read like a prompt injection). It tells agents to
+  have their human click Show on /resume/ or /about/.
 - Planned upgrade: domain-alias forwarding (see the comment in `site.yaml`).
 
 ## Pages (all URLs unchanged from the legacy site)
@@ -178,8 +182,8 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
 - **Current:** Riot Games (May 2026 – present), contract Senior Technical Artist via
   Innovative Employee Solutions on Teamfight Tactics during its move to UE5; built an
   agentic AI assistant framework, batch fix tools, and a known-bug database for TAs.
-  On the resume only so far; NOT yet in the site's employer mentions (hero, About,
-  Skills intro, site.yaml summary, OG card). Ask the user before adding it there.
+  In the site's employer mentions since Oct 2026 (About, Skills intro, site.yaml
+  summary). A Riot project page is planned.
 - Bungie (2015–2019, QA → Test Engineer + 3D ambient-life side project), Epic Games
   (2023–2026, Senior QA Engineer (Tech Art) on Lego Fortnite), Indie Wizards →
   Left Turn Studios (2021–2023: Alien Age shipped 2021 under Indie Wizards, which

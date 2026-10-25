@@ -112,12 +112,11 @@ that players would never get close to.
 
 {% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/seamonster-03_1_orig.jpg", "sea monster in the Titan environment", "Destiny 2", true %}
 
-<h2 id="prototypes" class="project-section">Prototype Work</h2>
+<h2 id="prototypes" class="project-section">NPC and Prototype Work</h2>
 
-Beyond the shipped characters, the project included two prototype pieces that
-didn't make the final game: a reactive NPC with custom animations and VFX that
-responded to player proximity, and an interactive beehive obstacle designed for
-a demo environment. The beehive had destruction states, a swarm VFX response,
+Beyond the shipped characters, the project included a reactive NPC with custom
+animations and VFX that responded to player proximity, and a prototype interactive
+beehive obstacle designed for a demo environment. The beehive had destruction states, a swarm VFX response,
 and gameplay-driven behavior hooks.
 
 {% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/beehive-01_orig.jpg", "interactive beehive obstacle prototype (did not ship)", "swarm VFX response · destruction states" %}

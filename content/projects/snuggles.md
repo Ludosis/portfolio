@@ -2,13 +2,13 @@
 title: Snuggles the Unicorn
 description: "Snuggles the Unicorn: technical art work by Jovian Finch Nordgren. Wing vertex shader system and puppet rig retargeting on a Unity action game."
 studio: Left Turn Studios
-role: Lead Technical Artist
+role: Technical Artist
 dates: 2021–2023 (canceled)
 engine: Unity
 order: 2
 card:
   label: "Left Turn Studios · 2021–2023"
-  blurb: "Lead TA on a Unity action title. Vertex shader system replacing 32-bone enemy rigs; constraint-based animation retargeting system for a redesigned player model."
+  blurb: "Sole TA on a Unity action title, until a second TA joined. Vertex shader system replacing 32-bone enemy rigs; constraint-based animation retargeting system for a redesigned player model."
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/screenshot-2023-01-03-084039_orig.jpg
   alt: "Snuggles the Unicorn screenshot showing the game environment and character"
   tags:
@@ -27,7 +27,7 @@ meta:
   - label: "Studio"
     value: "Left Turn Studios"
   - label: "Role"
-    value: "Lead Technical Artist"
+    value: "Technical Artist"
   - label: "Dates"
     value: "2021–2023 (canceled)"
   - label: "Engine"
@@ -65,7 +65,7 @@ sidebar:
     lines:
       - "Left Turn Studios"
       - "2021–2023"
-      - "Lead Technical Artist"
+      - "Technical Artist"
 # Skills-page entries: the original labels, wording, links, and order.
 skills:
   - id: shaders
@@ -106,7 +106,7 @@ skills:
 ---
 
 Snuggles the Unicorn was a Unity action game in development at Left Turn Studios.
-I was lead Technical Artist with a second TA joining partway through for lighting
+I was the sole Technical Artist until a second TA joined partway through for lighting
 and PCG level layout. The project was eventually shelved, but it produced significant
 technical work across rendering, shaders, rigging, animation, and tooling.
 

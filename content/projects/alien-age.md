@@ -87,24 +87,24 @@ skills:
     label: "Alien Age / Foliage Placement Tool"
     href: "/portfolio/alien-age/"
     rank: 1
-    detail: "Editor-time placement tool (collaborated with engineer): runs distribution logic in-editor, bakes as placed instances for zero runtime cost. Documented so level designers could regenerate placements independently after level changes"
+    detail: "Editor-time placement tool (designed and tested; built by an engineer): runs distribution logic in-editor, bakes as placed instances for zero runtime cost. Documented so level designers could regenerate placements independently after level changes"
   - id: procedural
     label: "Alien Age"
     href: "/portfolio/alien-age/"
     rank: 1
     detail: "Editor-time foliage placement tool with Tree Sizer/Rotator/Tinter: randomized position, scale, rotation, and color at placement time; three rock meshes and three tree meshes produced eight distinct tileset varieties with no additional asset authoring"
   - id: scripting
-    label: "Python / Maya & pipeline"
+    label: "Alien Age / Editor & pipeline scripts"
     href: "/portfolio/alien-age/"
     rank: 2
-    detail: "Maya scripts for compositing and asset pipeline tasks; foliage placement tool (collaborated with engineer); Tree Sizer/Rotator/Tinter script"
+    detail: "Maya scripts for compositing and asset pipeline tasks; foliage placement tool (designed; built by an engineer); Tree Sizer/Rotator/Tinter script"
 ---
 
 Alien Age is a 2D action game released on Steam in 2021. The project originated
 as a one-month game jam before expanding into a full release. I joined as the sole
 Technical Artist on a revenue-share basis with Indie Wizards, the developer group
 that shipped the title, and that would incorporate as Left Turn Studios in 2022,
-where I continued as lead Technical Artist on Snuggles the Unicorn and Grapple
+where I continued as Technical Artist on Snuggles the Unicorn and Grapple
 Star. The work covered everything visual and technical: all shaders, all VFX,
 all lighting, all materials, and the full asset pipeline from raw geometry to in-engine.
 
@@ -162,8 +162,8 @@ at target frame rate with the visual quality the art direction required.
 
 Late in production, level designers needed a way to populate environments with
 foliage without paying the runtime cost of a procedural system running in-game.
-I collaborated with an engineer to build an editor-time placement tool: it ran
-the distribution logic in the Unity editor and baked the result as placed instances,
+I designed an editor-time placement tool, set its requirements for the engineer who
+built it, and tested it against production needs. It ran the distribution logic in the Unity editor and baked the result as placed instances,
 so the in-game cost was the same as hand-placed assets. The tool was documented
 so level designers could regenerate placements independently after level changes
 without coming back to engineering or tech art.
