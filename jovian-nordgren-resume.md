@@ -82,9 +82,8 @@ One of the most technically ambitious projects attempted in Zero Engine at the t
 - Modeled and rigged the player character in Maya, and composed the environments.
 - Identified engine constraints blocking the project's visual goals and worked directly with the chief engineer to understand and propose solutions rather than working around them; he implemented several engine-level changes as a result.
 - Led a mid-production strike team to re-evaluate scope; helped transition to a collaborative department-leads structure that stabilized a large team struggling with unified direction.
-- Won First Place for Best Spoken Dialog and Best Characters at the 2015 DigiPen Student Showcase; exhibited at PAX West 2015.
-- Also wrote PyMEL tools for other projects: batch render-pass assignment and procedural asset scattering.
-- Also served as Animation Instructor for DigiPen's Project FUN (Summer 2013 & 2014), teaching traditional and digital animation workflows to students at varied skill levels.
+- Wrote PyMEL tools for other projects: batch render-pass assignment and procedural asset scattering.
+- Served as Animation Instructor for DigiPen's Project FUN (Summer 2013 & 2014), teaching traditional and digital animation workflows to students at varied skill levels.
 
 ---
 
