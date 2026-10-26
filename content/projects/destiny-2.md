@@ -7,7 +7,7 @@ dates: 2017–2018
 order: 5
 card:
   label: "Bungie · 2017–2018"
-  blurb: "3D generalist work embedded in QA: modeled, rigged, and animated the owls in the Farm social space and the sea monster on Titan. Shipped in Destiny 2."
+  blurb: "3D generalist work alongside QA: ambient life that shipped in Destiny 2, the owls in the Farm and the sea monster on Titan. Maya modeling, rigging, and animation, plus VFX."
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/published/destiny-2_1.jpg?1574273847
   alt: "Destiny 2 screenshot featuring the Farm social space environment"
   tags:

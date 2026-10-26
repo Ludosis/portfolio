@@ -8,7 +8,7 @@ engine: Unity
 order: 2
 card:
   label: "Left Turn Studios · 2021–2023"
-  blurb: "Sole TA on a Unity action title, until a second TA joined. Full conversion to URP with every shader rebuilt; performance-first choices like shader-driven enemy wings; constraint-based retargeting for a redesigned player model."
+  blurb: "Unity action game planned for mobile, built performance-first. Shaders, VFX, rigging, animation, and tooling, including a full URP conversion with every shader rebuilt."
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/screenshot-2023-01-03-084039_orig.jpg
   alt: "Snuggles the Unicorn screenshot showing the game environment and character"
   tags:
@@ -16,6 +16,7 @@ card:
     - "HLSL"
     - "Rigging"
     - "C#"
+    - "Cinemachine"
 hero:
   src: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/screenshot-2023-01-03-084039_orig.jpg
   alt: Snuggles the Unicorn screenshot showing the game environment with character and enemy

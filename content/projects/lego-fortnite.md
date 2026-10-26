@@ -8,7 +8,7 @@ engine: Unreal Engine 5
 order: 4
 card:
   label: "Epic Games · 2023–2026"
-  blurb: "Embedded tech art QA across FX, animation, content optimization, and procedural content on UE5. Built FX validation framework and an automation triage tool with Claude Code."
+  blurb: "Tech art QA on Lego Fortnite, using tech art domain knowledge to raise quality across FX, animation, content optimization, and procedural content. Test strategy, root-cause investigation, and validation tools, including a triage tool built with Claude Code."
   pending: "Lego Fortnite · images pending"
   tags:
     - "Unreal Engine 5"

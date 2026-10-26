@@ -8,7 +8,7 @@ engine: Unity
 order: 1
 card:
   label: "Left Turn Studios · 2021"
-  blurb: "Sole TA on a shipped Steam title. Custom water, fog, and color-variation shaders; full asset pipeline including retopology and indexed texture atlases; procedural foliage placement tool."
+  blurb: "Visual overhaul of an indie game ahead of its Steam release. Shaders, VFX, materials, asset optimization, and lighting support, plus a procedural foliage placement tool."
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/ss-fa8a63c8499d48e67ed6ffbde6064ffe99b5cd2c_orig.jpg
   alt: "Alien Age screenshot showing the game's environment with custom lighting and VFX"
   tags:

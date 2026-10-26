@@ -8,7 +8,7 @@ engine: Unreal Engine 5
 order: 0
 card:
   label: "Riot Games · 2026–"
-  blurb: "Fixing conversion bugs at scale during TFT's move to Unreal Engine 5. Python batch fixers driven by legacy engine data, AI-guided fixers, a bug patterns system, and an agentic AI framework for artists and Tech Artists."
+  blurb: "Tech art for Teamfight Tactics' move to Unreal Engine 5, fixing conversion bugs at scale. Pipeline tools, auto fixers, animation systems, and bug pattern analysis, plus an agentic AI framework for artists and Tech Artists."
   tags:
     - "Unreal Engine 5"
     - "Pipeline"

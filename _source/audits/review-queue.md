@@ -31,7 +31,20 @@ off or delete them as they're settled. Newest additions at the bottom of each se
   Earlier Work scripting attribution, placeholders removed, llms.txt contact section,
   wing card off the home page, new link-preview image, one-click print button.
 
+- [ ] **Portfolio card blurbs** rewritten to one shape: what the project or job was,
+  then areas of focus, then one highlight if meaningful. Tweak wording as you like.
+  Cinemachine card tag moved from Grapple Star to Snuggles.
+
 ## Decisions for you
+
+- [ ] **Depth-of-field camera composite: which project?** The Grapple Star page, its
+  Skills entry, and the home Featured card all credit Grapple Star with a "dual-camera
+  Cinemachine composite". The Miro lists it in a skill block, not a project, and you
+  said Cinemachine belongs on Snuggles. If the composite was Snuggles work, the Grapple
+  Star DoF section, its skills entry, and the home card need to move.
+- [ ] **Miro "sole technical artist" paragraph** (the one about taking an externally
+  developed prototype to shipping-ready, with the rendering refactor): which project
+  is it? It reads like Snuggles (URP), but parts of the site use it for Alien Age.
 
 - [ ] **How I Work with AI:** draft at `_source/drafts/how-i-work-with-ai.md` for you to
   rewrite. Decide the nav label, and where "Working with people" and "Working with

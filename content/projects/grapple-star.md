@@ -8,11 +8,10 @@ engine: Unity
 order: 3
 card:
   label: "Left Turn Studios · 2021–2023"
-  blurb: "Unity space action demo. Solved a depth-of-field transparency issue with a dual-camera Cinemachine composite that keeps foreground VFX sharp without disabling post-processing."
+  blurb: "Space navigation game with a grapple mechanic. Environment, VFX, post-processing, ship model, procedurally generated background, level select UI."
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/gstitle-orig_orig.png
   alt: "Grapple Star title screen"
   tags:
-    - "Cinemachine"
     - "Post-Processing"
     - "VFX"
     - "Unity"

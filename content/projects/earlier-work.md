@@ -9,8 +9,9 @@ dates: 2013–2014
 order: 7
 card:
   blurb: >-
-    Jerry's Rig, a solo animation production covering story, character,
-    environment, rigging, and rendering, plus prop modeling samples.
+    Jerry's Rig, a solo 3D animation created end to end in Maya, from script to
+    rendered frame. Story, character modeling, rigging, animation, environment,
+    and props, plus PyMEL tools that sped up the production.
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/9494619_1.png
 hero:
   src: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/9494619_1.png
