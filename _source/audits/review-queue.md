@@ -37,14 +37,17 @@ off or delete them as they're settled. Newest additions at the bottom of each se
 
 ## Decisions for you
 
-- [ ] **Depth-of-field camera composite: which project?** The Grapple Star page, its
-  Skills entry, and the home Featured card all credit Grapple Star with a "dual-camera
-  Cinemachine composite". The Miro lists it in a skill block, not a project, and you
-  said Cinemachine belongs on Snuggles. If the composite was Snuggles work, the Grapple
-  Star DoF section, its skills entry, and the home card need to move.
-- [ ] **Miro "sole technical artist" paragraph** (the one about taking an externally
-  developed prototype to shipping-ready, with the rendering refactor): which project
-  is it? It reads like Snuggles (URP), but parts of the site use it for Alien Age.
+- [x] DoF composite: Grapple Star, and it did use Cinemachine (keep it in that story).
+  Cinemachine was used more on Snuggles; cards just say "Unity".
+- [x] The "externally developed prototype" paragraph is Snuggles. Alien Age was
+  internal; Jovi joined it midway and did the visual overhaul. Pages updated.
+- [ ] **Destiny 2 Role field** says "3D Generalist (embedded in QA)". Jovi says
+  "alongside QA" was misleading; find accurate wording for the Role and sidebar.
+- [ ] **Alien Age lighting:** Jovi helped with lighting but didn't create it. Still
+  claimed in the Skills entry ("Full lighting and post-processing setup; all
+  environment materials and lighting authored from scratch") and the resume ("Owned all
+  shaders, VFX, lighting, and materials on Alien Age").
+- [ ] **Alien Age genre:** the page says "a 2D action game". Correct?
 
 - [ ] **How I Work with AI:** draft at `_source/drafts/how-i-work-with-ai.md` for you to
   rewrite. Decide the nav label, and where "Working with people" and "Working with
