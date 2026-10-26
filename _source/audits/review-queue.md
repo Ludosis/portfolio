@@ -75,6 +75,9 @@ off or delete them as they're settled. Newest additions at the bottom of each se
 - [ ] **Open items from the October audit:** `_source/audits/version-audit-2026-10-06.md`
   and its copy comparison (bring back any rebuild wording you prefer).
 
+- [ ] **Home hero animation:** the `wing_flap.vert` sine-wave plate was a design flourish;
+  it doesn't show real work. Consider replacing it with something that does.
+
 ## Needs your files or knowledge
 
 - [ ] **Miro restructure:** the text conversion lost the project and skill blocks, so

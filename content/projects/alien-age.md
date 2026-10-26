@@ -87,7 +87,7 @@ skills:
     label: "Alien Age / Foliage Placement Tool"
     href: "/portfolio/alien-age/"
     rank: 1
-    detail: "Editor-time foliage tool (designed and tested; built by an engineer) that places and rotates tileset prefabs so the world doesn't look duplicated; runs in the editor to keep load times down; documented so level designers could regenerate foliage after layout changes"
+    detail: "Editor-time foliage tool (designed and iterated on; scripted by an engineer) that places and rotates tileset prefabs so the world doesn't look duplicated; runs in the editor to keep load times down; documented so level designers could regenerate foliage after layout changes"
   - id: procedural
     label: "Alien Age"
     href: "/portfolio/alien-age/"
@@ -152,8 +152,9 @@ shaders and materials written to reduce texture lookups.
 The team had three rocks and three trees, modeled by another artist, and the world
 needed to not look repetitive. I arranged, recolored, and placed them into eight
 foliage tileset variants for a procedural generator to choose from. I designed the
-generator, set its requirements for the engineer who scripted it, and tested it: it iterates through the layout prefabs
-and places and rotates them, so the world gets variety without looking duplicated.
+generator, set its requirements for the engineer who scripted it, then iterated on it
+with them, trying each version and giving feedback until it was ready for use. It
+iterates through the layout prefabs and places and rotates them, so the world gets variety without looking duplicated.
 It runs in the editor rather than at runtime to keep load times down. Because some
 gameplay tiles are placed procedurally at runtime, the foliage sits on a separate
 object that turns off for those tiles, so nothing overlaps.
