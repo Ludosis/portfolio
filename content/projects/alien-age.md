@@ -93,11 +93,6 @@ skills:
     href: "/portfolio/alien-age/"
     rank: 1
     detail: "Eight foliage tileset varieties from three rock and three tree meshes, placed and rotated procedurally for variety without extra asset authoring"
-  - id: scripting
-    label: "Alien Age / C# editor scripts"
-    href: "/portfolio/alien-age/"
-    rank: 2
-    detail: "Tree Sizer/Rotator/Tinter script; foliage placement tool (designed; built by an engineer)"
 ---
 
 Alien Age is a 3D Unity game released on Steam in 2021. It started as a short

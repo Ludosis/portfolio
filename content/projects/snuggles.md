@@ -73,7 +73,7 @@ skills:
     label: "Snuggles the Unicorn / Wing Vertex Shader"
     href: "/portfolio/snuggles/#wing-shader"
     rank: 2
-    detail: "Replaced a heavy skeletal wing rig with a GPU vertex shader; per-instance phase randomization via Material Property Blocks so every enemy flaps independently, with zero extra draw calls"
+    detail: "Replaced a heavy skeletal wing rig with a GPU vertex shader; per-instance phase randomization via Material Property Blocks so every enemy flaps independently"
   - id: shaders
     label: "Snuggles the Unicorn / Status FX Shader"
     href: "/portfolio/snuggles/"
@@ -94,6 +94,11 @@ skills:
     href: "/portfolio/snuggles/#puppet-rig"
     rank: 1
     detail: "Puppet rig for a player character redesign: the original rig and animations drive rotation constraints on the new rig, so no animations had to be remade; editor tool rebuilds the constraints after model updates; biped-to-quadruped mech kitbash with an aim-driven swivel and a mouse and controller aim script"
+  - id: procedural
+    label: "Snuggles the Unicorn / Tree Sizer/Rotator/Tinter"
+    href: "/portfolio/snuggles/#tools"
+    rank: 2
+    detail: "Script that randomizes each tree's size, rotation, and position within set ranges; with a color tint randomizer, it turns a row of identical trees into a forest without hand placement"
   - id: tools
     label: "Snuggles the Unicorn / Rig Rebuild Utility"
     href: "/portfolio/snuggles/#puppet-rig"
@@ -103,7 +108,7 @@ skills:
     label: "C# / Unity"
     href: "/portfolio/snuggles/"
     rank: 1
-    detail: "Puppet rig constraint rebuild utility; controller aim script; status FX helper component; gameplay-to-shader parameter bridge; batch material conversion script for URP migration"
+    detail: "Puppet rig constraint rebuild utility; controller aim script; status FX helper component; gameplay-to-shader parameter bridge; batch material conversion script for URP migration; Tree Sizer/Rotator/Tinter for environment variety"
 ---
 
 Snuggles the Unicorn was a Unity action game at Left Turn Studios, picked up from an
@@ -177,7 +182,8 @@ clicks.
 
 <h2 id="mech" class="project-section">Quadruped Mech</h2>
 
-A quadruped mech prototype built from a biped mech's model and animations. I
+The player character is a unicorn: on foot in town, and riding a mech in battle. The
+mech is a quadruped prototype built from a biped mech's model and animations. I
 kitbashed the biped's parts into the quad shape and built a skeletal rig that is
 driven in Unity by constraints from the original biped, mapping its walk to the
 front and back legs for a gallop. The upper body is a swivel that turns with the aim
@@ -220,9 +226,13 @@ project.
 
 [Watch the cutscene on Vimeo &rarr;](https://vimeo.com/827089176)
 
-<h2 id="tools" class="project-section">Editor Tools</h2>
+<h2 id="tools" class="project-section">Tools</h2>
 
-Besides the puppet rig tool, a Scene Composer component: placed in a master scene, it
+A Tree Sizer/Rotator/Tinter script randomizes each tree's size, rotation, and position
+within set ranges. Together with a color tint randomizer, it turns a row of identical
+trees into a forest without a lot of hand placement.
+
+Besides that and the puppet rig tool, a Scene Composer component: placed in a master scene, it
 loads additional scene and level assets automatically in the level editor. It sped up
 iteration while keeping assets separate in source control, which cut down on people
 overwriting each other's work and on misalignment errors.
