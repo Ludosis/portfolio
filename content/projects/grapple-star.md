@@ -88,7 +88,8 @@ skills:
     detail: "Reticle appearance driven by gameplay state (target availability) rather than sprite swapping"
 ---
 
-Grapple Star is a space action demo built at Left Turn Studios in Unity. I was the
+Grapple Star is a top-down space navigation game with a grapple mechanic, built in
+Unity at Left Turn Studios and taken to a playable demo. I was the
 Technical Artist on the project alongside the Snuggles and Alien Age work. The most technically interesting problem on this project was a rendering
 issue with how Unity handles depth-of-field and transparent VFX, a fairly common
 pain point that required an unconventional solution.

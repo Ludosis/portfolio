@@ -41,13 +41,14 @@ off or delete them as they're settled. Newest additions at the bottom of each se
   Cinemachine was used more on Snuggles; cards just say "Unity".
 - [x] The "externally developed prototype" paragraph is Snuggles. Alien Age was
   internal; Jovi joined it midway and did the visual overhaul. Pages updated.
-- [ ] **Destiny 2 Role field** says "3D Generalist (embedded in QA)". Jovi says
-  "alongside QA" was misleading; find accurate wording for the Role and sidebar.
+- [x] Destiny 2: reframed as hackathon projects (two one-week hackathons, 2017 and 2018,
+  both shipped). Site Role "Hackathon projects", dates "2017, 2018" (not a range);
+  resume subheading "Hackathon Projects: Destiny 2 Ambient Life (2017, 2018)".
 - [ ] **Alien Age lighting:** Jovi helped with lighting but didn't create it. Still
   claimed in the Skills entry ("Full lighting and post-processing setup; all
   environment materials and lighting authored from scratch") and the resume ("Owned all
   shaders, VFX, lighting, and materials on Alien Age").
-- [ ] **Alien Age genre:** the page says "a 2D action game". Correct?
+- [x] Alien Age is 3D (page fixed). Grapple Star described as top-down space navigation.
 
 - [ ] **How I Work with AI:** draft at `_source/drafts/how-i-work-with-ai.md` for you to
   rewrite. Decide the nav label, and where "Working with people" and "Working with

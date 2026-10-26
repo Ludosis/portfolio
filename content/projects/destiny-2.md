@@ -2,11 +2,11 @@
 title: "Destiny 2: Ambient Life"
 description: "Destiny 2 Ambient Life: 3D character work by Jovian Finch Nordgren at Bungie. Shipped ambient NPCs including owls and the Titan sea monster."
 studio: Bungie
-role: 3D Generalist (embedded in QA)
-dates: 2017–2018
+role: Hackathon projects
+dates: 2017, 2018
 order: 5
 card:
-  label: "Bungie · 2017–2018"
+  label: "Bungie · 2017, 2018"
   blurb: "Ambient life characters that shipped in Destiny 2: the owls in the Farm and the sea monster on Titan. Maya modeling, rigging, and animation, plus VFX."
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/published/destiny-2_1.jpg?1574273847
   alt: "Destiny 2 screenshot featuring the Farm social space environment"
@@ -26,9 +26,9 @@ meta:
   - label: "Studio"
     value: "Bungie"
   - label: "Role"
-    value: "3D Generalist (embedded in QA)"
+    value: "Hackathon projects"
   - label: "Dates"
-    value: "2017–2018"
+    value: "2017, 2018"
   - label: "Title"
     value: "Destiny 2, Curse of Osiris, Forsaken"
 headerTags:
@@ -57,7 +57,8 @@ sidebar:
     lines:
       - "Bungie, Inc."
       - "May 2015 – May 2019"
-      - "Test Engineer / 3D Generalist"
+      - "Test Engineer"
+      - "Ambient life: hackathon weeks, 2017 and 2018"
 # Skills-page entries: the original labels, wording, links, and order.
 skills:
   - id: vfx
@@ -83,9 +84,9 @@ skills:
 ---
 
 I joined Bungie in 2015 as a QA tester on Destiny: The Taken King and moved into
-a Test Engineer role in 2017. Alongside the QA work, I took on a 3D generalist
-project: designing, modeling, rigging, and animating ambient life characters for
-Destiny 2. These are the background characters that populate social spaces and
+a Test Engineer role in 2017. Bungie ran a hackathon week each year, when anyone
+could work on any project, and in 2017 and 2018 I spent mine designing, modeling,
+rigging, and animating ambient life characters for Destiny 2. These are the background characters that populate social spaces and
 environment areas: not gameplay-critical, but meaningful to the sense that the
 world is inhabited.
 

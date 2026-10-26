@@ -100,7 +100,7 @@ skills:
     detail: "Tree Sizer/Rotator/Tinter script; foliage placement tool (designed; built by an engineer)"
 ---
 
-Alien Age is a 2D action game released on Steam in 2021. The project originated
+Alien Age is a 3D Unity game released on Steam in 2021. The project originated
 as a one-month game jam before expanding into a full release. I joined partway through
 development as the sole Technical Artist on a revenue-share basis with Indie Wizards, the developer group
 that shipped the title, and that would incorporate as Left Turn Studios in 2022,
