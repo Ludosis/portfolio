@@ -6,7 +6,7 @@ note: italics in a screenshot description are the caption
 
 ## Image 1 — "What is Tech Art?" diagram
 
-Triangle with three corners: Design / Art / Engineering, with "Jovi" at the center.
+Three-circle Venn diagram: Design / Art / Engineering, subtitled "It bridges gaps between Art and Engineering", with "Tech Art" and a "Jovi" star at the overlap. Includes a quote from Steve Theodore (Board Member, Tech-Artists.org).
 (Contextual/intro slide — probably not portfolio content.)
 
 ---
@@ -15,11 +15,11 @@ Triangle with three corners: Design / Art / Engineering, with "Jovi" at the cent
 Each section is in a separate box
 
 ### Summary
-- Indie generalist tech artist with AAA dev experience as Test/QA Engineer
+- Indie Generalist Tech Artist with AAA dev experience as a Test/QA Engineer
 - BFA Digital Art and Animation at DigiPen Institute of Technology
 - Shipped art content in Destiny 2 as a side project while a Test Engineer at Bungie
-- Brought an externally developed prototype demo to shipping quality visuals and performance in Unity with very little prior experience in the engine
-- Balances between solving the immediate challenge within contraints, and working toward future pipeline/workflow improvements
+- Brought an externally developed prototype demo to shipping quality visuals and performance in Unity with very little prior experience in the engine.
+- Balances between solving the immediate challenge within constraints, and working toward future pipeline/workflow improvements
 - Does best with puzzles to solve and clear goals to work toward
 
 ### Links (old — may be outdated)
@@ -42,7 +42,7 @@ Tasks included (non-exhaustively): resolving outsourcing implementation
 challenges, optimization, rendering model conversion, dynamic VFX and
 cinematic sequences, lighting and materials overhaul, bespoke shaders, post-
 processing, procedural environment variety, custom character rigging with
-retargeted animation, character nativization, functional IJI, and editor tools.
+retargeted animation, character nativization, functional UI, and editor tools.
 
 As a QA Engineer on LFN I have worked closely with Tech Artists on Time of Day
 System conversion testing, Scalability/Platforms Materials issues,
@@ -61,8 +61,8 @@ helping track down the issue and find a resolution.
 - Prototyping (props, NPCs, general R&D)
 - Investigations
 
-**Additional:**
-Modeling/Texturing
+**Additional Experience:**
+- Modeling/Texturing
 - Optimization
 - Animation, Rigging, TechAnim, TDiA
 - PCG
@@ -82,7 +82,7 @@ Two color-coded project groups:
 **Stats:**
 - 1 month game jam - shipped
 - Published on Steam - revenue share
-- Small team with 1 concept artist, 1 3D modeler/animatorr and myself for Tech Art and implementation
+- Small team with 1 concept artist, 1 3D modeler/animator, and myself for Tech Art and implementation
 
 **Focus:**
 - Lighting
@@ -95,7 +95,7 @@ Two color-coded project groups:
 
 **Images:**
 - 1a & 1b: Before and After screenshots - *Before I joined the project* and *After my contributions*
-- 2: overhead view of water shader on a terrain island - *Stylized water shader, MCP-driven terrain color randomizer*
+- 2: overhead view of water shader on a terrain island - *Stylized water shader, MPC-driven terrain color randomizer*
 - 3: gif of the fog shader in-action - *Horizon Fog Shader (click to play gif)*
 - 4: overhead view of environment tiles with decorators - *Procedural environment decorators*
 
@@ -104,7 +104,7 @@ Two color-coded project groups:
 - 1 year Indie project- shelved
 - Small team with 1 concept artist, outsourced art assets from Unity store, and myself for Tech Art and implementation. Later added another TA for lighting and PCG Level layout.
 **Focus:**
-- Rendering Sytem Refactor
+- Rendering System Refactor
 - Outsource Cleanup and Modification
 - Perf Optimization
 - Custom shaders & materials incl. flapping wing vertex shader and character status FX
@@ -116,17 +116,17 @@ Two color-coded project groups:
 - 3 Image cluster: original biped mech model *+* concept art of quadruped mech *=* quadruped mech model
 - Gif of mech movement - *Kitbashed a biped mech into a quadruped to match the concept, then retargeted the legs anim to get a gallop. Aim constraints control the cockpit aim with player input, added bob dampening.*
 - Gif of fuel can - *gameplay-script-driven shader for fuel refill timer*
-- skull model - *Super performance model, shaded with vertex colors to allow for triplanar mapped splatter texture*
+- skull model - *Super performant model, shaded with vertex colors to allow for triplanar mapped splatter texture*
 - comparison between original and remodeled character model+rig - *Remodeled character from the original outsourced asset to match concept. Repainted skin weights. Wrote a tool to retarget packaged anims to the resized rig rather than refactor the anims - this was more scalable for our team.*
 
-Additional link to cinematic sequence: https:/vimeo.com/827089176
+Additional link to cinematic sequence: https://vimeo.com/827089176
 
 ---
 
 ## Image 4 — Grapple Star (cyan/teal border)
 
-- 2-month indie project — shelved
-- Small art team: 1 concept artist and myself for modeling, environment, UI, and Tech Art. 
+- 2 month Indie project - shelved
+- Small team with 1 concept artist and myself for modeling, environment, UI, and Tech Art. 
 
 **Focus:**
 - Character/Vehicle Model, VFX, and state machine
@@ -157,7 +157,7 @@ Additional link to cinematic sequence: https:/vimeo.com/827089176
 ## Image 5 — Modeling + Texturing
 
 **Left side — Solo animation project (+ link):**
-- Frame from the animation with Jerry pulling on the truck handle - *Modeled and animated in Maya. Includes all textures, materials, environments, etc.*
+- Frame from the animation with Jerry pulling on the truck handle - *Modeled and animated in Maya. Includes all textures, materials, lighting, environment, etc.*
 - Wireframe truck model view
 - Character model full body
 - Character model head detail
@@ -188,9 +188,9 @@ Additional link to cinematic sequence: https:/vimeo.com/827089176
 
 2 (cluster): Skull model render + cinematic frame - *Skull uses vertex colors for shading, and triplanar mapped blood splat material at runtime* 
 
-3: shader graph for World Position Color Variation shader - *Simple color variation shader fragment to adjust an color randomly (with range parameters) with a seed based on its world position 50 that each instance of an object with this shader gets a different color tint without creating more material instances,*
+3: shader graph for World Position Color Variation shader - *Simple color variation shader fragment to adjust an object/actor's color randomly (with range parameters) with a seed based on its world position so that each instance of an object with this shader gets a different color tint without creating more material instances.*
 
-4: terrain island with water shader - "Stylized water shader, MPC-driven terrain color randomizer (highly performant)
+4: terrain island with water shader - *Stylized water shader, MPC-driven terrain color randomizer (highly performant)*
 
 5: camera DoF composite (before and after) - *Compositing two cameras to have both transparent VFX and blurred DoF background coexisting*
 
@@ -199,32 +199,32 @@ Overhauled project from Unity's standard renderer to Universal Render Pipeline. 
 
 
 **PBR:**
-"Mostly stylized examples but I'm familiar with PBR workflows. Have used Substance Designer and Houdini to make some procedural materials as well. 
+Mostly stylized examples but I'm familiar with PBR workflows. Have used Substance Designer and Houdini to make some procedural materials as well.
 
 ---
 
 ## Image 8 — Tools & Pipeline
 
 **EUW Cluster**
-**Editor Utility Widqet - Lego Fortnite Animation Range Validation - Slide Deck Link**
+**Editor Utility Widget - Lego Fortnite Animation Range Validation - Slide Deck Link**
 Purpose is to identify which animation sequences needed to be resaved because they were out of sync with the level sequence.
-- (Image of UEW running, overlaid with output screenshot)
+- (Image of EUW running, overlaid with output screenshot)
 - *Reverse-engineered a one-off EUW validator and refactored it for this purpose. Added batching, instructions, options, progress indicator, and output export to csv for sorting results. Easy to duplicate and modify a few nodes to use for other validation/analysis.*
 *This works by loading each selected asset in the editor in order to evaluate its properties, caching its data to an array, repeating for the next asset, then compiling all the results together.*
 *I had no prior knowledge of EUWs or Blueprint before creating this.*
 
-**UE Animation Ptayblast Tool - OA Impact**
-Investigated issues with a vendor-developed playblast tool that was being used to render out emote anims for director review. The renders were getting TSR smearing which was obscuring the anim in review, I root. caused the issue, and found a workaround to improve video quality for reviews.
+**UE Animation Playblast Tool - QA Impact**
+Investigated issues with a vendor-developed playblast tool that was being used to render out emote anims for director review. The renders were getting TSR smearing which was obscuring the anim in review, I root-caused the issue, and found a workaround to improve video quality for reviews.
 
-**Adopting ReplayRun (or Scalability Visual Comparison - OA Impact**
-*Links: Confluence Guide. Case Study*
+**Adopting ReplayRun for Scalability Visual Comparison - QA Impact**
+*Links: Confluence Guide, Case Study*
 Researched and developed process/guidelines for when/how to use this existing tool for the purposes of gathering video capture from a single gameplay session from multiple platforms to identify scalability inconsistencies/issues super efficiently.
 
-**Unity Scene Composer Unity Component**
+**Unity Scene Composer C#, Unity Component**
 Place this script object in a master scene to automatically load in additional scene/level assets when loaded in level editor. Improves iteration while maintaining source control separation of assets for best collaboration. Reduces stomping or misalignment errors.
 
 **Puppet Rig Connector - C#**
-Editor Tool to parent-constrain one skeleton to another in order to retarget animations.
+Editor Tool to parent constrain one skeleton to another in order to retarget animations.
 Iterates through skeletal hierarchy and makes proper constraints. Reduces human error and repetitive task. Allows for more modifications to rig without incurring risk or implementation cost. Scalable to all outsourced assets.
 
 **Maya Scene Compositing Helper - Python**
@@ -262,12 +262,13 @@ Small script placed on the prefab/bp of a single stylized tree asset to randomly
 
 ## Image 11 — Rigging / Anim / TechAnim
 
+**Biped to Quadruped Conversion**
 - 3 Image cluster: original biped mech model *+* concept art of quadruped mech *=* quadruped mech model
-- Gif of mech movement - *Kitbashed a biped mech into a quadruped to match the concept, then retargeted the legs anim to get a gallop. Aim constraints control the cockpit aim with player input, added bob dampening. Also wrote the controller aim script.*
+- Gif of mech movement - *Kitbashed an outsourced biped mech into a quadruped to match the concept, then retargeted the legs anim to get a gallop. Aim constraints control the cockpit aim with player input, added bob dampening. Also wrote the controller aim script.*
 
-- comparison between original and remodeled character model+rig - *Remodeled character from the original outsourced asset to match concept. Repainted skin weights. Wrote a tool to retarget packaged anims to the resized rig rather than refactor the anims - this was more scalable for our team.*
+- comparison between original and remodeled character model+rig - *Remodeled character from the original outsourced asset to match concept. Repainted skin weights. Wrote a tool to retarget packaged anims to the resized rig rather than refactor the anims - this was more scalable for our team/project than rebaking the source anims.*
 
-- Embedded video of Jerry's Rig
+- Embedded video: "Jerry's Rig - Student Animation" (YouTube)
 
 - Image of bloody bunny-splosion from Snuggles sacrifice cinematic - *In-Game Cinematic Sequence: Video Link*
 *Animated in-engine in timeline sequencer except for the bunny's movements animated in Maya. Timed VFX, Sound, Anim, Camera, and gameplay cues.*
@@ -281,7 +282,7 @@ Small script placed on the prefab/bp of a single stylized tree asset to randomly
 - VFX/Shader control components triggered by gameplay moments
 
 **Python:**
-- Automate Maya helper scripts
+- Autodesk Maya helper scripts
 - EUW csv output node
 
 **Blueprint + Editor Utility Widgets:**
@@ -290,7 +291,7 @@ Small script placed on the prefab/bp of a single stylized tree asset to randomly
 
 **Claude Code:**
 - HTML browsable table with filter and sort extracted from multi-page PDF data.
-- Collaboration framework with skills to mitigate common Claude Code issues across long or subsequent sessions, improves accuracy and problem solcing capabilities. 
+- Collaboration framework with skills to mitigate common Claude Code issues across long or subsequent sessions, improves accuracy and problem solving capabilities. 
 - This portfolio!
 
 ---
