@@ -4,30 +4,36 @@ permalink: /
 schema: true
 heroWave: true
 description: "Jovian Finch Nordgren, Technical Artist and 3D generalist with a decade in AAA and indie games across Tech Art and QA Engineering. Shaders, VFX, animation pipelines, tooling."
-# Featured cards: restored verbatim from the hand-written home page.
+# Featured cards: chosen by the user (Oct 2026): TFT, Snuggles, Alien Age, Destiny 2.
 featured:
+  - fig: "Riot Games · Teamfight Tactics"
+    title: "AI-Guided Fixers"
+    url: "/portfolio/teamfight-tactics/#batch-fixers"
+    image: ""
+    alt: ""
+    blurb: "Batch fixers for converted VFX that make the clear-cut fixes the way an artist would, working from criteria written down from fixing them by hand, and send the rest to a filterable review board with each issue and its proposed fix."
+    tags: ["Unreal Engine 5", "Python", "Agentic AI", "Niagara"]
   - fig: "Left Turn Studios · Snuggles the Unicorn"
     title: "Biped to Quadruped Mech"
     url: "/portfolio/snuggles/#mech"
     image: "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/mech-demo-clip_orig.gif"
     alt: "Quadruped mech galloping on reused biped animation while its cockpit tracks the aim direction"
-    blurb: "Turned a cheap biped mech asset into the quadruped from the concept art: kitbashed the model, reused the biped's walk on four legs, and scripted a swiveling cockpit that stays level while the body bobs. No new modeling or animation needed."
+    blurb: "Turned an old biped mech asset into the quadruped from the concept art: kitbashed the model, reused the biped's walk on four legs, and scripted a swiveling cockpit that stays level while the body bobs. No new modeling or animation needed."
     tags: ["Unity", "Rigging", "Kitbashing", "C#"]
-  - fig: "Left Turn Studios · Grapple Star"
-    title: "Depth-of-Field Transparency Fix"
-    url: "/portfolio/grapple-star/#dof"
-    image: "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/dof-after_orig.png"
-    alt: "Grapple Star screenshot showing sharp foreground VFX composited over a depth-of-field blurred background"
-    blurb: "Unity's depth-of-field pass was eating foreground VFX. Solved it with a dual-camera Cinemachine composite: background renders with post-processing, foreground VFX renders sharp."
-    tags: ["Unity", "Cinemachine", "Post-Processing", "VFX"]
-  - fig: "Epic Games · Lego Fortnite"
-    title: "Automation Triage Tool"
-    url: "/portfolio/lego-fortnite/#triage-tool"
-    image: ""
-    alt: ""
-    pending: "Automation triage report, screenshot pending"
-    blurb: "Built with Claude Code in a single day: an HTML report generator that pulls test results across platforms, tracks trends, and attaches Jira-linked failure notes, turning hours of manual triage into a scan."
-    tags: ["Claude Code", "Python", "API / MCP", "Jira"]
+  - fig: "Left Turn Studios · Alien Age"
+    title: "Procedural Environment Variety"
+    url: "/portfolio/alien-age/#procedural"
+    image: "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/env-tiles.png"
+    alt: "Alien Age environment tiles populated with procedurally placed foliage variants"
+    blurb: "Eight foliage tileset variants built from just three rocks and three trees for a procedural generator, plus a shader that tints every ground tile by its world position. A lot of variety from very few assets, an approach I carried into the tree randomizer on Snuggles."
+    tags: ["Unity", "Shader Graph", "Procedural", "Optimization"]
+  - fig: "Bungie · Destiny 2"
+    title: "Titan Sea Monster"
+    url: "/portfolio/destiny-2/#shipped"
+    image: "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/seamonster-03_1_orig.jpg"
+    alt: "The sea monster surfacing in the waters of Titan in Destiny 2"
+    blurb: "An ambient creature that shipped in Destiny 2, designed, modeled, rigged, and animated in a hackathon week. Three donut-shaped rings rise at offset intervals to read as one serpent, timed against the waves so it surfaces only rarely."
+    tags: ["Maya", "Rigging", "Animation", "Shaders"]
 ---
 
 <header class="home-hero">
@@ -35,7 +41,7 @@ featured:
     <p class="hero-kicker mono">Portfolio · est. 2014 · rev 3.0</p>
     <h1 class="hero-name">{{ site.name }}</h1>
     <p class="hero-title mono">{{ site.title }}</p>
-    <p class="hero-lede">Technical Artist and 3D generalist with a decade of AAA and indie game dev. Shaders, VFX, animation pipelines, tooling: wherever the project needs depth.</p>
+    <p class="hero-lede">Technical Artist and 3D generalist with a decade in AAA and indie games across Tech Art and QA Engineering. Shaders, VFX, rigging, and pipeline tools, built to make other artists' work easier.</p>
     <div class="hero-ctas mono">
       <a class="btn btn--primary" href="/portfolio/">View Portfolio</a>
       <a class="btn btn--secondary" href="/resume/">Read Resume</a>

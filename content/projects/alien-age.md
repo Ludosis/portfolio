@@ -87,12 +87,12 @@ skills:
     label: "Alien Age / Foliage Placement Tool"
     href: "/portfolio/alien-age/"
     rank: 1
-    detail: "Editor-time foliage tool (designed and tested; built by an engineer) that places and rotates tileset prefabs so the world doesn't look duplicated; runs in the editor to keep load times down; documented so level designers could regenerate foliage after layout changes"
+    detail: "Editor-time foliage tool (designed and iterated on; scripted by an engineer) that places and rotates tileset prefabs so the world doesn't look duplicated; runs in the editor to keep load times down; documented so level designers could regenerate foliage after layout changes"
   - id: procedural
     label: "Alien Age"
     href: "/portfolio/alien-age/"
     rank: 1
-    detail: "Eight foliage tileset varieties from three rock and three tree meshes, placed and rotated procedurally for variety without extra asset authoring"
+    detail: "Eight foliage tileset variants arranged and recolored from three rock and three tree models, for a procedural generator to place and rotate, so the world doesn't look repetitive"
 ---
 
 Alien Age is a 3D Unity game released on Steam in 2021. It started as a short
@@ -149,10 +149,12 @@ shaders and materials written to reduce texture lookups.
 
 <h2 id="procedural" class="project-section">Procedural Environment Tools</h2>
 
-From just three rock and three tree meshes, I built eight varieties of foliage
-tilesets. I designed a tool to populate the world with them, set its requirements
-for the engineer who built it, and tested it: it iterates through the layout prefabs
-and places and rotates them, so the world gets variety without looking duplicated.
+The team had three rocks and three trees, modeled by another artist, and the world
+needed to not look repetitive. I arranged, recolored, and placed them into eight
+foliage tileset variants for a procedural generator to choose from. I designed the
+generator, set its requirements for the engineer who scripted it, then iterated on it
+with them, trying each version and giving feedback until it was ready for use. It
+iterates through the layout prefabs and places and rotates them, so the world gets variety without looking duplicated.
 It runs in the editor rather than at runtime to keep load times down. Because some
 gameplay tiles are placed procedurally at runtime, the foliage sits on a separate
 object that turns off for those tiles, so nothing overlaps.
