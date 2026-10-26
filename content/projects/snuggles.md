@@ -93,7 +93,7 @@ skills:
     label: "Snuggles the Unicorn / Biped to Quadruped Mech"
     href: "/portfolio/snuggles/#mech"
     rank: 1
-    detail: "Kitbashed a store biped mech into the quadruped from the concept art and re-rigged it to reuse the biped's leg animation on four legs (back legs reversed for a gallop); scripted a cockpit swivel on mouse and joystick aim that stays level while the body bobs; no new modeling or animation needed"
+    detail: "Kitbashed an old store biped mech into the quadruped from the concept art and re-rigged it so each biped leg's animation drives a front and a back leg for a gallop; scripted a cockpit swivel on mouse and joystick aim that stays level while the body bobs; no new modeling or animation needed"
   - id: rigging
     label: "Snuggles the Unicorn / Puppet Rig & Retargeting"
     href: "/portfolio/snuggles/#puppet-rig"
@@ -127,6 +127,31 @@ one of the target platforms from the start, so performance shaped the technical
 choices from day one: the render pipeline, the kinds of effects, and procedural or
 shader-driven solutions in place of heavy skeletal rigs.
 
+<h2 id="mech" class="project-section">Biped to Quadruped Mech</h2>
+
+The player character is a unicorn: on foot in town, and riding a mech in battle. We
+inherited the project with an old store asset for that mech, and it was a biped. The
+design called for a quadruped instead, closer to a centaur, with four walking legs and
+a swiveling cockpit for the unicorn to sit in. Rather than get someone to model and
+animate a new mech, I built it from what we had:
+
+- **Kitbashed** the biped mech's parts into the quadruped shape to match Rowan
+  Sherwin's concept art.
+- **Re-rigged it to reuse the biped's animation on four legs:** each biped leg drives
+  two legs of the quadruped. The biped's right leg drives the left front and right back
+  legs, and its left leg drives the other two, which reads as a gallop. The animation
+  still plays only once, just on more targets, so it costs less than playing it twice.
+- **Scripted the cockpit swivel** to follow the aim direction from mouse movement or a
+  controller joystick, tied into the existing control system.
+- **Rigged each piece to be controllable in gameplay,** with the cockpit staying level
+  while the body bobs up and down. The cockpit base has no arms; weapons attach at
+  spawn based on the player's loadout.
+
+{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/mech-demo-clip_orig.gif", "quadruped mech galloping on the biped's reused animation, cockpit tracking aim", "Unity", true %}
+
+It took an ill-fitting store asset to a customized, working feature, with no new
+modeling or animation from anyone else.
+
 <h2 id="urp" class="project-section">URP Conversion</h2>
 
 The project came with Unity's standard renderer and needed a full conversion to the
@@ -135,6 +160,32 @@ shader under the new rendering model, scripting a batch conversion of the materi
 and rebuilding the lighting and post-processing. The outsourced store assets also
 needed cleanup and modification to work in the new pipeline and match the project's
 visual direction.
+
+<h2 id="puppet-rig" class="project-section">Puppet Rig Retargeting System</h2>
+
+One of the project's major challenges was updating the player character to new
+concept art without remaking the animations that came with the original store asset.
+The rig's proportions changed, and the animations had position keyframes, so they
+couldn't simply be reused. I remodeled the character to match the concept, repainted
+the skin weights, and built a puppet rig system: the original rig and animations run
+without a skinned mesh and drive rotation constraints on the new rig and mesh. Since
+only one model's skinned vertices are driven, the performance cost was negligible,
+and not recreating the animations was a major budget saving. I also split the new
+mesh into parts so they could be swapped for character customization.
+
+{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/snuggles-update-rig_orig.png", "original model and rig next to the updated version", "Unity", true %}
+
+The constraints had to be broken and reconnected several times as the model was
+updated, so I wrote an editor tool that walks the skeletal hierarchy and makes the
+connections automatically: faster, and without the user error of hundreds of manual
+clicks.
+
+<h2 id="status-fx" class="project-section">Character Status FX Shader</h2>
+
+Enemies needed visual feedback for gameplay states like burning, impact flash, and
+frozen. I built a single custom overlay shader for all of them: gameplay script sets
+a bool on the character, and a helper script turns it into a shader parameter that
+enables or disables the effect. More than one effect can be active at a time.
 
 <h2 id="wing-shader" class="project-section">Shader-Driven Enemy Wings</h2>
 
@@ -165,56 +216,6 @@ performance we needed, and scaled to every enemy that needed wings.
 One open issue remained when the project ended: the wings conflicted with the
 character outline effect that shows enemies behind obstacles, and I was working on a
 fix.
-
-<h2 id="mech" class="project-section">Biped to Quadruped Mech</h2>
-
-The player character is a unicorn: on foot in town, and riding a mech in battle. We
-inherited the project with a cheap store asset for that mech, and it was a biped. The
-design called for a quadruped instead, closer to a centaur, with four walking legs and
-a swiveling cockpit for the unicorn to sit in. Rather than get someone to model and
-animate a new mech, I built it from what we had:
-
-- **Kitbashed** the biped mech's parts into the quadruped shape to match Rowan
-  Sherwin's concept art.
-- **Re-rigged it to reuse the biped's animation on four legs:** the front legs play the
-  original leg animation, and the back legs play a copy of it in reverse, which reads
-  as a gallop.
-- **Scripted the cockpit swivel** to follow the aim direction from mouse movement or a
-  controller joystick, tied into the existing control system.
-- **Rigged each piece to be controllable in gameplay,** with the cockpit staying level
-  while the body bobs up and down. The cockpit base has no arms; weapons attach at
-  spawn based on the player's loadout.
-
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/mech-demo-clip_orig.gif", "quadruped mech galloping on the biped's reused animation, cockpit tracking aim", "Unity", true %}
-
-It took an ill-fitting store asset to a customized, working feature, with no new
-modeling or animation from anyone else.
-
-<h2 id="puppet-rig" class="project-section">Puppet Rig Retargeting System</h2>
-
-One of the project's major challenges was updating the player character to new
-concept art without remaking the animations that came with the original store asset.
-The rig's proportions changed, and the animations had position keyframes, so they
-couldn't simply be reused. I remodeled the character to match the concept, repainted
-the skin weights, and built a puppet rig system: the original rig and animations run
-without a skinned mesh and drive rotation constraints on the new rig and mesh. Since
-only one model's skinned vertices are driven, the performance cost was negligible,
-and not recreating the animations was a major budget saving. I also split the new
-mesh into parts so they could be swapped for character customization.
-
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/snuggles-update-rig_orig.png", "original model and rig next to the updated version", "Unity", true %}
-
-The constraints had to be broken and reconnected several times as the model was
-updated, so I wrote an editor tool that walks the skeletal hierarchy and makes the
-connections automatically: faster, and without the user error of hundreds of manual
-clicks.
-
-<h2 id="status-fx" class="project-section">Character Status FX Shader</h2>
-
-Enemies needed visual feedback for gameplay states like burning, impact flash, and
-frozen. I built a single custom overlay shader for all of them: gameplay script sets
-a bool on the character, and a helper script turns it into a shader parameter that
-enables or disables the effect. More than one effect can be active at a time.
 
 <h2 id="other-vfx" class="project-section">Other VFX</h2>
 
