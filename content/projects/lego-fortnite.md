@@ -71,7 +71,7 @@ skills:
     label: "Lego Fortnite / Automation Triage Tool"
     href: "/portfolio/lego-fortnite/#triage-tool"
     rank: 1
-    detail: "Python tool built with Claude Code in one day: pulls daily test results via API across PC, console, and Switch; generates self-contained HTML report with cross-platform comparison, trend tracking, and Jira-linked failure notes. Turned daily triage from an assembly task into a reading task"
+    detail: "Built with Claude Code in one day: one HTML report that put about a dozen build report pages into a single view, with cross-platform comparison, trend tracking, and Jira-linked failure notes; daily triage went from hours to minutes"
   - id: qa
     label: "Lego Fortnite / FX Coverage Framework"
     href: "/portfolio/lego-fortnite/#fx-framework"
@@ -85,14 +85,23 @@ skills:
 ---
 
 At Epic Games I was embedded across multiple Tech Art and content teams on Unreal
-Engine 5 and Lego Fortnite, working as a Senior QA Engineer (Tech Art). The role covered pipeline integrity across FX, animation, content
-optimization, world/terrain, and procedural content, serving as the animation domain
-liaison and coordinating test coverage across a large-scale live service project with
-distributed teams.
+Engine 5 and Lego Fortnite, working as a Senior QA Engineer (Tech Art). The role
+covered pipeline integrity across FX, animation, content optimization, world/terrain,
+and procedural content, serving as the animation domain liaison and coordinating test
+coverage across a large-scale live service project with distributed teams.
+
+Most of the job was using tech art knowledge to raise the quality of the project. I
+worked closely with Tech Artists on time-of-day system conversion testing, material
+issues across platforms and scalability settings, lighting and shadow rendering, VFX
+in Niagara, Editor Utility Widget functionality, and the Atom processor system. A lot
+of the focus was on lower-end platforms and scalability: very little gameplay changes
+between desktop and mobile, but rendering does, and knowing how rendering differs
+across Android, iOS, Switch, and low- and high-end devices is what let me track those
+issues down.
 
 Two pieces of work from this role are worth detailing: an FX validation framework
 that addressed a systemic gap in test coverage, and an automation triage tool built
-with Claude Code that changed how the team handled daily test results.
+with Claude Code that changed how daily test results got handled.
 
 <h2 id="fx-framework" class="project-section">FX Coverage Framework</h2>
 
@@ -123,32 +132,22 @@ what the scalability system is actually doing to their particle system.
 
 <h2 id="triage-tool" class="project-section">Automation Triage Tool</h2>
 
-Daily automation runs produced test results across multiple platforms
-(PC, console, Switch), and those results needed to be reviewed, compared,
-and turned into actionable failure reports with Jira tickets attached. The
-manual process was slow and error-prone: results were in raw formats, comparison
-across platforms required context-switching between multiple files, and writing
-Jira-linked notes for each failure ate time that could go toward actual triage.
+I was handed the daily triage of automation test results. When tests failed, I had
+to work out whether the game had a problem or the test itself had broken. That meant
+hours a day of going back and forth between build report pages and holding the
+previous days' status in my head.
 
-I built a solution with Claude Code in a single day. The tool is a Python script
-that pulls test results via API, processes them across platforms, and generates
-a self-contained HTML report. The report includes:
+So I built a tool with Claude Code, in one day, that tracks the trends and shows at a
+glance the key information that had been spread across about a dozen pages:
+cross-platform comparison, trends over time, and Jira-linked failure notes, pulled
+together from the build system's APIs and MCP connections into one HTML report. Daily
+triage went from an hour or two to about five minutes, because most of it now happened
+passively.
 
-- Side-by-side comparison of results across platforms, with failures highlighted
-- Trend tracking: whether a failure is new, recurring, or recently resolved
-- Jira-linked failure notes pulled from the relevant ticket via MCP integration
-- A clean, scannable layout that makes daily triage a reading task rather than an assembly task
-
-The tool itself is a concrete example of how the Claude Code collaboration
-workflow functions in practice. The problem was well-understood, the output
-format was clear, and the integration points (APIs, MCPs, Jira) were documented.
-Within that framing, Claude Code could handle the implementation work (API
-calls, HTML generation, data transformation) while I focused on what the
-report needed to communicate and how it would be used. The result was a
-working tool, not a prototype, built and deployed in a day.
-
-For more on how that collaboration actually works, see the
-[How I Work](/how-i-work/) page.
+The problem was well understood and I knew exactly what the report needed to show,
+so Claude Code could handle the implementation while I decided what the report needed
+to communicate and how it would be used. For more on how that collaboration works,
+see the [How I Work](/how-i-work/) page.
 
 <h2 id="editor-tools" class="project-section">Editor Tools &amp; Investigation</h2>
 

@@ -74,58 +74,44 @@ skills:
     label: "Relic"
     href: "/portfolio/relic/"
     rank: 4
-    detail: "Atmospheric and visual shading in Zero Engine; pushed past documented engine limits by working directly with the chief engineer on engine-level changes"
+    detail: "Lighting, shaders, and VFX, with atmospherics simulated in custom shaders where the engine had no atmosphere system; worked with the chief engineer on engine-level changes"
   - id: lighting
     label: "Relic"
     href: "/portfolio/relic/"
     rank: 4
-    detail: "All visual technical systems in Zero Engine; worked with chief engineer on engine-level rendering changes"
+    detail: "Filled the gaps between art and design on a very large student team to keep the visuals cohesive; character model, environment models and placement, textures"
 ---
 
-Relic was my capstone project at DigiPen, built by the team Synaptic Sugar using
-DigiPen's in-house Zero Engine. It was a 3D action adventure game and one of the
-most technically ambitious projects attempted in that engine at the time. I owned
-all of the visual technical work and pushed the engine well past its documented
-limits to meet the game's visual goals.
+Relic was my capstone project at DigiPen, built by the team Synaptic Sugar in
+DigiPen's in-house engine: a third-person action adventure in which you use a
+grappling beam to traverse an ancient alien spacecraft. It had one of the largest
+game teams ever assembled at DigiPen. A team that size let people specialize, but it
+also risked gaps in understanding and implementation, and my role was to fill those
+gaps and keep the visuals cohesive across the project. I was the bridge between the
+art and design teams: if there was an art problem, I fixed it.
 
-The project won First Place for Best Spoken Dialog and Best Characters at the 2015
-DigiPen Student Showcase and was exhibited at PAX West 2015.
+<h2 id="visual-systems" class="project-section">Visual Work</h2>
 
-<h2 id="visual-systems" class="project-section">Visual Systems</h2>
-
-Zero Engine had no atmosphere or post-processing system. To achieve the atmospheric
-depth the game needed, I built custom shaders that faked atmospheric scattering using
-depth values and fog density curves. The engine's material system wasn't designed for
-this kind of use, so the shaders had to work around several documented limitations,
-in some cases treating material parameters as proxy inputs for calculations the
-engine wasn't exposing directly.
+I worked on lighting, shaders, VFX, textures, environment models and placement, and
+the main character model. The engine had no atmosphere system, so I simulated
+atmospherics with custom shaders.
 
 <div class="plate-pair">
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/6351350_1_orig.png", "custom atmosphere and lighting", "Zero Engine", true %}
+{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/6351350_1_orig.png", "in-game lighting, shaders, and VFX", "DigiPen engine", true %}
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/8438926_1_orig.png", "FX and atmospheric effects", "Zero Engine", true %}
+{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/8438926_1_orig.png", "in-game lighting, shaders, and VFX", "DigiPen engine", true %}
 
 </div>
 
-The full scope of visual work: FX, lighting, atmospherics, materials, rendering
-and asset pipelines, rigging, character model, and environment art placement.
-This was sole ownership across every visual system on a large team project:
-the kind of scope that requires understanding the constraints of every adjacent
-system well enough to know when something needs to escalate and when it can be
-worked around.
-
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/3005894_1_orig.jpg", "character and environment detail", "Zero Engine", true %}
+{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/3005894_1_orig.jpg", "character and environment detail", "DigiPen engine", true %}
 
 <h2 id="engine-collaboration" class="project-section">Working with the Engine</h2>
 
-Several of the project's visual goals ran directly into documented engine
-limitations. Rather than working around them indefinitely, I went directly to
-the chief engineer to understand what was actually blocking each goal and whether
-a solution was possible at the engine level. I came with specific descriptions of
-what I needed to achieve and proposals for what engine changes might enable it.
-He implemented several of those changes during production as a result, changes
-that benefited other teams using the engine after our project shipped.
+Some of the game's visual goals ran into the engine's limits. Where I could, I got
+creative within them. Where I couldn't, I went to the chief engineer to understand
+what was blocking each goal and proposed solutions, which led to several
+engine-level changes.
 
 This is a pattern that shows up in the QA work too: finding the systemic cause
 rather than patching the symptom, and communicating it to whoever can actually
@@ -133,8 +119,8 @@ fix it. The DigiPen work was where that habit started.
 
 <h2 id="leadership" class="project-section">Production Leadership</h2>
 
-Midway through production, the team was struggling with unified direction across
-a large group. I led a strike team that re-evaluated scope, identified what was
-actually achievable, and helped transition the team to a structure where
-department leads had collaborative ownership rather than waiting for top-down
-direction. The team stabilized and shipped.
+Midway through production, the team was losing motivation under a single top-down
+direction. I rallied the most engaged teammates to re-evaluate the project and its
+scope and agree on what we actually wanted it to be, and we took that to leadership.
+The team moved from one director to a collective of department leads, so everyone
+had input, and we finished a project the team was excited to work on.

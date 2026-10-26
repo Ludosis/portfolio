@@ -168,6 +168,7 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
 |------|---------|
 | `_source/Miro/miro-content.md` | Miro board content, user-corrected source of truth for wording. Do NOT re-extract from the images. **Caution (Oct 2026):** the board grouped items into project blocks and skill blocks; the text conversion flattened that, so which project an item belongs to is unreliable (e.g. the Maya compositing helper was a Jerry's Rig tool, not Alien Age). Check attribution with the user. A re-structured version is planned. |
 | `_source/Miro/ima1–12.png` | Original Miro board screenshots |
+| Old Weebly site (`jnordgren.weebly.com`, project pages) | **Written by the user: ground truth for project facts** (roles, who made what, how things worked). Pages were rebuilt from it in Oct 2026 after earlier generated copy had invented technical detail. It rate-limits scripted requests; retry with a browser user agent. Don't publish the old name that appears in image credits there. |
 | `_source/portfolio_brief.md` | Original project brief |
 | `_source/redesign-plan.md` | 2026 redesign migration plan |
 | `_source/design-archive/` | Design studies (three directions + blend mockup) |

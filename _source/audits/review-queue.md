@@ -35,6 +35,23 @@ off or delete them as they're settled. Newest additions at the bottom of each se
   then areas of focus, then one highlight if meaningful. Tweak wording as you like.
   Cinemachine card tag moved from Grapple Star to Snuggles.
 
+- [ ] **Accuracy pass against the Weebly write-ups and Miro (Oct 2026).** Rewritten
+  from your own text, removing invented detail: Alien Age (fog, water, VFX, asset
+  pipeline, lighting, team), Snuggles (wings, puppet rig, mech, cutscene, tools; dates
+  now 2022–2023 per Weebly), Grapple Star (DoF explanation, contributions; dates
+  2022–2023), Destiny 2 (owls, sea monster, Vex NPC, bee hive, test engineering),
+  Relic (role, no "sole owner of every visual system", awards dropped, leadership
+  story), Earlier Work (221B is an environment exploration with a paintover, not prop
+  modeling), Lego Fortnite (triage tool story from your account; platforms and
+  scalability work added from Miro). Skills entries corrected to match.
+- [ ] **Tree Sizer/Rotator/Tinter:** in the Miro skill block, not tied to a project; the
+  site still lists it under Alien Age (Skills page, scripting). Right project?
+- [ ] **Snuggles wing Skills entry** says "with zero extra draw calls" (your restored
+  wording). In URP, per-object Material Property Blocks can break SRP batching, so
+  that claim may not hold. Keep, reword, or drop?
+- [ ] **Home Featured "Puppet Rig Retargeting" card** uses the quadruped mech gif, but
+  the text describes the player character redesign. Pick a matching image or text.
+
 ## Decisions for you
 
 - [x] DoF composite: Grapple Star, and it did use Cinemachine (keep it in that story).

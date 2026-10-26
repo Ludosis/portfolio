@@ -65,7 +65,7 @@ skills:
     label: "Destiny 2"
     href: "/portfolio/destiny-2/"
     rank: 4
-    detail: "Interactive beehive obstacle prototype VFX; sea monster ambient effects"
+    detail: "Bee hive gameplay prototype with bee particle speed tied to the hive's health; sea monster model, shader, and setup"
   - id: rigging
     label: "Destiny 2"
     href: "/portfolio/destiny-2/"
@@ -83,51 +83,72 @@ skills:
     detail: "QA to Test Engineer progression on live service titles; test infrastructure and coverage tooling"
 ---
 
-I joined Bungie in 2015 as a QA tester on Destiny: The Taken King and moved into
-a Test Engineer role in 2017. Bungie ran a hackathon week each year, when anyone
-could work on any project, and in 2017 and 2018 I spent mine designing, modeling,
-rigging, and animating ambient life characters for Destiny 2. These are the background characters that populate social spaces and
-environment areas: not gameplay-critical, but meaningful to the sense that the
-world is inhabited.
+I joined Bungie in 2015 as a QA tester on Destiny: The Taken King and moved into a
+Test Engineer role in 2017. Bungie ran an annual hackathon week, Carnival, when
+anyone could work on any project, and in 2017 and 2018 I spent mine teaming up with
+character artists to make Destiny 2's world feel more alive with ambient creatures.
+I produced them start to finish, including learning the tools, with a lead artist
+giving art direction.
 
 <h2 id="shipped" class="project-section">Shipped Characters</h2>
 
-Two characters shipped: the owls in the Farm social space, and the sea monster
-visible from the Titan environment. Both went through the full character pipeline
-(concept reference, modeling, UV layout, rigging, skinning, and animation) and
-shipped in Destiny 2 at launch.
+Two creatures shipped and are still in the live game: the owls in the Farm social
+space and the sea monster on Titan.
 
 <div class="plate-pair">
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/owl-01_1_orig.jpg", "Farm owls, shipped in Destiny 2", "Maya · full character pipeline" %}
+{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/owl-01_1_orig.jpg", "Farm owls, shipped in Destiny 2", "Maya" %}
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/sea_monster_rings.png", "sea monster on Titan, shipped in Destiny 2", "Maya · full character pipeline" %}
+{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/sea_monster_rings.png", "sea monster on Titan, shipped in Destiny 2", "Maya" %}
 
 </div>
 
-The owls needed to feel like real birds in a space that players would visit
-repeatedly, so the idle animations had to hold up to extended observation without
-reading as loops. The sea monster needed to feel massive and distant: the
-animation had to read clearly at the scale it was viewed from, on a creature
-that players would never get close to.
+The owls were my first ambient life project. They appear in one of four possible
+spots in the Farm. I modeled, rigged, animated, and UV'd them to fit an existing bird
+texture for the prototype (another artist added the final texture and shader before
+it shipped), and set them up to pick randomly from their idle animations. I also
+designed them to react to players and fly away, but art direction wanted them
+stationary, so that feature was cut.
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/seamonster-03_1_orig.jpg", "sea monster in the Titan environment", "Destiny 2", true %}
+The sea monster came from wanting to see some life in Titan's oceans. I prototyped a
+simple version, then finished it with art direction to fit the world. I designed,
+modeled, rigged, and animated it, made its shader from existing textures, and did the
+technical setup so it could be dropped into the engine and just work. Technically it's
+simple and cheap: a roughly donut-shaped model with fins around the edge that rotates
+and rises as if swimming, with three of them rising at separate intervals for a
+serpentine look. The timing has to line up with the waves falling before it shows, so
+it surfaces rarely, by design. Fans have filmed it, and it got its own lore video.
+
+{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/seamonster-03_1_orig.jpg", "sea monster in the Titan environment", "Destiny 2" %}
 
 <h2 id="prototypes" class="project-section">NPC and Prototype Work</h2>
 
-Beyond the shipped characters, the project included a reactive NPC with custom
-animations and VFX that responded to player proximity, and a prototype interactive
-beehive obstacle designed for a demo environment. The beehive had destruction states, a swarm VFX response,
-and gameplay-driven behavior hooks.
+A reactive Vex NPC built for a jump scare: I branched an existing NPC pattern so its
+behavior and animations could be customized, added interactivity that triggers
+animations based on player state and proximity, removed components it didn't need to
+save memory, and made custom animation clips in Maya on the existing rig that blend
+smoothly. A custom timeline sequence plays the clips based on the interactivity
+state. I took feedback from the lead character animator, iterated the clips to the
+style guide, and polished the asset to game-ready.
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/beehive-01_orig.jpg", "interactive beehive obstacle prototype (did not ship)", "swarm VFX response · destruction states" %}
+An interactive bee hive designed for the Dreaming City: a gameplay prototype I
+designed and implemented in one week to learn Bungie's VFX gameplay object workflow.
+Shooting the hive agitates the bees (their particle speed is tied to the hive's
+health) and deals damage over time to nearby players; enough damage and it explodes
+into crystal shards that drop currency. I met nearly all of my stretch goals, wrote
+the demo's encounter script to respawn it, and playtested it: players read it
+intuitively, started shooting without prompting, and backed off when the bees started
+hurting them. It didn't ship with Forsaken.
 
-<h2 id="qa-engineering" class="project-section">QA Engineering Work</h2>
+{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/beehive-01_orig.jpg", "interactive bee hive prototype (did not ship)", "Bungie tools" %}
 
-The rest of my time at Bungie was as a QA and test engineer: mapping content
-workflows to find systemic failure points, analyzing runtime memory in high-risk
-areas, and building tools for the QA team. The debug config tool I built during
-this period let testers trigger public event completion at any reward tier on
-demand, enabling reward and audio testing that had previously been too
-time-consuming. The audio team picked it up independently; it was a pattern
-I'd see repeated later at Epic.
+<h2 id="qa-engineering" class="project-section">Test Engineering Work</h2>
+
+My day job was test engineering on the Public Events team: studying content
+workflows to find what caused issues and prevent them before they needed fixing,
+analyzing runtime memory in high-risk areas, and building tools and documentation
+for automated and manual testing. I became the point of contact for Public Events,
+VFX, and runtime memory issues, and took part in and led agile rituals and bug triage
+for the development team. The debug config tool I built let testers trigger public
+event completion at any reward tier on demand, enabling testing that had been too
+time-consuming to run by hand; the audio team adopted it on their own.
