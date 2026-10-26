@@ -8,7 +8,7 @@ engine: Unity
 order: 1
 card:
   label: "Left Turn Studios · 2021"
-  blurb: "Sole TA on a shipped Steam title. Custom water, fog, and color-variation shaders; full asset pipeline including retopology and indexed texture atlases; procedural foliage placement tool."
+  blurb: "Visual overhaul of an indie game ahead of its Steam release. Shaders, VFX, materials, asset optimization, and lighting support, plus a procedural foliage placement tool."
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/ss-fa8a63c8499d48e67ed6ffbde6064ffe99b5cd2c_orig.jpg
   alt: "Alien Age screenshot showing the game's environment with custom lighting and VFX"
   tags:
@@ -72,106 +72,97 @@ skills:
     label: "Alien Age"
     href: "/portfolio/alien-age/"
     rank: 1
-    detail: "Water surface (world-space UV, eliminates tiling artifacts on irregular terrain); volumetric fog (depth texture sampling, height-responsive density); environment tile color-variation (world-position seeded, eight tileset varieties from three source meshes)"
+    detail: "Stylized water; horizon fog on an inverted-normal sphere that hides the water's edge without hiding the skybox; ground tile color variation seeded by world position, with blend color, strength, and contrast controls"
   - id: vfx
     label: "Alien Age"
     href: "/portfolio/alien-age/"
     rank: 1
-    detail: "Beam pickup/drop and cloud lightning: continuous energy column from discrete particles; timing synced to gameplay events without hardcoded delays"
+    detail: "All of the game's VFX, including the tractor beam and its gameplay states, and cloud lightning"
   - id: lighting
     label: "Alien Age"
     href: "/portfolio/alien-age/"
     rank: 3
-    detail: "Full lighting and post-processing setup; all environment materials and lighting authored from scratch"
+    detail: "Lighting for four times of day, iterating on the base lighting schemes; shaders and materials for every asset"
   - id: tools
     label: "Alien Age / Foliage Placement Tool"
     href: "/portfolio/alien-age/"
     rank: 1
-    detail: "Editor-time placement tool (collaborated with engineer): runs distribution logic in-editor, bakes as placed instances for zero runtime cost. Documented so level designers could regenerate placements independently after level changes"
+    detail: "Editor-time foliage tool (designed and tested; built by an engineer) that places and rotates tileset prefabs so the world doesn't look duplicated; runs in the editor to keep load times down; documented so level designers could regenerate foliage after layout changes"
   - id: procedural
     label: "Alien Age"
     href: "/portfolio/alien-age/"
     rank: 1
-    detail: "Editor-time foliage placement tool with Tree Sizer/Rotator/Tinter: randomized position, scale, rotation, and color at placement time; three rock meshes and three tree meshes produced eight distinct tileset varieties with no additional asset authoring"
+    detail: "Eight foliage tileset varieties from three rock and three tree meshes, placed and rotated procedurally for variety without extra asset authoring"
   - id: scripting
-    label: "Python / Maya & pipeline"
+    label: "Alien Age / C# editor scripts"
     href: "/portfolio/alien-age/"
     rank: 2
-    detail: "Maya scripts for compositing and asset pipeline tasks; foliage placement tool (collaborated with engineer); Tree Sizer/Rotator/Tinter script"
+    detail: "Tree Sizer/Rotator/Tinter script; foliage placement tool (designed; built by an engineer)"
 ---
 
-Alien Age is a 2D action game released on Steam in 2021. The project originated
-as a one-month game jam before expanding into a full release. I joined as the sole
-Technical Artist on a revenue-share basis with Indie Wizards, the developer group
-that shipped the title, and that would incorporate as Left Turn Studios in 2022,
-where I continued as lead Technical Artist on Snuggles the Unicorn and Grapple
-Star. The work covered everything visual and technical: all shaders, all VFX,
-all lighting, all materials, and the full asset pipeline from raw geometry to in-engine.
+Alien Age is a 3D Unity game released on Steam in 2021. It started as a short
+team-building project: ship a game in a few months as a proof of concept for a
+startup studio. We published as Indie Wizards, which became Left Turn Studios when
+the company formally incorporated in 2022, and I went on to Snuggles the Unicorn and
+Grapple Star there. The team was small: a concept artist, a 3D modeler and animator,
+and me for tech art and implementation.
+
+I joined partway through development and overhauled the game's visuals from where
+they stood. I had a hand in nearly every visual improvement, the main exception
+being the UI: all VFX, shaders and materials for every asset, lighting for the game's
+four times of day (iterating on the base lighting schemes), the spaceship rig and
+animation implementation, asset optimization, and procedural environment variety.
 
 <h2 id="shaders" class="project-section">Shaders</h2>
 
-The three shaders that defined the game's look were all custom-built in Unity Shader
-Graph. The water surface shader uses world-space UV coordinates so the flow pattern
-stays consistent regardless of how geometry is oriented or placed. Tiling artifacts
-from UV-based approaches were a problem on irregular terrain, and the world-space
-approach eliminated them completely.
+The game's look leaned on a few custom shaders built in Unity Shader Graph. A
+stylized water shader covers the ocean around the terrain islands.
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/watersurface.png", "water surface shader with consistent world-space UV flow", "Shader Graph", true %}
+{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/watersurface.png", "stylized water shader", "Shader Graph", true %}
 
-The volumetric fog shader fakes atmospheric depth using depth texture sampling. The
-engine had no built-in atmosphere system, so this had to be authored from scratch.
-The fog density and color respond to world height, giving the environments a sense
-of scale that flat post-process fog can't produce.
+A horizon fog shader obscures the edge of the water without hiding the skybox. It's
+applied to a large sphere with inverted normals, and I liked the result better than
+Unity's built-in fog.
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/fog-volume-shader-sm_orig.gif", "volumetric fog, atmospheric depth from depth-texture sampling", "Shader Graph", true %}
+{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/fog-volume-shader-sm_orig.gif", "horizon fog shader", "Shader Graph", true %}
 
-The environment tile color-variation shader seeds per-tile color offsets from world
-position. This lets identical tile geometry read as organic and varied in the scene
-without needing unique texture variants for every tile type. The color range is
-bounded so variation stays readable as a single material rather than looking
-like mismatched assets.
+A color-variation shader tints the ground tiles randomly, seeded by each tile's world
+position, with properties for the blend color, strength, and contrast. Every tile
+that shares the material still gets its own tint, with no extra material instances.
 
 {% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/tiles-color_orig.png", "world-position-seeded tile color variation", "Shader Graph", true %}
 
 <h2 id="vfx" class="project-section">VFX</h2>
 
-All VFX were built in Unity's particle system. The beam pickup, beam drop, and
-cloud lightning effects were the most technically involved: the beam had to
-read as a continuous energy column while being composed of discrete particles,
-and timing had to sync to gameplay events without hardcoded delays.
+All of the game's VFX, built in Unity's particle system, including the tractor beam
+and its gameplay states, and the cloud lightning.
 
 <div class="plate-pair">
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/beam-drop-fulllength.gif", "beam drop, energy beam from UFO", "Unity Particle System", true %}
+{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/beam-drop-fulllength.gif", "tractor beam, drop state", "Unity Particle System", true %}
 
 {% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/clouds-lightning.gif", "cloud lightning", "Unity Particle System", true %}
 
 </div>
 
-<h2 id="asset-pipeline" class="project-section">Asset Pipeline</h2>
+<h2 id="asset-pipeline" class="project-section">Asset Optimization</h2>
 
-The full asset pipeline was owned from the start. Geometry went through retopology
-to hit polygon budgets without visual loss on the most visible surfaces. Textures
-were organized into indexed atlases to cut texture lookup count, a meaningful
-optimization for mobile-adjacent hardware targets. The approach let the game run
-at target frame rate with the visual quality the art direction required.
+Optimization covered retopology and mesh cleanup, indexed textures, and custom
+shaders and materials written to reduce texture lookups.
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/env-tiles.png", "environment tiles with optimized geometry and atlas layout", "Maya · Unity", true %}
+{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/env-tiles.png", "environment tiles and decorators", "Maya · Unity", true %}
 
 <h2 id="procedural" class="project-section">Procedural Environment Tools</h2>
 
-Late in production, level designers needed a way to populate environments with
-foliage without paying the runtime cost of a procedural system running in-game.
-I collaborated with an engineer to build an editor-time placement tool: it ran
-the distribution logic in the Unity editor and baked the result as placed instances,
-so the in-game cost was the same as hand-placed assets. The tool was documented
-so level designers could regenerate placements independently after level changes
-without coming back to engineering or tech art.
+From just three rock and three tree meshes, I built eight varieties of foliage
+tilesets. I designed a tool to populate the world with them, set its requirements
+for the engineer who built it, and tested it: it iterates through the layout prefabs
+and places and rotates them, so the world gets variety without looking duplicated.
+It runs in the editor rather than at runtime to keep load times down. Because some
+gameplay tiles are placed procedurally at runtime, the foliage sits on a separate
+object that turns off for those tiles, so nothing overlaps.
 
-The visual variety the tool produced came from a companion script: a Tree
-Sizer/Rotator/Tinter placed on the tree prefab itself. When an instance was placed
-in the level, the script randomized position offset, scale, rotation, and color
-grading automatically. The result: three rock meshes and three tree meshes produced
-eight distinct tileset varieties with no additional asset authoring. Properties were
-applied at placement time rather than at runtime, keeping overhead minimal and
-giving accurate visual feedback in the editor.
+Unity's prefab cloning meant the foliage had to be cleared and regenerated whenever
+the prefabs changed, which also made it easy to iterate on shaders, materials,
+layouts, and physics. I documented the tool so level designers could regenerate the
+foliage themselves when the world layout changed.

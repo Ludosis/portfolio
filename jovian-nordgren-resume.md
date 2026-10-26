@@ -67,7 +67,7 @@ Freelance creative work including graphic design and web projects. Self-directed
 - Built a debug tool for rapid testing of gameplay events that were too time-consuming to run manually; adopted by multiple teams.
 - Created team workflows and wrote their guides, speeding up onboarding and helping the team work independently.
 
-**3D Generalist: Destiny 2 Ambient Life Project (2017 – 2018)**
+**Hackathon Projects: Destiny 2 Ambient Life (2017, 2018)**
 
 Modeled, rigged, and animated shipped ambient life characters in Maya: owls in the Farm social space and the sea monster on Titan. Also built a reactive NPC with custom animation and VFX, and prototyped an interactive beehive obstacle.
 

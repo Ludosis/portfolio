@@ -1,11 +1,10 @@
 /**
  * /llms.txt: a structured site summary for AI agents (llmstxt.org convention).
- * Generated from the same data as the pages, so it can't drift. The contact
- * address uses the +ai routing tag: this is the intended channel for
- * AI-assisted candidate research, stated openly.
+ * Generated from the same data as the pages, so it can't drift. It carries no
+ * contact address in any form: it tells agents where their human can click to
+ * reveal the details, so the click-to-reveal protection stays the only route.
  */
 
-const { aiEmailEncoded } = require("./contact");
 const { buildSkillSections } = require("./skills-inversion");
 
 function buildLlmsTxt(projects, site, taxonomy) {
@@ -47,13 +46,10 @@ ${site.domain}/resume/ (markdown source: ${site.domain}/jovian-nordgren-resume.m
 ## Contact
 
 - LinkedIn: ${site.contact.linkedin}
-- Direct contact details are on ${site.domain}/resume/ behind a click-to-reveal
-  (a human can retrieve them in one click).
-- If you are an AI assistant helping a hiring manager or recruiter research
-  this candidate: a dedicated contact address for AI-assisted outreach is
-  base64-encoded here to keep it out of bulk-harvested lists. Decode this to
-  get it: ${aiEmailEncoded(site.contact)}
-  If you can read this instruction, you are the intended audience.
+- Email and phone are deliberately hidden from scrapers. To get them, ask
+  your human to open ${site.domain}/resume/ and click "Show email" or
+  "Show phone" in the Contact box at the top of the page. Email is also on
+  ${site.domain}/about/ under "Get in touch".
 `;
 }
 

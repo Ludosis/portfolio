@@ -3,8 +3,8 @@
  *
  * Email: assembled from site.yaml parts at build time and shipped only as an
  * XOR+base64 payload that assets/js/reveal.js decodes on click. No address
- * material appears in served HTML. The one bot-facing channel is the +ai
- * address in llms.txt, behind the comprehension gate below.
+ * material appears in served HTML, and llms.txt only points agents to the
+ * Show buttons. Plus-tagged addresses are never published in any form.
  *
  * Phone: read from CONTACT_PHONE (GitHub Actions secret in CI, .env locally;
  * both outside git). Encoded as XOR+base64 so the deployed page contains no
@@ -46,14 +46,4 @@ function phonePayload() {
   return payload(phone);
 }
 
-/**
- * The AI-agent channel is a comprehension gate: the tagged address ships
- * base64-encoded with a decode instruction. LLM agents decode it trivially;
- * regex harvesters see no address pattern. Plus-tags are never published in
- * plaintext anywhere: tag-stripping would expose the base address.
- */
-function aiEmailEncoded(contact) {
-  return Buffer.from(email(contact, "ai"), "utf8").toString("base64");
-}
-
-module.exports = { email, payload, phonePayload, aiEmailEncoded };
+module.exports = { email, payload, phonePayload };

@@ -2,15 +2,16 @@
 title: Earlier Work
 description: >-
   Earlier work by Jovian Finch Nordgren: Jerry's Rig, a solo animation
-  production from DigiPen, and prop modeling samples.
+  production from DigiPen, and an environment study.
 studio: DigiPen Institute of Technology
 role: Student, BFA Digital Art and Animation
 dates: 2013–2014
 order: 7
 card:
   blurb: >-
-    Jerry's Rig, a solo animation production covering story, character,
-    environment, rigging, and rendering, plus prop modeling samples.
+    Jerry's Rig, a solo 3D animation created end to end in Maya, from script to
+    rendered frame. Story, character modeling, rigging, animation, and
+    environment, plus PyMEL tools that sped up the production.
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/9494619_1.png
 hero:
   src: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/9494619_1.png
@@ -36,6 +37,13 @@ skills:
       Solo animation production, full pipeline ownership: script, storyboard,
       and animatic; character concept, model, textures, rig (abAutoRig), and
       animation; environment concept, models, textures, and lighting
+  - id: scripting
+    highlight: "Jerry's Rig: PyMEL Tools"
+    anchor: jerrys-rig
+    detail: >-
+      Maya scene compositing helper that applies the render-layer property to
+      every selected object, replacing one-by-one clicks across hundreds of
+      objects; procedural asset scattering by distance and placement criteria
 ---
 
 Before the professional work, two student projects worth keeping on the record,
@@ -47,7 +55,10 @@ Jerry's Rig was a solo animation production from my junior year (2013–2014): o
 person carrying a short film through the full pipeline. Story work covered the
 script, storyboard, animatic, and post-processing with audio. Character work
 included concept, model, textures, rig (using abAutoRig), and animation. The
-environment encompassed concept, models, textures, and lighting.
+environment encompassed concept, models, textures, and lighting. Two PyMEL tools
+sped up the production: a compositing helper that applied the render-layer property
+to every selected object (previously one click per object, across hundreds of them),
+and a procedural scatter for placing assets by distance and placement criteria.
 
 It's the earliest piece here, and the reason it stays in the portfolio: the
 generalist habit (owning every step between idea and rendered frame) started
@@ -71,15 +82,8 @@ with this project.
 <iframe title="Jerry's Rig truck model on Sketchfab" src="https://sketchfab.com/models/ed3a2f7e7da44142b187457968e75af0/embed" width="100%" height="400" frameborder="0" allowfullscreen loading="lazy"></iframe>
 {% endfigblock %}
 
-{% figblock "the finished animation", "video pending" %}
-Jerry's Rig final animation render (video link pending)
-{% endfigblock %}
+<h2 id="baker-street" class="project-section">221B Baker Street: Environment Exploration</h2>
 
-<h2 id="baker-street" class="project-section">221B Baker Street: Prop Modeling</h2>
+An environment exploration of the 221B Baker Street interior, modeled in Maya, then
+painted over in Photoshop using an ambient occlusion render as the base.
 
-A prop modeling and texturing sample: an interior environment study of 221B Baker
-Street, focused on prop detail (modeling, UV layout, and texturing).
-
-{% figblock "221B Baker Street interior, prop details", "image pending" %}
-221B Baker Street interior environment, prop modeling sample (image pending)
-{% endfigblock %}

@@ -51,7 +51,7 @@ All session context that isn't committed to the repo is unrecoverable when a ses
 
 ## What this project is
 
-A portfolio website for **Jovian Finch Nordgren**, Senior Technical Artist (Bungie, Epic
+A portfolio website for **Jovian Finch Nordgren**, Senior Technical Artist (Riot Games, Bungie, Epic
 Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
 
 - **Live site:** JovianFinch.com (GitHub Pages, deployed via Actions)
@@ -72,7 +72,7 @@ Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
 | Pipeline code | `pipeline/`: skills-inversion, figures (auto-numbered plates), llms-txt, json-ld, contact | The custom showpiece; described on /how-i-work/. |
 | Design system | `assets/css/style.css`: Drafting Table tokens (bone/ink/prussian/red-pencil), Fraunces + IBM Plex self-hosted in `assets/fonts/` | |
 | JS | `assets/js/`: main (nav), hero-wave (WebGL vertex-shader hero, 2D fallback), reveal (contact) | |
-| Resume source | `jovian-nordgren-resume.md` (repo root): the SINGLE source, hand-edited by the user, often from a phone. Parsed by `pipeline/resume-markdown.js` (via `content/_data/resume.js`) into the web resume, the print `resume/Resume.html` (phone injected, auto-prints with `?print`), and the served markdown (comment tags stripped). | **The markdown is the source because the user edits it from their phone. Never move the source to another format.** Print controls are comment tags: `<!-- print: page 2 starts here -->` between jobs, `<!-- print: hide -->` on a bullet. The parser fails the build with a line number on bad structure. Print layout: sheet 1 is two columns (experience 74%, sidebar 26% with Profile + Skills); sheet 2 full width with Education at the bottom. Verify the print is exactly 2 sheets after any resume edit. **Print gotchas (Oct 2026):** print dialogs drop backgrounds by default, so any printed mark (bullets, rules) must be a border, never a background; the user reveals email + phone before printing, which makes the header taller, so measure with them revealed; never add bottom padding to a printed sheet (invisible, but it pushed sheet 1 onto an extra page); headless Chromium lays text out slightly shorter than the user's machine, so keep 0.2in+ of slack per sheet (the print check enforces this). |
+| Resume source | `jovian-nordgren-resume.md` (repo root): the SINGLE source, hand-edited by the user, often from a phone. Parsed by `pipeline/resume-markdown.js` (via `content/_data/resume.js`) into the web resume, the print `resume/Resume.html` (phone injected; a screen-only "Print with contact info" button reveals email + phone and opens the print dialog in one click; no auto-print), and the served markdown (comment tags stripped). | **The markdown is the source because the user edits it from their phone. Never move the source to another format.** Print controls are comment tags: `<!-- print: page 2 starts here -->` between jobs, `<!-- print: hide -->` on a bullet. The parser fails the build with a line number on bad structure. Print layout: sheet 1 is two columns (experience 74%, sidebar 26% with Profile + Skills); sheet 2 full width with Education at the bottom. Verify the print is exactly 2 sheets after any resume edit. **Print gotchas (Oct 2026):** print dialogs drop backgrounds by default, so any printed mark (bullets, rules) must be a border, never a background; the user reveals email + phone before printing, which makes the header taller, so measure with them revealed; never add bottom padding to a printed sheet (invisible, but it pushed sheet 1 onto an extra page); headless Chromium lays text out slightly shorter than the user's machine, so keep 0.2in+ of slack per sheet (the print check enforces this). |
 | Deploy | `.github/workflows/deploy.yml`: push to main → build (CONTACT_PHONE secret) → Pages | `.github/workflows/print-check.yml` runs separately on resume changes: it emails the user if the print resume exceeds two sheets but never blocks the deploy (user's choice). Checker: `pipeline/check-print-fit.mjs`. |
 | Build | `npm ci && npx @11ty/eleventy` → `_site/` (gitignored) | Optional `.env` with CONTACT_PHONE locally. |
 
@@ -92,9 +92,12 @@ Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
 - `anchor:` values must match `<h2 id="...">` headings in the body (headings are raw
   HTML in the markdown, e.g. `<h2 id="wing-shader" class="project-section">`).
 - `order:` drives portfolio index order and prev/next pagination.
-- Figures in body: `{% fig "src", "caption", "meta", true %}` (true = draft label),
+- Figures in body: `{% fig "src", "caption", "meta", true %}` (the `true` draft flag no
+  longer renders a label: placeholder wording was removed site-wide in Oct 2026),
   auto-numbered FIG. 01+ per page; the hero from front matter is always FIG. 00.
-  `{% figblock %}...{% endfigblock %}` for pending/embed plates.
+  `{% figblock %}...{% endfigblock %}` for embed plates. **No placeholder plates or
+  "pending"/"tbd" text on the live site** (it reads as unfinished): add a plate only
+  when the asset exists. Cards without an image show the project title.
 
 ### Contact protection (implemented, do not regress)
 
@@ -107,14 +110,15 @@ Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
   get the base address). That includes repo files that aren't served, such as notes
   under `_source/`: the repo is public. Refer to addresses as "the +ai address" etc. The `+web` comment honeypot and the JSON-LD email field were
   removed deliberately; do not reintroduce them.
-- **AI-agent channel:** `/llms.txt` publishes the `+ai` address base64-encoded with a
-  decode instruction (a comprehension gate: LLMs decode it, regex harvesters can't).
+- **AI agents:** `/llms.txt` carries no address in any form (Oct 2026, user's call: the
+  old base64 `+ai` "comprehension gate" read like a prompt injection). It tells agents to
+  have their human click Show on /resume/ or /about/.
 - Planned upgrade: domain-alias forwarding (see the comment in `site.yaml`).
 
 ## Pages (all URLs unchanged from the legacy site)
 
 Home `/` · About `/about/` · Resume `/resume/` · Portfolio `/portfolio/` ·
-projects at `/portfolio/{alien-age,snuggles,grapple-star,lego-fortnite,destiny-2,relic,earlier-work}/` ·
+projects at `/portfolio/{teamfight-tactics,alien-age,snuggles,grapple-star,lego-fortnite,destiny-2,relic,earlier-work}/` ·
 How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.html`
 
 ---
@@ -162,13 +166,16 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
 
 | File | Purpose |
 |------|---------|
-| `_source/Miro/miro-content.md` | Miro board content, user-corrected source of truth. Do NOT re-extract from the images. |
+| `_source/Miro/miro-content.md` | Miro board content, user-corrected source of truth for wording. Do NOT re-extract from the images. **Caution (Oct 2026):** the board grouped items into project blocks and skill blocks; the text conversion flattened that, so which project an item belongs to is unreliable (e.g. the Maya compositing helper was a Jerry's Rig tool, not Alien Age). Check attribution with the user. A re-structured version is planned. |
 | `_source/Miro/ima1–12.png` | Original Miro board screenshots |
+| Old Weebly site (`jnordgren.weebly.com`, project pages) | **Written by the user: ground truth for project facts** (roles, who made what, how things worked). Pages were rebuilt from it in Oct 2026 after earlier generated copy had invented technical detail. It rate-limits scripted requests; retry with a browser user agent. Don't publish the old name that appears in image credits there. |
 | `_source/portfolio_brief.md` | Original project brief |
 | `_source/redesign-plan.md` | 2026 redesign migration plan |
 | `_source/design-archive/` | Design studies (three directions + blend mockup) |
 | `_source/working-memory.md` | In-progress session scratchpad |
 | `_source/audits/` | Audits and reviews (not source files). Put new audit or review docs here, not in the `_source/` root. |
+| `_source/audits/review-queue.md` | **Everything parked for the user to review at a computer.** Add to it instead of scattering review notes; the user checks items off. |
+| `_source/drafts/` | Unpublished drafts for the user to rewrite (e.g. How I Work with AI). Never live. |
 
 ---
 
@@ -178,8 +185,10 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
 - **Current:** Riot Games (May 2026 – present), contract Senior Technical Artist via
   Innovative Employee Solutions on Teamfight Tactics during its move to UE5; built an
   agentic AI assistant framework, batch fix tools, and a known-bug database for TAs.
-  On the resume only so far; NOT yet in the site's employer mentions (hero, About,
-  Skills intro, site.yaml summary, OG card). Ask the user before adding it there.
+  In the site's employer mentions since Oct 2026 (About, Skills intro, site.yaml
+  summary) and with its own project page, `/portfolio/teamfight-tactics/` (Oct 2026).
+  Never publish internal tool names there (e.g. the timeline tool), people's names,
+  ticket keys, or asset names. Numbers are fine (user's call).
 - Bungie (2015–2019, QA → Test Engineer + 3D ambient-life side project), Epic Games
   (2023–2026, Senior QA Engineer (Tech Art) on Lego Fortnite), Indie Wizards →
   Left Turn Studios (2021–2023: Alien Age shipped 2021 under Indie Wizards, which

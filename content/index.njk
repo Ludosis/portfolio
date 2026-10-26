@@ -3,16 +3,9 @@ layout: base.njk
 permalink: /
 schema: true
 heroWave: true
-description: "Jovian Finch Nordgren, Senior Technical Artist and 3D generalist with a decade of experience in AAA and indie game development. Shaders, VFX, animation pipelines, tooling."
+description: "Jovian Finch Nordgren, Technical Artist and 3D generalist with a decade in AAA and indie games across Tech Art and QA Engineering. Shaders, VFX, animation pipelines, tooling."
 # Featured cards: restored verbatim from the hand-written home page.
 featured:
-  - fig: "Left Turn Studios · Snuggles the Unicorn"
-    title: "Wing Vertex Shader System"
-    url: "/portfolio/snuggles/#wing-shader"
-    image: "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/wing-demo_orig.gif"
-    alt: "Animated demo showing shader-driven wing flapping with independent movement per enemy instance"
-    blurb: "Replaced a 32-bone-per-enemy rig with a shader-driven wing flap. Material Property Blocks randomize the phase per instance so every enemy moves independently."
-    tags: ["Unity Shader Graph", "HLSL", "Material Property Blocks", "Performance"]
   - fig: "Left Turn Studios · Snuggles the Unicorn"
     title: "Puppet Rig Retargeting System"
     url: "/portfolio/snuggles/#puppet-rig"
@@ -81,7 +74,7 @@ featured:
             {%- if item.image %}
             <img src="{{ item.image }}" alt="{{ item.alt }}" loading="lazy">
             {%- else %}
-            <span class="card-shot-pending mono">{{ item.pending }}</span>
+            <span class="card-shot-pending mono">{{ item.fig }}</span>
             {%- endif %}
           </div>
           <div class="card-body">
@@ -110,10 +103,7 @@ featured:
       <div class="section-ruler" aria-hidden="true"></div>
     </div>
     <p class="home-about-text">
-      Senior Technical Artist and 3D generalist with a decade of experience in AAA and indie game development, in both Unity and Unreal Engine. Best suited for small teams with broad scope: shaders, VFX, animation pipelines, asset optimization, tooling, procedural content, and any technical challenge the project surfaces.
-    </p>
-    <p class="home-about-text">
-      Years of QA work on large productions built a habit of asking why a problem exists, not just fixing it, and building processes so it doesn't recur.
+      {{ resume.profile }}
     </p>
     <p class="mono"><a class="text-link" href="/about/">More about Jovian &rarr;</a></p>
   </div>

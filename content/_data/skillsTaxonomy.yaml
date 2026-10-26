@@ -39,8 +39,7 @@
   name: QA & Automation
   summary: >-
     Test systems design, escaped defect analysis, automation tooling, and
-    coverage strategy. QA background is central to the tech art approach:
-    catching systemic problems before they ship.
+    coverage strategy: catching systemic problems before they ship.
 
 - id: procedural
   name: Procedural Content
