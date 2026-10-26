@@ -8,7 +8,7 @@ engine: DigiPen Zero Engine
 order: 6
 card:
   label: "Synaptic Sugar / DigiPen · 2014–2015"
-  blurb: "Visual tech for a student 3D action adventure on a proprietary engine. FX, lighting, materials, and rendering and asset pipelines, with atmospherics simulated in custom shaders and engine changes made with the chief engineer."
+  blurb: "Visual tech for a student 3D action adventure on a proprietary engine. FX, lighting, materials, and rendering and asset pipelines, with atmospherics simulated in custom shaders."
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/7734644_1.png
   alt: "Relic game screenshot showing environment art and lighting"
   tags:

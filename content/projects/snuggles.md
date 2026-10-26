@@ -1,6 +1,6 @@
 ---
 title: Snuggles the Unicorn
-description: "Snuggles the Unicorn: technical art work by Jovian Finch Nordgren. A full URP conversion, performance-first shaders, and puppet rig retargeting on a Unity action game planned for mobile."
+description: "Snuggles the Unicorn: technical art work by Jovian Finch Nordgren. A full URP conversion, performance-first shaders, and puppet rig retargeting on a Unity action game."
 studio: Left Turn Studios
 role: Technical Artist
 dates: 2021–2023 (canceled)
@@ -8,7 +8,7 @@ engine: Unity
 order: 2
 card:
   label: "Left Turn Studios · 2021–2023"
-  blurb: "Unity action game planned for mobile, built performance-first. Shaders, VFX, rigging, animation, and tooling, including a full URP conversion with every shader rebuilt."
+  blurb: "Unity action game built performance-first. Shaders, VFX, rigging, animation, and tooling, including a full URP conversion with every shader rebuilt."
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/screenshot-2023-01-03-084039_orig.jpg
   alt: "Snuggles the Unicorn screenshot showing the game environment and character"
   tags:
@@ -16,7 +16,7 @@ card:
     - "HLSL"
     - "Rigging"
     - "C#"
-    - "Cinemachine"
+    - "Unity"
 hero:
   src: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/screenshot-2023-01-03-084039_orig.jpg
   alt: Snuggles the Unicorn screenshot showing the game environment with character and enemy
@@ -106,12 +106,13 @@ skills:
     detail: "Puppet rig constraint rebuild utility; controller aim script; status FX helper component; gameplay-to-shader parameter bridge; batch material conversion script for URP migration"
 ---
 
-Snuggles the Unicorn was a Unity action game in development at Left Turn Studios.
+Snuggles the Unicorn was a Unity action game at Left Turn Studios, picked up from an
+externally developed prototype.
 I was the sole Technical Artist until a second TA joined partway through for lighting
 and PCG level layout. The project was eventually shelved, but it produced significant
 technical work across rendering, shaders, rigging, animation, and tooling. The biggest
-piece was a full conversion to Unity's Universal Render Pipeline. The game was planned
-for mobile from the start, so performance shaped the technical choices from day one:
+piece was a full conversion to Unity's Universal Render Pipeline. Mobile was one of the
+target platforms from the start, so performance shaped the technical choices from day one:
 the render pipeline, the kinds of effects, and procedural or shader-driven solutions
 in place of heavy skeletal rigs.
 

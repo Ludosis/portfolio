@@ -101,12 +101,13 @@ skills:
 ---
 
 Alien Age is a 2D action game released on Steam in 2021. The project originated
-as a one-month game jam before expanding into a full release. I joined as the sole
-Technical Artist on a revenue-share basis with Indie Wizards, the developer group
+as a one-month game jam before expanding into a full release. I joined partway through
+development as the sole Technical Artist on a revenue-share basis with Indie Wizards, the developer group
 that shipped the title, and that would incorporate as Left Turn Studios in 2022,
 where I continued as Technical Artist on Snuggles the Unicorn and Grapple
-Star. The work covered everything visual and technical: all shaders, all VFX,
-all lighting, all materials, and the full asset pipeline from raw geometry to in-engine.
+Star. The work was a visual overhaul of the game as it stood when I joined: all
+shaders, all VFX, all materials, help with lighting, and the full asset pipeline from
+raw geometry to in-engine.
 
 <h2 id="shaders" class="project-section">Shaders</h2>
 
