@@ -3,11 +3,11 @@ title: Snuggles the Unicorn
 description: "Snuggles the Unicorn: technical art work by Jovian Finch Nordgren. A full URP conversion, performance-first shaders, and puppet rig retargeting on a Unity action game."
 studio: Left Turn Studios
 role: Technical Artist
-dates: 2021–2023 (canceled)
+dates: 2022–2023 (canceled)
 engine: Unity
 order: 2
 card:
-  label: "Left Turn Studios · 2021–2023"
+  label: "Left Turn Studios · 2022–2023"
   blurb: "Unity action game built performance-first. Shaders, VFX, rigging, animation, and tooling, including a full URP conversion with every shader rebuilt."
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/screenshot-2023-01-03-084039_orig.jpg
   alt: "Snuggles the Unicorn screenshot showing the game environment and character"
@@ -30,7 +30,7 @@ meta:
   - label: "Role"
     value: "Technical Artist"
   - label: "Dates"
-    value: "2021–2023 (canceled)"
+    value: "2022–2023 (canceled)"
   - label: "Engine"
     value: "Unity"
 headerTags:
@@ -65,7 +65,7 @@ sidebar:
   - title: "Project"
     lines:
       - "Left Turn Studios"
-      - "2021–2023"
+      - "2022–2023"
       - "Technical Artist"
 # Skills-page entries: the original labels, wording, links, and order.
 skills:
@@ -93,12 +93,12 @@ skills:
     label: "Snuggles the Unicorn / Puppet Rig & Retargeting"
     href: "/portfolio/snuggles/#puppet-rig"
     rank: 1
-    detail: "Constraint-based retargeting system for mid-production character redesign: old skeleton drives new skeleton in real time, full animation library transferred immediately; scripted constraint rebuild utility that survived repeated model updates in seconds; biped-to-quadruped mech kitbash with aim constraints, bob dampening, and controller aim script"
+    detail: "Puppet rig for a player character redesign: the original rig and animations drive rotation constraints on the new rig, so no animations had to be remade; editor tool rebuilds the constraints after model updates; biped-to-quadruped mech kitbash with an aim-driven swivel and a mouse and controller aim script"
   - id: tools
     label: "Snuggles the Unicorn / Rig Rebuild Utility"
     href: "/portfolio/snuggles/#puppet-rig"
     rank: 2
-    detail: "Scripted constraint reconnection that rebuilt the full rig from saved configuration in seconds"
+    detail: "Editor tool that walks the skeletal hierarchy and reconnects the puppet rig constraints automatically, replacing hundreds of manual clicks"
   - id: scripting
     label: "C# / Unity"
     href: "/portfolio/snuggles/"
@@ -107,94 +107,99 @@ skills:
 ---
 
 Snuggles the Unicorn was a Unity action game at Left Turn Studios, picked up from an
-externally developed prototype.
-I was the sole Technical Artist until a second TA joined partway through for lighting
-and PCG level layout. The project was eventually shelved, but it produced significant
-technical work across rendering, shaders, rigging, animation, and tooling. The biggest
-piece was a full conversion to Unity's Universal Render Pipeline. Mobile was one of the
-target platforms from the start, so performance shaped the technical choices from day one:
-the render pipeline, the kinds of effects, and procedural or shader-driven solutions
-in place of heavy skeletal rigs.
+externally developed prototype. My team inherited the project and built on it. The
+team was small: a concept artist, outsourced art from the Unity asset store, and me
+for tech art and implementation, with a second Technical Artist joining later for
+lighting and PCG level layout. The project was eventually shelved, but it produced
+significant work across rendering, shaders, rigging, animation, and tooling. The
+biggest piece was a full conversion to Unity's Universal Render Pipeline. Mobile was
+one of the target platforms from the start, so performance shaped the technical
+choices from day one: the render pipeline, the kinds of effects, and procedural or
+shader-driven solutions in place of heavy skeletal rigs.
 
 <h2 id="urp" class="project-section">URP Conversion</h2>
 
-The project was inherited with Unity's standard renderer and needed a full conversion
-to the Universal Render Pipeline. This wasn't a settings change: it required
-recreating every shader from scratch under the new rendering model, scripting a batch
-conversion of all materials, and rebuilding the lighting and post-processing setup.
-Outsourced assets brought in from the Unity store also needed cleanup and modification
-to work within the new pipeline and match the project's visual direction.
+The project came with Unity's standard renderer and needed a full conversion to the
+Universal Render Pipeline. This wasn't a settings change: it meant recreating every
+shader under the new rendering model, scripting a batch conversion of the materials,
+and rebuilding the lighting and post-processing. The outsourced store assets also
+needed cleanup and modification to work in the new pipeline and match the project's
+visual direction.
 
 <h2 id="wing-shader" class="project-section">Shader-Driven Enemy Wings</h2>
 
-Each enemy type needed flapping wings. In prototyping we tried a rigged wing package
-from the Unity store, a heavy skeletal rig, and it was clear right away that the
-bone cost wouldn't hold up with 40 enemies on screen, let alone on mobile hardware.
-So we pivoted to a vertex shader before the rig went any further.
+The character designs gave every enemy wings, but the enemies were pre-made store
+assets, and adding wings to their rigs would have meant reworking rigs and animations
+across the board. I tested the obvious route first: rigged wings parent-constrained
+to a shoulder bone, using a $5 store asset to check feasibility. It looked great, but
+a heavy skeletal rig on every enemy wouldn't hold up with a screen full of them, let
+alone on mobile hardware. So I pivoted to a vertex shader before the rig went any
+further, taking a cue from the schools of fish in Abzu.
 
 {% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/wing-demo_orig.gif", "shader-driven wing flap, independent movement per instance", "Unity · Shader Graph", true %}
 
-The replacement was a vertex shader that drives the wing flap entirely in the GPU
-without bone evaluation. The flap motion is a sine wave applied to wing vertices,
-with parameters for frequency, amplitude, and phase. On its own, a shader-driven flap
-would have every wing on screen beating in unison. The key piece was using Unity's
-Material Property Blocks to set a randomized phase offset per enemy instance at
-spawn time. This meant every enemy in a wave had its wings moving out of sync with
-every other enemy: the same shader, zero additional draw calls, genuinely
-independent motion.
+The wings are a simple placeholder mesh (easy to swap for a polished model) with a
+custom shader that drives the flap, including controls for flap speed. They're made
+as separate left and right pieces so they can be scaled and positioned for each
+enemy. A script sets the flap per enemy through Material Property Blocks, driven by
+gameplay: the enemy's velocity, whether it's alive, and more.
+
+Because the motion was based on time, every enemy at first flapped in perfect unison,
+which looked unnatural. I added a reusable Material Index property that gives each
+instance a random number and passes it to the shader, again through a Material
+Property Block, to offset its timing. The result had the look, believability, and
+performance we needed, and scaled to every enemy that needed wings.
 
 {% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/flap-shader_orig.png", "wing flap vertex shader node network", "Shader Graph", true %}
 
-The result: no bone evaluation for wings at all, so enemy counts could grow without
-the wings adding to the cost.
+One open issue remained when the project ended: the wings conflicted with the
+character outline effect that shows enemies behind obstacles, and I was working on a
+fix.
 
 <h2 id="puppet-rig" class="project-section">Puppet Rig Retargeting System</h2>
 
-Mid-production, the player character model was redesigned. The new model had
-different proportions and a different skeleton hierarchy than the original.
-The existing animation library, representing a significant time investment,
-was built for the old model. Recreating those animations from scratch wasn't
-an option on the schedule.
+One of the project's major challenges was updating the player character to new
+concept art without remaking the animations that came with the original store asset.
+The rig's proportions changed, and the animations had position keyframes, so they
+couldn't simply be reused. I remodeled the character to match the concept, repainted
+the skin weights, and built a puppet rig system: the original rig and animations run
+without a skinned mesh and drive rotation constraints on the new rig and mesh. Since
+only one model's skinned vertices are driven, the performance cost was negligible,
+and not recreating the animations was a major budget saving. I also split the new
+mesh into parts so they could be swapped for character customization.
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/mech-demo-clip_orig.gif", "mech character with retargeted animations on the redesigned model", "Unity Animation Rigging", true %}
+{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/snuggles-update-rig_orig.png", "original model and rig next to the updated version", "Unity", true %}
 
-The mech itself was a kitbash: an existing biped model was converted into a
-quadruped to match concept art, with the leg animations retargeted to produce
-a gallop. Aim constraints drive the cockpit to track with player input, with
-bob dampening to keep it from feeling rigid. The controller aim script was
-also written as part of this work.
+The constraints had to be broken and reconnected several times as the model was
+updated, so I wrote an editor tool that walks the skeletal hierarchy and makes the
+connections automatically: faster, and without the user error of hundreds of manual
+clicks.
 
-The solution for the player character redesign was a constraint-based retargeting
-system: the new model's bones are driven by constraints that read the old model's
-animation data in real time. The old skeleton runs the animation; the new skeleton
-follows via constraints, with per-bone offsets to account for proportion differences.
-The full existing animation library worked on the new model immediately, with targeted
-manual adjustments only where the proportion differences produced visible artifacts.
+<h2 id="mech" class="project-section">Quadruped Mech</h2>
 
-The more important part was what happened next. Every time the new model was updated
-(which happened multiple times during production), the constraint connections broke
-and had to be rebuilt. I scripted the constraint reconnection so it could be run as
-an editor utility, rebuilding the full rig from a saved configuration in a few
-seconds rather than manually reconnecting each bone. The script meant the rig
-survived model updates without requiring tech art involvement every time.
+A quadruped mech prototype built from a biped mech's model and animations. I
+kitbashed the biped's parts into the quad shape and built a skeletal rig that is
+driven in Unity by constraints from the original biped, mapping its walk to the
+front and back legs for a gallop. The upper body is a swivel that turns with the aim
+direction and lets the body bob without moving the cockpit, using a particular
+skeletal hierarchy combined with Unity's hierarchy and constraints. I also wrote the
+cockpit aim scripts for both mouse and controller, linked into the existing control
+system. Weapons attach at spawn based on the player's loadout.
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/snuggles-update-rig_orig.png", "puppet rig constraint structure and retargeting setup", "Unity inspector", true %}
+{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/mech-demo-clip_orig.gif", "quadruped mech galloping with retargeted biped animation", "Unity", true %}
 
 <h2 id="status-fx" class="project-section">Character Status FX Shader</h2>
 
-Enemy characters needed visual feedback for multiple gameplay states: burning,
-impact flash, frozen, and others. Rather than separate materials per state, I built
-a single custom overlay shader that handles all status effects, with each effect
-toggled by a bool passed from gameplay script via a helper component that translates
-gameplay state into shader parameters. Multiple effects can be active simultaneously.
-The system was designed so adding a new status required only a new bool and a new
-shader feature, with no changes to the spawning or state management code.
+Enemies needed visual feedback for gameplay states like burning, impact flash, and
+frozen. I built a single custom overlay shader for all of them: gameplay script sets
+a bool on the character, and a helper script turns it into a shader parameter that
+enables or disables the effect. More than one effect can be active at a time.
 
 <h2 id="other-vfx" class="project-section">Other VFX</h2>
 
-The project also included a range of gameplay VFX: fuel refill timers driven by
-gameplay script via shader parameters, enemy spawn effects, collectible pickups,
-and character celebration states.
+A library of VFX built for this project and carried into later ones as prototype
+building blocks, including a fuel refill timer driven by gameplay script through
+shader parameters, collectibles, and celebration effects.
 
 <div class="plate-pair">
 
@@ -204,10 +209,20 @@ and character celebration states.
 
 </div>
 
-<h2 id="cinematic" class="project-section">In-Game Cinematic</h2>
+<h2 id="cinematic" class="project-section">Portal Cutscene</h2>
 
-The project included an in-engine cinematic sequence animated in Unity's timeline
-sequencer, with the bunny character's movements animated in Maya and brought in.
-The sequence tied together VFX, sound, animation, camera, and gameplay state cues.
+The project's hell portal opening cutscene was inherited and built on. My additions:
+the bunny's rising and exploding animation (animated in Maya), sound effects, the
+skull mesh (shaded with vertex colors so a triplanar splatter texture could be applied
+at runtime), blood splatter VFX and decals, and the unicorn's animation trigger. I
+also built the portal opening VFX from parts of an asset used elsewhere in the
+project.
 
-[Watch the cinematic sequence on Vimeo &rarr;](https://vimeo.com/827089176)
+[Watch the cutscene on Vimeo &rarr;](https://vimeo.com/827089176)
+
+<h2 id="tools" class="project-section">Editor Tools</h2>
+
+Besides the puppet rig tool, a Scene Composer component: placed in a master scene, it
+loads additional scene and level assets automatically in the level editor. It sped up
+iteration while keeping assets separate in source control, which cut down on people
+overwriting each other's work and on misalignment errors.

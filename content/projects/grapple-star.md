@@ -3,11 +3,11 @@ title: Grapple Star
 description: "Grapple Star: technical art work by Jovian Finch Nordgren. DoF transparency fix, Level Select UI, and VFX on a Unity space action game."
 studio: Left Turn Studios
 role: Technical Artist
-dates: 2021–2023 (demo)
+dates: 2022–2023 (demo)
 engine: Unity
 order: 3
 card:
-  label: "Left Turn Studios · 2021–2023"
+  label: "Left Turn Studios · 2022–2023"
   blurb: "Space navigation game with a grapple mechanic. Environment, VFX, post-processing, ship model, procedurally generated background, level select UI."
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/gstitle-orig_orig.png
   alt: "Grapple Star title screen"
@@ -28,7 +28,7 @@ meta:
   - label: "Role"
     value: "Technical Artist"
   - label: "Dates"
-    value: "2021–2023 (demo)"
+    value: "2022–2023 (demo)"
   - label: "Engine"
     value: "Unity"
 headerTags:
@@ -57,7 +57,7 @@ sidebar:
   - title: "Project"
     lines:
       - "Left Turn Studios"
-      - "2021–2023 (demo)"
+      - "2022–2023 (demo)"
       - "Technical Artist"
 # Skills-page entries: the original labels, wording, links, and order.
 skills:
@@ -65,12 +65,12 @@ skills:
     label: "Grapple Star"
     href: "/portfolio/grapple-star/"
     rank: 2
-    detail: "Ship boost effects with reactive jet trails, collectible pickups, environmental ambience"
+    detail: "Ship thruster VFX with reactive jet trails and boost glow on the ship shader; grapple beam VFX and state machine; collectible pickups"
   - id: lighting
     label: "Grapple Star / Depth-of-Field Fix"
     href: "/portfolio/grapple-star/#dof"
     rank: 2
-    detail: "Dual-camera Cinemachine composite: background renders with full post-processing including DoF, foreground camera renders VFX layer with post-processing disabled: sharp foreground particles over blurred background, correct depth relationships preserved"
+    detail: "Two cameras composited with Cinemachine: the background renders with post-processing including DoF, the foreground renders separately, so transparent VFX stay sharp over a blurred background, correct depth relationships preserved"
   - id: procedural
     label: "Grapple Star"
     href: "/portfolio/grapple-star/#level-select-ui"
@@ -80,28 +80,31 @@ skills:
     label: "Grapple Star / Level Select Screen"
     href: "/portfolio/grapple-star/#level-select-ui"
     rank: 1
-    detail: "Full scene built from scratch: 3D objects, particle systems, procedurally animated 2D elements; scripted UI canvas with clickable planet selection; text fields and scene elements populated and toggled based on selection state. Concept art by Rowan Sherwin"
+    detail: "Full scene built from concept art: 3D objects, particle systems, procedurally animated 2D elements; scripted UI canvas with clickable planet selection; text fields and scene elements populated and toggled based on selection state. Concept art by Rowan Sherwin"
   - id: ui
     label: "Grapple Star / Dynamic Targeting Reticle"
     href: "/portfolio/grapple-star/"
     rank: 2
-    detail: "Reticle appearance driven by gameplay state (target availability) rather than sprite swapping"
+    detail: "Reticle UI that changes depending on available targets"
 ---
 
 Grapple Star is a top-down space navigation game with a grapple mechanic, built in
-Unity at Left Turn Studios and taken to a playable demo. I was the
-Technical Artist on the project alongside the Snuggles and Alien Age work. The most technically interesting problem on this project was a rendering
-issue with how Unity handles depth-of-field and transparent VFX, a fairly common
-pain point that required an unconventional solution.
+Unity at Left Turn Studios and taken to a playable demo. Players pilot a ship with
+only thruster control and a grapple beam: grappling an asteroid or a piece of debris
+lets them pivot around it and change direction through an obstacle course. The team
+was a concept artist and me, covering modeling, environment, UI, and tech art.
+
+My contributions: the ship model with a custom shader, ship thruster VFX with wings
+that glow on the ship's shader when boosting, the grapple beam VFX and state machine,
+lighting and post-processing, a procedural environment, the camera setup, the reticle
+UI, and the level select screen.
 
 <h2 id="dof" class="project-section">Depth-of-Field Transparency Fix</h2>
 
-The game's camera used depth-of-field post-processing to give the background a sense
-of depth. The problem: Unity's DoF implementation applies the blur pass to the entire
-scene before compositing transparent geometry. VFX particles, which are transparent,
-get caught in the blur even when they're in the foreground, close to the camera.
-The result was foreground VFX that looked soft and disconnected from the action,
-or disappeared into the background blur entirely.
+Transparent objects with smooth alpha aren't written to depth (with limited
+exceptions), so a depth-of-field effect blurs them as if they were far away, no matter
+where they actually are. That forces a concession: either the transparent VFX or the
+depth of field suffers.
 
 <div class="plate-pair">
 
@@ -111,45 +114,27 @@ or disappeared into the background blur entirely.
 
 </div>
 
-Disabling DoF entirely wasn't acceptable: the visual depth it produced was part
-of the game's look. Adjusting the DoF parameters to preserve transparent objects
-wasn't a viable option in Unity's post-processing stack without losing the
-background blur. The standard workarounds (render layer sorting, depth prepass
-tricks) didn't fully solve it for particle systems with varying depth.
-
-The solution was to split the rendering into two cameras using Cinemachine's
-camera blending and a custom composite output. The background camera renders the
-scene geometry with full post-processing including depth-of-field. A second
-foreground camera renders only the VFX layer with post-processing disabled,
-so the particles get no blur pass at all. The two outputs are composited at the
-end of the frame. The foreground VFX render on top, sharp, regardless of what
-the background DoF is doing.
-
-The main challenge was making sure depth relationships stayed correct across the
-two cameras: particles that should occlude background geometry still needed to
-be occluded by foreground geometry closer to the camera. This required careful
-depth texture sharing between the cameras and explicit layer mask configuration
-so each camera knew exactly what to render. Once that was right, the system was
-stable and didn't require changes as new VFX were added.
+To keep the background blur and the sharp foreground VFX, I used two cameras. One
+renders the background with post-processing; the second renders only the foreground.
+Cinemachine composites the two, using layer tags on a parent game object and only the
+plugin's native functionality.
 
 <h2 id="level-select-ui" class="project-section">Level Select UI</h2>
 
-The level select screen was built entirely from scratch, with no purchased assets or
-pre-built framework. The scene composites 3D objects, particle systems, and
-procedurally animated 2D elements. I built and assembled all the assets, scripted
-the UI canvas with clickable objects and actions, and wrote the script to populate
-text fields and enable/disable scene elements based on which planet was selected.
-Concept art by Rowan Sherwin.
+I created the assets and composed the level select screen, including its scripting.
+It combines 3D objects, particle systems, and procedurally animated 2D elements, all
+made by me from concept art by Rowan Sherwin. I set up the UI canvas with clickable
+objects and actions, and wrote the script that fills in the text fields and turns
+scene elements on and off based on which planet is selected.
 
 [Watch the Level Select UI walkthrough on Vimeo &rarr;](https://vimeo.com/827111068)
 
-The targeting reticle was also dynamic: it changed appearance based on target
-availability, driven by gameplay state rather than sprite swapping.
+The targeting reticle also changes depending on which targets are available.
 
 <h2 id="other-vfx" class="project-section">Other VFX Work</h2>
 
-The project also included a range of gameplay VFX: ship boost effects with reactive
-jet trails, collectible pickups, and environmental ambience.
+Gameplay VFX included the ship's reactive jet trails and boosters, the grapple beam,
+and collectible pickups.
 
 <div class="plate-pair">
 
