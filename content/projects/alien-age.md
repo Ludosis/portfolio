@@ -145,8 +145,6 @@ and its gameplay states, and the cloud lightning.
 Optimization covered retopology and mesh cleanup, indexed textures, and custom
 shaders and materials written to reduce texture lookups.
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/env-tiles.png", "environment tiles and decorators", "Maya · Unity", true %}
-
 <h2 id="procedural" class="project-section">Procedural Environment Tools</h2>
 
 The team had three rocks and three trees, modeled by another artist, and the world
