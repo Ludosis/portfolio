@@ -2,7 +2,7 @@
 title: Earlier Work
 description: >-
   Earlier work by Jovian Finch Nordgren: Jerry's Rig, a solo animation
-  production from DigiPen, and an environment study.
+  production from DigiPen, and the 221B Baker Street environment.
 studio: DigiPen Institute of Technology
 role: Student, BFA Digital Art and Animation
 dates: 2013–2014
@@ -11,7 +11,8 @@ card:
   blurb: >-
     Jerry's Rig, a solo 3D animation created end to end in Maya, from script to
     rendered frame. Story, character modeling, rigging, animation, and
-    environment, plus PyMEL tools that sped up the production.
+    environment, plus PyMEL tools that sped up the production, and the 221B Baker
+    Street interior with its props.
   image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/9494619_1.png
 hero:
   src: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/9494619_1.png
@@ -82,8 +83,9 @@ with this project.
 <iframe title="Jerry's Rig truck model on Sketchfab" src="https://sketchfab.com/models/ed3a2f7e7da44142b187457968e75af0/embed" width="100%" height="400" frameborder="0" allowfullscreen loading="lazy"></iframe>
 {% endfigblock %}
 
-<h2 id="baker-street" class="project-section">221B Baker Street: Environment Exploration</h2>
+<h2 id="baker-street" class="project-section">221B Baker Street: Environment and Props</h2>
 
-An environment exploration of the 221B Baker Street interior, modeled in Maya, then
-painted over in Photoshop using an ambient occlusion render as the base.
+The 221B Baker Street interior: an environment I modeled, textured, and lit in Maya,
+props included. For a later project, I used an ambient occlusion render of it as the
+base for a Photoshop paintover in a different lighting scenario.
 

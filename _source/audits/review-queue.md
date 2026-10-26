@@ -44,13 +44,12 @@ off or delete them as they're settled. Newest additions at the bottom of each se
   story), Earlier Work (221B is an environment exploration with a paintover, not prop
   modeling), Lego Fortnite (triage tool story from your account; platforms and
   scalability work added from Miro). Skills entries corrected to match.
-- [ ] **Tree Sizer/Rotator/Tinter:** in the Miro skill block, not tied to a project; the
-  site still lists it under Alien Age (Skills page, scripting). Right project?
-- [ ] **Snuggles wing Skills entry** says "with zero extra draw calls" (your restored
-  wording). In URP, per-object Material Property Blocks can break SRP batching, so
-  that claim may not hold. Keep, reword, or drop?
-- [ ] **Home Featured "Puppet Rig Retargeting" card** uses the quadruped mech gif, but
-  the text describes the player character redesign. Pick a matching image or text.
+- [x] Tree Sizer/Rotator/Tinter is Snuggles (moved; Alien Age's foliage generator is a
+  separate tool).
+- [x] "Zero extra draw calls" was generated in the April site build, not your writing;
+  dropped.
+- [x] The mech is the player character's battle form (unicorn on foot in town), so the
+  puppet rig card's mech gif fits. Snuggles page now says so.
 
 ## Decisions for you
 

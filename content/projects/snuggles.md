@@ -73,7 +73,7 @@ skills:
     label: "Snuggles the Unicorn / Wing Vertex Shader"
     href: "/portfolio/snuggles/#wing-shader"
     rank: 2
-    detail: "Replaced a heavy skeletal wing rig with a GPU vertex shader; per-instance phase randomization via Material Property Blocks so every enemy flaps independently, with zero extra draw calls"
+    detail: "Replaced a heavy skeletal wing rig with a GPU vertex shader; per-instance phase randomization via Material Property Blocks so every enemy flaps independently"
   - id: shaders
     label: "Snuggles the Unicorn / Status FX Shader"
     href: "/portfolio/snuggles/"
@@ -90,10 +90,20 @@ skills:
     rank: 1
     detail: "Full standard-renderer-to-URP conversion: every shader rebuilt from scratch, batch material conversion scripted, lighting and post-processing rebuilt, outsourced store assets cleaned up to match pipeline"
   - id: rigging
+    label: "Snuggles the Unicorn / Biped to Quadruped Mech"
+    href: "/portfolio/snuggles/#mech"
+    rank: 1
+    detail: "Kitbashed a store biped mech into the quadruped from the concept art and re-rigged it to reuse the biped's leg animation on four legs (back legs reversed for a gallop); scripted a cockpit swivel on mouse and joystick aim that stays level while the body bobs; no new modeling or animation needed"
+  - id: rigging
     label: "Snuggles the Unicorn / Puppet Rig & Retargeting"
     href: "/portfolio/snuggles/#puppet-rig"
     rank: 1
-    detail: "Puppet rig for a player character redesign: the original rig and animations drive rotation constraints on the new rig, so no animations had to be remade; editor tool rebuilds the constraints after model updates; biped-to-quadruped mech kitbash with an aim-driven swivel and a mouse and controller aim script"
+    detail: "Puppet rig for a player character redesign: the original rig and animations drive rotation constraints on the new rig, so no animations had to be remade; editor tool rebuilds the constraints after model updates"
+  - id: procedural
+    label: "Snuggles the Unicorn / Tree Sizer/Rotator/Tinter"
+    href: "/portfolio/snuggles/#tools"
+    rank: 2
+    detail: "Script that randomizes each tree's size, rotation, and position within set ranges; with a color tint randomizer, it turns a row of identical trees into a forest without hand placement"
   - id: tools
     label: "Snuggles the Unicorn / Rig Rebuild Utility"
     href: "/portfolio/snuggles/#puppet-rig"
@@ -103,7 +113,7 @@ skills:
     label: "C# / Unity"
     href: "/portfolio/snuggles/"
     rank: 1
-    detail: "Puppet rig constraint rebuild utility; controller aim script; status FX helper component; gameplay-to-shader parameter bridge; batch material conversion script for URP migration"
+    detail: "Puppet rig constraint rebuild utility; controller aim script; status FX helper component; gameplay-to-shader parameter bridge; batch material conversion script for URP migration; Tree Sizer/Rotator/Tinter for environment variety"
 ---
 
 Snuggles the Unicorn was a Unity action game at Left Turn Studios, picked up from an
@@ -156,6 +166,30 @@ One open issue remained when the project ended: the wings conflicted with the
 character outline effect that shows enemies behind obstacles, and I was working on a
 fix.
 
+<h2 id="mech" class="project-section">Biped to Quadruped Mech</h2>
+
+The player character is a unicorn: on foot in town, and riding a mech in battle. We
+inherited the project with a cheap store asset for that mech, and it was a biped. The
+design called for a quadruped instead, closer to a centaur, with four walking legs and
+a swiveling cockpit for the unicorn to sit in. Rather than get someone to model and
+animate a new mech, I built it from what we had:
+
+- **Kitbashed** the biped mech's parts into the quadruped shape to match Rowan
+  Sherwin's concept art.
+- **Re-rigged it to reuse the biped's animation on four legs:** the front legs play the
+  original leg animation, and the back legs play a copy of it in reverse, which reads
+  as a gallop.
+- **Scripted the cockpit swivel** to follow the aim direction from mouse movement or a
+  controller joystick, tied into the existing control system.
+- **Rigged each piece to be controllable in gameplay,** with the cockpit staying level
+  while the body bobs up and down. The cockpit base has no arms; weapons attach at
+  spawn based on the player's loadout.
+
+{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/mech-demo-clip_orig.gif", "quadruped mech galloping on the biped's reused animation, cockpit tracking aim", "Unity", true %}
+
+It took an ill-fitting store asset to a customized, working feature, with no new
+modeling or animation from anyone else.
+
 <h2 id="puppet-rig" class="project-section">Puppet Rig Retargeting System</h2>
 
 One of the project's major challenges was updating the player character to new
@@ -174,19 +208,6 @@ The constraints had to be broken and reconnected several times as the model was
 updated, so I wrote an editor tool that walks the skeletal hierarchy and makes the
 connections automatically: faster, and without the user error of hundreds of manual
 clicks.
-
-<h2 id="mech" class="project-section">Quadruped Mech</h2>
-
-A quadruped mech prototype built from a biped mech's model and animations. I
-kitbashed the biped's parts into the quad shape and built a skeletal rig that is
-driven in Unity by constraints from the original biped, mapping its walk to the
-front and back legs for a gallop. The upper body is a swivel that turns with the aim
-direction and lets the body bob without moving the cockpit, using a particular
-skeletal hierarchy combined with Unity's hierarchy and constraints. I also wrote the
-cockpit aim scripts for both mouse and controller, linked into the existing control
-system. Weapons attach at spawn based on the player's loadout.
-
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/mech-demo-clip_orig.gif", "quadruped mech galloping with retargeted biped animation", "Unity", true %}
 
 <h2 id="status-fx" class="project-section">Character Status FX Shader</h2>
 
@@ -220,9 +241,13 @@ project.
 
 [Watch the cutscene on Vimeo &rarr;](https://vimeo.com/827089176)
 
-<h2 id="tools" class="project-section">Editor Tools</h2>
+<h2 id="tools" class="project-section">Tools</h2>
 
-Besides the puppet rig tool, a Scene Composer component: placed in a master scene, it
+A Tree Sizer/Rotator/Tinter script randomizes each tree's size, rotation, and position
+within set ranges. Together with a color tint randomizer, it turns a row of identical
+trees into a forest without a lot of hand placement.
+
+Besides that and the puppet rig tool, a Scene Composer component: placed in a master scene, it
 loads additional scene and level assets automatically in the level editor. It sped up
 iteration while keeping assets separate in source control, which cut down on people
 overwriting each other's work and on misalignment errors.
