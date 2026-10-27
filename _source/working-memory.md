@@ -62,6 +62,23 @@ The user wants to rearchitect and re-skin the site. Decisions settled so far:
 - Blend: https://claude.ai/code/artifact/8f667653-a7ab-4fc5-9eee-c3ffba222123
 - Archived in repo: `_source/design-archive/` (self-contained HTML, open in browser)
 
+### 2026-10-27: state for the next session (after #15 to #23)
+
+- Merged since the 10-16 entry: #15 to #18 resume rework (artist-first framing, Riot
+  section, page 1 and page 2 passes); #19 site pass (Teamfight Tactics page, accuracy
+  fixes, placeholders removed, Riot in identity text, llms.txt points to Show buttons,
+  one-click print button, new link-preview image); #20 to #22 Snuggles mech featured,
+  home Featured = TFT guided fixers, Snuggles mech, Alien Age procedural variety,
+  Destiny 2 sea monster; #23 Horde named in the triage tool write-ups.
+- Project pages were rebuilt from the user's own Weebly write-ups and Miro notes; the
+  earlier generated copy had invented technical detail. Treat Weebly as ground truth
+  (see CLAUDE.md, Source files).
+- Everything parked for the user is in `_source/audits/review-queue.md`. Next agreed
+  focus: images, one section at a time, starting with the Left Turn pages (download
+  the Weebly originals, stop hotlinking, replace unpolished ones like the wing demo).
+- Resume print: 10.76in / 10.68in on the checker; the user's Mac and Android wrap text
+  wider, so keep near-full bullets short (see the review queue on calibration).
+
 ### 2026-10-16 (end of session): state for the next session
 
 - Print fix merged as #13 (41002bc); Jovi confirmed the print resume works ("works
