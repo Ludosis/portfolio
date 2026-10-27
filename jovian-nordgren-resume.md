@@ -36,7 +36,7 @@ Embedded across multiple Tech Art and content teams on Lego Fortnite, owning pip
 - Diagnosed multiple rare Switch-only rendering bugs by isolating platform-specific interactions between materials and animation.
 - Recognized a pattern in escaped defects tracing back to untested FX across platforms and scalability settings; developed test cases and distributed them as team-specific guides so each content team could fold FX validation into their own workflows.
 - Built Unreal Editor Utility Widget tools for animation range validation and asset audits; extended a C++ submit validator to enforce LOD and triangle limits at check-in.
-- Created an automation triage tool with Claude Code in one day, putting over a dozen report pages into one trend-tracking view; daily triage went from hours to minutes.
+- Created a Horde test triage tool with Claude Code in one day, putting over a dozen report pages into one trend-tracking view; daily triage went from hours to minutes.
 
 <!-- print: page 2 starts here -->
 

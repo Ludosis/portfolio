@@ -1,6 +1,6 @@
 ---
 title: Lego Fortnite
-description: "Lego Fortnite: technical art QA work by Jovian Finch Nordgren at Epic Games. FX coverage framework and automation triage tool built with Claude Code."
+description: "Lego Fortnite: technical art QA work by Jovian Finch Nordgren at Epic Games. FX coverage framework and a Horde automation triage tool built with Claude Code."
 studio: Epic Games
 role: Senior QA Engineer (Tech Art)
 dates: July 2023 – March 2026
@@ -71,7 +71,7 @@ skills:
     label: "Lego Fortnite / Automation Triage Tool"
     href: "/portfolio/lego-fortnite/#triage-tool"
     rank: 1
-    detail: "Built with Claude Code in one day: one HTML report that put about a dozen build report pages into a single view, with cross-platform comparison, trend tracking, and Jira-linked failure notes; daily triage went from hours to minutes"
+    detail: "Built with Claude Code in one day: pulls Horde automated test results through the Horde MCP and collates them over days into one HTML report that put about a dozen report pages into a single view, with cross-platform comparison, trend tracking, and Jira-linked failure notes; daily triage went from hours to minutes"
   - id: qa
     label: "Lego Fortnite / FX Coverage Framework"
     href: "/portfolio/lego-fortnite/#fx-framework"
@@ -132,15 +132,16 @@ what the scalability system is actually doing to their particle system.
 
 <h2 id="triage-tool" class="project-section">Automation Triage Tool</h2>
 
-I was handed the daily triage of automation test results. When tests failed, I had
+I was handed the daily triage of automated test results from Horde, Unreal's build
+and test system. When tests failed, I had
 to work out whether the game had a problem or the test itself had broken. That meant
-hours a day of going back and forth between build report pages and holding the
+hours a day of going back and forth between Horde report pages and holding the
 previous days' status in my head.
 
 So I built a tool with Claude Code, in one day, that tracks the trends and shows at a
 glance the key information that had been spread across about a dozen pages:
-cross-platform comparison, trends over time, and Jira-linked failure notes, pulled
-together from the build system's APIs and MCP connections into one HTML report. Daily
+cross-platform comparison, trends over time, and Jira-linked failure notes. It pulls
+the results through the Horde MCP and collates them day over day into one HTML report. Daily
 triage went from an hour or two to about five minutes, because most of it now happened
 passively.
 
