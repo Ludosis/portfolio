@@ -49,17 +49,17 @@ featured:
 
     <figure class="plate plate--demo">
       <div class="plate-media plate-media--canvas">
-        <canvas id="hero-wave" width="960" height="150" aria-label="Animated sine wave showing the wing-flap vertex displacement from the Snuggles wing shader"></canvas>
-        <div class="hud mono" aria-hidden="true">
-          <span class="hud-tl">wing_flap.vert</span>
-          <span class="hud-tr">&#9679; live</span>
-          <span class="hud-bl">verts 556 &middot; draws 5</span>
-          <span class="hud-br">phase: per-instance</span>
+        <canvas id="hero-foliage" width="960" height="190" aria-label="Animated sketch of the Alien Age foliage generator: hex tiles fill with one of eight tree and rock layouts, each rotated, while gameplay tiles stay clear"></canvas>
+        <div class="hud mono">
+          <span class="hud-tl" aria-hidden="true">foliage_generator &middot; editor</span>
+          <span class="hud-tr"><button type="button" id="hero-regenerate" class="hud-btn mono">regenerate</button></span>
+          <span class="hud-bl" aria-hidden="true"><span data-hud="seed">seed 4a1e</span> &middot; tilesets 8 &middot; assets 6</span>
+          <span class="hud-br" aria-hidden="true" data-hud="skipped">gameplay tiles skipped</span>
         </div>
       </div>
       <figcaption class="plate-caption">
-        <span><b>FIG. 00</b>: wing flap, sine displacement &middot; amplitude 24 &middot; phase per-instance</span>
-        <span>vertex shader, GPU-driven &middot; zero bone cost</span>
+        <span><b>FIG. 00</b>: procedural foliage &middot; eight tileset layouts, picked and rotated per tile</span>
+        <span>a live sketch of the Alien Age generator</span>
       </figcaption>
     </figure>
   </div>
