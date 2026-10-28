@@ -13,9 +13,9 @@ card:
     rendered frame. Story, character modeling, rigging, animation, and
     environment, plus PyMEL tools that sped up the production, and the 221B Baker
     Street interior with its props.
-  image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/9494619_1.png
+  image: /assets/img/earlier-work/9494619_1.png
 hero:
-  src: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/9494619_1.png
+  src: /assets/img/earlier-work/9494619_1.png
   alt: Frame from Jerry's Rig showing the character and truck in the environment
   caption: Jerry's Rig, rendered frame
   meta: Maya · Mental Ray
@@ -67,13 +67,13 @@ with this project.
 
 <div class="plate-pair">
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/_3020849_orig.png", "Jerry's Rig, production still", "Maya · Mental Ray", true %}
+{% fig "/assets/img/earlier-work/_3020849_orig.png", "Jerry's Rig, production still", "Maya · Mental Ray", true %}
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/7114176_1.jpg", "Jerry's Rig, model detail", "Maya", true %}
+{% fig "/assets/img/earlier-work/7114176_1.jpg", "Jerry's Rig, model detail", "Maya", true %}
 
 </div>
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/7404685_1_orig.jpg", "Jerry's Rig, character detail", "Maya · 3D-Coat", true %}
+{% fig "/assets/img/earlier-work/7404685_1_orig.jpg", "Jerry's Rig, character detail", "Maya · 3D-Coat", true %}
 
 {% figblock "character model, interactive 3D", "Sketchfab" %}
 <iframe title="Jerry's Rig character model on Sketchfab" src="https://sketchfab.com/models/f620b2cfdb4544419d6de92ebf1cfe88/embed" width="100%" height="400" frameborder="0" allowfullscreen loading="lazy"></iframe>

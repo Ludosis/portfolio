@@ -9,7 +9,7 @@ order: 1
 card:
   label: "Left Turn Studios · 2021"
   blurb: "Visual overhaul of an indie game ahead of its Steam release. Shaders, VFX, materials, asset optimization, and lighting support, plus a procedural foliage placement tool."
-  image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/ss-fa8a63c8499d48e67ed6ffbde6064ffe99b5cd2c_orig.jpg
+  image: /assets/img/alien-age/ss-fa8a63c8499d48e67ed6ffbde6064ffe99b5cd2c_orig.jpg
   alt: "Alien Age screenshot showing the game's environment with custom lighting and VFX"
   tags:
     - "Shader Graph"
@@ -17,7 +17,7 @@ card:
     - "Lighting"
     - "Asset Optimization"
 hero:
-  src: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/ss-fa8a63c8499d48e67ed6ffbde6064ffe99b5cd2c_orig.jpg
+  src: /assets/img/alien-age/ss-fa8a63c8499d48e67ed6ffbde6064ffe99b5cd2c_orig.jpg
   alt: Alien Age screenshot showing the game environment with custom shaders, lighting, and VFX
   caption: in-game environment with custom shaders, lighting, and VFX
   meta: Unity · Steam release
@@ -113,19 +113,19 @@ animation implementation, asset optimization, and procedural environment variety
 The game's look leaned on a few custom shaders built in Unity Shader Graph. A
 stylized water shader covers the ocean around the terrain islands.
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/watersurface.png", "stylized water shader", "Shader Graph", true %}
+{% fig "/assets/img/alien-age/watersurface.png", "stylized water shader", "Shader Graph", true %}
 
 A horizon fog shader obscures the edge of the water without hiding the skybox. It's
 applied to a large sphere with inverted normals, and I liked the result better than
 Unity's built-in fog.
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/fog-volume-shader-sm_orig.gif", "horizon fog shader", "Shader Graph", true %}
+{% fig "/assets/img/alien-age/fog-volume-shader-sm_orig.mp4", "horizon fog shader", "Shader Graph", true %}
 
 A color-variation shader tints the ground tiles randomly, seeded by each tile's world
 position, with properties for the blend color, strength, and contrast. Every tile
 that shares the material still gets its own tint, with no extra material instances.
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/tiles-color_orig.png", "world-position-seeded tile color variation", "Shader Graph", true %}
+{% fig "/assets/img/alien-age/tiles-color_orig.png", "world-position-seeded tile color variation", "Shader Graph", true %}
 
 <h2 id="vfx" class="project-section">VFX</h2>
 
@@ -134,9 +134,9 @@ and its gameplay states, and the cloud lightning.
 
 <div class="plate-pair">
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/beam-drop-fulllength.gif", "tractor beam, drop state", "Unity Particle System", true %}
+{% fig "/assets/img/alien-age/beam-drop-fulllength.mp4", "tractor beam, drop state", "Unity Particle System", true %}
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/clouds-lightning.gif", "cloud lightning", "Unity Particle System", true %}
+{% fig "/assets/img/alien-age/clouds-lightning.mp4", "cloud lightning", "Unity Particle System", true %}
 
 </div>
 

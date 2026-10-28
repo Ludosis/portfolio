@@ -325,7 +325,7 @@ body.nav-open .site-nav {
   background: var(--paper-card);
 }
 
-.plate-media img { width: 100%; }
+.plate-media img, .plate-media video { width: 100%; display: block; }
 
 .plate-media--pending {
   min-height: 150px;
@@ -432,7 +432,7 @@ p + .plate, h2 + .plate { margin-top: var(--space-lg); }
   align-items: center;
   justify-content: center;
 }
-.card-shot img { width: 100%; height: 100%; object-fit: cover; }
+.card-shot img, .card-shot video { width: 100%; height: 100%; object-fit: cover; }
 .card-shot-pending {
   font-size: var(--text-xs);
   letter-spacing: 0.1em;

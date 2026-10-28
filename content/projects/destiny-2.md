@@ -8,7 +8,7 @@ order: 5
 card:
   label: "Bungie · 2017, 2018"
   blurb: "Ambient life characters that shipped in Destiny 2: the owls in the Farm and the sea monster on Titan. Maya modeling, rigging, and animation, plus VFX."
-  image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/published/destiny-2_1.jpg?1574273847
+  image: /assets/img/destiny-2/destiny-2_1.jpg
   alt: "Destiny 2 screenshot featuring the Farm social space environment"
   tags:
     - "Maya"
@@ -16,7 +16,7 @@ card:
     - "Character Animation"
     - "VFX"
 hero:
-  src: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/published/destiny-2_1.jpg?1574273847
+  src: /assets/img/destiny-2/destiny-2_1.jpg
   alt: Destiny 2 environment screenshot showing the Farm social space
   caption: the Farm social space
   meta: Destiny 2 · shipped
@@ -97,9 +97,9 @@ space and the sea monster on Titan.
 
 <div class="plate-pair">
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/owl-01_1_orig.jpg", "Farm owls, shipped in Destiny 2", "Maya" %}
+{% fig "/assets/img/destiny-2/owl-01_1_orig.jpg", "Farm owls, shipped in Destiny 2", "Maya" %}
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/sea_monster_rings.png", "sea monster on Titan, shipped in Destiny 2", "Maya" %}
+{% fig "/assets/img/destiny-2/sea_monster_rings.png", "sea monster on Titan, shipped in Destiny 2", "Maya" %}
 
 </div>
 
@@ -119,7 +119,7 @@ and rises as if swimming, with three of them rising at separate intervals for a
 serpentine look. The timing has to line up with the waves falling before it shows, so
 it surfaces rarely, by design. Fans have filmed it, and it got its own lore video.
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/seamonster-03_1_orig.jpg", "sea monster in the Titan environment", "Destiny 2" %}
+{% fig "/assets/img/destiny-2/seamonster-03_1_orig.jpg", "sea monster in the Titan environment", "Destiny 2" %}
 
 <h2 id="prototypes" class="project-section">NPC and Prototype Work</h2>
 
@@ -140,7 +140,7 @@ the demo's encounter script to respawn it, and playtested it: players read it
 intuitively, started shooting without prompting, and backed off when the bees started
 hurting them. It didn't ship with Forsaken.
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/beehive-01_orig.jpg", "interactive bee hive prototype (did not ship)", "Bungie tools" %}
+{% fig "/assets/img/destiny-2/beehive-01_orig.jpg", "interactive bee hive prototype (did not ship)", "Bungie tools" %}
 
 <h2 id="qa-engineering" class="project-section">Test Engineering Work</h2>
 

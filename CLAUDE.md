@@ -95,6 +95,14 @@ Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
 - Figures in body: `{% fig "src", "caption", "meta", true %}` (the `true` draft flag no
   longer renders a label: placeholder wording was removed site-wide in Oct 2026),
   auto-numbered FIG. 01+ per page; the hero from front matter is always FIG. 00.
+  **Media is self-hosted (Oct 2026):** files live in `assets/img/<project-slug>/`, never
+  hotlinked. Animated clips are muted looping H.264 `.mp4` (the old Weebly GIFs,
+  converted: about 1/20 the size); any `.mp4` src in a figure, hero, or card renders as
+  `<video autoplay muted loop playsinline>` via `mediaTag` in `pipeline/figures.js` (the
+  `media` filter in templates). Convert new GIFs the same way rather than committing
+  them. Playwright's bundled Chromium can't play H.264, so check video in a real browser.
+  Diagrams drawn in HTML (e.g. `pipeline/tft-fixers-diagram.html`) and the link-preview
+  card render to PNG with `node pipeline/render-images.mjs`.
   `{% figblock %}...{% endfigblock %}` for embed plates. **No placeholder plates or
   "pending"/"tbd" text on the live site** (it reads as unfinished): add a plate only
   when the asset exists. Cards without an image show the project title.
@@ -154,7 +162,7 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
 
 1. **User to supply:** Jerry's Rig final animation video URL; 221B Baker Street image;
    verify Earlier Work figure captions (they're educated guesses from filenames);
-   final replacements for Weebly-hosted draft images; Lego Fortnite captures
+   better replacements for the images copied from Weebly; Lego Fortnite captures
    (pending Epic clearance).
 2. **Blend design variant** (blueprint media wells), archived in
    `_source/design-archive/`; can return as per-media front-matter flag if wanted.

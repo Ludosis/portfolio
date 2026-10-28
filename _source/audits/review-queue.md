@@ -10,7 +10,7 @@ off or delete them as they're settled. Newest additions at the bottom of each se
   - Page order: first in the portfolio.
   - Skills page: Riot entries sit at the top of Tools, QA, Rigging & Animation, and
     Scripting (rank 1; existing ranks untouched, Riot wins ties).
-  - On the home page as the "AI-Guided Fixers" Featured card (no image yet).
+  - On the home page as the "AI-Guided Fixers" Featured card, with the diagram.
   - The "Working in Devin" paragraph mentions sharing findings with Cognition; earlier
     review notes flagged it as the most internal-sounding part.
   - New terms worked in: "auto fixers" (intro), "orchestration layer" (Devin section),
@@ -72,7 +72,7 @@ off or delete them as they're settled. Newest additions at the bottom of each se
   rewrite. Decide the nav label, and where "Working with people" and "Working with
   technology" go (About, trimmed, or kept).
 - [x] **Home page Featured:** now 4 cards you chose (TFT guided fixers, Snuggles mech,
-  Alien Age procedural variety, Destiny 2 sea monster). Only TFT lacks an image.
+  Alien Age procedural variety, Destiny 2 sea monster). All have images now.
 - [ ] **Open items from the October audit:** `_source/audits/version-audit-2026-10-06.md`
   and its copy comparison (bring back any rebuild wording you prefer).
 
@@ -88,9 +88,12 @@ off or delete them as they're settled. Newest additions at the bottom of each se
   pass. Still unchecked against a source of yours: the About page, How I Work, and the
   machine-facing copy (llms.txt, `site.yaml` summary, structured-data skills list).
   Claude lists suspect claims with sources; you rule.
-- [ ] **Images:** download the originals from Weebly so the site stops hotlinking them
-  (about 40 links across 7 files, including a home Featured card; if Weebly goes down,
-  they all break). Replace unpolished ones (the wing demo flaps backwards).
+- [x] **Images moved off Weebly (Oct 2026):** all 31 are now in `assets/img/<project>/`.
+  The 9 GIFs became looping MP4 video (66 MB down to 11 MB total, same look). **Please
+  check the clips play on your Mac and phone before merging** (Claude's test browser
+  can't play this video format).
+- [ ] **Replace unpolished images** (the wing demo flaps backwards). Send better ones
+  whenever; GIFs are fine, Claude converts them.
 - [ ] **Earlier Work:** verify the figure captions (educated guesses from file names);
   Jerry's Rig video link; 221B Baker Street image.
 - [ ] **Print check calibration:** your Mac and Android wrap text wider than the
@@ -104,9 +107,9 @@ off or delete them as they're settled. Newest additions at the bottom of each se
 
 ## Ideas (Claude's, Oct 2026; none started, take or leave)
 
-- [ ] **TFT card image without clearance:** a diagram instead of a screenshot. For
-  example the guided-fixer split (scripts gather, the agent judges against written
-  criteria, a person decides on the review board). Drawn from scratch, no game assets.
+- [x] **TFT card image without clearance:** done. A guided-fixer diagram (scripts
+  gather, the agent judges, a person decides) on the home and portfolio cards and as
+  FIG. 01 in the page's AI-Guided Fixers section. Source: `pipeline/tft-fixers-diagram.html`.
 - [ ] **Hero replacement, together with its labels:** the hero readouts ("amplitude 24",
   "zero bone cost"), the "Portfolio · est. 2014 · rev 3.0" kicker, and the 404 page's
   "amplitude dropped to zero" joke all belong to the wing-flap hero. They're invented

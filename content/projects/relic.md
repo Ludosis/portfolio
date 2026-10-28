@@ -9,7 +9,7 @@ order: 6
 card:
   label: "Synaptic Sugar / DigiPen · 2014–2015"
   blurb: "Visual tech for a student 3D action adventure on a proprietary engine. FX, lighting, materials, and rendering and asset pipelines, with atmospherics simulated in custom shaders."
-  image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/7734644_1.png
+  image: /assets/img/relic/7734644_1.png
   alt: "Relic game screenshot showing environment art and lighting"
   tags:
     - "Shader Authoring"
@@ -17,7 +17,7 @@ card:
     - "VFX"
     - "Technical Direction"
 hero:
-  src: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/7734644_1.png
+  src: /assets/img/relic/7734644_1.png
   alt: Relic game screenshot showing environment art, lighting, and visual systems
   caption: environment art, lighting, and custom visual systems
   meta: Zero Engine
@@ -98,13 +98,13 @@ atmospherics with custom shaders.
 
 <div class="plate-pair">
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/6351350_1_orig.png", "in-game lighting, shaders, and VFX", "DigiPen engine", true %}
+{% fig "/assets/img/relic/6351350_1_orig.png", "in-game lighting, shaders, and VFX", "DigiPen engine", true %}
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/8438926_1_orig.png", "in-game lighting, shaders, and VFX", "DigiPen engine", true %}
+{% fig "/assets/img/relic/8438926_1_orig.png", "in-game lighting, shaders, and VFX", "DigiPen engine", true %}
 
 </div>
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/3005894_1_orig.jpg", "character and environment detail", "DigiPen engine", true %}
+{% fig "/assets/img/relic/3005894_1_orig.jpg", "character and environment detail", "DigiPen engine", true %}
 
 <h2 id="engine-collaboration" class="project-section">Working with the Engine</h2>
 

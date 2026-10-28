@@ -9,14 +9,14 @@ order: 3
 card:
   label: "Left Turn Studios · 2022–2023"
   blurb: "Space navigation game with a grapple mechanic. Environment, VFX, post-processing, ship model, procedurally generated background, level select UI."
-  image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/gstitle-orig_orig.png
+  image: /assets/img/grapple-star/gstitle-orig_orig.png
   alt: "Grapple Star title screen"
   tags:
     - "Post-Processing"
     - "VFX"
     - "Unity"
 hero:
-  src: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/dof-after_orig.png
+  src: /assets/img/grapple-star/dof-after_orig.png
   alt: Grapple Star after the fix, with sharp foreground VFX composited over a depth-of-field blurred background
   caption: after the fix, sharp foreground VFX over DoF-blurred background
   meta: Unity · Cinemachine
@@ -108,9 +108,9 @@ depth of field suffers.
 
 <div class="plate-pair">
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/dof-before_orig.png", "before, with foreground VFX caught in DoF blur", "Unity Post-Processing", true %}
+{% fig "/assets/img/grapple-star/dof-before_orig.png", "before, with foreground VFX caught in DoF blur", "Unity Post-Processing", true %}
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/dof-after_orig.png", "after, with VFX rendered sharp and the background blurred", "dual-camera composite", true %}
+{% fig "/assets/img/grapple-star/dof-after_orig.png", "after, with VFX rendered sharp and the background blurred", "dual-camera composite", true %}
 
 </div>
 
@@ -138,8 +138,8 @@ and collectible pickups.
 
 <div class="plate-pair">
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/ship-boost_orig.gif", "ship boost VFX", "Unity Particle System", true %}
+{% fig "/assets/img/grapple-star/ship-boost_orig.mp4", "ship boost VFX", "Unity Particle System", true %}
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/collect-web3_orig.gif", "collectible pickup VFX trail", "Unity Particle System", true %}
+{% fig "/assets/img/grapple-star/collect-web3_orig.mp4", "collectible pickup VFX trail", "Unity Particle System", true %}
 
 </div>
