@@ -7,6 +7,8 @@ dates: May 2026 – Present
 engine: Unreal Engine 5
 order: 0
 card:
+  image: /assets/img/tft-guided-fixers.png
+  alt: "Diagram of the guided fixer work split: scripts gather, the agent judges, a person decides"
   label: "Riot Games · 2026–"
   blurb: "Tech art for Teamfight Tactics' move to Unreal Engine 5, fixing conversion bugs at scale. Pipeline tools, auto fixers, animation systems, and bug pattern analysis, plus an agentic AI framework for artists and Tech Artists."
   tags:
@@ -162,6 +164,8 @@ artist would. The work is split three ways:
   data, and write down everything they find.
 - **The agent judges,** against the written criteria file I maintain.
 - **A person decides anything that needs taste,** using a review board.
+
+{% fig "/assets/img/tft-guided-fixers.png", "how a guided fixer splits the work", "Python · agent skills · HTML review board" %}
 
 Both fixers below make the clear-cut changes automatically. Everything else goes onto
 the review board, an interactive HTML page rather than a wall of text to slog
