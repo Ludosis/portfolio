@@ -218,8 +218,8 @@
         ctx.stroke();
         ctx.setLineDash([]);
       } else {
-        ctx.lineWidth = t.height ? 1.4 : 1;
-        ctx.strokeStyle = t.height ? "rgba(33, 30, 24, 0.55)" : "rgba(33, 30, 24, 0.22)";
+        ctx.lineWidth = t.height ? 1.15 : 1;
+        ctx.strokeStyle = t.height ? "rgba(52, 62, 50, 0.34)" : "rgba(33, 30, 24, 0.22)";
         ctx.stroke();
         if (t.i < placed) foliage(t);
       }
