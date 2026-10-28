@@ -82,7 +82,8 @@ off or delete them as they're settled. Newest additions at the bottom of each se
   green ground tint seeded by world position; some tiles raised, as in the game, and
   some below the waterline (shore shallows and ponds, never decorated);
   gameplay tiles stay clear (red dashed); regenerates every few seconds or on the
-  button. The 404 page now uses the same tile drawing. Your call on whether it lands.
+  button. The 404 page now uses the same tile drawing. Live since #25 (you liked it).
+  Each load starts on a random map; "new map" rerolls it (a toy, not part of the tool).
 
 ## Needs your files or knowledge
 

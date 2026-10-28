@@ -406,7 +406,7 @@ p + .plate, h2 + .plate { margin-top: var(--space-lg); }
   padding: 1px 6px;
 }
 .hud-btn:hover, .hud-btn:focus-visible { background: var(--paper-card); color: var(--ink); }
-@media (max-width: 559px) { .hud-br { display: none; } }
+@media (max-width: 559px) { .hud-br, .hud-tl { display: none; } }
 
 /* --- card: paper panel with red-pencil crop marks --- */
 .card {

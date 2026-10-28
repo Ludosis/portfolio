@@ -6,6 +6,8 @@
 // some tiles sit higher and some sink below the waterline (shore shallows and
 // the odd pond), as in the game. Gameplay tiles keep their foliage off. The
 // foliage clears and regenerates with a new seed on a timer or on click.
+// Each page load starts on a random map; "new map" rerolls the level the same way.
+// That part is a toy beyond the real tool, which only placed foliage.
 // Reduced motion: draws the finished layout at once and never auto-regenerates.
 (function () {
   var canvas = document.getElementById("hero-foliage");
@@ -18,7 +20,10 @@
   var TREE = "#B08A1E", TREE_FILL = "rgba(214, 178, 62, 0.45)";
   var ROCK = "#E6DCE4", ROCK_LINE = "#5E5560";
   var SQ3 = Math.sqrt(3);
-  var WORLD_SEED = 7; // island shape and gameplay tiles: the level, not the generator
+  // The level, not the generator: island shape, heights, ponds, gameplay tiles,
+  // ground tint. Rolled on load and by "new map".
+  var worldSeed;
+  var ISLAND; // phases of the island mask
   var STEP_MS = 14;   // per tile while generating
   var HOLD_MS = 7000; // finished layout stays up this long before regenerating
 
@@ -98,17 +103,17 @@
         var x = c * SQ3 * size + (r & 1 ? SQ3 * size / 2 : 0);
         var y = r * 1.5 * size + size * 0.25;
         // Island mask from a few world-space sines.
-        var land = Math.sin(c * 0.33 + 1.3) + Math.sin(r * 0.9 + c * 0.12 + 0.4) +
-                   0.8 * Math.sin((c - r) * 0.21 + 2.1);
+        var land = Math.sin(c * 0.33 + ISLAND[0]) + Math.sin(r * 0.9 + c * 0.12 + ISLAND[1]) +
+                   0.8 * Math.sin((c - r) * 0.21 + ISLAND[2]);
         if (land < -1.0) continue; // open water
         // Shore tiles just below the waterline, plus the odd pond inland.
-        var under = land < -0.55 || rand(WORLD_SEED + 4, c, r) < 0.035;
-        var gameplay = !under && rand(WORLD_SEED, c, r) < 0.07;
+        var under = land < -0.55 || rand(worldSeed + 4, c, r) < 0.035;
+        var gameplay = !under && rand(worldSeed, c, r) < 0.07;
         if (gameplay) skipped++;
-        var hr = rand(WORLD_SEED + 2, c, r);
+        var hr = rand(worldSeed + 2, c, r);
         tiles.push({
           i: tiles.length, c: c, r: r, x: x, y: y, gameplay: gameplay,
-          tint: rand(WORLD_SEED + 1, c, r), hue: rand(WORLD_SEED + 3, c, r),
+          tint: rand(worldSeed + 1, c, r), hue: rand(worldSeed + 3, c, r),
           height: under ? -1 : hr < 0.62 ? 0 : hr < 0.9 ? 1 : 2,
         });
       }
@@ -253,11 +258,20 @@
 
   function nextSeed() { return Math.floor(Math.random() * 0xffff); }
 
-  layout();
-  generate(0x4a1e);
+  function newMap() {
+    worldSeed = nextSeed();
+    ISLAND = [0, 1, 2].map(function () { return Math.random() * Math.PI * 2; });
+    layout();
+    generate(nextSeed());
+  }
+
+  newMap();
 
   var button = document.getElementById("hero-regenerate");
   if (button) button.addEventListener("click", function () { generate(nextSeed()); });
+
+  var mapButton = document.getElementById("hero-new-map");
+  if (mapButton) mapButton.addEventListener("click", newMap);
 
   var lastWidth = canvas.clientWidth;
   window.addEventListener("resize", function () {
