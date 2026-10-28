@@ -380,7 +380,7 @@ p + .plate, h2 + .plate { margin-top: var(--space-lg); }
 .plate-media--canvas canvas {
   display: block;
   width: 100%;
-  height: 150px;
+  height: 170px;
 }
 .hud {
   position: absolute;
@@ -390,11 +390,23 @@ p + .plate, h2 + .plate { margin-top: var(--space-lg); }
   letter-spacing: 0.1em;
   color: var(--ink-muted);
 }
-.hud span { position: absolute; }
+.hud > span { position: absolute; }
 .hud-tl { top: 8px; left: 10px; }
 .hud-tr { top: 8px; right: 10px; color: var(--red-pencil); }
 .hud-bl { bottom: 8px; left: 10px; }
 .hud-br { bottom: 8px; right: 10px; }
+.hud > span { background: var(--paper); padding: 0 4px; }
+.hud-btn {
+  pointer-events: auto;
+  cursor: pointer;
+  font-size: inherit;
+  letter-spacing: inherit;
+  color: var(--red-pencil);
+  border: 1px dashed var(--red-pencil);
+  padding: 1px 6px;
+}
+.hud-btn:hover, .hud-btn:focus-visible { background: var(--paper-card); color: var(--ink); }
+@media (max-width: 559px) { .hud-br { display: none; } }
 
 /* --- card: paper panel with red-pencil crop marks --- */
 .card {
@@ -921,7 +933,7 @@ p + .plate, h2 + .plate { margin-top: var(--space-lg); }
 @media (min-width: 768px) {
   .site-nav { display: flex; }
   .nav-toggle { display: none; }
-  .plate-media--canvas canvas { height: 160px; }
+  .plate-media--canvas canvas { height: 200px; }
 }
 
 @media (min-width: 900px) {

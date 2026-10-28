@@ -76,8 +76,11 @@ off or delete them as they're settled. Newest additions at the bottom of each se
 - [ ] **Open items from the October audit:** `_source/audits/version-audit-2026-10-06.md`
   and its copy comparison (bring back any rebuild wording you prefer).
 
-- [ ] **Home hero animation:** the `wing_flap.vert` sine-wave plate was a design flourish;
-  it doesn't show real work. Consider replacing it with something that does.
+- [ ] **Home hero, new (on the branch, Oct 2026):** a live sketch of the Alien Age foliage
+  generator replaces the wing-flap wave (`assets/js/hero-foliage.js`). Hex tiles get one
+  of eight tree-and-rock layouts, rotated; ground tint seeded by world position;
+  gameplay tiles stay clear (red dashed); regenerates every few seconds or on the
+  button. The 404 page now uses the same tile drawing. Your call on whether it lands.
 
 ## Needs your files or knowledge
 
@@ -110,10 +113,9 @@ off or delete them as they're settled. Newest additions at the bottom of each se
 - [x] **TFT card image without clearance:** done. A guided-fixer diagram (scripts
   gather, the agent judges, a person decides) on the home and portfolio cards and as
   FIG. 01 in the page's AI-Guided Fixers section. Source: `pipeline/tft-fixers-diagram.html`.
-- [ ] **Hero replacement, together with its labels:** the hero readouts ("amplitude 24",
-  "zero bone cost"), the "Portfolio · est. 2014 · rev 3.0" kicker, and the 404 page's
-  "amplitude dropped to zero" joke all belong to the wing-flap hero. They're invented
-  copy (listed in the October audit), so they should change when the hero does.
+- [ ] **Hero labels:** the wave readouts and the 404 joke changed with the hero. Still
+  open: the "Portfolio · est. 2014 · rev 3.0" kicker (invented copy, also on the
+  link-preview image along with a wave drawing). Keep, reword, or drop.
 - [ ] **Broken-link check in the build or a scheduled workflow:** external links
   (Steam, YouTube, Weebly images until they're moved) can die silently. Report only,
   never block the deploy, like the print check.
