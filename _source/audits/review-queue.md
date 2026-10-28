@@ -3,7 +3,7 @@
 Everything Claude parked for Jovi to review at a computer, in one place. Check items
 off or delete them as they're settled. Newest additions at the bottom of each section.
 
-## On the working branch now (not merged)
+## Merged, awaiting your review
 
 - [ ] **Teamfight Tactics page** (`/portfolio/teamfight-tactics/`): first full build.
   Placeholder calls to confirm:
@@ -60,10 +60,10 @@ off or delete them as they're settled. Newest additions at the bottom of each se
 - [x] Destiny 2: reframed as hackathon projects (two one-week hackathons, 2017 and 2018,
   both shipped). Site Role "Hackathon projects", dates "2017, 2018" (not a range);
   resume subheading "Hackathon Projects: Destiny 2 Ambient Life (2017, 2018)".
-- [ ] **Alien Age lighting:** Jovi helped with lighting but didn't create it. Still
-  claimed in the Skills entry ("Full lighting and post-processing setup; all
-  environment materials and lighting authored from scratch") and the resume ("Owned all
-  shaders, VFX, lighting, and materials on Alien Age").
+- [x] **Alien Age lighting:** Jovi owned lighting but didn't author it all from scratch.
+  Skills entry now reads "Lighting for four times of day, iterating on the base
+  lighting schemes" (from Weebly). Resume "Owned all shaders, VFX, lighting, and
+  materials" stays: still true (Jovi's call).
 - [x] Alien Age is 3D (page fixed). Grapple Star described as top-down space navigation.
 
 - [ ] **How I Work with AI:** draft at `_source/drafts/how-i-work-with-ai.md` for you to
