@@ -9,7 +9,7 @@ order: 2
 card:
   label: "Left Turn Studios · 2022–2023"
   blurb: "Unity action game built performance-first. Shaders, VFX, rigging, animation, and tooling, including a full URP conversion with every shader rebuilt."
-  image: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/screenshot-2023-01-03-084039_orig.jpg
+  image: /assets/img/snuggles/screenshot-2023-01-03-084039_orig.jpg
   alt: "Snuggles the Unicorn screenshot showing the game environment and character"
   tags:
     - "URP"
@@ -18,7 +18,7 @@ card:
     - "C#"
     - "Unity"
 hero:
-  src: https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/screenshot-2023-01-03-084039_orig.jpg
+  src: /assets/img/snuggles/screenshot-2023-01-03-084039_orig.jpg
   alt: Snuggles the Unicorn screenshot showing the game environment with character and enemy
   caption: in-game environment with character and enemy
   meta: Unity · URP
@@ -147,7 +147,7 @@ animate a new mech, I built it from what we had:
   while the body bobs up and down. The cockpit base has no arms; weapons attach at
   spawn based on the player's loadout.
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/mech-demo-clip_orig.gif", "quadruped mech galloping on the biped's reused animation, cockpit tracking aim", "Unity", true %}
+{% fig "/assets/img/snuggles/mech-demo-clip_orig.mp4", "quadruped mech galloping on the biped's reused animation, cockpit tracking aim", "Unity", true %}
 
 It took an ill-fitting store asset to a customized, working feature, with no new
 modeling or animation from anyone else.
@@ -173,7 +173,7 @@ only one model's skinned vertices are driven, the performance cost was negligibl
 and not recreating the animations was a major budget saving. I also split the new
 mesh into parts so they could be swapped for character customization.
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/snuggles-update-rig_orig.png", "original model and rig next to the updated version", "Unity", true %}
+{% fig "/assets/img/snuggles/snuggles-update-rig_orig.png", "original model and rig next to the updated version", "Unity", true %}
 
 The constraints had to be broken and reconnected several times as the model was
 updated, so I wrote an editor tool that walks the skeletal hierarchy and makes the
@@ -197,7 +197,7 @@ a heavy skeletal rig on every enemy wouldn't hold up with a screen full of them,
 alone on mobile hardware. So I pivoted to a vertex shader before the rig went any
 further, taking a cue from the schools of fish in Abzu.
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/wing-demo_orig.gif", "shader-driven wing flap, independent movement per instance", "Unity · Shader Graph", true %}
+{% fig "/assets/img/snuggles/wing-demo_orig.mp4", "shader-driven wing flap, independent movement per instance", "Unity · Shader Graph", true %}
 
 The wings are a simple placeholder mesh (easy to swap for a polished model) with a
 custom shader that drives the flap, including controls for flap speed. They're made
@@ -211,7 +211,7 @@ instance a random number and passes it to the shader, again through a Material
 Property Block, to offset its timing. The result had the look, believability, and
 performance we needed, and scaled to every enemy that needed wings.
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/flap-shader_orig.png", "wing flap vertex shader node network", "Shader Graph", true %}
+{% fig "/assets/img/snuggles/flap-shader_orig.png", "wing flap vertex shader node network", "Shader Graph", true %}
 
 One open issue remained when the project ended: the wings conflicted with the
 character outline effect that shows enemies behind obstacles, and I was working on a
@@ -225,9 +225,9 @@ shader parameters, collectibles, and celebration effects.
 
 <div class="plate-pair">
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/fuel-spawner-crop.gif", "fuel spawner collectible VFX", "Unity Particle System", true %}
+{% fig "/assets/img/snuggles/fuel-spawner-crop.mp4", "fuel spawner collectible VFX", "Unity Particle System", true %}
 
-{% fig "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/snuggles-confetti-crop-gif.gif", "confetti celebration VFX", "Unity Particle System", true %}
+{% fig "/assets/img/snuggles/snuggles-confetti-crop-gif.mp4", "confetti celebration VFX", "Unity Particle System", true %}
 
 </div>
 

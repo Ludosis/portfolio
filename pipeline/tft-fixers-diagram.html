@@ -1,0 +1,79 @@
+<!doctype html>
+<!-- Source for assets/img/tft-guided-fixers.png (Teamfight Tactics card and figure).
+     Drawn from the page text, no game assets. Regenerate: node pipeline/render-images.mjs
+     Desktop cards crop to roughly the middle band (y 100 to 500), so keep the diagram there. -->
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: "Fraunces"; src: url("../assets/fonts/fraunces-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; }
+  @font-face { font-family: "IBM Plex Mono"; src: url("../assets/fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2"); font-weight: 400; }
+  @font-face { font-family: "IBM Plex Sans"; src: url("../assets/fonts/ibm-plex-sans-latin-400-normal.woff2") format("woff2"); font-weight: 400; }
+  :root { --paper: #F2EDE0; --inset: #EAE3D2; --ink: #211E18; --muted: #6B6353; --hair: #CDC4B0; --prussian: #29506D; --red: #A6402A; }
+  html, body { margin: 0; }
+  .card {
+    position: relative; width: 1200px; height: 600px; box-sizing: border-box; overflow: hidden;
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(rgba(41,80,109,0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(41,80,109,0.055) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .eyebrow { position: absolute; top: 46px; left: 60px; font: 400 18px "IBM Plex Mono", monospace; letter-spacing: 0.22em; color: var(--red); }
+  .box {
+    position: absolute; top: 140px; width: 300px; height: 250px; box-sizing: border-box;
+    padding: 20px 24px; background: var(--paper); border: 2.5px solid var(--ink);
+  }
+  .box.person { border-color: var(--prussian); }
+  .num { font: 400 17px "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: var(--red); }
+  .name { margin: 6px 0 4px; font: 400 50px/1 "Fraunces", Georgia, serif; letter-spacing: -0.01em; color: var(--ink); }
+  .verb { font: 400 19px "IBM Plex Mono", monospace; letter-spacing: 0.14em; color: var(--prussian); }
+  .detail { margin-top: 14px; font: 400 19px/1.35 "IBM Plex Sans", sans-serif; color: var(--muted); }
+  .pill {
+    position: absolute; top: 444px; left: 405px; width: 390px; height: 48px; box-sizing: border-box;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px dashed var(--prussian); background: var(--inset);
+    font: 400 17px "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: var(--prussian);
+  }
+  .label { position: absolute; font: 400 13px "IBM Plex Mono", monospace; letter-spacing: 0.08em; color: var(--red); text-align: center; width: 90px; }
+  svg { position: absolute; left: 0; top: 0; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">GUIDED FIXER · HOW THE WORK SPLITS</div>
+  <svg width="1200" height="600" viewBox="0 0 1200 600">
+    <defs>
+      <marker id="head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 L10 5 L0 10 z" fill="#211E18"/>
+      </marker>
+    </defs>
+    <line x1="364" y1="265" x2="444" y2="265" stroke="#211E18" stroke-width="2.5" marker-end="url(#head)"/>
+    <line x1="754" y1="265" x2="834" y2="265" stroke="#211E18" stroke-width="2.5" marker-end="url(#head)"/>
+    <line x1="600" y1="394" x2="600" y2="438" stroke="#211E18" stroke-width="2.5" marker-end="url(#head)"/>
+  </svg>
+  <div class="label" style="left:359px; top:240px">FINDINGS</div>
+  <div class="label" style="left:749px; top:240px">THE REST</div>
+
+  <div class="box" style="left:60px">
+    <div class="num">01</div>
+    <div class="name">Scripts</div>
+    <div class="verb">GATHER + RECORD</div>
+    <div class="detail">Read what the game actually uses and compare it to the source data.</div>
+  </div>
+  <div class="box" style="left:450px">
+    <div class="num">02</div>
+    <div class="name">Agent</div>
+    <div class="verb">JUDGES</div>
+    <div class="detail">Against criteria written down from doing the fix by hand.</div>
+  </div>
+  <div class="box person" style="left:840px">
+    <div class="num">03</div>
+    <div class="name">Person</div>
+    <div class="verb">DECIDES</div>
+    <div class="detail">Anything that needs taste, on a filterable review board.</div>
+  </div>
+  <div class="pill">CLEAR-CUT: FIXED AUTOMATICALLY</div>
+</div>
+</body>
+</html>

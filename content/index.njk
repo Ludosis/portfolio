@@ -9,28 +9,28 @@ featured:
   - fig: "Riot Games · Teamfight Tactics"
     title: "AI-Guided Fixers"
     url: "/portfolio/teamfight-tactics/#batch-fixers"
-    image: ""
-    alt: ""
+    image: "/assets/img/tft-guided-fixers.png"
+    alt: "Diagram: scripts gather and record, the agent judges and fixes the clear-cut cases, and a person decides the rest on a review board"
     blurb: "Batch fixers for converted VFX that make the clear-cut fixes the way an artist would, working from criteria written down from fixing them by hand, and send the rest to a filterable review board with each issue and its proposed fix."
     tags: ["Unreal Engine 5", "Python", "Agentic AI", "Niagara"]
   - fig: "Left Turn Studios · Snuggles the Unicorn"
     title: "Biped to Quadruped Mech"
     url: "/portfolio/snuggles/#mech"
-    image: "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/mech-demo-clip_orig.gif"
+    image: "/assets/img/snuggles/mech-demo-clip_orig.mp4"
     alt: "Quadruped mech galloping on reused biped animation while its cockpit tracks the aim direction"
     blurb: "Turned an old biped mech asset into the quadruped from the concept art: kitbashed the model, reused the biped's walk on four legs, and scripted a swiveling cockpit that stays level while the body bobs. No new modeling or animation needed."
     tags: ["Unity", "Rigging", "Kitbashing", "C#"]
   - fig: "Left Turn Studios · Alien Age"
     title: "Procedural Environment Variety"
     url: "/portfolio/alien-age/#procedural"
-    image: "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/tiles-color_orig.png"
+    image: "/assets/img/alien-age/tiles-color_orig.png"
     alt: "Alien Age ground tiles, each tinted differently by a world-position-seeded color variation shader"
     blurb: "Eight foliage tileset variants built from just three rocks and three trees for a procedural generator, plus a shader that tints every ground tile by its world position. A lot of variety from very few assets, an approach I carried into the tree randomizer on Snuggles."
     tags: ["Unity", "Shader Graph", "Procedural", "Optimization"]
   - fig: "Bungie · Destiny 2"
     title: "Titan Sea Monster"
     url: "/portfolio/destiny-2/#shipped"
-    image: "https://jnordgren.weebly.com/uploads/1/8/1/1/18113149/seamonster-03_1_orig.jpg"
+    image: "/assets/img/destiny-2/seamonster-03_1_orig.jpg"
     alt: "The sea monster surfacing in the waters of Titan in Destiny 2"
     blurb: "An ambient creature that shipped in Destiny 2, designed, modeled, rigged, and animated in a hackathon week. Three donut-shaped rings rise at offset intervals to read as one serpent, timed against the waves so it surfaces only rarely."
     tags: ["Maya", "Rigging", "Animation", "Shaders"]
@@ -78,7 +78,7 @@ featured:
         <a class="card-link" href="{{ item.url }}">
           <div class="card-shot">
             {%- if item.image %}
-            <img src="{{ item.image }}" alt="{{ item.alt }}" loading="lazy">
+            {{ item.image | media(item.alt) | safe }}
             {%- else %}
             <span class="card-shot-pending mono">{{ item.fig }}</span>
             {%- endif %}

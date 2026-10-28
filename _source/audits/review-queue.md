@@ -3,23 +3,24 @@
 Everything Claude parked for Jovi to review at a computer, in one place. Check items
 off or delete them as they're settled. Newest additions at the bottom of each section.
 
-## On the working branch now (not merged)
+## Merged, awaiting your review
 
 - [ ] **Teamfight Tactics page** (`/portfolio/teamfight-tactics/`): first full build.
   Placeholder calls to confirm:
   - Page order: first in the portfolio.
   - Skills page: Riot entries sit at the top of Tools, QA, Rigging & Animation, and
     Scripting (rank 1; existing ranks untouched, Riot wins ties).
-  - Not on the home page Featured cards yet (no image).
+  - On the home page as the "AI-Guided Fixers" Featured card, with the diagram.
   - The "Working in Devin" paragraph mentions sharing findings with Cognition; earlier
     review notes flagged it as the most internal-sounding part.
   - New terms worked in: "auto fixers" (intro), "orchestration layer" (Devin section),
     "Agent orchestration" (sidebar).
 - [ ] **Snuggles page:** URP conversion now leads (intro, "URP Conversion" heading, card
-  blurb and tags, page description). Intro says the game was planned for mobile from the
-  start, so performance shaped choices from day one. Wing section is "Shader-Driven Enemy
-  Wings": a store wing rig was tried in prototyping, judged too costly for 40 enemies on
-  screen, and replaced by the shader before going further. No shipped or benchmarked
+  blurb and tags, page description), then the mech section (moved first since).
+  Intro says mobile was one of the target platforms from the start, so performance
+  shaped choices from day one. Wing section is "Shader-Driven Enemy Wings": a store wing
+  rig was tried in prototyping, judged too costly for a screen full of enemies, and
+  replaced by the shader before going further. No shipped or benchmarked
   performance claims. `headerTags` and sidebar (your restored fields) still lead with
   shader terms; change if you want URP there too.
 - [ ] **About page:** "Currently..." paragraph now says "building auto fixers, tools
@@ -27,13 +28,14 @@ off or delete them as they're settled. Newest additions at the bottom of each se
   Artists". QA paragraphs reframed (mindset first, QA honed it).
 - [ ] **How I Work page:** "Working with people" paragraph reframed the same way.
 - [ ] **Everything else in this branch's site pass:** identity wording with Riot,
-  Left Turn credits (sole TA), Destiny NPC wording, Lego wording, Alien Age and
+  Left Turn credits (solo TA until a second joined on Snuggles), Destiny NPC wording, Lego wording, Alien Age and
   Earlier Work scripting attribution, placeholders removed, llms.txt contact section,
   wing card off the home page, new link-preview image, one-click print button.
 
 - [ ] **Portfolio card blurbs** rewritten to one shape: what the project or job was,
   then areas of focus, then one highlight if meaningful. Tweak wording as you like.
-  Cinemachine card tag moved from Grapple Star to Snuggles.
+  Cinemachine card tags were dropped (cards say "Unity"); the Grapple Star DoF story
+  still names Cinemachine.
 
 - [ ] **Accuracy pass against the Weebly write-ups and Miro (Oct 2026).** Rewritten
   from your own text, removing invented detail: Alien Age (fog, water, VFX, asset
@@ -60,18 +62,17 @@ off or delete them as they're settled. Newest additions at the bottom of each se
 - [x] Destiny 2: reframed as hackathon projects (two one-week hackathons, 2017 and 2018,
   both shipped). Site Role "Hackathon projects", dates "2017, 2018" (not a range);
   resume subheading "Hackathon Projects: Destiny 2 Ambient Life (2017, 2018)".
-- [ ] **Alien Age lighting:** Jovi helped with lighting but didn't create it. Still
-  claimed in the Skills entry ("Full lighting and post-processing setup; all
-  environment materials and lighting authored from scratch") and the resume ("Owned all
-  shaders, VFX, lighting, and materials on Alien Age").
+- [x] **Alien Age lighting:** Jovi owned lighting but didn't author it all from scratch.
+  Skills entry now reads "Lighting for four times of day, iterating on the base
+  lighting schemes" (from Weebly). Resume "Owned all shaders, VFX, lighting, and
+  materials" stays: still true (Jovi's call).
 - [x] Alien Age is 3D (page fixed). Grapple Star described as top-down space navigation.
 
 - [ ] **How I Work with AI:** draft at `_source/drafts/how-i-work-with-ai.md` for you to
   rewrite. Decide the nav label, and where "Working with people" and "Working with
   technology" go (About, trimmed, or kept).
-- [ ] **Home page Featured:** now 3 cards (one sits alone on desktop). Pick stronger
-  work, ideally with images. Riot and the Snuggles URP conversion are candidates.
-  You also said the depth-of-field card isn't your most impressive.
+- [x] **Home page Featured:** now 4 cards you chose (TFT guided fixers, Snuggles mech,
+  Alien Age procedural variety, Destiny 2 sea monster). All have images now.
 - [ ] **Open items from the October audit:** `_source/audits/version-audit-2026-10-06.md`
   and its copy comparison (bring back any rebuild wording you prefer).
 
@@ -83,10 +84,16 @@ off or delete them as they're settled. Newest additions at the bottom of each se
 - [ ] **Miro restructure:** the text conversion lost the project and skill blocks, so
   attributions drawn from it are unreliable. Plan: Claude extracts the text, you
   reformat it into markdown with the right grouping, then fix the site from it.
-- [ ] **Factual review:** compare every page against the old Weebly site, the earliest
-  git versions, and what you know. Claude lists suspect claims with sources; you rule.
-- [ ] **Images:** download the originals from Weebly so the site stops hotlinking them.
-  Replace unpolished ones (the wing demo flaps backwards).
+- [ ] **Factual review:** the Weebly-era pages were checked in the Oct 2026 accuracy
+  pass. Still unchecked against a source of yours: the About page, How I Work, and the
+  machine-facing copy (llms.txt, `site.yaml` summary, structured-data skills list).
+  Claude lists suspect claims with sources; you rule.
+- [x] **Images moved off Weebly (Oct 2026):** all 31 are now in `assets/img/<project>/`.
+  The 9 GIFs became looping MP4 video (66 MB down to 11 MB total, same look). **Please
+  check the clips play on your Mac and phone before merging** (Claude's test browser
+  can't play this video format).
+- [ ] **Replace unpolished images** (the wing demo flaps backwards). Send better ones
+  whenever; GIFs are fine, Claude converts them.
 - [ ] **Earlier Work:** verify the figure captions (educated guesses from file names);
   Jerry's Rig video link; 221B Baker Street image.
 - [ ] **Print check calibration:** your Mac and Android wrap text wider than the
@@ -97,3 +104,22 @@ off or delete them as they're settled. Newest additions at the bottom of each se
 - [ ] Downloadable PDF of the resume: decide whether to offer one (a public PDF can't
   carry email or phone without publishing them).
 - [ ] Domain email aliases (then update `site.yaml`).
+
+## Ideas (Claude's, Oct 2026; none started, take or leave)
+
+- [x] **TFT card image without clearance:** done. A guided-fixer diagram (scripts
+  gather, the agent judges, a person decides) on the home and portfolio cards and as
+  FIG. 01 in the page's AI-Guided Fixers section. Source: `pipeline/tft-fixers-diagram.html`.
+- [ ] **Hero replacement, together with its labels:** the hero readouts ("amplitude 24",
+  "zero bone cost"), the "Portfolio · est. 2014 · rev 3.0" kicker, and the 404 page's
+  "amplitude dropped to zero" joke all belong to the wing-flap hero. They're invented
+  copy (listed in the October audit), so they should change when the hero does.
+- [ ] **Broken-link check in the build or a scheduled workflow:** external links
+  (Steam, YouTube, Weebly images until they're moved) can die silently. Report only,
+  never block the deploy, like the print check.
+- [ ] **Alt text pass after the images work:** several alt texts are generic ("custom
+  lighting and VFX"); rewrite them to describe what each image actually shows.
+- [ ] **Per-project link previews:** every page shares one preview image; project
+  pages could use their hero image when shared on LinkedIn or Slack.
+- [ ] **How I Work "This site" paragraph** (HIGH in the October audit): still entirely
+  Claude's copy. Fold into the How I Work with AI rewrite.
