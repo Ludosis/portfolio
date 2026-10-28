@@ -78,7 +78,8 @@ off or delete them as they're settled. Newest additions at the bottom of each se
 
 - [ ] **Home hero, new (on the branch, Oct 2026):** a live sketch of the Alien Age foliage
   generator replaces the wing-flap wave (`assets/js/hero-foliage.js`). Hex tiles get one
-  of eight tree-and-rock layouts, rotated; ground tint seeded by world position;
+  of eight tree-and-rock layouts modeled on the GreeblesLayout prefabs, rotated;
+  green ground tint seeded by world position; some tiles raised, as in the game;
   gameplay tiles stay clear (red dashed); regenerates every few seconds or on the
   button. The 404 page now uses the same tile drawing. Your call on whether it lands.
 
