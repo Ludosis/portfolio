@@ -83,7 +83,7 @@ off or delete them as they're settled. Newest additions at the bottom of each se
   some below the waterline (shore shallows and ponds, never decorated);
   gameplay tiles stay clear (red dashed); regenerates every few seconds or on the
   button. The 404 page now uses the same tile drawing. Live since #25 (you liked it).
-  A "new map" button (on the branch) rerolls the level too: a toy, not part of the tool.
+  Each load starts on a random map; "new map" rerolls it (a toy, not part of the tool).
 
 ## Needs your files or knowledge
 

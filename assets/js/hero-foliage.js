@@ -6,7 +6,8 @@
 // some tiles sit higher and some sink below the waterline (shore shallows and
 // the odd pond), as in the game. Gameplay tiles keep their foliage off. The
 // foliage clears and regenerates with a new seed on a timer or on click.
-// "new map" is a toy beyond the real tool: it rerolls the level itself.
+// Each page load starts on a random map; "new map" rerolls the level the same way.
+// That part is a toy beyond the real tool, which only placed foliage.
 // Reduced motion: draws the finished layout at once and never auto-regenerates.
 (function () {
   var canvas = document.getElementById("hero-foliage");
@@ -20,9 +21,9 @@
   var ROCK = "#E6DCE4", ROCK_LINE = "#5E5560";
   var SQ3 = Math.sqrt(3);
   // The level, not the generator: island shape, heights, ponds, gameplay tiles,
-  // ground tint. Only "new map" changes it.
-  var worldSeed = 7;
-  var ISLAND = [1.3, 0.4, 2.1]; // phases of the island mask; rerolled by "new map"
+  // ground tint. Rolled on load and by "new map".
+  var worldSeed;
+  var ISLAND; // phases of the island mask
   var STEP_MS = 14;   // per tile while generating
   var HOLD_MS = 7000; // finished layout stays up this long before regenerating
 
@@ -257,19 +258,20 @@
 
   function nextSeed() { return Math.floor(Math.random() * 0xffff); }
 
-  layout();
-  generate(0x4a1e);
+  function newMap() {
+    worldSeed = nextSeed();
+    ISLAND = [0, 1, 2].map(function () { return Math.random() * Math.PI * 2; });
+    layout();
+    generate(nextSeed());
+  }
+
+  newMap();
 
   var button = document.getElementById("hero-regenerate");
   if (button) button.addEventListener("click", function () { generate(nextSeed()); });
 
   var mapButton = document.getElementById("hero-new-map");
-  if (mapButton) mapButton.addEventListener("click", function () {
-    worldSeed = nextSeed();
-    ISLAND = ISLAND.map(function () { return Math.random() * Math.PI * 2; });
-    layout();
-    generate(nextSeed());
-  });
+  if (mapButton) mapButton.addEventListener("click", newMap);
 
   var lastWidth = canvas.clientWidth;
   window.addEventListener("resize", function () {
