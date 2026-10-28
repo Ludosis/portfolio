@@ -3,7 +3,8 @@
 // modeled on the game's GreeblesLayout prefabs) are picked and rotated per hex
 // tile while the generator steps through the tiles. Ground tint is seeded by
 // world position, like the tile color shader, so it stays put between runs;
-// some tiles sit higher, as in the game. Gameplay tiles keep their foliage off. The
+// some tiles sit higher and some sink below the waterline (shore shallows and
+// the odd pond), as in the game. Gameplay tiles keep their foliage off. The
 // foliage clears and regenerates with a new seed on a timer or on click.
 // Reduced motion: draws the finished layout at once and never auto-regenerates.
 (function () {
@@ -21,32 +22,6 @@
   var STEP_MS = 14;   // per tile while generating
   var HOLD_MS = 7000; // finished layout stays up this long before regenerating
 
-  // Asset types: 0-2 trees, 3-5 rocks. Entries are [type, x, y] in tile radii.
-  var LAYOUTS = [
-    // 1: mixed, trees clustered on one side
-    [[1, 0.1, -0.45], [0, -0.35, -0.45], [2, 0.42, -0.28], [3, -0.45, 0.05], [5, 0.3, 0.25],
-     [5, 0.52, 0.02], [4, -0.12, 0.42], [5, 0.15, 0.58]],
-    // 2: rocks with one big tree
-    [[4, -0.3, -0.3], [3, -0.05, -0.58], [1, 0.4, -0.1], [5, -0.48, 0.2], [5, 0, 0.45],
-     [3, 0.28, 0.45], [5, -0.18, 0.08]],
-    // 3: rock-heavy, a few trees
-    [[4, -0.35, -0.35], [3, 0.3, -0.45], [4, 0.45, 0.08], [5, -0.52, 0.1], [5, 0, 0.55],
-     [3, -0.25, 0.42], [5, 0.25, 0.35], [0, -0.05, -0.15], [0, 0.55, 0.4]],
-    // 4: rocks only
-    [[4, -0.4, -0.2], [3, 0.05, -0.5], [4, 0.45, -0.15], [5, -0.1, 0.1], [3, 0.3, 0.42],
-     [5, -0.42, 0.42], [5, 0.58, 0.3], [5, 0.1, 0.6]],
-    // 5: many small trees
-    [[0, -0.45, -0.3], [0, -0.1, -0.5], [2, 0.35, -0.3], [0, 0.55, 0.1], [0, -0.55, 0.2],
-     [0, -0.15, 0.1], [0, 0.2, 0.25], [2, -0.3, 0.5], [0, 0.35, 0.58]],
-    // 6: scattered bushes
-    [[0, -0.4, -0.35], [0, 0.35, -0.4], [0, -0.5, 0.3], [0, 0.1, 0.05], [0, 0.45, 0.45]],
-    // 7: pebbles
-    [[5, -0.35, -0.4], [5, 0.2, -0.45], [5, -0.5, 0.05], [5, 0.05, 0.1], [5, 0.5, 0.0],
-     [5, -0.2, 0.5], [5, 0.3, 0.45]],
-    // 8: almost bare
-    [[0, 0.35, -0.15]],
-  ];
-
   // Deterministic hash of (seed, a, b) to [0, 1).
   function rand(seed, a, b) {
     var h = (seed * 374761393 + a * 668265263 + b * 2147483647) | 0;
@@ -54,6 +29,52 @@
     h ^= h >>> 16;
     return (h >>> 0) / 4294967296;
   }
+
+  // Asset types: 0-2 trees, 3-5 rocks. Each layout is a list of clumps:
+  // [types, count, centerX, centerY, spread] in tile radii. Clumps sit off center
+  // so a rotated layout reads as a different tile.
+  var LAYOUT_SPECS = [
+    // 1: mixed, trees clustered on one side
+    [[[0, 0, 1, 2], 6, 0.15, -0.38, 0.2], [[5], 6, -0.1, 0.25, 0.3], [[3, 4], 2, -0.38, 0.05, 0.15]],
+    // 2: rocks with one big tree
+    [[[1], 1, 0.4, -0.12, 0.05], [[0], 2, 0.3, 0.12, 0.12], [[3, 4], 3, -0.25, -0.22, 0.2], [[5], 6, -0.12, 0.3, 0.25]],
+    // 3: rock-heavy, a few trees
+    [[[3, 4], 6, -0.1, -0.22, 0.3], [[5], 6, 0.18, 0.3, 0.25], [[0], 3, 0.38, 0.05, 0.15]],
+    // 4: rocks only
+    [[[3, 4], 4, 0.2, -0.12, 0.25], [[5], 9, -0.2, 0.15, 0.35]],
+    // 5: many small trees
+    [[[0], 12, -0.15, 0.05, 0.35], [[2], 2, 0.3, -0.3, 0.15]],
+    // 6: scattered bushes
+    [[[0], 6, 0.12, 0.1, 0.38]],
+    // 7: pebbles
+    [[[5], 7, -0.15, -0.1, 0.35]],
+    // 8: almost bare
+    [[[0], 1, 0.35, -0.15, 0.03], [[5], 1, 0.2, -0.3, 0.05]],
+  ];
+
+  // Built once from a fixed seed, so these stay eight authored layouts.
+  // Entries are [type, x, y, scale].
+  var LAYOUTS = LAYOUT_SPECS.map(function (clumps, li) {
+    var items = [], n = 0;
+    clumps.forEach(function (cl) {
+      for (var k = 0; k < cl[1]; k++) {
+        for (var tryN = 0; tryN < 12; tryN++, n++) {
+          var x = cl[2] + (rand(900 + li, n, 1) + rand(900 + li, n, 2) - 1) * cl[4] * 1.6;
+          var y = cl[3] + (rand(900 + li, n, 3) + rand(900 + li, n, 4) - 1) * cl[4] * 1.6;
+          var sc = 0.6 + rand(900 + li, n, 5) * 0.8;
+          if (x * x + y * y > 0.52) continue; // stay inside the hex
+          var clear = items.every(function (o) {
+            var dx = o[1] - x, dy = o[2] - y;
+            return dx * dx + dy * dy > Math.pow(0.08 * (o[3] + sc), 2);
+          });
+          if (!clear) continue;
+          items.push([cl[0][Math.floor(rand(900 + li, n, 6) * cl[0].length)], x, y, sc]);
+          break;
+        }
+      }
+    });
+    return items;
+  });
 
   var size, cols, rows, tiles, drawOrder, seed, placed, timer, raf;
   var hudSeed = document.querySelector("[data-hud=seed]");
@@ -79,14 +100,16 @@
         // Island mask from a few world-space sines.
         var land = Math.sin(c * 0.33 + 1.3) + Math.sin(r * 0.9 + c * 0.12 + 0.4) +
                    0.8 * Math.sin((c - r) * 0.21 + 2.1);
-        if (land < -0.55) continue;
-        var gameplay = rand(WORLD_SEED, c, r) < 0.07;
+        if (land < -1.0) continue; // open water
+        // Shore tiles just below the waterline, plus the odd pond inland.
+        var under = land < -0.55 || rand(WORLD_SEED + 4, c, r) < 0.035;
+        var gameplay = !under && rand(WORLD_SEED, c, r) < 0.07;
         if (gameplay) skipped++;
         var hr = rand(WORLD_SEED + 2, c, r);
         tiles.push({
           i: tiles.length, c: c, r: r, x: x, y: y, gameplay: gameplay,
           tint: rand(WORLD_SEED + 1, c, r), hue: rand(WORLD_SEED + 3, c, r),
-          height: hr < 0.62 ? 0 : hr < 0.9 ? 1 : 2,
+          height: under ? -1 : hr < 0.62 ? 0 : hr < 0.9 ? 1 : 2,
         });
       }
     }
@@ -142,7 +165,7 @@
     for (var i = 0; i < items.length; i++) {
       ctx.save();
       ctx.translate(items[i][1] * size, items[i][2] * size);
-      asset(items[i][0], size);
+      asset(items[i][0], size * items[i][3]);
       ctx.restore();
     }
     ctx.restore();
@@ -154,14 +177,29 @@
     return "rgba(" + r + ", " + g + ", " + b + ", " + (0.16 + t.tint * 0.3).toFixed(3) + ")";
   }
 
-  var LIFT = 3; // px per height step
+  var LIFT = 1.5; // px per height step
+  var WATER = "rgba(120, 170, 205, ";
 
   function draw() {
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+    ctx.fillStyle = WATER + "0.3)";
+    ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
     var s = size * 0.94;
     for (var k = 0; k < drawOrder.length; k++) {
       var t = drawOrder[k];
       var top = t.y - t.height * LIFT;
+      if (t.height < 0) {
+        // Below the waterline: visible through the water, never decorated.
+        hexPath(t.x, top, s);
+        ctx.fillStyle = ground(t);
+        ctx.fill();
+        ctx.fillStyle = WATER + "0.38)";
+        ctx.fill();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = "rgba(41, 80, 109, 0.22)";
+        ctx.stroke();
+        continue;
+      }
       if (t.height) {
         // Side of a raised tile: the same hex, lower and darker.
         hexPath(t.x, t.y + 1, s);
@@ -189,7 +227,7 @@
     // The tile the generator is working on.
     if (placed < tiles.length) {
       var cur = tiles[placed];
-      hexPath(cur.x, cur.y - cur.height * LIFT, s);
+      hexPath(cur.x, cur.y - Math.max(0, cur.height) * LIFT, s);
       ctx.lineWidth = 2;
       ctx.strokeStyle = RED;
       ctx.stroke();
