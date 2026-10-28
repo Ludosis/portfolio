@@ -158,7 +158,10 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
    (pending Epic clearance).
 2. **Blend design variant** (blueprint media wells), archived in
    `_source/design-archive/`; can return as per-media front-matter flag if wanted.
-3. Full plan: `_source/redesign-plan.md`. In-progress detail: `_source/working-memory.md`.
+3. **The live to-do list is `_source/audits/review-queue.md`** (user review items,
+   things needing the user's files, later decisions, and Claude's ideas). Keep it
+   current: when work lands, update or check off its entry in the same commit.
+4. Original plan: `_source/redesign-plan.md`. In-progress detail: `_source/working-memory.md`.
 
 ---
 

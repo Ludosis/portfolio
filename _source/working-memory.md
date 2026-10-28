@@ -7,12 +7,11 @@ For durable project state, see `CLAUDE.md`. For Miro source content, see `_sourc
 
 ## Current status
 
-Site is live at JovianFinch.com. HTTPS cert provisioned and working.
+Site is live at JovianFinch.com on the Eleventy rebuild (the July 2026 redesign below
+shipped). For the latest state, read the newest dated entry under the redesign section;
+open items for the user are in `_source/audits/review-queue.md`. The redesign notes
+below are kept as history.
 Working branch: `claude/new-portfolio-website-cqdm9`.
-
-Skills page is complete. All project pages fully expanded. All nav updated.
-
-**A full redesign is now in planning — see "2026 Redesign" section below.**
 
 ---
 

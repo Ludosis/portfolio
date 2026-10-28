@@ -71,9 +71,10 @@ or that I added on my own. **HIGH** = your words changed; **MED** = my invented 
   tags, and sidebar are generated, since there was no hand-written version.
 - **MED: Machine-facing copy.** llms.txt and the `site.yaml` summary it uses, the
   structured-data skills list ("Technical Art, Shader Development, VFX, ..."), the 404
-  page, and the link-preview image. **The preview image still contains an em dash**;
-  it needs regenerating once you decide what it should say.
-- **LOW:** draft labels are lowercase ("draft, final asset tbd"); "© 2026" in the footer.
+  page, and the link-preview image. ~~The preview image still contains an em dash~~
+  (resolved: regenerated without one in #19; generator in `pipeline/og-card.html`).
+- **LOW:** ~~draft labels are lowercase~~ (resolved: draft labels removed site-wide);
+  "© 2026" in the footer.
 
 ## 3. Decisions beyond content (architecture, tooling, process)
 
@@ -98,6 +99,7 @@ or that I added on my own. **HIGH** = your words changed; **MED** = my invented 
   "reverse" choice), changed the page-2 header from "Technical Artist" to "Senior
   Technical Artist", self-hosted its fonts, added auto-print when opened from the site's
   "Print / save PDF" button, and rebuilt its print rules to fix the third-sheet bug.
+  (Later: auto-print removed; a "Print with contact info" button replaced it.)
 - **Resume page buttons.** "PDF version coming soon" was replaced with "Print / save PDF"
   and a "Markdown source" download.
 - **Contact protection mechanisms.** You set the goals (phone not in the repo; email
@@ -105,6 +107,7 @@ or that I added on my own. **HIGH** = your words changed; **MED** = my invented 
   mine: XOR+base64 obfuscation of values injected at build, click-to-reveal for both,
   removing the `+web` comment address and the structured-data email, and the llms.txt
   "comprehension gate" (base64 address plus a decode instruction). Its wording is mine.
+  (Later: the gate was removed at your call; llms.txt now points to the Show buttons.)
 - **Self-hosted fonts** instead of Google Fonts (I flagged this in the plan).
 - **Legacy HTML deleted from the repo** at cutover (recoverable from git history).
 - **Dependencies:** Eleventy, js-yaml, fontsource font packages, and today
