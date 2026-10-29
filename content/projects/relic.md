@@ -16,6 +16,7 @@ card:
     - "Lighting"
     - "VFX"
     - "Technical Direction"
+ogImage: /assets/img/relic/7378158_1.jpg
 hero:
   src: /assets/img/relic/7734644_1.png
   alt: Relic game screenshot showing environment art, lighting, and visual systems

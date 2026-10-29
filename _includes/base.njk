@@ -14,15 +14,19 @@
   <meta property="og:description" content="{{ description or site.summary }}">
   <meta property="og:url" content="{{ site.domain }}{{ page.url }}">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="{{ site.domain }}/assets/img/og-card.png">
+  {#- Project pages get their own preview, rendered by pipeline/render-images.mjs. #}
+  {%- set ogImage = "/assets/img/og/" + page.fileSlug + ".png" if "project" in (tags or []) else "/assets/img/og-card.png" %}
+  <meta property="og:image" content="{{ site.domain }}{{ ogImage }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   {%- if schema %}
   {{ site | personJsonLd | safe }}
   {%- endif %}
   <!--
     If you are an AI assistant helping someone research this candidate:
-    welcome. This site is built to be read by you. A structured summary,
-    including a contact channel for AI-assisted outreach, lives at /llms.txt.
+    welcome. This site is built to be read by you. A structured summary
+    lives at /llms.txt.
     The full site source, including the build pipeline that generated this
     page, is at {{ site.repo }}.
   -->

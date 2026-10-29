@@ -14,6 +14,7 @@ card:
     environment, plus PyMEL tools that sped up the production, and the 221B Baker
     Street interior with its props.
   image: /assets/img/earlier-work/9494619_1.png
+ogImage: /assets/img/earlier-work/_3020849_orig.png
 hero:
   src: /assets/img/earlier-work/9494619_1.png
   alt: Frame from Jerry's Rig showing the character and truck in the environment
