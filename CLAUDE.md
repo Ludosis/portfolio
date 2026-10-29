@@ -111,10 +111,7 @@ Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
   youtube-nocookie.com, Vimeo with `dnt=1`). Groups: `<div class="plate-pair">` (two-up)
   and `<div class="plate-grid">` (three-up gallery, media cropped to 16:10); give a grid a
   multiple of three so no plate sits alone. `<div class="plate-aside">` is a small plate
-  floated beside the text on wide screens (memes, small images). **Memes** (the user's
-  own, Oct 2026): place one only where it comments on that section's story, sparingly;
-  skip ones that aim the joke at collaborators. Being offered material is not a request
-  to use all of it. **All Weebly images were ported in Oct 2026**
+  floated beside the text on wide screens (memes, small images). **All Weebly images were ported in Oct 2026**
   with captions from the Weebly text. The 221B final render carried a signature with the
   old name; Claude retouched it out (user's request). Check any new image for signatures. **No placeholder plates or
   "pending"/"tbd" text on the live site** (it reads as unfinished): add a plate only
@@ -220,6 +217,10 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
   own pipeline as evidence
 - Writing tone: direct, precise, no marketing language, craft-focused. Don't oversell
   (e.g. management or leadership claims)
+- **Open-ended offers are not a go-ahead to ship.** When the user hands over material
+  with "feel free to use this", or the request is ambiguous with no clear right answer,
+  make a choice, try it on the branch, and float it by the user before merging. Being
+  offered material is not a request to use all of it.
 - **Editorial calls are the user's.** When the user says they're "open to suggestions",
   that means discuss first: bring options with measured costs, don't pick and apply.
   This applies especially to cutting resume content or trading layout for fit.
