@@ -547,6 +547,7 @@ p + .plate, h2 + .plate { margin-top: var(--space-lg); }
   border-bottom: 1px solid var(--hairline);
 }
 
+.hero-kicker span { white-space: nowrap; }
 .hero-name { max-width: 14ch; }
 
 .hero-title {
