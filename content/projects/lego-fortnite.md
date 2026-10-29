@@ -175,3 +175,19 @@ I identified the cause and found a workaround that meaningfully improved video
 quality for the review pipeline.
 
 I also researched and developed a method for using an existing gameplay replay tool (ReplayRun) that was typically used for performance testing, to capture gameplay video from a single session across multiple platforms simultaneously to test scalability, enabling fast identification of platform-specific scalability inconsistencies without running separate sessions per platform.
+
+<h2 id="memes" class="project-section">On the Lighter Side</h2>
+
+A few QA memes I made.
+
+<div class="plate-pair">
+
+{% fig "/assets/img/lego-fortnite/meme-qa-excavator.jpg", "upcoming release, and QA", "meme" %}
+
+{% fig "/assets/img/lego-fortnite/meme-design-doc.png", "where's the design doc?", "meme" %}
+
+{% fig "/assets/img/lego-fortnite/meme-playtest-feedback.jpg", "pls playtest? no actioning on feedback", "meme" %}
+
+{% fig "/assets/img/lego-fortnite/meme-playtest-design.jpg", "pls playtest? no change design", "meme" %}
+
+</div>

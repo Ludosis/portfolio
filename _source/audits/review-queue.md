@@ -123,9 +123,9 @@ off or delete them as they're settled. Newest additions at the bottom of each se
 - [x] **TFT card image without clearance:** done. A guided-fixer diagram (scripts
   gather, the agent judges, a person decides) on the home and portfolio cards and as
   FIG. 01 in the page's AI-Guided Fixers section. Source: `pipeline/tft-fixers-diagram.html`.
-- [ ] **Hero labels:** the wave readouts and the 404 joke changed with the hero. Still
-  open: the "Portfolio · est. 2014 · rev 3.0" kicker (invented copy, also on the
-  site link-preview image). Keep, reword, or drop.
+- [x] **Hero labels:** the wave readouts and the 404 joke changed with the hero; the
+  kicker is now "Portfolio · since 2015 · 4 studios · 6 shipped titles" (your call: the
+  Destiny expansions count as shipped titles), on the home page and the site preview.
 - [ ] **Broken-link check in the build or a scheduled workflow:** external links
   (Steam, YouTube, Weebly images until they're moved) can die silently. Report only,
   never block the deploy, like the print check.
