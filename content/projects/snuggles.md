@@ -149,6 +149,16 @@ animate a new mech, I built it from what we had:
 
 {% fig "/assets/img/snuggles/mech-demo-clip_orig.mp4", "quadruped mech galloping on the biped's reused animation, cockpit tracking aim", "Unity", true %}
 
+<div class="plate-grid">
+
+{% fig "/assets/img/snuggles/mech-swivel2.mp4", "the cockpit holds its aim while the body moves", "Unity" %}
+
+{% fig "/assets/img/snuggles/mecha-original.png", "the original biped mech, a store asset by VaxKun", "Unity Asset Store" %}
+
+{% fig "/assets/img/snuggles/character-snugglesmech-turn.png", "model sheet for the updated mech", "concept" %}
+
+</div>
+
 It took an ill-fitting store asset to a customized, working feature, with no new
 modeling or animation from anyone else.
 
@@ -175,6 +185,16 @@ mesh into parts so they could be swapped for character customization.
 
 {% fig "/assets/img/snuggles/snuggles-update-rig_orig.png", "original model and rig next to the updated version", "Unity", true %}
 
+<div class="plate-grid">
+
+{% fig "/assets/img/snuggles/unicorn-original.png", "the original store model, by Suriyun", "Unity Asset Store" %}
+
+{% fig "/assets/img/snuggles/snuggles-concept-transparent.png", "concept for the updated version, by Rowan Sherwin", "concept" %}
+
+{% fig "/assets/img/snuggles/snuggles-happy.mp4", "the updated model in game", "Unity" %}
+
+</div>
+
 The constraints had to be broken and reconnected several times as the model was
 updated, so I wrote an editor tool that walks the skeletal hierarchy and makes the
 connections automatically: faster, and without the user error of hundreds of manual
@@ -197,7 +217,7 @@ a heavy skeletal rig on every enemy wouldn't hold up with a screen full of them,
 alone on mobile hardware. So I pivoted to a vertex shader before the rig went any
 further, taking a cue from the schools of fish in Abzu.
 
-{% fig "/assets/img/snuggles/wing-demo_orig.mp4", "shader-driven wing flap, independent movement per instance", "Unity · Shader Graph", true %}
+{% fig "/assets/img/snuggles/wing-demo_orig.mp4", "an earlier version of the wing shader, with the arc still running the wrong way", "Unity · Shader Graph", true %}
 
 The wings are a simple placeholder mesh (easy to swap for a polished model) with a
 custom shader that drives the flap, including controls for flap speed. They're made
@@ -211,7 +231,13 @@ instance a random number and passes it to the shader, again through a Material
 Property Block, to offset its timing. The result had the look, believability, and
 performance we needed, and scaled to every enemy that needed wings.
 
+<div class="plate-pair">
+
 {% fig "/assets/img/snuggles/flap-shader_orig.png", "wing flap vertex shader node network", "Shader Graph", true %}
+
+{% fig "/assets/img/snuggles/material-index.png", "the Material Index component", "Unity · C#" %}
+
+</div>
 
 One open issue remained when the project ended: the wings conflicted with the
 character outline effect that shows enemies behind obstacles, and I was working on a
@@ -223,11 +249,42 @@ A library of VFX built for this project and carried into later ones as prototype
 building blocks, including a fuel refill timer driven by gameplay script through
 shader parameters, collectibles, and celebration effects.
 
-<div class="plate-pair">
+{% fig "/assets/img/snuggles/vfx-samples-rainbow.mp4", "a sampling of the VFX library", "Unity Particle System" %}
+
+<div class="plate-grid">
 
 {% fig "/assets/img/snuggles/fuel-spawner-crop.mp4", "fuel spawner collectible VFX", "Unity Particle System", true %}
 
+{% fig "/assets/img/snuggles/enemy-spawn-fx-crop3.mp4", "enemy spawn VFX", "Unity Particle System" %}
+
 {% fig "/assets/img/snuggles/snuggles-confetti-crop-gif.mp4", "confetti celebration VFX", "Unity Particle System", true %}
+
+</div>
+
+<h2 id="models" class="project-section">Model Updates</h2>
+
+Store assets were modified to fit the game's art direction rather than replaced. The
+fire pig got changed proportions, a new shape, and larger tusks. The phoenix got new
+coloring and a mouth mesh, borrowed from another enemy asset we didn't use and skinned
+on top of the original.
+
+<div class="plate-pair">
+
+{% fig "/assets/img/snuggles/firepig-original.png", "fire pig, original store model by Suriyun", "Unity Asset Store" %}
+
+{% fig "/assets/img/snuggles/menacing-fire-pig.mp4", "fire pig, updated", "model update" %}
+
+{% fig "/assets/img/snuggles/phoenix-original.png", "phoenix, original store model by Suriyun", "Unity Asset Store" %}
+
+{% fig "/assets/img/snuggles/scary-phoenix.mp4", "phoenix, updated with new coloring and a mouth", "model update" %}
+
+</div>
+
+<div class="plate-pair">
+
+{% fig "/assets/img/snuggles/fuel-can.png", "fuel can model", "3D model" %}
+
+{% fig "/assets/img/snuggles/bunnyskull-wireframe.png", "skull mesh from the portal cutscene, wireframe", "Maya" %}
 
 </div>
 
@@ -240,7 +297,9 @@ at runtime), blood splatter VFX and decals, and the unicorn's animation trigger.
 also built the portal opening VFX from parts of an asset used elsewhere in the
 project.
 
-[Watch the cutscene on Vimeo &rarr;](https://vimeo.com/827089176)
+{% figblock "hell portal opening cutscene", "Vimeo" %}
+<iframe title="Snuggles the Unicorn hell portal opening cutscene" src="https://player.vimeo.com/video/827089176?h=181140437d&dnt=1" style="width:100%; aspect-ratio:16/9; border:0;" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
+{% endfigblock %}
 
 <h2 id="tools" class="project-section">Tools</h2>
 

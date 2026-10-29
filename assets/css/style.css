@@ -369,6 +369,18 @@ p + .plate, h2 + .plate { margin-top: var(--space-lg); }
   margin: var(--space-lg) 0;
 }
 
+/* Three-up gallery for related shots; media cropped to one shape so rows line up. */
+.plate-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+.plate-grid .plate-media img,
+.plate-grid .plate-media video { aspect-ratio: 16 / 10; object-fit: cover; }
+.plate-grid .plate-caption { font-size: 0.68rem; }
+@media (min-width: 900px) { .plate-grid { grid-template-columns: repeat(3, 1fr); } }
+
 /* --- canvas demo plate (home hero) --- */
 .plate-media--canvas {
   position: relative;

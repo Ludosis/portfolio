@@ -127,7 +127,17 @@ made by me from concept art by Rowan Sherwin. I set up the UI canvas with clicka
 objects and actions, and wrote the script that fills in the text fields and turns
 scene elements on and off based on which planet is selected.
 
-[Watch the Level Select UI walkthrough on Vimeo &rarr;](https://vimeo.com/827111068)
+{% figblock "level select screen walkthrough", "Vimeo" %}
+<iframe title="Grapple Star level select screen walkthrough" src="https://player.vimeo.com/video/827111068?h=2898e22b40&dnt=1" style="width:100%; aspect-ratio:16/9; border:0;" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
+{% endfigblock %}
+
+<div class="plate-pair">
+
+{% fig "/assets/img/grapple-star/gs-concept-galaxymap.jpg", "galaxy map concept, by Rowan Sherwin", "concept" %}
+
+{% fig "/assets/img/grapple-star/gs-concept-levelmap.jpg", "level map concept, by Rowan Sherwin", "concept" %}
+
+</div>
 
 The targeting reticle also changes depending on which targets are available.
 
@@ -141,5 +151,9 @@ and collectible pickups.
 {% fig "/assets/img/grapple-star/ship-boost_orig.mp4", "ship boost VFX", "Unity Particle System", true %}
 
 {% fig "/assets/img/grapple-star/collect-web3_orig.mp4", "collectible pickup VFX trail", "Unity Particle System", true %}
+
+{% fig "/assets/img/grapple-star/booster-1.mp4", "booster pickup VFX", "Unity Particle System" %}
+
+{% fig "/assets/img/grapple-star/booster-2.mp4", "booster pickup VFX, variant", "Unity Particle System" %}
 
 </div>

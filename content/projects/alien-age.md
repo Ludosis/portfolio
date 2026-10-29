@@ -108,37 +108,77 @@ being the UI: all VFX, shaders and materials for every asset, lighting for the g
 four times of day (iterating on the base lighting schemes), the spaceship rig and
 animation implementation, asset optimization, and procedural environment variety.
 
+{% fig "/assets/img/alien-age/aa-before.jpg", "the game's visuals when I joined, before the overhaul (compare FIG. 00)", "Unity" %}
+
 <h2 id="shaders" class="project-section">Shaders</h2>
 
 The game's look leaned on a few custom shaders built in Unity Shader Graph. A
 stylized water shader covers the ocean around the terrain islands.
 
-{% fig "/assets/img/alien-age/watersurface.png", "stylized water shader", "Shader Graph", true %}
+<div class="plate-pair">
+
+{% fig "/assets/img/alien-age/pretty3.png", "water, fog, and a terrain island in game", "Unity" %}
+
+{% fig "/assets/img/alien-age/watersurface.png", "water surface texture", "Shader Graph" %}
+
+</div>
 
 A horizon fog shader obscures the edge of the water without hiding the skybox. It's
 applied to a large sphere with inverted normals, and I liked the result better than
 Unity's built-in fog.
 
-{% fig "/assets/img/alien-age/fog-volume-shader-sm_orig.mp4", "horizon fog shader", "Shader Graph", true %}
+<div class="plate-pair">
+
+{% fig "/assets/img/alien-age/fog-volume-shader-sm_orig.mp4", "horizon fog shader", "Shader Graph" %}
+
+{% fig "/assets/img/alien-age/fog-shader.png", "fog shader node network", "Shader Graph" %}
+
+</div>
 
 A color-variation shader tints the ground tiles randomly, seeded by each tile's world
 position, with properties for the blend color, strength, and contrast. Every tile
 that shares the material still gets its own tint, with no extra material instances.
 
-{% fig "/assets/img/alien-age/tiles-color_orig.png", "world-position-seeded tile color variation", "Shader Graph", true %}
+<div class="plate-pair">
+
+{% fig "/assets/img/alien-age/tiles-color_orig.png", "world-position-seeded tile color variation", "Shader Graph" %}
+
+{% fig "/assets/img/alien-age/env-tile-shader.png", "tile color shader node network", "Shader Graph" %}
+
+</div>
+
+Smaller material effects included an edge glow and an animated blob material.
+
+<div class="plate-pair">
+
+{% fig "/assets/img/alien-age/edge-glow.mp4", "edge glow shader", "Shader Graph" %}
+
+{% fig "/assets/img/alien-age/blob.mp4", "animated blob material", "Shader Graph" %}
+
+</div>
 
 <h2 id="vfx" class="project-section">VFX</h2>
 
 All of the game's VFX, built in Unity's particle system, including the tractor beam
 and its gameplay states, and the cloud lightning.
 
-<div class="plate-pair">
+<div class="plate-grid">
 
-{% fig "/assets/img/alien-age/beam-drop-fulllength.mp4", "tractor beam, drop state", "Unity Particle System", true %}
+{% fig "/assets/img/alien-age/ufo-enable-beam3.mp4", "tractor beam switching on", "Unity Particle System" %}
 
-{% fig "/assets/img/alien-age/clouds-lightning.mp4", "cloud lightning", "Unity Particle System", true %}
+{% fig "/assets/img/alien-age/beam-drop-fulllength.mp4", "tractor beam, drop state", "Unity Particle System" %}
+
+{% fig "/assets/img/alien-age/beam-pickup-burst.mp4", "tractor beam pickup burst", "Unity Particle System" %}
+
+{% fig "/assets/img/alien-age/beam-change-test.mp4", "tractor beam changing state", "Unity Particle System" %}
+
+{% fig "/assets/img/alien-age/rocket-thruster.mp4", "rocket thruster", "Unity Particle System" %}
+
+{% fig "/assets/img/alien-age/fire.mp4", "fire", "Unity Particle System" %}
 
 </div>
+
+{% fig "/assets/img/alien-age/clouds-lightning.mp4", "cloud lightning", "Unity Particle System" %}
 
 <h2 id="asset-pipeline" class="project-section">Asset Optimization</h2>
 
@@ -157,7 +197,13 @@ It runs in the editor rather than at runtime to keep load times down. Because so
 gameplay tiles are placed procedurally at runtime, the foliage sits on a separate
 object that turns off for those tiles, so nothing overlaps.
 
+{% fig "/assets/img/alien-age/tile-decorator-layouts.jpg", "the eight foliage layout prefabs", "Unity" %}
+
+{% fig "/assets/img/alien-age/foliage-generated.jpg", "terrain after generation, each tile a rotated layout", "Unity" %}
+
 Unity's prefab cloning meant the foliage had to be cleared and regenerated whenever
 the prefabs changed, which also made it easy to iterate on shaders, materials,
 layouts, and physics. I documented the tool so level designers could regenerate the
 foliage themselves when the world layout changed.
+
+{% fig "/assets/img/alien-age/magic-trees-instructions.jpg", "from the tool's documentation for level designers", "Unity" %}
