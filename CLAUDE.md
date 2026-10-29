@@ -110,7 +110,11 @@ Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
   `{% figblock %}...{% endfigblock %}` for embed plates (YouTube via
   youtube-nocookie.com, Vimeo with `dnt=1`). Groups: `<div class="plate-pair">` (two-up)
   and `<div class="plate-grid">` (three-up gallery, media cropped to 16:10); give a grid a
-  multiple of three so no plate sits alone. **All Weebly images were ported in Oct 2026**
+  multiple of three so no plate sits alone. `<div class="plate-aside">` is a small plate
+  floated beside the text on wide screens (memes, small images). **Memes** (the user's
+  own, Oct 2026): place one only where it comments on that section's story, sparingly;
+  skip ones that aim the joke at collaborators. Being offered material is not a request
+  to use all of it. **All Weebly images were ported in Oct 2026**
   with captions from the Weebly text. The 221B final render carried a signature with the
   old name; Claude retouched it out (user's request). Check any new image for signatures. **No placeholder plates or
   "pending"/"tbd" text on the live site** (it reads as unfinished): add a plate only
