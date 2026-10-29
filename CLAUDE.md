@@ -102,7 +102,11 @@ Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
   `media` filter in templates). Convert new GIFs the same way rather than committing
   them. Playwright's bundled Chromium can't play H.264, so check video in a real browser.
   Diagrams drawn in HTML (e.g. `pipeline/tft-fixers-diagram.html`) and the link-preview
-  card render to PNG with `node pipeline/render-images.mjs`.
+  cards render to PNG with `node pipeline/render-images.mjs`: the site card
+  (`og-card.html`, with a seeded foliage-generator map) and one card per project
+  (`og-project.html` to `assets/img/og/<slug>.png`, from title, studio, role, dates and
+  the hero image; front-matter `ogImage` picks another image, `ogFit: contain` shows a
+  diagram uncropped). **Re-run it after changing any of those fields**, and commit the PNGs.
   `{% figblock %}...{% endfigblock %}` for embed plates (YouTube via
   youtube-nocookie.com, Vimeo with `dnt=1`). Groups: `<div class="plate-pair">` (two-up)
   and `<div class="plate-grid">` (three-up gallery, media cropped to 16:10); give a grid a

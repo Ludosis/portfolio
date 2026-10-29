@@ -16,6 +16,7 @@ card:
     - "Pipeline"
     - "Python"
     - "Agentic AI"
+ogFit: contain
 hero:
 meta:
   - label: "Studio"

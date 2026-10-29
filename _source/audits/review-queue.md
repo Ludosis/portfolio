@@ -125,13 +125,14 @@ off or delete them as they're settled. Newest additions at the bottom of each se
   FIG. 01 in the page's AI-Guided Fixers section. Source: `pipeline/tft-fixers-diagram.html`.
 - [ ] **Hero labels:** the wave readouts and the 404 joke changed with the hero. Still
   open: the "Portfolio · est. 2014 · rev 3.0" kicker (invented copy, also on the
-  link-preview image along with a wave drawing). Keep, reword, or drop.
+  site link-preview image). Keep, reword, or drop.
 - [ ] **Broken-link check in the build or a scheduled workflow:** external links
   (Steam, YouTube, Weebly images until they're moved) can die silently. Report only,
   never block the deploy, like the print check.
 - [ ] **Alt text pass after the images work:** several alt texts are generic ("custom
   lighting and VFX"); rewrite them to describe what each image actually shows.
-- [ ] **Per-project link previews:** every page shares one preview image; project
-  pages could use their hero image when shared on LinkedIn or Slack.
+- [x] **Per-project link previews:** done (Oct 2026). Each project page has its own card
+  (title, studio, role, dates, a work image); the site card now shows the foliage map
+  instead of the wave. Lego Fortnite's is text-only until images are cleared.
 - [ ] **How I Work "This site" paragraph** (HIGH in the October audit): still entirely
   Claude's copy. Fold into the How I Work with AI rewrite.

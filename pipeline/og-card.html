@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- Source for assets/img/og-card.png (the link-preview image).
-     Regenerate after editing: node pipeline/render-images.mjs -->
+     Regenerate after editing: node pipeline/render-images.mjs (seeds the map so it stays put) -->
 <html>
 <head>
 <meta charset="utf-8">
@@ -18,14 +18,14 @@
     background-size: 40px 40px;
     border: 3px solid var(--ink);
   }
-  .corner { position: absolute; width: 28px; height: 28px; border-color: var(--red); border-style: solid; }
+  .corner { position: absolute; z-index: 2; width: 28px; height: 28px; border-color: var(--red); border-style: solid; }
   .corner.tl { top: 16px; left: 16px; border-width: 3px 0 0 3px; }
   .corner.br { bottom: 76px; right: 16px; border-width: 0 3px 3px 0; }
   .eyebrow { position: absolute; top: 72px; left: 82px; font: 400 20px "IBM Plex Mono", monospace; letter-spacing: 0.22em; color: var(--red); }
   .name { position: absolute; top: 118px; left: 80px; margin: 0; font: 400 92px/0.95 "Newsreader", Georgia, serif; letter-spacing: -0.02em; color: var(--ink); }
   .title { position: absolute; top: 320px; left: 82px; display: flex; align-items: center; gap: 22px; font: 400 27px "IBM Plex Mono", monospace; letter-spacing: 0.14em; color: var(--prussian); }
   .title::before { content: ""; width: 56px; border-top: 2px solid var(--prussian); }
-  svg { position: absolute; left: 0; top: 400px; }
+  #hero-foliage { position: absolute; left: 0; top: 392px; width: 1200px; height: 178px; }
   .foot { position: absolute; left: 0; right: 0; bottom: 0; height: 58px; border-top: 2px solid var(--hair); display: flex; align-items: center; justify-content: space-between; padding: 0 32px; font: 400 19px "IBM Plex Mono", monospace; letter-spacing: 0.06em; color: var(--muted); }
   .foot b { color: var(--red); font-weight: 400; letter-spacing: 0.1em; }
 </style>
@@ -37,31 +37,10 @@
   <div class="eyebrow">PORTFOLIO · EST. 2014 · REV 3.0</div>
   <h1 class="name">Jovian Finch<br>Nordgren</h1>
   <div class="title">SENIOR TECHNICAL ARTIST</div>
-  <svg width="1200" height="150" viewBox="0 0 1200 150">
-    <line x1="0" y1="74" x2="1200" y2="74" stroke="#CDC4B0" stroke-width="2"/>
-    <path id="dash" fill="none" stroke="#8A8270" stroke-width="2.5" stroke-dasharray="7 7"/>
-    <path id="wave" fill="none" stroke="#29506D" stroke-width="4"/>
-    <circle id="dot" r="8" fill="#A6402A"/>
-  </svg>
+  <canvas id="hero-foliage"></canvas>
   <div class="foot"><span><b>FIG. 00:</b> shaders · rigs · pipelines · Riot / Epic / Left Turn / Bungie</span><span>JovianFinch.com</span></div>
 </div>
-<script>
-  // Two phase-shifted sines that fade in from the left edge, like the site's hero.
-  const W = 1200, MID = 74, AMP = 53, K = (2 * Math.PI) / 480;
-  const env = x => Math.min(1, x / 260);
-  const path = phase => {
-    let d = "";
-    for (let x = 0; x <= W; x += 4) {
-      const y = MID - AMP * env(x) * Math.sin(K * x + phase);
-      d += (x ? "L" : "M") + x + " " + y.toFixed(1);
-    }
-    return d;
-  };
-  document.getElementById("wave").setAttribute("d", path(Math.PI));
-  document.getElementById("dash").setAttribute("d", path(0));
-  const dx = 600;
-  document.getElementById("dot").setAttribute("cx", dx);
-  document.getElementById("dot").setAttribute("cy", MID - AMP * env(dx) * Math.sin(K * dx + Math.PI));
-</script>
+<!-- The home hero's foliage generator, drawn once (finished layout, no animation). -->
+<script src="../assets/js/hero-foliage.js"></script>
 </body>
 </html>

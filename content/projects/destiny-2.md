@@ -15,6 +15,7 @@ card:
     - "Rigging"
     - "Character Animation"
     - "VFX"
+ogImage: /assets/img/destiny-2/owl-01_1_orig.jpg
 hero:
   src: /assets/img/destiny-2/destiny-2_1.jpg
   alt: Destiny 2 environment screenshot showing the Farm social space
