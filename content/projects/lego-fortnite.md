@@ -174,7 +174,4 @@ animations, where the smearing was obscuring animation quality in review session
 I identified the cause and found a workaround that meaningfully improved video
 quality for the review pipeline.
 
-I also researched and developed guidelines for using an existing internal scalability
-comparison tool (ReplayRun) to capture gameplay video from a single session across
-multiple platforms simultaneously, enabling fast identification of platform-specific
-scalability inconsistencies without running separate sessions per platform.
+I also researched and developed a method for using an existing gameplay replay tool (ReplayRun) that was typically used for performance testing, to capture gameplay video from a single session across multiple platforms simultaneously to test scalability, enabling fast identification of platform-specific scalability inconsistencies without running separate sessions per platform.
