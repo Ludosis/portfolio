@@ -93,7 +93,13 @@ The 221B Baker Street interior: an environment I modeled, textured, and lit in M
 props included. For a later project, I used an ambient occlusion render of it as the
 base for a Photoshop paintover in a different lighting scenario.
 
+<div class="plate-pair">
+
+{% fig "/assets/img/earlier-work/5057336_1.jpg", "final render, before the paintover", "Maya" %}
+
 {% fig "/assets/img/earlier-work/4676650_1.jpg", "paintover using the ambient occlusion render as a base", "Maya · Photoshop" %}
+
+</div>
 
 The process, from thumbnails to final passes:
 

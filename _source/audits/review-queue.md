@@ -99,8 +99,9 @@ off or delete them as they're settled. Newest additions at the bottom of each se
   check the clips play on your Mac and phone before merging** (Claude's test browser
   can't play this video format).
 - [ ] **Weebly port (Oct 2026, on the branch):** every remaining Weebly image, video,
-  and 3D embed is now on the site, captioned from your Weebly text. Left out: two 221B
-  renders signed with the old name (8539341, 5057336), a 220px exploded-Snuggles image,
+  and 3D embed is now on the site, captioned from your Weebly text. The 221B final
+  render (one image, used twice on Weebly) had the old-name signature retouched out by
+  Claude, at your request. Left out: a 220px exploded-Snuggles image,
   the env-tiles comparison (you removed it before), and two dark Relic shots so the
   gallery fills evenly. Captions to check: the Destiny owl and sea monster shots, the
   Alien Age edge glow and blob materials, and the Grapple Star booster clips.
