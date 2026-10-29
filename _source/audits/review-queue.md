@@ -98,7 +98,13 @@ off or delete them as they're settled. Newest additions at the bottom of each se
   The 9 GIFs became looping MP4 video (66 MB down to 11 MB total, same look). **Please
   check the clips play on your Mac and phone before merging** (Claude's test browser
   can't play this video format).
-- [ ] **Replace unpolished images** (the wing demo flaps backwards). Send better ones
+- [ ] **Weebly port (Oct 2026, on the branch):** every remaining Weebly image, video,
+  and 3D embed is now on the site, captioned from your Weebly text. Left out: two 221B
+  renders signed with the old name (8539341, 5057336), a 220px exploded-Snuggles image,
+  the env-tiles comparison (you removed it before), and two dark Relic shots so the
+  gallery fills evenly. Captions to check: the Destiny owl and sea monster shots, the
+  Alien Age edge glow and blob materials, and the Grapple Star booster clips.
+- [ ] **Replace unpolished images** (the wing demo flaps backwards; its caption now says so). Send better ones
   whenever; GIFs are fine, Claude converts them.
 - [ ] **Earlier Work:** verify the figure captions (educated guesses from file names);
   Jerry's Rig video link; 221B Baker Street image.

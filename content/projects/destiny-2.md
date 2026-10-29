@@ -97,9 +97,9 @@ space and the sea monster on Titan.
 
 <div class="plate-pair">
 
-{% fig "/assets/img/destiny-2/owl-01_1_orig.jpg", "Farm owls, shipped in Destiny 2", "Maya" %}
+{% fig "/assets/img/destiny-2/owl-01_1_orig.jpg", "Farm owls, shipped in Destiny 2", "Destiny 2" %}
 
-{% fig "/assets/img/destiny-2/sea_monster_rings.png", "sea monster on Titan, shipped in Destiny 2", "Maya" %}
+{% fig "/assets/img/destiny-2/seamonster-01.jpg", "sea monster on Titan, shipped in Destiny 2", "Destiny 2" %}
 
 </div>
 
@@ -110,6 +110,16 @@ it shipped), and set them up to pick randomly from their idle animations. I also
 designed them to react to players and fly away, but art direction wanted them
 stationary, so that feature was cut.
 
+<div class="plate-grid">
+
+{% fig "/assets/img/destiny-2/owl-02.jpg", "Farm owl at night", "Destiny 2" %}
+
+{% fig "/assets/img/destiny-2/owl-03.jpg", "Farm owl near an NPC", "Destiny 2" %}
+
+{% fig "/assets/img/destiny-2/owl-04.jpg", "Farm owl indoors", "Destiny 2" %}
+
+</div>
+
 The sea monster came from wanting to see some life in Titan's oceans. I prototyped a
 simple version, then finished it with art direction to fit the world. I designed,
 modeled, rigged, and animated it, made its shader from existing textures, and did the
@@ -119,7 +129,21 @@ and rises as if swimming, with three of them rising at separate intervals for a
 serpentine look. The timing has to line up with the waves falling before it shows, so
 it surfaces rarely, by design. Fans have filmed it, and it got its own lore video.
 
+{% figblock "the sea monster surfacing on Titan", "YouTube" %}
+<iframe title="Destiny 2 sea monster on Titan" src="https://www.youtube-nocookie.com/embed/RXbUjdlqwNM" style="width:100%; aspect-ratio:16/9; border:0;" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
+{% endfigblock %}
+
+<div class="plate-pair">
+
+{% fig "/assets/img/destiny-2/seamonster-02.jpg", "sea monster surfacing", "Destiny 2" %}
+
 {% fig "/assets/img/destiny-2/seamonster-03_1_orig.jpg", "sea monster in the Titan environment", "Destiny 2" %}
+
+{% fig "/assets/img/destiny-2/seamonster-04.jpg", "sea monster behind the Titan NPC", "Destiny 2" %}
+
+{% fig "/assets/img/destiny-2/sea_monster_rings.png", "the donut rings seen from below, in a player's video after glitching under the water", "YouTube screenshot" %}
+
+</div>
 
 <h2 id="prototypes" class="project-section">NPC and Prototype Work</h2>
 
@@ -130,6 +154,10 @@ save memory, and made custom animation clips in Maya on the existing rig that bl
 smoothly. A custom timeline sequence plays the clips based on the interactivity
 state. I took feedback from the lead character animator, iterated the clips to the
 style guide, and polished the asset to game-ready.
+
+{% figblock "the Vex jump scare NPC, with an environment vignette for the demo", "YouTube" %}
+<iframe title="Destiny 2 Vex jump scare NPC" src="https://www.youtube-nocookie.com/embed/yEeL0wUBt_4" style="width:100%; aspect-ratio:16/9; border:0;" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
+{% endfigblock %}
 
 An interactive bee hive designed for the Dreaming City: a gameplay prototype I
 designed and implemented in one week to learn Bungie's VFX gameplay object workflow.

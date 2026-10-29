@@ -103,7 +103,12 @@ Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
   them. Playwright's bundled Chromium can't play H.264, so check video in a real browser.
   Diagrams drawn in HTML (e.g. `pipeline/tft-fixers-diagram.html`) and the link-preview
   card render to PNG with `node pipeline/render-images.mjs`.
-  `{% figblock %}...{% endfigblock %}` for embed plates. **No placeholder plates or
+  `{% figblock %}...{% endfigblock %}` for embed plates (YouTube via
+  youtube-nocookie.com, Vimeo with `dnt=1`). Groups: `<div class="plate-pair">` (two-up)
+  and `<div class="plate-grid">` (three-up gallery, media cropped to 16:10); give a grid a
+  multiple of three so no plate sits alone. **All Weebly images were ported in Oct 2026**
+  with captions from the Weebly text; two 221B renders were left out because they carry
+  a signature with the old name (check any new image for signatures). **No placeholder plates or
   "pending"/"tbd" text on the live site** (it reads as unfinished): add a plate only
   when the asset exists. Cards without an image show the project title.
 
@@ -160,9 +165,7 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
 
 ## Pending work
 
-1. **User to supply:** Jerry's Rig final animation video URL; 221B Baker Street image;
-   verify Earlier Work figure captions (they're educated guesses from filenames);
-   better replacements for the images copied from Weebly; Lego Fortnite captures
+1. **User to supply:** better replacements for the images copied from Weebly; Lego Fortnite captures
    (pending Epic clearance).
 2. **Blend design variant** (blueprint media wells), archived in
    `_source/design-archive/`; can return as per-media front-matter flag if wanted.

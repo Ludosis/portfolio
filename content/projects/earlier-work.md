@@ -65,15 +65,19 @@ It's the earliest piece here, and the reason it stays in the portfolio: the
 generalist habit (owning every step between idea and rendered frame) started
 with this project.
 
+{% figblock "Jerry's Rig, the finished short", "YouTube" %}
+<iframe title="Jerry's Rig animated short" src="https://www.youtube-nocookie.com/embed/P9TJM4Z8f1Y" style="width:100%; aspect-ratio:16/9; border:0;" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
+{% endfigblock %}
+
+{% fig "/assets/img/earlier-work/_3020849_orig.png", "Jerry's Rig, final render still", "Maya · Mental Ray" %}
+
 <div class="plate-pair">
 
-{% fig "/assets/img/earlier-work/_3020849_orig.png", "Jerry's Rig, production still", "Maya · Mental Ray", true %}
+{% fig "/assets/img/earlier-work/7114176_1.jpg", "truck texture maps", "Jerry's Rig" %}
 
-{% fig "/assets/img/earlier-work/7114176_1.jpg", "Jerry's Rig, model detail", "Maya", true %}
+{% fig "/assets/img/earlier-work/7404685_1_orig.jpg", "character texture maps", "Jerry's Rig" %}
 
 </div>
-
-{% fig "/assets/img/earlier-work/7404685_1_orig.jpg", "Jerry's Rig, character detail", "Maya · 3D-Coat", true %}
 
 {% figblock "character model, interactive 3D", "Sketchfab" %}
 <iframe title="Jerry's Rig character model on Sketchfab" src="https://sketchfab.com/models/f620b2cfdb4544419d6de92ebf1cfe88/embed" width="100%" height="400" frameborder="0" allowfullscreen loading="lazy"></iframe>
@@ -89,3 +93,24 @@ The 221B Baker Street interior: an environment I modeled, textured, and lit in M
 props included. For a later project, I used an ambient occlusion render of it as the
 base for a Photoshop paintover in a different lighting scenario.
 
+{% fig "/assets/img/earlier-work/4676650_1.jpg", "paintover using the ambient occlusion render as a base", "Maya · Photoshop" %}
+
+The process, from thumbnails to final passes:
+
+<div class="plate-grid">
+
+{% fig "/assets/img/earlier-work/3669696_1.jpg", "early thumbnails", "sketch" %}
+
+{% fig "/assets/img/earlier-work/6046342_1.jpg", "concept drawing", "sketch" %}
+
+{% fig "/assets/img/earlier-work/6056414_1.jpg", "low-poly models", "Maya" %}
+
+{% fig "/assets/img/earlier-work/746079_1.jpg", "an earlier render pass", "Maya" %}
+
+{% fig "/assets/img/earlier-work/3490807_1.jpg", "ambient occlusion pass", "Maya" %}
+
+{% fig "/assets/img/earlier-work/3900722_1.jpg", "closeup of some props", "Maya" %}
+
+</div>
+
+{% fig "/assets/img/earlier-work/1974472_1.jpg", "violin prop, from model to textured render", "Maya" %}

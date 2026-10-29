@@ -98,13 +98,57 @@ atmospherics with custom shaders.
 
 <div class="plate-pair">
 
-{% fig "/assets/img/relic/6351350_1_orig.png", "in-game lighting, shaders, and VFX", "DigiPen engine", true %}
+{% fig "/assets/img/relic/6351350_1_orig.png", "in-game screenshot", "DigiPen engine" %}
 
-{% fig "/assets/img/relic/8438926_1_orig.png", "in-game lighting, shaders, and VFX", "DigiPen engine", true %}
+{% fig "/assets/img/relic/8438926_1_orig.png", "Sam Ward, the relic hunter: character model and texture bakes", "Maya" %}
 
 </div>
 
-{% fig "/assets/img/relic/3005894_1_orig.jpg", "character and environment detail", "DigiPen engine", true %}
+{% figblock "Sam Ward character model, interactive 3D", "Sketchfab" %}
+<iframe title="Relic character model on Sketchfab" src="https://sketchfab.com/models/84cc284d4dcc4e3c84b945e19fc6b368/embed" style="width:100%; aspect-ratio:16/9; border:0;" allow="autoplay; fullscreen; xr-spatial-tracking" loading="lazy"></iframe>
+{% endfigblock %}
+
+{% fig "/assets/img/relic/3005894_1_orig.jpg", "door frame palette piece, made to fit between square wall segments and octagonal doors", "Maya" %}
+
+In-game screenshots. The lighting, shaders, VFX, and world art placement are mine.
+
+<div class="plate-grid">
+
+{% fig "/assets/img/relic/3344022_1.jpg", "in-game screenshot", "DigiPen engine" %}
+
+{% fig "/assets/img/relic/498830_1.jpg", "in-game screenshot", "DigiPen engine" %}
+
+{% fig "/assets/img/relic/4575613_1.jpg", "in-game screenshot", "DigiPen engine" %}
+
+{% fig "/assets/img/relic/6411064_1.jpg", "in-game screenshot", "DigiPen engine" %}
+
+{% fig "/assets/img/relic/1232263_1.jpg", "in-game screenshot", "DigiPen engine" %}
+
+{% fig "/assets/img/relic/7378158_1.jpg", "in-game screenshot", "DigiPen engine" %}
+
+{% fig "/assets/img/relic/7162363_1.jpg", "in-game screenshot", "DigiPen engine" %}
+
+{% fig "/assets/img/relic/8713413_1.jpg", "in-game screenshot", "DigiPen engine" %}
+
+{% fig "/assets/img/relic/4192116_1.jpg", "in-game screenshot", "DigiPen engine" %}
+
+{% fig "/assets/img/relic/2204435_1.jpg", "in-game screenshot", "DigiPen engine" %}
+
+{% fig "/assets/img/relic/4630046_1.jpg", "in-game screenshot", "DigiPen engine" %}
+
+{% fig "/assets/img/relic/9044191_1.jpg", "in-game screenshot", "DigiPen engine" %}
+
+{% fig "/assets/img/relic/8009638_1.jpg", "in-game screenshot", "DigiPen engine" %}
+
+{% fig "/assets/img/relic/3610285_1.jpg", "in-game screenshot", "DigiPen engine" %}
+
+{% fig "/assets/img/relic/4641331_1.jpg", "in-game screenshot", "DigiPen engine" %}
+
+</div>
+
+{% figblock "gameplay trailer", "YouTube" %}
+<iframe title="Relic gameplay trailer" src="https://www.youtube-nocookie.com/embed/W574hmxxSXg" style="width:100%; aspect-ratio:16/9; border:0;" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
+{% endfigblock %}
 
 <h2 id="engine-collaboration" class="project-section">Working with the Engine</h2>
 
