@@ -369,6 +369,14 @@ p + .plate, h2 + .plate { margin-top: var(--space-lg); }
   margin: var(--space-lg) 0;
 }
 
+/* Small aside plate (memes, small images): narrow and centered, floated beside the
+   text on wide screens. Section headings clear it. */
+.plate-aside { max-width: 300px; margin: var(--space-lg) auto; }
+@media (min-width: 900px) {
+  .plate-aside { float: right; margin: 0.4rem 0 var(--space-md) var(--space-lg); }
+}
+.project-section { clear: both; }
+
 /* Three-up gallery for related shots; media cropped to one shape so rows line up. */
 .plate-grid {
   display: grid;
