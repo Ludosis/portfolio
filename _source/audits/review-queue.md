@@ -17,6 +17,9 @@ The short version of what's left; details are in the sections below.
 5. **Print check calibration:** one real print from your Mac to match the checker.
 6. **Better images** when you have them (start with the wing demo).
 7. **Decisions:** downloadable resume PDF; domain email aliases.
+8. **Coming from you:** more Teamfight Tactics work to put up, including your
+   "Agentic AI 101 for Non-Engineers" guide (your writing; illustrations generated
+   under your direction, with hand fixes). Likely a portfolio piece of its own.
 
 ## Merged, awaiting your review
 
