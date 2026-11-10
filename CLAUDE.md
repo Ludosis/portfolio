@@ -71,7 +71,7 @@ Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
 | Templates | `_includes/base.njk`, `_includes/project.njk`, `_includes/partials/` | |
 | Pipeline code | `pipeline/`: skills-inversion, figures (auto-numbered plates), llms-txt, json-ld, contact | The custom showpiece; described on /how-i-work/. |
 | Design system | `assets/css/style.css`: Drafting Table tokens (bone/ink/prussian/red-pencil), Newsreader (display; replaced Fraunces in Oct 2026, the user disliked its J) + IBM Plex self-hosted in `assets/fonts/` | |
-| JS | `assets/js/`: main (nav), hero-foliage (2D-canvas sketch of the Alien Age foliage generator, Oct 2026; replaced the wing-flap wave), reveal (contact) | |
+| JS | `assets/js/`: main (nav), lightbox (enlarge figures), hero-foliage (2D-canvas sketch of the Alien Age foliage generator, Oct 2026; replaced the wing-flap wave), reveal (contact) | |
 | Resume source | `jovian-nordgren-resume.md` (repo root): the SINGLE source, hand-edited by the user, often from a phone. Parsed by `pipeline/resume-markdown.js` (via `content/_data/resume.js`) into the web resume, the print `resume/Resume.html` (phone injected; a screen-only "Print with contact info" button reveals email + phone and opens the print dialog in one click; no auto-print), and the served markdown (comment tags stripped). | **The markdown is the source because the user edits it from their phone. Never move the source to another format.** Print controls are comment tags: `<!-- print: page 2 starts here -->` between jobs, `<!-- print: hide -->` on a bullet. The parser fails the build with a line number on bad structure. Print layout: sheet 1 is two columns (experience 74%, sidebar 26% with Profile + Skills); sheet 2 full width with Education at the bottom. Verify the print is exactly 2 sheets after any resume edit. **Print gotchas (Oct 2026):** print dialogs drop backgrounds by default, so any printed mark (bullets, rules) must be a border, never a background; the user reveals email + phone before printing, which makes the header taller, so measure with them revealed; never add bottom padding to a printed sheet (invisible, but it pushed sheet 1 onto an extra page); headless Chromium lays text out slightly shorter than the user's machine, so keep 0.2in+ of slack per sheet (the print check enforces this). |
 | Deploy | `.github/workflows/deploy.yml`: push to main → build (CONTACT_PHONE secret) → Pages | `.github/workflows/print-check.yml` runs separately on resume changes: it emails the user if the print resume exceeds two sheets but never blocks the deploy (user's choice). Checker: `pipeline/check-print-fit.mjs`. |
 | Build | `npm ci && npx @11ty/eleventy` → `_site/` (gitignored) | Optional `.env` with CONTACT_PHONE locally. |
@@ -101,6 +101,8 @@ Games, Left Turn Studios, DigiPen). Replaced an outdated Weebly site.
   `<video autoplay muted loop playsinline>` via `mediaTag` in `pipeline/figures.js` (the
   `media` filter in templates). Convert new GIFs the same way rather than committing
   them. Playwright's bundled Chromium can't play H.264, so check video in a real browser.
+  Project figures open full size on click or Enter (`assets/js/lightbox.js`, a native
+  `<dialog>`; images inside links are skipped).
   Diagrams drawn in HTML (e.g. `pipeline/tft-fixers-diagram.html`) and the link-preview
   cards render to PNG with `node pipeline/render-images.mjs`: the site card
   (`og-card.html`, with a seeded foliage-generator map) and one card per project
@@ -170,8 +172,8 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
 
 ## Pending work
 
-1. **User to supply:** better replacements for the images copied from Weebly; Lego Fortnite captures
-   (pending Epic clearance).
+1. **User to supply:** better replacements for the images copied from Weebly. (There are
+   no Lego Fortnite work captures and none are coming; that page has text and two memes.)
 2. **Blend design variant** (blueprint media wells), archived in
    `_source/design-archive/`; can return as per-media front-matter flag if wanted.
 3. **The live to-do list is `_source/audits/review-queue.md`** (user review items,
@@ -185,7 +187,7 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
 
 | File | Purpose |
 |------|---------|
-| `_source/Miro/miro-content.md` | Miro board content, user-corrected source of truth for wording. Do NOT re-extract from the images. **Caution (Oct 2026):** the board grouped items into project blocks and skill blocks; the text conversion flattened that, so which project an item belongs to is unreliable (e.g. the Maya compositing helper was a Jerry's Rig tool, not Alien Age). Check attribution with the user. A re-structured version is planned. |
+| `_source/Miro/miro-content.md` | Miro board content, user-corrected source of truth for wording. Do NOT re-extract from the images. The user re-checked it against the screenshots and corrected it (Oct 2026), so it's accurate now. The board grouped items into project blocks and skill blocks, noted in the text; when attribution is unclear (e.g. the Maya compositing helper was a Jerry's Rig tool, not Alien Age), check with the user. |
 | `_source/Miro/ima1–12.png` | Original Miro board screenshots |
 | Old Weebly site (`jnordgren.weebly.com`, project pages) | **Written by the user: ground truth for project facts** (roles, who made what, how things worked). Pages were rebuilt from it in Oct 2026 after earlier generated copy had invented technical detail. It rate-limits scripted requests; retry with a browser user agent. Don't publish the old name that appears in image credits there. |
 | `_source/portfolio_brief.md` | Original project brief |
