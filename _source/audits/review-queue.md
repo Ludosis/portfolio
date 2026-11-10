@@ -3,6 +3,21 @@
 Everything Claude parked for Jovi to review at a computer, in one place. Check items
 off or delete them as they're settled. Newest additions at the bottom of each section.
 
+## Up next (agreed list, Nov 2026)
+
+The short version of what's left; details are in the sections below.
+
+1. **Your full review** of the site, top to bottom (it covers the "Merged, awaiting
+   your review" items, the October audit, the factual review, and the captions Claude
+   wrote without Weebly text).
+2. **Broken-link check** (Claude, float before merging): a scheduled report on dead
+   external links and embeds; never blocks a deploy.
+3. **Alt-text pass** (Claude, float before merging): describe what each image shows.
+4. **How I Work with AI:** your rewrite of the draft, including the "This site" paragraph.
+5. **Print check calibration:** one real print from your Mac to match the checker.
+6. **Better images** when you have them (start with the wing demo).
+7. **Decisions:** downloadable resume PDF; domain email aliases.
+
 ## Merged, awaiting your review
 
 - [ ] **Teamfight Tactics page** (`/portfolio/teamfight-tactics/`): first full build.
@@ -87,9 +102,8 @@ off or delete them as they're settled. Newest additions at the bottom of each se
 
 ## Needs your files or knowledge
 
-- [ ] **Miro restructure:** the text conversion lost the project and skill blocks, so
-  attributions drawn from it are unreliable. Plan: Claude extracts the text, you
-  reformat it into markdown with the right grouping, then fix the site from it.
+- [x] **Miro:** you checked the text against the screenshots and corrected it
+  (landed with #19, Oct 26); `_source/Miro/miro-content.md` is accurate now.
 - [ ] **Factual review:** the Weebly-era pages were checked in the Oct 2026 accuracy
   pass. Still unchecked against a source of yours: the About page, How I Work, and the
   machine-facing copy (llms.txt, `site.yaml` summary, structured-data skills list).
@@ -134,6 +148,6 @@ off or delete them as they're settled. Newest additions at the bottom of each se
   lighting and VFX"); rewrite them to describe what each image actually shows.
 - [x] **Per-project link previews:** done (Oct 2026). Each project page has its own card
   (title, studio, role, dates, a work image); the site card now shows the foliage map
-  instead of the wave. Lego Fortnite's is text-only until images are cleared.
+  instead of the wave. Lego Fortnite's is text-only (there are no work captures from that role).
 - [ ] **How I Work "This site" paragraph** (HIGH in the October audit): still entirely
   Claude's copy. Fold into the How I Work with AI rewrite.

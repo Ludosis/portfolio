@@ -369,6 +369,28 @@ p + .plate, h2 + .plate { margin-top: var(--space-lg); }
   margin: var(--space-lg) 0;
 }
 
+/* Lightbox: project figures open full size (assets/js/lightbox.js). */
+.zoomable { cursor: zoom-in; }
+.zoomable:focus-visible { outline: 2px solid var(--red-pencil); outline-offset: -2px; }
+.lightbox {
+  margin: auto; max-width: 96vw; max-height: 96vh; padding: 0; border: 1px solid var(--ink);
+  background: var(--paper-card); cursor: zoom-out;
+}
+.lightbox::backdrop { background: rgba(33, 30, 24, 0.82); }
+.lightbox-media img, .lightbox-media video {
+  display: block; max-width: 96vw; max-height: calc(96vh - 3rem);
+  width: auto; height: auto; margin: 0 auto;
+}
+.lightbox-caption {
+  margin: 0; padding: 0.6rem 0.9rem; max-width: none;
+  border-top: 1px solid var(--hairline); font-size: var(--text-xs); color: var(--ink-muted);
+}
+.lightbox-close {
+  position: absolute; top: 0.4rem; right: 0.4rem; z-index: 1; cursor: pointer;
+  padding: 0.2rem 0.5rem; font-size: var(--text-xs); color: var(--paper);
+  background: rgba(33, 30, 24, 0.7); border: 0;
+}
+
 /* Small aside plate (memes, small images): narrow and centered, floated beside the
    text on wide screens. Section headings clear it. */
 .plate-aside { max-width: 300px; margin: var(--space-lg) auto; }
