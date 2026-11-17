@@ -1017,3 +1017,20 @@ p + .plate, h2 + .plate { margin-top: var(--space-lg); }
 }
 /* On one column, the contents list comes before the guide, not after it. */
 @media (max-width: 899px) { .guide-sidebar { order: -1; } }
+
+/* Home: the AI 101 guide, one wide card between featured work and about. */
+.home-guide { padding: var(--space-2xl) 0 0; }
+.guide-feature {
+  display: grid;
+  grid-template-columns: 1fr;
+  color: inherit;
+  text-decoration: none;
+}
+.guide-feature-shot img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16 / 9; }
+.guide-feature-body { padding: var(--space-lg); align-self: center; }
+.guide-feature-body p { color: var(--ink-soft); margin-bottom: var(--space-md); }
+.guide-feature-body p:last-child { margin-bottom: 0; color: var(--prussian); }
+@media (min-width: 768px) {
+  .guide-feature { grid-template-columns: 3fr 2fr; }
+  .guide-feature-shot { border-right: 1px solid var(--hairline); }
+}

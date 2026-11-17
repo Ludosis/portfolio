@@ -147,7 +147,8 @@ How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.h
 match the body's `<h2 id>`), images in `assets/img/ai-101/`, link preview
 `assets/img/og/ai-101.png` (entry in `pipeline/render-images.mjs`, set via front-matter
 `ogCard`). The user's writing, written at Riot but deliberately not tied to the Riot
-page; the text is theirs, so only typo-level fixes without asking.
+page; the text is theirs, so only typo-level fixes without asking. Linked from Home
+(card after Featured Work) and the How I Work sidebar, deliberately not the top nav.
 
 ---
 

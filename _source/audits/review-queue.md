@@ -24,8 +24,10 @@ The short version of what's left; details are in the sections below.
 - [ ] **Agentic AI 101 guide** (`/ai-101/`): ported from your Notion export. Typo-level
   fixes only (misspellings, stray mid-sentence capitals, "having an indexing system",
   dropped the empty last Tips bullet). Figure captions are short labels from the image
-  file names. The Notion terminal icon on the CLI callout was left out. Not yet linked
-  from the nav or other pages: decide where it should be discoverable.
+  file names. The Notion terminal icon on the CLI callout was left out. Attribution
+  reads "Jovian Nordgren" (your call). Linked from Home (a card between Featured Work and
+  About) and the How I Work sidebar; kept out of the top nav (your call, Nov 2026).
+  Confirm the Claude-written blurbs on both.
 
 ## Merged, awaiting your review
 
