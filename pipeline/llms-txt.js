@@ -30,6 +30,7 @@ function buildLlmsTxt(projects, site, taxonomy) {
 Full site: ${site.domain}
 Source: ${site.repo}
 How I work with AI: ${site.domain}/how-i-work/
+Agentic AI 101 for Non-Engineers (an illustrated guide I wrote): ${site.domain}/ai-101/
 
 ## Skills
 

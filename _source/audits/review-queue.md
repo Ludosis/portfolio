@@ -17,9 +17,15 @@ The short version of what's left; details are in the sections below.
 5. **Print check calibration:** one real print from your Mac to match the checker.
 6. **Better images** when you have them (start with the wing demo).
 7. **Decisions:** downloadable resume PDF; domain email aliases.
-8. **Coming from you:** more Teamfight Tactics work to put up, including your
-   "Agentic AI 101 for Non-Engineers" guide (your writing; illustrations generated
-   under your direction, with hand fixes). Likely a portfolio piece of its own.
+8. **Coming from you:** more Teamfight Tactics work to put up.
+
+## On the branch, awaiting your review
+
+- [ ] **Agentic AI 101 guide** (`/ai-101/`): ported from your Notion export. Typo-level
+  fixes only (misspellings, stray mid-sentence capitals, "having an indexing system",
+  dropped the empty last Tips bullet). Figure captions are short labels from the image
+  file names. The Notion terminal icon on the CLI callout was left out. Not yet linked
+  from the nav or other pages: decide where it should be discoverable.
 
 ## Merged, awaiting your review
 

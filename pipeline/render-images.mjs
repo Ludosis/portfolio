@@ -13,6 +13,17 @@ const root = path.join(here, "..");
 const images = [
   { src: "og-card.html", out: "og-card.png", width: 1200, height: 630 },
   { src: "tft-fixers-diagram.html", out: "tft-guided-fixers.png", width: 1200, height: 600 },
+  // Standalone guide (content/guides/ai-101.md, front-matter ogCard).
+  {
+    src: "og-project.html?" + new URLSearchParams({
+      title: "Agentic AI 101 for Non-Engineers",
+      eyebrow: "Guide",
+      meta: "An illustrated introduction to AI agents",
+      img: "../assets/img/ai-101/harness-diagram.jpg",
+      fit: "cover",
+    }),
+    out: "og/ai-101.png", width: 1200, height: 630,
+  },
 ];
 
 // Preview image per project: ogImage if set, else the page hero, else the card image.

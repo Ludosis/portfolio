@@ -16,6 +16,7 @@
   <meta property="og:type" content="website">
   {#- Project pages get their own preview, rendered by pipeline/render-images.mjs. #}
   {%- set ogImage = "/assets/img/og/" + page.fileSlug + ".png" if "project" in (tags or []) else "/assets/img/og-card.png" %}
+  {%- if ogCard %}{% set ogImage = ogCard %}{% endif %}
   <meta property="og:image" content="{{ site.domain }}{{ ogImage }}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">

@@ -983,3 +983,37 @@ p + .plate, h2 + .plate { margin-top: var(--space-lg); }
   .project-content__inner { grid-template-columns: 1fr 280px; }
   .hiw-layout { grid-template-columns: 1fr 280px; }
 }
+
+/* Standalone guides (/ai-101/): long-form prose on the project layout. */
+.guide-body h3 { margin: var(--space-lg) 0 var(--space-sm); }
+.guide-body > p { max-width: 72ch; }
+.guide-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-md) 0;
+  font-size: var(--text-sm);
+}
+.guide-body th, .guide-body td {
+  border: 1px solid var(--hairline);
+  padding: 0.45rem 0.75rem;
+  text-align: left;
+}
+.guide-body th { font-family: var(--font-mono); font-weight: 400; background: var(--paper-card); }
+.guide-note {
+  border: 1px solid var(--hairline);
+  border-left: 3px solid var(--prussian);
+  background: var(--paper-card);
+  padding: var(--space-md) var(--space-lg);
+  margin: var(--space-lg) 0;
+  color: var(--ink-soft);
+}
+.guide-note p { margin-bottom: var(--space-sm); }
+.guide-note p:last-child { margin-bottom: 0; }
+.guide-credits { border-left-color: var(--red-pencil); }
+.guide-contents { padding-left: 1.2rem; }
+.guide-contents li { margin-bottom: 0.3rem; }
+@media (min-width: 900px) {
+  .guide-sidebar { position: sticky; top: 80px; }
+}
+/* On one column, the contents list comes before the guide, not after it. */
+@media (max-width: 899px) { .guide-sidebar { order: -1; } }

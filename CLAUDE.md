@@ -141,6 +141,14 @@ Home `/` · About `/about/` · Resume `/resume/` · Portfolio `/portfolio/` ·
 projects at `/portfolio/{teamfight-tactics,alien-age,snuggles,grapple-star,lego-fortnite,destiny-2,relic,earlier-work}/` ·
 How I Work `/how-i-work/` · Skills `/skills/` · print resume `/resume/Resume.html`
 
+**Standalone guide (Nov 2026):** Agentic AI 101 for Non-Engineers at `/ai-101/`
+(short URL on purpose, for pointing people to it). Source `content/guides/ai-101.md`
+(layout `_includes/guide.njk`: contents sidebar from front matter `contents`, ids must
+match the body's `<h2 id>`), images in `assets/img/ai-101/`, link preview
+`assets/img/og/ai-101.png` (entry in `pipeline/render-images.mjs`, set via front-matter
+`ogCard`). The user's writing, written at Riot but deliberately not tied to the Riot
+page; the text is theirs, so only typo-level fixes without asking.
+
 ---
 
 ## Branch workflow
